@@ -7,38 +7,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100&family=Fredericka+the+Great&family=Lumanosimo&family=Neucha&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 
-  input[type=email], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
+input[type=email],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
 
-  .whychoose{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 50px 36px -28px inset;
-  }
+.whychoose {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 50px 36px -28px inset;
+}
 
-  .input_feild{
-    background-color: rgba(73, 159, 104, 0.17);
-    border-radius: 15px;
-    padding: 10px 20px;
-    color: #174B3A;
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 500;
-    width: 100%;
-  }
+.input_feild {
+  background-color: rgba(73, 159, 104, 0.17);
+  border-radius: 15px;
+  padding: 10px 20px;
+  color: #174B3A;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+}
 
-  ::placeholder{
-    font-family: Roboto;
-    color: rgba(0, 0, 0, 0.24);
-    font-size: 18px;
-  }
+::placeholder {
+  font-family: Roboto;
+  color: rgba(0, 0, 0, 0.24);
+  font-size: 18px;
+}
 
-  input[type="checkbox"] {
-    width: 2rem;
-    height: 2rem;
-    accent-color: #D9D9D9;
-  }
+input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  accent-color: #D9D9D9;
+}
+
+.slick-slide>div {
+  margin: 0 50px;
+}
+
