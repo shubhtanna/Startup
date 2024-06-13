@@ -5,6 +5,7 @@ import JoinUs from './JoinUs'
 import WhyChooseUs from './WhyChooseUs'
 import Footer from '../common/Footer'
 import RegisterYourself from './RegisterYourself'
+import Customize_your_feed from './Customize_your_feed'
 
 const Index = () => {
   return (
@@ -14,6 +15,8 @@ const Index = () => {
       <Why_sell/>
 
       <RegisterYourself/>
+
+      <Customize_your_feed/>
 
       <JoinUs/>
 
