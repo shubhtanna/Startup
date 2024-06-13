@@ -24,8 +24,7 @@ function Why_sell() {
 
                             <h2 className=' text-[28px] font-medium font-roboto'>Environmental Impact</h2>
 
-                            <p className=' text-[16px] font-inter'>lorem epsum ut set unde omnis iste natus error lorem epsum ut set unde omnis iste natus error lorem epsum ut set unde omnis iste natus error lorem epsum ut set unde omnis iste natus error
-                                lorem epsum ut set unde omnis iste natus error.
+                            <p className=' text-[16px] font-inter'>Selling e-waste ensures proper recycling and disposal, reducing environmental pollution and conserving natural resources by reclaiming valuable materials.
                             </p>
 
                         </div>
@@ -36,10 +35,9 @@ function Why_sell() {
                                 <RiRotateLockFill size={50} />
                             </div>
 
-                            <h2 className=' text-[28px] font-medium font-roboto'>Data Security</h2>
+                            <h2 className=' text-[28px] font-medium font-roboto'>Economic Benefits</h2>
 
-                            <p className=' text-[16px] font-inter'>lorem epsum ut set unde omnis iste natus error lorem epsum ut set unde omnis iste natus error lorem epsum ut set unde omnis iste natus error lorem epsum ut set unde omnis iste natus error
-                                lorem epsum ut set unde omnis iste natus error.
+                            <p className=' text-[16px] font-inter'>Users can earn money from their e-waste while supporting a circular economy, encouraging more responsible and profitable disposal habits.
                             </p>
                         </div>
                     </div>
@@ -52,9 +50,9 @@ function Why_sell() {
 
                     <div className=' lg:w-[52%] flex flex-col justify-center w-fit items-center gap-10'>
 
-                        <h2 className=' text-5xl font-bold text-[#174B3A] font-roboto'>Title One</h2>
+                        <h2 className='text-center text-5xl font-bold text-[#174B3A] font-roboto'>"Turning the Tide on E-Waste: A Sustainable Solution for Digital World"</h2>
 
-                        <p className=' text-2xl font-semibold text-[#28735A] max-w-[375px] text-center font-poppins'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,</p>
+                        <p className=' text-2xl font-semibold text-[#28735A] max-w-[375px] text-center font-poppins'>Turn your own gadgets into green rewards</p>
 
                         <button className='bg-[#4C9E93] text-[28px] py-3 px-12 font-medium rounded-3xl text-white w-fit hover:scale-105 transition-all duration-200 font-inter'>
                             <Link to="/signup">Try Yourself</Link>
