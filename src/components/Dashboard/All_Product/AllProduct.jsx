@@ -60,6 +60,7 @@ export const AllProduct = () => {
     const [showProductDetails, setShowProductDetails] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const location = useLocation();
+    const [otherProducts, setOtherProducts] = useState(null);
 
 
     const [products, setProducts] = useState([]);
@@ -81,7 +82,9 @@ export const AllProduct = () => {
     };
 
     const [showModal,setShowModal] = useState(false);
-    const handleModal = ()=>{
+    const handleModal = (product)=>{
+        console.log("Product lighter : ",product);
+        setOtherProducts(product);
         setShowModal(true);
     }
 
@@ -136,7 +139,7 @@ export const AllProduct = () => {
 
                                             <FaRegHeart className=' text-red-600 ml-8' />
                                             <p className='-mt-1 text-[#174B3A]'>{product.estimatedPrice.length} shopkeepers have shown interest in this product
-                                                <span className='underline ml-2 text-[#F19A3E]'><button onClick={handleModal}>view list</button></span></p>
+                                                <span className='underline ml-2 text-[#F19A3E]'><button onClick={()=>handleModal(product)}>view list</button></span></p>
                                         </div>
                                     </div>
                                 ))
@@ -155,7 +158,7 @@ export const AllProduct = () => {
 
             {
                 
-                showModal && <OtherShopkeeperModal setShowModal={setShowModal} product={selectedProduct}/>
+                showModal && <OtherShopkeeperModal setShowModal={setShowModal} product={selectedProduct} otherProducts={otherProducts}/>
                 
             }
 

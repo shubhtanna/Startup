@@ -8,7 +8,8 @@ const BASE_URL = "http://localhost:4000/api/v1"
 
 const {
     GET_ALL_VENDOR,
-    GET_ALL_PRODUCTS
+    GET_ALL_PRODUCTS,
+    OTHER_PRICE,
 } = vendor
 
 export const getShopbyCity = async(token) => {
@@ -56,3 +57,24 @@ export const getAllProductsByCity = async(token) => {
     }
     return result
 }
+
+export const allothershopkeeperprice = async(token,productId) => {
+    let result = []
+    try {
+        console.log("productId : ",productId);
+        const res = await apiConnector("GET",`${OTHER_PRICE}?productId=${productId}`, null, {
+            Authorization: `Bearer ${token}` 
+        })
+        console.log("GET_ALL_OTHER_PRICE..........",res);
+
+        if (!res?.data?.success) {
+            throw new Error("Could not get all other price")
+        }
+
+        result = res?.data?.data
+
+    } catch(error) {
+        console.log("GET OTHER SHOPKEEPER PRICE....",error)
+    }
+    return result
+} 

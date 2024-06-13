@@ -34,4 +34,5 @@ export const vendor = {
     GET_ALL_VENDOR: BASE_URL + "/individual/getshopbycity",
     GET_ALL_PRODUCTS : BASE_URL + "/vendor/getallproducts",
     ADD_PRICE : BASE_URL + "/vendor/addprice",
+    OTHER_PRICE : BASE_URL + "/vendor/othershopkeeperprice"
 }

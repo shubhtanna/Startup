@@ -281,47 +281,92 @@ export const allInterestedProductsOfUser = async(req,res) =>{
 //     }
 // }
 
+// export const allOtherShopkeepersPrice = async (req, res) => {
+//     try {
+//         const { productId } = req.body;
+//         const {id} = req.user; // Assuming req.user._id contains the logged-in user's ID
+
+//         // Find the product and populate the estimatedPrice.userId field
+//         const product = await Product.findById(productId)
+//             .populate({
+//                 path:"estimatedPrice",
+//                 match:{userId:id}
+//             })
+
+//         if (!product) {
+//             return res.status(404).json({
+//                 message: "price not found",
+//                 success: false,
+//             });
+//         }
+
+//         // const filteredData = data.filter(product => product.individual !== null);
+
+//         const filteredData = product.filter(product=> product.estimatedPrice !== null);
+
+//         // Separate the logged-in vendor's price from other shopkeepers' prices
+//         // const otherShopkeepersPrices = product.estimatedPrice.filter(
+//         //     price => price.userId._id.toString() !== userId.toString()
+//         // );
+
+//         // const loggedInVendorPrice = product.estimatedPrice.find(
+//         //     price => price.userId._id.toString() === userId.toString()
+//         // );
+
+//         return res.status(200).json({
+//             message: "Fetching the price of other shopkeepers done",
+//             success: true,
+//             data: {
+//                 // otherShopkeepersPrices,
+//                 // loggedInVendorPrice,
+//                 filteredData
+//             },
+//         });
+//     } catch (error) {
+//         console.error('Error:', error);
+//         return res.status(500).json({
+//             message: "Something went wrong while fetching the price of other shopkeepers",
+//             success: false,
+//         });
+//     }
+// };
+
 export const allOtherShopkeepersPrice = async (req, res) => {
+    console.log("body", req.query)
     try {
-        const { productId } = req.body;
-        const {id} = req.user; // Assuming req.user._id contains the logged-in user's ID
+        const { productId } = req.query;
+        
+        const userId = req.user.id; // Assuming req.user contains the logged-in user's ID
 
         // Find the product and populate the estimatedPrice.userId field
-        const product = await Product.findById(productId)
-            .populate({
-                path:"estimatedPrice",
-                match:{userId:id}
-            })
+        const product = await Product.findById(productId).populate({
+            path: "estimatedPrice.userId",
+            select: "firstName" // Assuming you want to display the first name of shopkeepers
+        });
 
         if (!product) {
             return res.status(404).json({
-                message: "price not found",
+                message: "Product not found",
                 success: false,
             });
         }
 
-        // const filteredData = data.filter(product => product.individual !== null);
-
-        const filteredData = product.filter(product=> product.estimatedPrice !== null);
-
         // Separate the logged-in vendor's price from other shopkeepers' prices
-        // const otherShopkeepersPrices = product.estimatedPrice.filter(
-        //     price => price.userId._id.toString() !== userId.toString()
-        // );
+        const myPriceEntry = product.estimatedPrice.find(priceEntry => priceEntry.userId._id.toString() === userId.toString());
+        const otherPrices = product.estimatedPrice.filter(priceEntry => priceEntry.userId._id.toString() !== userId.toString());
 
-        // const loggedInVendorPrice = product.estimatedPrice.find(
-        //     price => price.userId._id.toString() === userId.toString()
-        // );
+        // Format the data
+        const formattedData = {
+            myPrice: myPriceEntry ? myPriceEntry.price : null, // Assuming price is the field name
+            otherPrices: otherPrices.map(priceEntry => ({
+                firstName: priceEntry.userId.firstName,
+                price: priceEntry.price
+            }))
+        };
 
-        return res.status(200).json({
-            message: "Fetching the price of other shopkeepers done",
-            success: true,
-            data: {
-                // otherShopkeepersPrices,
-                // loggedInVendorPrice,
-                filteredData
-            },
-        });
+        console.log("repsonse",formattedData)
+
+        return respond(res,"Fetching the price of other shopkeepers done",200,true,formattedData)
     } catch (error) {
         console.error('Error:', error);
         return res.status(500).json({
@@ -330,4 +375,6 @@ export const allOtherShopkeepersPrice = async (req, res) => {
         });
     }
 };
+
+
      

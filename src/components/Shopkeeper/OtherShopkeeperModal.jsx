@@ -1,53 +1,71 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { IoClose } from "react-icons/io5";
+import { allothershopkeeperprice } from '../../Services/Operation/vendorAPI';
+import { useSelector } from 'react-redux';
 
-const OtherShopkeeperModal = ({setShowModal,product}) => {
+const OtherShopkeeperModal = ({setShowModal,otherProducts}) => {
     const location = useLocation();
-    console.log(product);
-    const shopkeeper=[
-        {
-            sr_no:  "1",
-            first_name:"abc",
-            otherShopkeeperPrice:"4545",
-            my_price:"4000"
-        },
-        {
-            sr_no:  "1",
-            first_name:"abc",
-            otherShopkeeperPrice:"4545",
-            my_price:"4000"
-        },
-        {
-            sr_no:  "1",
-            first_name:"abc",
-            otherShopkeeperPrice:"4545",
-            my_price:"4000"
-        },
-        {
-            sr_no:  "1",
-            first_name:"abc",
-            otherShopkeeperPrice:"4545",
-            my_price:"4000"
-        },
+    console.log("shabbbuuuu",otherProducts);
+    const {token} = useSelector((state)=>state.auth);
+    const [shopkeepers, setShopkeepers] = useState([]);
+    const [myPrice,setMyPrice] = useState([])
+
+    useEffect(() => {
+      ;(async() => {
+        const result = await allothershopkeeperprice(token,otherProducts._id);
+        if(result){
+          console.log("Result in other shopkeeper",result);
+          setShopkeepers(result.otherPrices);
+          console.log("shop",shopkeepers)
+          setMyPrice(result.myPrice)
+          console.log("price",myPrice)
+        }
+      }) ()
+    },[token,otherProducts])
+    // const shopkeeper=[
+    //     {
+    //         sr_no:  "1",
+    //         first_name:"abc",
+    //         otherShopkeeperPrice:"4545",
+    //         my_price:"4000"
+    //     },
+    //     {
+    //         sr_no:  "1",
+    //         first_name:"abc",
+    //         otherShopkeeperPrice:"4545",
+    //         my_price:"4000"
+    //     },
+    //     {
+    //         sr_no:  "1",
+    //         first_name:"abc",
+    //         otherShopkeeperPrice:"4545",
+    //         my_price:"4000"
+    //     },
+    //     {
+    //         sr_no:  "1",
+    //         first_name:"abc",
+    //         otherShopkeeperPrice:"4545",
+    //         my_price:"4000"
+    //     },
         
-        {
-            sr_no:  "1",
-            first_name:"abc",
-            otherShopkeeperPrice:"4545",
-            my_price:"4000"
-        },
+    //     {
+    //         sr_no:  "1",
+    //         first_name:"abc",
+    //         otherShopkeeperPrice:"4545",
+    //         my_price:"4000"
+    //     },
         
-        {
-            sr_no:  "1",
-            first_name:"abc",
-            otherShopkeeperPrice:"4545",
-            my_price:"4000"
-        },
+    //     {
+    //         sr_no:  "1",
+    //         first_name:"abc",
+    //         otherShopkeeperPrice:"4545",
+    //         my_price:"4000"
+    //     },
         
         
-    ]
+    // ]
 
     const closeModal = ()=>{
       setShowModal(null);
@@ -79,12 +97,12 @@ const OtherShopkeeperModal = ({setShowModal,product}) => {
           <tbody>
         
           {
-                shopkeeper.map((table,index)=>(
+                shopkeepers.map((shopkeeper,index)=>(
                 <tr key={index} class="border-b border-neutral-200 dark:border-white/10">
               <td class="whitespace-nowrap px-4 py-2 font-medium">{index + 1}</td>
-              <td class="whitespace-nowrap px-4 py-2">{table.first_name}</td>
-              <td class="whitespace-nowrap px-4 py-2">{table.otherShopkeeperPrice}</td>
-              <td class="whitespace-nowrap px-4 py-2">{table.my_price}</td>
+              <td class="whitespace-nowrap px-4 py-2">{shopkeeper.firstName}</td>
+              <td class="whitespace-nowrap px-4 py-2">{shopkeeper.price}</td>
+              <td class="whitespace-nowrap px-4 py-2">{myPrice}</td>
             </tr>
                 ))
           }
