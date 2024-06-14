@@ -10,6 +10,7 @@ const {
     GET_ALL_VENDOR,
     GET_ALL_PRODUCTS,
     OTHER_PRICE,
+    GET_INTERESTED_PRODUCT,
 } = vendor
 
 export const getShopbyCity = async(token) => {
@@ -75,6 +76,26 @@ export const allothershopkeeperprice = async(token,productId) => {
 
     } catch(error) {
         console.log("GET OTHER SHOPKEEPER PRICE....",error)
+    }
+    return result
+} 
+
+export const getAllInterestedProducts = async(token) => {
+    let result = []
+    try {
+        const res = await apiConnector("GET",GET_INTERESTED_PRODUCT,null, {
+            Authorization: `Bearer ${token}` 
+        })
+        console.log("GET_ALL_INSTRESTED_PRODUCTS..........",res);
+
+        if (!res?.data?.success) {
+            throw new Error("Could not get all other price")
+        }
+
+        result = res?.data?.data
+
+    } catch(error) {
+        console.log("GET_ALL_INSTRESTED_PRODUCTS....",error)
     }
     return result
 } 

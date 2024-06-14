@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 export const ProductDescModal = ({ showProductDetails, setShowProductDetails, product }) => {
 
+  console.log("product",product)
+
   const [isDisabled, setisDisabled] = useState(true);
   const [price, setPrice] = useState('');
   const navigate = useNavigate()
@@ -24,6 +26,10 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
 
   const closeModal = () => {
     setShowProductDetails(null)
+  };
+
+  const handleImageClick = (url) => {
+    window.open(url, '_blank');
   };
 
   // const handlePublish = async (event) => {
@@ -51,7 +57,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
   
 
   return (
-    <div className='flex w-[100vw] h-[100vh] fixed inset-0 z-[1000] flex-col items-center justify-center bg-[black] bg-opacity-10 backdrop-blur-sm '>
+    <div className='flex fixed inset-0 z-[1000] flex-col items-center justify-center bg-[black] bg-opacity-10 backdrop-blur-sm overflow-auto'>
 
       <div className='w-[500px] bg-[white] rounded-md  shadow-lg p-8'>
 
@@ -67,7 +73,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
 
         </div>
 
-        <hr className=" border-t-2 border-black mt-2" />
+        <hr className=" border-t-2 border-black mt-1" />
 
         <div className='flex flex-col space-y-6 p-4'>
 
@@ -83,7 +89,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
             {/* Category */}
             <div className='flex flex-col'>
               <p className='text-[18px]'>Category</p>
-              <p className='text-[#000000]/60'>{product.category}</p>
+              <p className='text-[#000000]/60'>{product.category.categoryName}</p>
             </div>
 
 
@@ -101,7 +107,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
             {/* Brand  */}
             <div className='flex flex-col'>
               <p className='text-[18px]'>Brand </p>
-              <p className='text-[#000000]/60'>{product.brandName}</p>
+              <p className='text-[#000000]/60'>{product.brandName.name}</p>
             </div>
 
 
@@ -116,19 +122,27 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
             </p>
           </div>
 
+          <div>
+            <p>Product Image</p>
+            <img src={product.productImage} width={50}
+              className="hover:scale-110 transition-transform cursor-pointer"
+              onClick={() => handleImageClick(product.productImage)}
+              alt="Product"
+            />
+          </div>
+
         </div>
 
-        <hr className=" border-t-2 border-black mt-2" />
+        <hr className=" border-t-2 border-black mt-1" />
 
         {/* Add your price */}
-        <div className='flex flex-col mt-2 p-4'>
+        <div className='flex flex-col mt-1 p-3'>
 
           <p className='text-[#174B3A] text-2xl'>Add your price !</p>
 
-          <p className='mt-2'>Add estimated for the interested product.</p>
+          <p className='mt-1'>Add estimated for the interested product.</p>
 
-
-          <div className=" flex gap-5 mt-6 mb-4 group">
+          <div className=" flex gap-5 mt-3 mb-1 group">
 
             <form onSubmit={handlePublish}>
               <input

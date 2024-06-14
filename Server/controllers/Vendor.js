@@ -47,7 +47,8 @@ export const getAllProductsByCity = async (req,res) => {
             .populate({
                 path: 'individual',
                 match: { city: city }
-            });
+            }).populate('category', 'categoryName') 
+            .populate('brandName', 'name'); 
 
             // console.log("data:",data)
 
@@ -81,8 +82,15 @@ export const getAllInterestedProductsOfShopkeeper = async(req,res) => {
 
         const interestedProducts = await User.findById(userId).populate(
             { path: "products",
+                populate: [
+                { path: 'category', select: 'categoryName' },
+                { path: 'brandName', select: 'name' },
+                { path: 'estimatedPrice', select: 'userId price' }
+            ],
               match:{"estimatedPrice.userId" : userId}
     }).exec();
+
+    console.log("hello",interestedProducts)
 
 
         const filteredData = interestedProducts.products.filter(priceEntry =>{
