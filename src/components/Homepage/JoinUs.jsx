@@ -36,10 +36,10 @@ const JoinUs = () => {
                 {/* box-1 */}
                 <div className=' text-center '>
                     <div className='p-1 text-section-rgba'>
-                        <p className='p-1 text-4xl font-bold'>Join us now!</p>
+                        <p className='p-1 text-4xl font-bold'>Feel free to ask any doubts!</p>
                         <div className=' p-1flex flex-col text-lg p-2 text-section-rgba'>
-                            <p>Join us now to enjoy special offers and </p>
-                            <p>free subscription for a month.</p>
+                            <p>Please ask questions that help us provide clear and </p>
+                            <p>precise solutions tailored to your needs.</p>
                         </div>
                     </div>
                     <div>
@@ -49,7 +49,7 @@ const JoinUs = () => {
                         <textarea class="py-3 px-4 block w-full border-transparent rounded-lg text-sm  disabled:opacity-50 disabled:pointer-events-none dark:border-transparent bg-input-rgba" rows="3" name='message' placeholder="Message" value={message} onChange={handleOnChange}></textarea>
                     </div>
                     <div>
-                        <button type='submit' className=' mt-3 bg-register-rgba m-auto p-4 rounded-3xl tracking-widest w-[40%] transition-all duration-200 hover:scale-105 text-white '>Submit</button>
+                        <button type='submit' className=' mt-3 bg-register-rgba m-auto p-4 rounded-md tracking-widest w-[40%] transition-all duration-200 hover:scale-105 text-white '>Submit</button>
                     </div>
                 </div>
                 {/* box-2 */}

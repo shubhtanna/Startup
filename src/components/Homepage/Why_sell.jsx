@@ -16,7 +16,7 @@ function Why_sell() {
 
                     <div className=' text-white flex gap-10 mt-16 pb-28 group'>
 
-                        <div className='bg-[#174B3A] px-10 py-10 flex flex-col gap-5 group-hover:scale-[0.80] hover:!scale-105 transition-all duration-200'>
+                        <div className='bg-[#174B3A] px-10 py-10 flex flex-col gap-5 group-hover:scale-[0.80] hover:!scale-105 transition-all duration-200 rounded-md'>
 
                             <div>
                                 <TbWorld size={50} />
@@ -29,7 +29,7 @@ function Why_sell() {
 
                         </div>
 
-                        <div className='bg-[#174B3A] px-10 py-10 flex flex-col gap-5 group-hover:scale-[0.80] hover:!scale-105 transition-all duration-200'>
+                        <div className='bg-[#174B3A] px-10 py-10 flex flex-col gap-5 group-hover:scale-[0.80] hover:!scale-105 transition-all duration-200 rounded-md'>
 
                             <div>
                                 <RiRotateLockFill size={50} />
@@ -54,7 +54,7 @@ function Why_sell() {
 
                         <p className=' text-2xl font-semibold text-[#28735A] max-w-[375px] text-center font-poppins'>Turn your own gadgets into green rewards</p>
 
-                        <button className='bg-[#4C9E93] text-[28px] py-3 px-12 font-medium rounded-3xl text-white w-fit hover:scale-105 transition-all duration-200 font-inter'>
+                        <button className='bg-[#4C9E93] text-[28px] py-3 px-12 font-medium rounded-md text-white w-fit hover:scale-105 transition-all duration-200 font-inter'>
                             <Link to="/signup">Try Yourself</Link>
                         </button>
                     </div>

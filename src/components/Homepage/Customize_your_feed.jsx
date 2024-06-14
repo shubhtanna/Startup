@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { userCard } from '../../Data/HomeSlider';
 import StepCard from './StepCard';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
+import 'slick-carousel/slick/slick.css';
+
 import "slick-carousel/slick/slick-theme.css";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
