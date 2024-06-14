@@ -21,7 +21,7 @@ const RegisterYourself = () => {
                         <p className=' font-inter font-normal text-xl'>Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today!</p>
 
                         <div className='flex justify-center mt-10'>
-                            <Link to="/signup" className=' bg-[#FEFDED] rounded-2xl px-16 py-2 font-inter font-semibold text-3xl text-black hover:scale-110 transition-all duration-300'>Register</Link>
+                            <Link to="/signup" className=' bg-[#FEFDED] rounded-md px-16 py-2 font-inter font-semibold text-3xl text-black hover:scale-110 transition-all duration-300'>Register</Link>
                         </div>
 
                     </div>
@@ -35,7 +35,7 @@ const RegisterYourself = () => {
                         <p className=' font-inter font-normal text-xl'>Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform!</p>
 
                         <div className='flex justify-center mt-10'>
-                            <Link to="/signup" className=' bg-[#FEFDED] rounded-2xl px-16 py-2 font-inter font-semibold text-3xl text-black hover:scale-110 transition-all duration-300'>Register</Link>
+                            <Link to="/signup" className=' bg-[#FEFDED] rounded-md px-16 py-2 font-inter font-semibold text-3xl text-black hover:scale-110 transition-all duration-300'>Register</Link>
                         </div>
 
                     </div>

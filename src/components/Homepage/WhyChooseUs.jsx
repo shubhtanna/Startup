@@ -17,11 +17,11 @@ const WhyChooseUs = () => {
                                 <FaLeaf className=' text-section-rgba' />
                             </div>
                             <div className='mt-4 text-2xl text-white font-poppins'>
-                                <p>Easy to use</p>
+                                <p>Eco-Friendly Solutions</p>
                             </div>
                             <div className='p-4 text-white font-inter'>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed asperiores ipsum ratione debitis, sit quas iusto dolor mollitia aperiam cupiditate.
+                                We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability.
                                 </p>
                             </div>
                         </div>
@@ -33,11 +33,11 @@ const WhyChooseUs = () => {
                                 <IoCheckmarkCircle className=' text-section-rgba' />
                             </div>
                             <div className='mt-4 text-2xl text-white font-poppins'>
-                                <p>Easy to use</p>
+                                <p>Best Prices </p>
                             </div>
                             <div className='p-4 text-white font-inter'>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed asperiores ipsum ratione debitis, sit quas iusto dolor mollitia aperiam cupiditate.
+                                Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste.
                                 </p>
                             </div>
                         </div>
@@ -49,11 +49,11 @@ const WhyChooseUs = () => {
                                 <FaUserTag className=' text-section-rgba' />
                             </div>
                             <div className='mt-4 text-2xl text-white font-poppins'>
-                                <p>Easy to use</p>
+                                <p>Rewards and Benefits</p>
                             </div>
                             <div className='p-4 text-white font-inter'>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed asperiores ipsum ratione debitis, sit quas iusto dolor mollitia aperiam cupiditate.
+                                Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use.
                                 </p>
                             </div>
                         </div>
