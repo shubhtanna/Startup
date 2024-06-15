@@ -8,9 +8,8 @@ const Footer = () => {
   return (
     <div>
 
-         {/* <div className='flex justify-center items-center'><p className=' font-inter font-normal text-xl'>"Join our platform specializing in re-using e-waste for environmental sustainability. Sell electronics at competitive prices by choosing from multiple shopkeepers' estimates. Each transaction generates a verified bill emailed to both parties and securely stored. Earn rewards through our points system, promoting sustainability and responsible disposal practices."</p></div> */}
 
-        <div className='flex justify-evenly mb-4 font-inter text-white bg-box-rgba p-7'> 
+        <div className='flex justify-evenly mb-4 font-inter text-white bg-box-rgba p-7'>
     {/* box-1 */}
       <div>
         LOGO
