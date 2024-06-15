@@ -8,7 +8,6 @@ const Footer = () => {
   return (
     <div>
 
-         
 
         <div className='flex justify-evenly mb-4 font-inter text-white bg-box-rgba p-7'>
     {/* box-1 */}

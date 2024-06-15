@@ -6,7 +6,7 @@ import { getAllInterestedProductsOfShopkeeper, getAllProductsByCity } from "../c
 
 const router = express.Router();
 
-router.put("/updatevendordetails",auth,isVendor,updateVendorDetails)
+router.post("/updatevendordetails",auth,isVendor,updateVendorDetails)
 router.post("/addprice",auth,isVendor,addPrice)
 router.put("/editprice",auth,isVendor,editPrice) 
 router.get("/getallproducts",auth,isVendor,getAllProductsByCity)

@@ -238,7 +238,15 @@ export const allInterestedProductsOfUser = async(req,res) =>{
         const userId = req.user.id;
 
 
-        const data = await User.findById(userId).populate("products").exec();
+        const data = await User.findById(userId).populate(
+            { path: "products",
+                populate: [
+                // { path: 'category', select: 'categoryName' },
+                { path: 'brandName', select: 'name' },
+                // { path: 'estimatedPrice', select: 'userId price' }
+            ],
+            //   match:{"estimatedPrice.userId" : userId}
+    }).exec();
 
         console.log(data);
 

@@ -104,19 +104,24 @@ export function deleteAccount(token,navigate) {
 }
 
 export function updateVendorDetais(token,formData) {
+    console.log("token",token)
+    console.log("data",formData)
     return async(dispatch) => {
         const toastId = toast.loading("Loading...")
         try{
-            // const response = await apiConnector("PUT",UPDATE_VENDOR_DETAILS_API,formData,{
+            // const response = await apiConnector("POST",UPDATE_VENDOR_DETAILS_API,formData,{
             //     "Content-Type" : "multipart/form-data",
             //     Authorization: `Bearer ${token}` 
             // })
             
             const res = await axios({
-                method: 'put',
-                url: BASE_URL + '/vendor/updatevendordetials',
-                data:{formData},
-                headers: { authorization: `Bearer ${token}` },
+                method: 'post',
+                url: BASE_URL + '/vendor/updatevendordetails',
+                data:formData,
+                headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
             });
 
             console.log("UPDATE_VENDOR_DETAILS_API API RESPONSE............",

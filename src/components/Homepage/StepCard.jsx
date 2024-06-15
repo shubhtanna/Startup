@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const StepCard = ({ cardData }) => {
     return (
+
         <div className=' bg-[#174B3A] h-[400px] w-[290px] text-white py-10 px-3 mb-2 rounded-lg'>
             {
                 <div className='flex flex-col gap-3 font-semibold px-3'>
@@ -24,6 +25,7 @@ const StepCard = ({ cardData }) => {
                    
                    
                 </div>
+
             }
         </div>
     )

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { userCard } from '../../Data/HomeSlider';
 import StepCard from './StepCard';
@@ -7,11 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
-
-const toogles = [
-    "Customer",
-    "Shopkeeper"
-];
+const toogles = ["Customer", "Shopkeeper"];
 
 const Customize_your_feed = () => {
     const [currentTogle, setCurrentTogle] = useState(toogles[0]);
@@ -68,10 +65,21 @@ const Customize_your_feed = () => {
                         }
                     </Slider>
                 </div>
+ 
             </div>
-
+          ))}
         </div>
-    )
-}
 
-export default Customize_your_feed
+        <div className=" w-11/12 mx-auto my-14">
+          <Slider {...settings}>
+            {steps.map((ele, i) => (
+              <StepCard key={i} cardData={ele} />
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Customize_your_feed;

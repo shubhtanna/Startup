@@ -47,7 +47,8 @@ export const getAllProductsByCity = async (req,res) => {
             .populate({
                 path: 'individual',
                 match: { city: city }
-            });
+            }).populate('category', 'categoryName') 
+            .populate('brandName', 'name'); 
 
             // console.log("data:",data)
 
@@ -81,26 +82,25 @@ export const getAllInterestedProductsOfShopkeeper = async(req,res) => {
 
         const interestedProducts = await User.findById(userId).populate(
             { path: "products",
+                populate: [
+                { path: 'category', select: 'categoryName' },
+                { path: 'brandName', select: 'name' },
+                { path: 'estimatedPrice', select: 'userId price' }
+            ],
               match:{"estimatedPrice.userId" : userId}
     }).exec();
 
+    console.log("hello",interestedProducts)
 
-        const filteredData = interestedProducts.products.filter(priceEntry =>{
-            let length = priceEntry.estimatedPrice.length;
-            for(let i=0; i < length; i++ ){
-                if(priceEntry.estimatedPrice[i].userId.toString() === userId.toString()){
-                    console.log(priceEntry.estimatedPrice[i].userId )
-                    return true;
-                }
-            }
-            // console.log(length)
-            return false;
 
-        }
-            
-            // priceEntry.estimatedPrice[0].userId === userId
-
+    const filteredProducts = interestedProducts.products.filter(product => {
+        // Filter the estimatedPrice array within each product
+        product.estimatedPrice = product.estimatedPrice.filter(priceEntry => 
+            priceEntry.userId.toString() === userId.toString()
         );
+        // Include the product if it has any matching estimatedPrice entries
+        return product.estimatedPrice.length > 0;
+    });
 
 
 
@@ -108,7 +108,7 @@ export const getAllInterestedProductsOfShopkeeper = async(req,res) => {
             return respond(res,"there were no interested products for that user",400,false);
         }
 
-        return respond(res,"All products are fetched for that shopkeeper",200,true,filteredData)
+        return respond(res,"All products are fetched for that shopkeeper",200,true,filteredProducts)
     }catch(error) {
         console.log(error)
         return respond(res,"something went wrong while fetching the interested products of that shopkeeper",500,false)

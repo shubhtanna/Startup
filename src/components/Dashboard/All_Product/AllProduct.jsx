@@ -62,7 +62,6 @@ export const AllProduct = () => {
     const location = useLocation();
     const [otherProducts, setOtherProducts] = useState(null);
 
-
     const [products, setProducts] = useState([]);
 
     const { token } = useSelector((state) => state.auth);
@@ -72,7 +71,6 @@ export const AllProduct = () => {
             const res = await getAllProductsByCity(token);
             setProducts(res);
         }
-
         getProducts();
     }, [])
 
@@ -121,12 +119,12 @@ export const AllProduct = () => {
 
                                             <div className=' flex flex-col space-y-2'>
                                                 <p className=' text-[#00000085] text-[1rem]'>Category</p>
-                                                <p>{product.category}</p>
+                                                <p>{product.category.categoryName}</p>
                                             </div>
 
                                             <div className='flex flex-col space-y-2'>
                                                 <p className=' text-[#00000085] text-[1rem]'>Brand</p>
-                                                <p>{product.brandName}</p>
+                                                <p>{product.brandName.name}</p>
                                             </div>
 
                                             <div className='underline text-[#093FFE] text-base font-medium'>
