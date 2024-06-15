@@ -5,15 +5,20 @@ import { AiOutlineCaretDown } from 'react-icons/ai'
 import { RiDashboardLine } from "react-icons/ri";
 import { logout } from '../../Services/Operation/authAPI';
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 const ProfileDropdown = () => {
-
+  const [open, setOpen] = useState(false);
   const { user } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ref = useRef(null);
 
-  const [open, setOpen] = useState(false);
+  useOnClickOutside(ref, () => setOpen(false))
+
+  if (!user) return null
+
+  
   return (
     <button className=' relative cursor-pointer' onClick={() => setOpen(true)}>
 

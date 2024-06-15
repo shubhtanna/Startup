@@ -10,6 +10,7 @@ import { mailsender } from "../utils/mailSender.js";
 dotenv.config();
 
 export const updateVendorDetails = async (req,res) => {
+  console.log("body",req.body)
     try{
         const {gstNumber = "", shopName = ""} = req.body
 
@@ -19,6 +20,7 @@ export const updateVendorDetails = async (req,res) => {
         const vendor = await Vendor.findById(userDetails.vendorDetails);
 
         const gstInvoice = req.files.gstInvoiceImage;
+        console.log("image",gstInvoice)
 
         const invoice = await uploadImageCloudinary(gstInvoice,process.env.FOLDER_NAME)
 

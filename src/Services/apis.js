@@ -17,7 +17,7 @@ export const settings = {
     UPDATE_PROFILE_API: BASE_URL + "/auth/updateprofile",
     CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
     DELETE_PROFILE_API: BASE_URL + "/auth/deleteaccount",
-    UPDATE_VENDOR_DETAILS_API: BASE_URL + "/vendor/updatevendordetials"
+    UPDATE_VENDOR_DETAILS_API: BASE_URL + "/vendor/updatevendordetails"
 }
 
 export const product = {

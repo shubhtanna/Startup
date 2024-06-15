@@ -118,7 +118,7 @@ const InterestedProduct = () => {
                             <div className=' flex justify-between font-roboto p-3'>
                                 <div className='p-3 space-y-2 ml-10'>
                                     <p className='text-[22px] font-roboto'>{card.productName}</p>
-                                    <p className=' font-roboto text-[16px] text-[#00000099]'>Model number: <span>{card.category}</span></p>
+                                    <p className=' font-roboto text-[16px] text-[#00000099]'>Model number: <span>{card.brandName.name}</span></p>
                                 </div>
                                 <div className='p-3 space-y-2 ml-10'>
                                     <p className='text-[22px] font-roboto'>Price range</p>

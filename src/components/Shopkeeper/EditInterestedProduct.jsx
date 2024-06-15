@@ -39,15 +39,12 @@ export const EditInterestedProduct = () => {
         if(result){
           console.log("all interested product",result);
           setProducts(result);
-    
-        //   setMyPrice(result.myPrice)
-        //   console.log("price",myPrice)
+        //   setPrice(result.estimatedPrice.price)
         }
       }) ()
     },[token])
     console.log("product",products)
-    console.log("price",products.estimatedPrice
-    )
+    
     
     return (
         <div>
@@ -80,7 +77,7 @@ export const EditInterestedProduct = () => {
 
                             <div className='flex flex-col'>
                             <p className='text-[#00000083] text-[18px] font-semibold'>Your Estimated price</p>
-                            <p>{product.estimatedPrice.price}</p>
+                            <p>{product.estimatedPrice[0].price}</p>
                             </div>
 
                             <div className='flex gap-4'>

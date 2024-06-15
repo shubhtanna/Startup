@@ -48,15 +48,26 @@ export const ShopDetails = () => {
     }
 
     const submitVendorForm = async(data) => {
-        try {
+        // console.log("data............",data)
+        // const formData = new FormData()
+        // formData.append("shopName",shopName)
+        // formData.append("gstNumber",gstNumber)
+        // formData.append("address",address)
+        // formData.append("gstInvoiceImage",gstInvoiceImage)
+        // setLoading(true)
+        // const result = await updateVendorDetais(formData,token)
+        // if(result) {
 
-            dispatch(updateVendorDetais(token,data))
+        // }
+        // try {
+
+        //     dispatch(updateVendorDetais(token,data))
 
 
-        } catch (error) {
+        // } catch (error) {
 
-            console.log(error);
-        }
+        //     console.log(error);
+        // }
     }
 
     // useEffect(() => {
