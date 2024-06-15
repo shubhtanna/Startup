@@ -166,7 +166,7 @@ export const getAllInterestedShopkeepers = async(req,res) => {
         }).populate({
             path: 'estimatedPrice.userId',
             populate: { path: 'profile' } 
-        })
+        }).populate("category",'categoryName').populate("brandName",'name')
         .exec();
 
         console.log("egg",product)
@@ -232,30 +232,62 @@ export const deletePrice = async(req, res)=>{
     }
 }
 
-export const allInterestedProductsOfUser = async(req,res) =>{
-    try{
+// export const allInterestedProductsOfUser = async(req,res) =>{
+//     try{
 
+//         const userId = req.user.id;
+
+
+//         const data = await User.findById(userId).populate(
+//             { path: "products",
+//                 populate: [
+//                 // { path: 'category', select: 'categoryName' },
+//                 { path: 'brandName', select: 'name' },
+//                 // { path: 'estimatedPrice', select: 'userId price' }
+//             ],
+//             //   match:{"estimatedPrice.userId" : userId}
+//     }).exec();
+
+//         console.log(data);
+
+//         return respond(res,"fetching all the products which interested by other shopkeeperes done",200,true,data)
+//     } catch(error) {
+//         console.log(error);
+//         return respond(res,"something went wrong ahile fetching the all products which interested by shopkeeperes",500,false)
+//     }
+// }
+
+export const allInterestedProductsOfUser = async (req, res) => {
+    try {
         const userId = req.user.id;
 
+        const user = await User.findById(userId).populate({
+            path: 'products',
+            populate: [
+                { path: 'category' }, // Populating category
+                { path: 'brandName' }, // Populating brandName
+                {
+                    path: 'estimatedPrice',
+                    match: { userId } // Filter products based on estimatedPrice.userId === userId
+                }
+            ]
 
-        const data = await User.findById(userId).populate(
-            { path: "products",
-                populate: [
-                // { path: 'category', select: 'categoryName' },
-                { path: 'brandName', select: 'name' },
-                // { path: 'estimatedPrice', select: 'userId price' }
-            ],
-            //   match:{"estimatedPrice.userId" : userId}
-    }).exec();
+        }).populate('profile vendorDetails');
 
-        console.log(data);
+        if (!user || !user.products) {
+            return respond(res, "No products found for the user", 404, false);
+        }
 
-        return respond(res,"fetching all the products which interested by other shopkeeperes done",200,true,data)
-    } catch(error) {
-        console.log(error);
-        return respond(res,"something went wrong ahile fetching the all products which interested by shopkeeperes",500,false)
+        // Filter out products with no estimatedPrice match
+        const filteredProducts = user.products.filter(product => product.estimatedPrice.length > 0);
+
+        return respond(res, "Fetching all products which are interested by other shopkeepers", 200, true, filteredProducts);
+    } catch (error) {
+        console.error("Error fetching interested products:", error);
+        return respond(res, "Something went wrong while fetching the interested products", 500, false);
     }
-}
+};
+
 
 // export const allOtherShopkeepersPrice = async(req,res) => {
 //     try{

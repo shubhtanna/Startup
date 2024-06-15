@@ -34,22 +34,22 @@ const IndividualMyProducts = () => {
             </div>
 
 
-            <div className="flex mt-14 flex-col justify-center items-center gap-8">
+            <div className="flex mt-14 flex-col justify-center  items-center gap-8">
                     {myProducts.map((item, index) => (
-                    <div key={index} className="flex shadow-lg rounded-md bg-[white] p-8 ">
+                    <div key={index} className="flex shadow-lg rounded-md bg-[white] w-[900px] p-8 ">
                 
-                        <div className="flex flex-row space-x-36">
+                        <div className="flex flex-row space-x-32">
 
                             <img src={item.productImage} className="w-[200px] h-[150px]" alt={`item._id`} />
 
                             <div className="flex text-xl flex-col font-roboto gap-y-2">
-                            <p className="text-loginitem font-semibold">{item.productName}</p>
-                            <p className=" text-loginitem">{item.category}</p>
+                            <p className=" text-loginitem"><span className="text-loginitem font-semibold">Product Name:</span> {item.productName}</p>
+                            <p className=" text-loginitem"><span className="text-loginitem font-semibold">Category:</span> {item.category.categoryName}</p>
                             <p className=" text-loginitem">
-                                {item.brandName}
+                               <span className="text-loginitem font-semibold">Brand:</span> {item.brandName.name}
                             </p>
                             <p className=" text-loginitem">
-                                {item.modelName}
+                                <span className="text-loginitem font-semibold">Model Number:</span> {item.modelName}
                             </p>
                            </div>
 

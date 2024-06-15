@@ -31,7 +31,10 @@ export const getAllProductsOfUser = async(req,res) =>{
     try{
         const userId = req.user.id;
         
-            const products = await User.findById({_id:userId}).populate("products").exec();
+            const products = await User.findById({_id:userId}).populate({
+                path: "products",
+                populate: "category brandName"
+            }).exec();
 
             if(!products) {
                 return respond(res,"user not found or may be there are no produts found for that user",400,false)

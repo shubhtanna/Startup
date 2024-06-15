@@ -7,49 +7,6 @@ import { InterestedProductOfIndividual } from '../../Services/Operation/productA
 import { useSelector } from 'react-redux';
 import ShopDetailModel from './ShopDetailModel';
 
-const IntrestedProduct = [
-    {
-        product_name:"abc",
-        model_number:"AJIX3421",
-        pricerange:"5000-7000",
-        like:<FaRegHeart className=' text-red-600'/>,
-        like_1:<FaHeart className='text-red-600 '/>,
-        time:"1k"
-    },
-    {
-        product_name:"abc",
-        model_number:"AJIX3421",
-        pricerange:"5000-7000",
-        like:<FaRegHeart className=' text-red-600'/>,
-        like_1:<FaHeart className='text-red-600 '/>,
-        time:"1k"
-    },
-    {
-        product_name:"abc",
-        model_number:"AJIX3421",
-        pricerange:"5000-7000",
-        like:<FaRegHeart className=' text-red-600'/>,
-        like_1:<FaHeart className='text-red-600 '/>,
-        time:"1k"
-    },
-    {
-        product_name:"abc",
-        model_number:"AJIX3421",
-        pricerange:"5000-7000",
-        like:<FaRegHeart className=' text-red-600'/>,
-        like_1:<FaHeart className='text-red-600 '/>,
-        time:"1k"
-    },
-    {
-        product_name:"abc",
-        model_number:"AJIX3421",
-        pricerange:"5000-7000",
-        like:<FaRegHeart className=' text-red-600'/>,
-        like_1:<FaHeart className='text-red-600 '/>,
-        time:"1k"
-    },
-   
-  ]
 
 const InterestedProduct = () => {
     const location = useLocation();
@@ -64,32 +21,60 @@ const InterestedProduct = () => {
     useEffect(() => {
         const getProducts = async() => {
             const res = await InterestedProductOfIndividual(token);
+            console.log("response....",res)
             setProducts(res);
         }
 
         getProducts();
-    },[])
+    },[token])
+
+    console.log("why product is null....",products)
+
+    // useEffect(() => {
+    //     const getMaxMinPrices = (estimatedPrice) => {
+    //       if (!estimatedPrice || estimatedPrice.length === 0) return { max: null, min: null };
+    
+    //       let maxPrice = estimatedPrice[0].price;
+    //       let minPrice = estimatedPrice[0].price;
+    
+    //       for (let i = 1; i < estimatedPrice.length; i++) {
+    //         const price = estimatedPrice[i].price;
+    //         if (price > maxPrice) maxPrice = price;
+    //         if (price < minPrice) minPrice = price;
+    //       }
+          
+    //       return { max: maxPrice, min: minPrice };
+    //     };
+    
+    //     const prices = getMaxMinPrices(products.estimatedPrice);
+    //     setPrices(prices);
+    //     console.log(prices.max)
+    //   }, [products]);
 
     useEffect(() => {
         const getMaxMinPrices = (estimatedPrice) => {
-          if (!estimatedPrice || estimatedPrice.length === 0) return { max: null, min: null };
-    
-          let maxPrice = estimatedPrice[0].price;
-          let minPrice = estimatedPrice[0].price;
-    
-          for (let i = 1; i < estimatedPrice.length; i++) {
-            const price = estimatedPrice[i].price;
-            if (price > maxPrice) maxPrice = price;
-            if (price < minPrice) minPrice = price;
-          }
-          
-          return { max: maxPrice, min: minPrice };
+            if (!estimatedPrice || estimatedPrice.length === 0) return { max: null, min: null };
+
+            let maxPrice = estimatedPrice[0].price;
+            let minPrice = estimatedPrice[0].price;
+
+            for (let i = 1; i < estimatedPrice.length; i++) {
+                const price = estimatedPrice[i].price;
+                if (price > maxPrice) maxPrice = price;
+                if (price < minPrice) minPrice = price;
+            }
+
+            return { max: maxPrice, min: minPrice };
         };
-    
-        const prices = getMaxMinPrices(products.estimatedPrice);
-        setPrices(prices);
-        console.log(prices.max)
-      }, [products.estimatedPrice]);
+
+        if (products && products.length > 0) {
+            const newPrices = {};
+            products.forEach((product) => {
+                newPrices[product._id] = getMaxMinPrices(product.estimatedPrice);
+            });
+            setPrices(newPrices);
+        }
+    }, [products]);
 
     console.log("INTRESTED PRODUCTS>>>>>>>>>",products);
     
@@ -117,12 +102,12 @@ const InterestedProduct = () => {
                             <div key={index} className=' bg-white rounded-2xl mx-auto max-w-[90%] mb-5 mt-5'>
                             <div className=' flex justify-between font-roboto p-3'>
                                 <div className='p-3 space-y-2 ml-10'>
-                                    <p className='text-[22px] font-roboto'>{card.productName}</p>
-                                    <p className=' font-roboto text-[16px] text-[#00000099]'>Model number: <span>{card.brandName.name}</span></p>
+                                    <p className='text-[22px] font-roboto'>Product Name : {card.productName}</p>
+                                    <p className=' font-roboto text-[16px] text-[#00000099]'>Category : <span>{card.category.categoryName}</span></p>
                                 </div>
                                 <div className='p-3 space-y-2 ml-10'>
                                     <p className='text-[22px] font-roboto'>Price range</p>
-                                        <p className=' font-roboto text-[16px] text-[#00000099]'>{prices.max}</p>
+                                        <p className=' font-roboto text-[16px] text-[#00000099]'>{prices[card._id] ? `${prices[card._id].min} - ${prices[card._id].max}` : 'N/A'}</p>
                                 </div>
                                 <div className=' text-[#F19A3E] p-3 space-y-3 mr-10'>
                                 <p onClick={handleLike} className='flex space-x-2'>

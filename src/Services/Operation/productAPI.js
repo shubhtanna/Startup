@@ -218,7 +218,7 @@ export const InterestedProductOfIndividual = async(token) => {
 
         toast.success("Interested Products get successfully");
 
-        result = res?.data?.data?.products;
+        result = res?.data?.data;
     } catch(error) {
         console.log("allinterestedproductsofuser....................",error);
         toast.error(error.message)
@@ -250,7 +250,7 @@ export const getAllInterestedVendors = async(token,productId) => {
 
         toast.success("Interested Products get successfully");
 
-        result = res?.data?.data?.estimatedPrice;
+        result = res?.data?.data;
         console.log("RESULT..........",result);
     } catch (error) {
         console.log("allinterestedshopekeepers....................",error);

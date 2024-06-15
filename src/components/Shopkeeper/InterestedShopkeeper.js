@@ -17,39 +17,26 @@ const InterestedShopkeeper = () => {
 
     const[shopkeepers,setShopkeepers] = useState([]);
 
+    const [product,setProduct] = useState([])  
     useEffect(() => {
         const getShopKeepers = async() => {
             const res = await getAllInterestedVendors(token,productId);
-            setShopkeepers(res);
+            console.log("result",res)
+            setShopkeepers(res.estimatedPrice);
+            setProduct(res);
         }
 
         getShopKeepers();
-    },[]);
+    },[token]);
 
     console.log("SHOPKEEPERS...............",shopkeepers);
+    console.log("product",product)
 
     const handleshopkeeper = (card) =>  {
         setSelectedShopKeeper(card);
         setShowmodal(true);
     }
 
-    const IntrestedProduct = [
-        {
-            Shopkeeper_name:"abc",
-            Shop_Address: "abc road, waghodiya",
-            Estimated_price: "$100",
-        },
-        {
-            Shopkeeper_name:"bcd",
-            Shop_Address: "bcd road, waghodiya",
-            Estimated_price: "$200",
-        },
-        {
-            Shopkeeper_name:"bcd",
-            Shop_Address: "bcd road, waghodiya",
-            Estimated_price: "$200",
-        },
-      ]
   return (
     <div className=' bg-[#DCE2DE] '>
 
@@ -68,6 +55,7 @@ const InterestedShopkeeper = () => {
         
             <div className='flex flex-col '>
             <div  className='overflow-y-auto h-[250px] '>
+            {/* {!shopkeepers : (<div>Currently there are no one Vendors are interested in your product</div>)} */}
                 {
                     shopkeepers.map((card,index) => (
                         
@@ -103,22 +91,22 @@ const InterestedShopkeeper = () => {
                     <div className='  flex justify-between'>
                         <div className='space-y-5 ml-28'>
                             <div className=' font-roboto'>
-                                <p className=' text-[#000000D1] text-[1.5rem]'>Product name</p>
-                                <p className=' text-[#00000099] text-[1.25rem]'>Redmi note 9 pro</p>
+                                <p className=' text-[#000000D1] text-[1.5rem]'>Product Name</p>
+                                <p className=' text-[#00000099] text-[1.25rem]'>{product.productName}</p>
                             </div>
                             <div className=' font-roboto'>
                                 <p className=' text-[#000000D1] text-[1.5rem]'>Model number</p>
-                                <p className=' text-[#00000099] text-[1.25rem]'>AJIX1234</p>
+                                <p className=' text-[#00000099] text-[1.25rem]'>{product.modelName}</p>
                             </div>
                         </div>
                         <div className='space-y-5 mr-28 mb-5'>
                             <div className=' font-roboto'>
                                     <p className=' text-[#000000D1] text-[1.5rem]'>Category</p>
-                                    <p className=' text-[#00000099] text-[1.25rem]'>Smartphone</p>
+                                    <p className=' text-[#00000099] text-[1.25rem]'>{product.category && product.category.categoryName}</p>
                                 </div>
                             <div className=' font-roboto'>
                                 <p className=' text-[#000000D1] text-[1.5rem]'>Brand</p>
-                                <p className=' text-[#00000099] text-[1.25rem]'>Xiomi</p>
+                                <p className=' text-[#00000099] text-[1.25rem]'> {product.brandName && product.brandName.name}</p>
                             </div>
                         </div>
                     </div>
@@ -131,7 +119,7 @@ const InterestedShopkeeper = () => {
                     <p>Product description</p>
                 </div>
                 <div className=' text-[#00000078] text-[1.25rem] font-inter w-[70%]'>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  </p>
+                    <p>{product.productDescription}</p>
                 </div>
             </div>
 

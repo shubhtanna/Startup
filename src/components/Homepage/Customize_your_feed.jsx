@@ -30,55 +30,47 @@ const Customize_your_feed = () => {
         slidesToScroll: 1,
     }
     return (
-        <div className=' bg-[#499F68] bg-opacity-20 py-5 '>
+        <>
+            <div className=' bg-[#499F68] bg-opacity-20 py-5 '>
 
 
 
-            <div className=' w-10/12 mx-auto'>
+<div className=' w-10/12 mx-auto'>
 
-                <div>
-                    <h1 className=' font-bold text-[44px] text-[#174B3A] font-roboto mb-8'>Let's begin the journey!</h1>
-                </div>
-
-
-                <div className='flex gap-x-3 justify-center items-center py-3 px-5 bg-[#FEFDED] w-fit rounded-full text-[#174B3A] font-medium text-2xl'>
-                    {
-                        toogles.map((toogle, index) => (
-                            <div key={index} className={`rounded-full px-6 py-1
-            ${currentTogle === toogle ? " bg-[#174B3A] font-medium cursor-pointer text-white" : "hover:bg-[#174B3A] transition-all duration-200 cursor-pointer hover:text-white"}`}
-                                onClick={() =>
-                                    setElement(toogle)
-                                }>
-                                {toogle}
-                            </div>
-                        ))
-                    }
-                </div>
-
-
-                <div className='mx-auto my-14'>
-                    <Slider {...settings}>
-                        {
-                            steps.map((ele, i) => (
-                                <StepCard key={i} cardData={ele} />
-                            ))
-                        }
-                    </Slider>
-                </div>
- 
-            </div>
-          ))}
-        </div>
-
-        <div className=" w-11/12 mx-auto my-14">
-          <Slider {...settings}>
-            {steps.map((ele, i) => (
-              <StepCard key={i} cardData={ele} />
-            ))}
-          </Slider>
-        </div>
-      </div>
+    <div>
+        <h1 className=' font-bold text-[44px] text-[#174B3A] font-roboto mb-8'>Let's begin the journey!</h1>
     </div>
+
+
+    <div className='flex gap-x-3 justify-center items-center py-3 px-5 bg-[#FEFDED] w-fit rounded-full text-[#174B3A] font-medium text-2xl'>
+        {
+            toogles.map((toogle, index) => (
+                <div key={index} className={`rounded-full px-6 py-1
+${currentTogle === toogle ? " bg-[#174B3A] font-medium cursor-pointer text-white" : "hover:bg-[#174B3A] transition-all duration-200 cursor-pointer hover:text-white"}`}
+                    onClick={() =>
+                        setElement(toogle)
+                    }>
+                    {toogle}
+                </div>
+            ))
+        }
+    </div>
+
+
+    <div className='mx-auto my-14'>
+        <Slider {...settings}>
+            {
+                steps.map((ele, i) => (
+                    <StepCard key={i} cardData={ele} />
+                ))
+            }
+        </Slider>
+    </div>
+
+</div>
+</div>
+        </>
+        
   );
 };
 
