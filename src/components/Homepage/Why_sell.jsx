@@ -24,7 +24,7 @@ function Why_sell() {
 
                             <h2 className=' text-[28px] font-medium font-roboto'>Environmental Impact</h2>
 
-                            <p className=' text-[16px] font-inter'>Selling e-waste ensures proper recycling and disposal, reducing environmental pollution and conserving natural resources by reclaiming valuable materials.
+                            <p className=' text-[18px] font-inter'>Selling e-waste ensures proper recycling and disposal, reducing environmental pollution and conserving natural resources by reclaiming valuable materials.
                             </p>
 
                         </div>
@@ -37,7 +37,7 @@ function Why_sell() {
 
                             <h2 className=' text-[28px] font-medium font-roboto'>Economic Benefits</h2>
 
-                            <p className=' text-[16px] font-inter'>Users can earn money from their e-waste while supporting a circular economy, encouraging more responsible and profitable disposal habits.
+                            <p className=' text-[18px] font-inter'>Users can earn money from their e-waste while supporting a circular economy, encouraging more responsible and profitable disposal habits.
                             </p>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ function Why_sell() {
 
                 <div className='flex justify-center items-center'>
 
-                    <div className=' lg:w-[52%] flex flex-col justify-center w-fit items-center gap-10'>
+                    <div className=' lg:w-[52%] flex flex-col justify-center w-fit items-center gap-10 p-2'>
 
                         <h2 className='text-center text-5xl font-bold text-[#174B3A] font-roboto'>"Turning the Tide on E-Waste: A Sustainable Solution for Digital World"</h2>
 

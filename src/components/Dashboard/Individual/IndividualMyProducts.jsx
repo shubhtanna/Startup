@@ -26,34 +26,44 @@ const IndividualMyProducts = () => {
     return (
         <div className="bg-[#DCE2DE]">
 
-            <div ><p className="ml-[24px] p-8 text-xl font-medium">Home / dashboard / <span className=' text-[#F19A3E]'>{location.pathname.split("/").slice(-1)}</span></p></div>
+            
+    <div className=' text-xl font-medium font-roboto'>Home / dashboard / <span className=' text-[#F19A3E]'>{location.pathname.split("/").slice(-1)}</span></div>
 
-            <div><p className="text-center text-2xl mt-10 font-semibold">Your Saved Products are here !</p></div>
+            <div className='p-8 space-y-7 font-roboto'>
+                <p className=' text-[2.25rem]'>Your Saved Products are here !</p>
+            </div>
 
 
-            <div className="flex mt-14 flex-col p-10 justify-center items-center gap-8">
+            <div className="flex mt-14 flex-col justify-center items-center gap-8">
                     {myProducts.map((item, index) => (
-                    <div key={index} className="flex shadow-lg rounded-md bg-[white] p-2 w-[80%]">
-                        <div className="w-[5rem] h-[6rem] border-4">
-                            <img src={item.productImage} alt="" />
-                        </div>
+                    <div key={index} className="flex shadow-lg rounded-md bg-[white] p-8 ">
+                
+                        <div className="flex flex-row space-x-36">
 
-                        <div className="flex flex-col font-roboto ml-10 ">
-                            <p className="text-bleck font-semibold">{item.productName}</p>
-                            <p className=" text-loginitem">{item.modelName}</p>
+                            <img src={item.productImage} className="w-[200px] h-[150px]" alt={`item._id`} />
+
+                            <div className="flex text-xl flex-col font-roboto gap-y-2">
+                            <p className="text-loginitem font-semibold">{item.productName}</p>
+                            <p className=" text-loginitem">{item.category}</p>
                             <p className=" text-loginitem">
-                                Estimated price: {item.estimatedPrice.price}
+                                {item.brandName}
                             </p>
+                            <p className=" text-loginitem">
+                                {item.modelName}
+                            </p>
+                           </div>
+
+                           <div className="flex items-start gap-x-8">
+                            <button>
+                                <CiEdit className="text-2xl"/>
+                            </button>
+                            <button>
+                                <RiDeleteBin6Line className="text-2xl" />
+                            </button>
+                          </div>
+
                         </div>
 
-                        <div className="flex w-[60%] -mt-[3rem] justify-end space-x-6 text-2xl">
-                            <button>
-                                <CiEdit />
-                            </button>
-                            <button>
-                                <RiDeleteBin6Line />
-                            </button>
-                        </div>
                     </div>
                 ))}
             </div>

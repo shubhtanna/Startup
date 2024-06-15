@@ -10,9 +10,9 @@ const RegisterYourself = () => {
 
                 <h2 className=' font-roboto font-semibold text-5xl py-16'>Register yourself!</h2>
 
-                <div className='flex gap-x-5'>
+                <div className='flex lg:flex-row flex-col lg:gap-x-5 gap-2 justify-center '>
 
-                    <div className='bg-[#174B3A] text-white px-16 py-20 flex flex-col gap-4'>
+                    <div className='bg-[#174B3A] text-white px-16 py-20 flex flex-col gap-4 lg:w-[50%] w-full rounded-md'>
 
                         <FaUserTag size={70} className='text-white'/>
 
@@ -26,7 +26,7 @@ const RegisterYourself = () => {
 
                     </div>
 
-                    <div className='bg-[#174B3A] text-white px-16 py-20 flex flex-col gap-4'>
+                    <div className='bg-[#174B3A] text-white px-16 py-20 flex flex-col gap-4 lg:w-[50%] w-[100%] rounded-md'>
 
                         <FaUserTag size={70} className='text-white'/>
 

@@ -11,7 +11,7 @@ const WhyChooseUs = () => {
                 <div className=' text-center text-5xl font-bold mb-16 font-roboto'>Why choose Us?</div>
                 <div className='flex justify-evenly group w-10/12 mx-auto'>
                     {/* box-1 */}
-                    <div className=' bg-box-rgba text-center mr-3 ml-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100'>
+                    <div className=' bg-box-rgba text-center mr-3 ml-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md'>
                         <div className='p-2'>
                             <div className='flex justify-center mt-4 text-4xl'>
                                 <FaLeaf className=' text-section-rgba' />
@@ -27,7 +27,7 @@ const WhyChooseUs = () => {
                         </div>
                     </div>
                     {/* box-2 */}
-                    <div className='bg-box-rgba text-center mr-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100'>
+                    <div className='bg-box-rgba text-center mr-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md'>
                         <div className='p-2'>
                             <div className='flex justify-center mt-4 text-4xl'>
                                 <IoCheckmarkCircle className=' text-section-rgba' />
@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
                         </div>
                     </div>
                     {/* box-3 */}
-                    <div className=' bg-box-rgba text-center mr-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100'>
+                    <div className=' bg-box-rgba text-center mr-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md'>
                         <div className='p-2'>
                             <div className='flex justify-center mt-4 text-4xl'>
                                 <FaUserTag className=' text-section-rgba' />

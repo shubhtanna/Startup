@@ -3,8 +3,7 @@ import { userCard } from '../../Data/HomeSlider';
 import StepCard from './StepCard';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
-
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
@@ -41,7 +40,7 @@ const Customize_your_feed = () => {
             <div className=' w-10/12 mx-auto'>
 
                 <div>
-                    <h1 className=' font-bold text-[44px] text-[#174B3A] font-roboto mb-8'>Customize your feed!</h1>
+                    <h1 className=' font-bold text-[44px] text-[#174B3A] font-roboto mb-8'>Let's begin the journey!</h1>
                 </div>
 
 
@@ -60,7 +59,7 @@ const Customize_your_feed = () => {
                 </div>
 
 
-                <div className=' w-11/12 mx-auto my-14'>
+                <div className='mx-auto my-14'>
                     <Slider {...settings}>
                         {
                             steps.map((ele, i) => (
