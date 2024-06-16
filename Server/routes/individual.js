@@ -1,7 +1,7 @@
 import express from "express";
 import { getAllProductsOfUser, getShopByCity } from "../controllers/Individual.js";
 import {auth, isIndividual} from "../middleware/auth.js"
-import { createProduct, deleteProduct, updateProduct } from "../controllers/Product.js";
+import { createProduct, deleteProduct, getOneProduct, updateProduct } from "../controllers/Product.js";
 import { allInterestedProductsOfUser, getAllInterestedShopkeepers } from "../controllers/interestedProduct.js";
 import {getAllCategory} from "../controllers/category.js"
 import { getAllBrand } from "../controllers/Brand.js";
@@ -19,5 +19,6 @@ router.get("/allinterestedproductsofuser",auth,isIndividual,allInterestedProduct
 router.get("/getallcategory",auth,isIndividual,getAllCategory)
 router.get("/getallbrand",auth,isIndividual,getAllBrand)
 router.get("/getinterestedshopkeeper")
+router.post("/getproductDetail",getOneProduct);
 
 export default router;

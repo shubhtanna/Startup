@@ -96,6 +96,53 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req,res) => {
   try{
+ 
+    const {productId} = req.body;
+    const updates = req.body;
+
+    console.log("Updates in  update product",updates);
+
+    const product = await Product.findById(productId);
+
+    if (!product) {
+          return res.status(404).json({
+                success: false,
+                message: "Product is not found",
+          });
+    }
+
+     if (req.files) {
+      const productimage = req.files.productImageUpload;
+      const invoiceimage = req.files.invoiceImageUpload;
+      const productImageCloud = await uploadImageCloudinary(productimage, process.env.FOLDER_NAME);
+      const invoiceImageCloud = await uploadImageCloudinary(invoiceimage,process.env.FOLDER_NAME);
+
+      product.productImage = productImageCloud.secure_url;
+      product.invoiceImage = invoiceImageCloud.secure_url;
+}
+
+for (const key in updates) {
+  if (updates.hasOwnProperty(key)) {
+        
+     product[key] = updates[key];
+  }
+}
+ await product.save();
+
+
+ const updatedProduct = await Product.findOne({
+  _id:productId
+ })
+ .populate('category')
+ .populate('brandName')
+ .exec()
+
+
+ res.json({
+  success: true,
+  message: "Product updated successfully",
+  data: updatedProduct,
+});
 
   }catch(error) {
     console.log(error) 
@@ -105,7 +152,9 @@ export const updateProduct = async (req,res) => {
 
 export const getOneProduct = async (req,res) =>{
   try{
+    console.log("REq body",req.body);
     const {productId} = req.body;
+    // const userId = req.user.id;
 
     const productDetails = await Product.findById({_id: productId});
 
