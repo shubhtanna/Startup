@@ -17,7 +17,7 @@ const productSlice = createSlice({
     },
     resetProductState: (state) => {
       state.product = null
-      state.editProduct = null
+      state.editProduct = false
     },
   },
 })

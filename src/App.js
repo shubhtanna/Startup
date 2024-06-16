@@ -21,6 +21,7 @@ import { ProductDescModal } from './components/Dashboard/All_Product/ProductDesc
 import InterestedProduct from './components/Shopkeeper/InterestedProduct';
 import InterestedShopkeeper from './components/Shopkeeper/InterestedShopkeeper';
 import { EditInterestedProduct } from './components/Shopkeeper/EditInterestedProduct';
+import EditProduct from './components/Dashboard/Individual/EditProduct.jsx' 
 
 function App() {
 
@@ -53,6 +54,8 @@ function App() {
           <Route path='/dashboard/Settings' element={<Settings/>}/>
 
           <Route path='/dashboard/add-product' element={<AddProduct/>}/>
+
+          <Route path='/dashboard/edit-product/:productId' element={<EditProduct />}/>
 
           <Route path='/dashboard/My-products' element={<IndividualMyProducts/>}/>
 

@@ -2,15 +2,27 @@ import React, { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useLocation } from "react-router-dom";
-import { getAllProductsOfUser } from "../../../Services/Operation/productAPI";
-import { useSelector } from "react-redux";
+import { deleteProduct, getAllProductsOfUser } from "../../../Services/Operation/productAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import ConfirmationModal from '../../common/ConfirmationModal';
+import { setProduct } from "../../../Slices/productSlice";
+
 
 const IndividualMyProducts = () => {
 
     const{token} = useSelector((state) => state.auth);
     const location = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const {product} = useSelector((state)=>state.product);
+
+    const [confirmationModal,setConfirmationModal] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const [myProducts, setMyProducts] = useState([]);
+
 
     useEffect(() => {
         const getMyProductData = async() => {
@@ -22,7 +34,21 @@ const IndividualMyProducts = () => {
     },[])
 
     console.log("DATA..........",myProducts);
+    
+    const handleProductDelete = async(productId)=>{
+        setLoading(true);
+        await deleteProduct({productId: productId},token);
 
+        const result = await getAllProductsOfUser(token);
+        if(result){
+           setMyProducts(result);
+          
+        }
+         setConfirmationModal(null)
+        setLoading(false);
+    }
+   
+   
     return (
         <div className="bg-[#DCE2DE]">
 
@@ -54,10 +80,30 @@ const IndividualMyProducts = () => {
                            </div>
 
                            <div className="flex items-start gap-x-8">
-                            <button>
+                            <button
+                             onClick={() => {
+                                navigate(`/dashboard/edit-product/${item._id}`)
+                              }}
+                            >
                                 <CiEdit className="text-2xl"/>
                             </button>
-                            <button>
+                            <button
+                            onClick={()=>{
+                                setConfirmationModal({
+                                    text1:'Do you want to delete product ?',
+                                    text2:'This will delete all product details',
+                                    btn1Text:!loading ? "Delete" : "Loading...  ",
+                                    btn2Text: "Cancel",
+                                    btn1Handler: !loading ? 
+                                    () => handleProductDelete(item._id) 
+                                    : () => {},
+
+                                    btn2Handler: !loading ? 
+                                    () => setConfirmationModal(null) 
+                                    : () => {}
+                                })
+                            }}
+                            >
                                 <RiDeleteBin6Line className="text-2xl" />
                             </button>
                           </div>
@@ -67,6 +113,9 @@ const IndividualMyProducts = () => {
                     </div>
                 ))}
             </div>
+             {
+                confirmationModal && <ConfirmationModal modalData={confirmationModal} />
+            }
 
         </div>
     );
@@ -75,3 +124,4 @@ const IndividualMyProducts = () => {
 
 
 export default IndividualMyProducts
+ 

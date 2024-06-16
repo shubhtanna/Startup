@@ -41,6 +41,8 @@ const ProductInfo = () => {
       setLoading(false);
     }
     if(editProduct) {
+   
+      console.log("product before ",product);
       setValue("productTitle",product.productName);
       setValue("productCategory",product.category);
       setValue("productModelName",product.modelName);
@@ -55,6 +57,7 @@ const ProductInfo = () => {
 
   const isFormUpdated = () => {
     const currentValues = getValues();
+
     if(
       currentValues.productTitle !== product.productName || currentValues.productCategory !== product.category ||
       currentValues.productModelName !== product.modelName ||
@@ -68,9 +71,12 @@ const ProductInfo = () => {
 
   const onSubmit = async (data) => {
     if(editProduct) {
+      console.log("isFormUpdated",isFormUpdated());
       if(isFormUpdated()) {
         const currentValues = getValues();
         const formData = new FormData();
+        console.log("Data in onSubmit edit",data);
+        console.log("Product in Indivial",product);
         formData.append("productId",product._id);
         if(currentValues.productTitle !== product.productName) {
           formData.append("productName",data.productTitle)
@@ -79,6 +85,7 @@ const ProductInfo = () => {
           formData.append("category",data.productCategory)
         }
         if(currentValues.productModelName !== product.modelName) {
+          console.log("I am here to set modelNAME");
           formData.append("modelName",data.productModelName)
         }
         if(currentValues.productBrands !== product.brandName) {
@@ -93,12 +100,15 @@ const ProductInfo = () => {
         if(currentValues.billImage !== product.invoiceImage) {
           formData.append("invoiceImageUpload",data.billImage)
         }
+        
         setLoading(true);
-        const result = await editProductDetails(formData,token);
-        console.log(result);
+
+        const result = await  editProductDetails(formData,token);
+
         setLoading(false);
         if(result) {
           dispatch(setProduct(result))
+          navigate('/dashboard/My-products');
         }
       } else {
         toast.error("No changes made to the form");
