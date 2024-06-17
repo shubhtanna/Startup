@@ -13,10 +13,12 @@ const EditProduct = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
+  // console.log("product in edit page",product)
+
   useEffect(() => {
     const populateProductDetails = async () => {
       setLoading(true);
-      console.log("Product id :", productId);
+      // console.log("Product id :", productId);
       const result = await getAllDetailsOfProduct(token, productId);
       console.log("Result in EditProduct : ", result);
 
@@ -25,13 +27,15 @@ const EditProduct = () => {
         dispatch(setEditProduct(true))
 
         dispatch(setProduct(result))
-        console.log("Product in EditProduct  ", product);
+        // console.log("Product in EditProduct  ", product);
       }
       setLoading(false);
     }
     populateProductDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  console.log("data after edited",product)
 
   return (
     <div >

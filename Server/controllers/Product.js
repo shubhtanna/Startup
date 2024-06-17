@@ -5,8 +5,6 @@ import { Brand } from "../models/Brand.js";
 import { uploadImageCloudinary } from "../utils/ImageUploader.js";
 import { respond } from "../utils/response.js";
 
-// 
-
 export const createProduct = async (req, res) => {
   try {
     const { productName, category, brandName, modelName, productDescription } = req.body;
@@ -138,11 +136,7 @@ for (const key in updates) {
  .exec()
 
 
- res.json({
-  success: true,
-  message: "Product updated successfully",
-  data: updatedProduct,
-});
+ return respond(res,"product updated successfully",200,true,updatedProduct)
 
   }catch(error) {
     console.log(error) 

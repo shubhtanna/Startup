@@ -7,6 +7,7 @@ import toast from 'react-hot-toast'
 import { MdNavigateNext } from "react-icons/md";
 import Upload from "../Upload"
 import { useNavigate } from 'react-router-dom'
+import { resetProductState } from '../../../../Slices/productSlice'
 
 const ProductInfo = () => {
   const {
@@ -21,11 +22,13 @@ const ProductInfo = () => {
   const[productBrands,setProductsBrands] = useState([])
   const navigate = useNavigate()
 
+  console.log("product data chahiye.......",product)
+
   useEffect(() => {
     const getCategories = async() => {
       setLoading(true);
       const categories = await getAllCategory(token)
-      console.log(categories);
+      // console.log(categories);
       if(categories.length>0) {
         setProductCategories(categories);
       }
@@ -34,14 +37,16 @@ const ProductInfo = () => {
     const getBrands = async () => {
       setLoading(true);
       const brands = await getAllBrand(token)
-      console.log(brands) 
+      // console.log(brands) 
       if(brands.length > 0) {
         setProductsBrands(brands);
       }
       setLoading(false);
     }
+    console.log("product data chahiye again.......",product)
+    
     if(editProduct) {
-   
+      console.log("product before ",editProduct);
       console.log("product before ",product);
       setValue("productTitle",product.productName);
       setValue("productCategory",product.category);
@@ -54,6 +59,8 @@ const ProductInfo = () => {
     getCategories();
     getBrands();
   },[])
+
+  // console.log("product data dedoooo....................",product)
 
   const isFormUpdated = () => {
     const currentValues = getValues();
@@ -69,15 +76,22 @@ const ProductInfo = () => {
     return false;
   }
 
+  const goToCourse = () => {
+    
+    dispatch(resetProductState())
+    navigate("/dashboard/My-products")
+  }
+
   const onSubmit = async (data) => {
     if(editProduct) {
-      console.log("isFormUpdated",isFormUpdated());
+      // console.log("isFormUpdated",isFormUpdated());
       if(isFormUpdated()) {
         const currentValues = getValues();
         const formData = new FormData();
-        console.log("Data in onSubmit edit",data);
-        console.log("Product in Indivial",product);
+        // console.log("Data in onSubmit edit",data);
+        // console.log("Product in Indivial",product);
         formData.append("productId",product._id);
+        console.log("product id in productinfo",product._id)
         if(currentValues.productTitle !== product.productName) {
           formData.append("productName",data.productTitle)
         }
@@ -85,7 +99,7 @@ const ProductInfo = () => {
           formData.append("category",data.productCategory)
         }
         if(currentValues.productModelName !== product.modelName) {
-          console.log("I am here to set modelNAME");
+          // console.log("I am here to set modelNAME");
           formData.append("modelName",data.productModelName)
         }
         if(currentValues.productBrands !== product.brandName) {
@@ -103,12 +117,13 @@ const ProductInfo = () => {
         
         setLoading(true);
 
-        const result = await  editProductDetails(formData,token);
+        const result = await editProductDetails(formData,token);
 
         setLoading(false);
         if(result) {
           dispatch(setProduct(result))
-          navigate('/dashboard/My-products');
+          // navigate("/dashboard/My-products")
+          goToCourse()
         }
       } else {
         toast.error("No changes made to the form");
@@ -124,7 +139,7 @@ const ProductInfo = () => {
     formData.append("productImageUpload",data.wasteImage);
     formData.append("invoiceImageUpload",data.billImage);
 
-    console.log("Form Data : ", formData);
+    // console.log("Form Data : ", formData);
     setLoading(true);
     const result = await addProduct(formData,token,navigate);
     if(result) {

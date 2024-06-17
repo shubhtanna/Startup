@@ -29,7 +29,6 @@ const IndividualMyProducts = () => {
             const res = await getAllProductsOfUser(token);
             setMyProducts(res);
         }
-    
         getMyProductData();
     },[])
 

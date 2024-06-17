@@ -21,7 +21,7 @@ import { ProductDescModal } from './components/Dashboard/All_Product/ProductDesc
 import InterestedProduct from './components/Shopkeeper/InterestedProduct';
 import InterestedShopkeeper from './components/Shopkeeper/InterestedShopkeeper';
 import { EditInterestedProduct } from './components/Shopkeeper/EditInterestedProduct';
-import EditProduct from './components/Dashboard/Individual/EditProduct.jsx' 
+import EditProduct from './components/Dashboard/EditProduct'
 
 function App() {
 
