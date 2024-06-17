@@ -13,17 +13,17 @@ const EditProduct = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     const populateProductDetails = async () => {
       setLoading(true);
+      dispatch(setProduct(null));
       console.log("Product id :", productId);
       const result = await getAllDetailsOfProduct(token, productId);
-      console.log("Result in EditProduct : ", result);
 
       if (result) {
 
         dispatch(setEditProduct(true))
-
         dispatch(setProduct(result))
         console.log("Product in EditProduct  ", product);
       }
@@ -31,7 +31,7 @@ const EditProduct = () => {
     }
     populateProductDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [productId])
 
   return (
     <div >
