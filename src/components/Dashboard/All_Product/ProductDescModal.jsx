@@ -123,12 +123,22 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
           </div>
 
           <div>
-            <p>Product Image</p>
+          <div className='flex justify-between'>
+          <p>Product Image</p>
+          <p>Invoice Image</p>
+          </div>
+          <div className='flex justify-between'>
             <img src={product.productImage} width={50}
               className="hover:scale-110 transition-transform cursor-pointer"
               onClick={() => handleImageClick(product.productImage)}
               alt="Product"
             />
+            <img src={product.invoiceImage} width={50}
+              className="hover:scale-110 transition-transform cursor-pointer"
+              onClick={() => handleImageClick(product.invoiceImage)}
+              alt="Invoice"
+            />
+            </div>
           </div>
 
         </div>

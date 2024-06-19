@@ -16,7 +16,7 @@ const SidebarLink = ({ link, iconName }) => {
         <div>
             {
                
-                    <NavLink to={link.path} className={`font-medium font-roboto text-[20px] mx-auto transition-all duration-200 ${matchRoute(`${link.path}`) ? "text-[#F19A3E]" : "text-white"}`}>
+                    <NavLink to={link.path} className={`font-medium font-roboto text-[18px] mx-auto transition-all duration-200 ${matchRoute(`${link.path}`) ? "text-[#F19A3E]" : "text-white"}`}>
                         <div className='flex items-center px-5 gap-x-2'>
                             {iconName}
                             <span>{link.name}</span>

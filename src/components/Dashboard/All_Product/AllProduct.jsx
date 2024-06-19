@@ -109,7 +109,7 @@ export const AllProduct = () => {
                             {
                                 products.map((product, index) => (
 
-                                    <div key={index} className=' bg-white rounded-md mx-auto w-fit mb-5 mt-5 px-6 py-8'>
+                                    <div key={index} className='w-[800px] bg-white rounded-md mx-auto  mb-5 mt-5 px-6 py-8'>
                                         <div className='flex items-center justify-center font-roboto gap-x-[120px]'>
 
                                             <div className='flex flex-col space-y-2'>

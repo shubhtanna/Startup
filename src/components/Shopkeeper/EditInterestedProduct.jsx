@@ -70,9 +70,9 @@ export const EditInterestedProduct = () => {
 
                             <div className='flex flex-col'>
                   
-                            <p className='text-[#00000083] text-[18px]'>{product.productName}</p>
-                            <p className='text-[#00000060]'>{product.category.categoryName}</p>
-                            <p className='text-[#00000060]'>{product.brandName.name}</p>
+                            <p className='text-[#00000083] text-[18px]'><span className="text-loginitem font-semibold">Product Name: </span>{product.productName}</p>
+                            <p className='text-[#00000083] text-[18px]'><span className="text-loginitem font-semibold">Category: </span>{product.category.categoryName}</p>
+                            <p className='text-[#00000083] text-[18px]'><span className="text-loginitem font-semibold">Brand: </span>{product.brandName.name}</p>
                             </div>
 
                             <div className='flex flex-col'>

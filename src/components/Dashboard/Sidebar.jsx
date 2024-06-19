@@ -11,7 +11,7 @@ const Sidebar = () => {
 
     return (
 
-        <div className='h-screen bg-[#292D2A] min-w-[calc(100vh-30rem)] text-white flex flex-col  gap-5 pt-10 '>
+        <div className='h-screen bg-[#292D2A] min-w-[calc(100vh-45rem)] text-white flex flex-col  gap-5 pt-10 '>
 
             <div className='flex flex-col gap-5'>
                 {

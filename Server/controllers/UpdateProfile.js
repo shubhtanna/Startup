@@ -19,13 +19,13 @@ export const updateVendorDetails = async (req,res) => {
         const userDetails = await User.findById(userId)
         const vendor = await Vendor.findById(userDetails.vendorDetails);
 
-        const gstInvoice = req.files.gstInvoiceImage;
-        console.log("image",gstInvoice)
+        // const gstInvoice = req.files.gstInvoiceImage;
+        // console.log("image",gstInvoice)
 
-        const invoice = await uploadImageCloudinary(gstInvoice,process.env.FOLDER_NAME)
+        // const invoice = await uploadImageCloudinary(gstInvoice,process.env.FOLDER_NAME)
 
         vendor.gstNumber = gstNumber;
-        vendor.gstInvoice = invoice.secure_url;
+        // vendor.gstInvoice = invoice.secure_url;
         vendor.shopName = shopName;
         await vendor.save();
 

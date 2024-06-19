@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { IoAdd } from "react-icons/io5";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { updateVendorDetais } from '../../Services/Operation/settingsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Upload from './Add Product/Upload';
 
 export const ShopDetails = () => {
 
@@ -13,9 +14,8 @@ export const ShopDetails = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const inputRef = useRef(null)
     const [loading, setLoading] = useState(false);
-
-
     const [selectImages, setSelectImages] = useState([]);
     const [imgNames, setImgNames] = useState([]);
 
@@ -23,59 +23,19 @@ export const ShopDetails = () => {
         register,
         handleSubmit,
         formState: { errors },
+        setValue
     } = useForm();
 
-    const handleImages = (e) => {
-
-        if (e.target.files) {
-
-            const fileArray = Array.from(e.target.files);
-
-            setImgNames((prevImgNames) => [
-                ...prevImgNames,
-                ...fileArray.map(file => file.name)
-            ]);
-
-            setSelectImages((prevImages) => [
-                ...prevImages,
-                ...fileArray
-            ]);
-
-
-            console.log(fileArray);
+    const submitVendorForm = async (data) => {
+        try{
+            dispatch(updateVendorDetais(token,data))
         }
-
+        catch(error) {
+            console.log("ERROR MESSAGE - ", error.message)
+        }
     }
 
-    const submitVendorForm = async(data) => {
-        // console.log("data............",data)
-        // const formData = new FormData()
-        // formData.append("shopName",shopName)
-        // formData.append("gstNumber",gstNumber)
-        // formData.append("address",address)
-        // formData.append("gstInvoiceImage",gstInvoiceImage)
-        // setLoading(true)
-        // const result = await updateVendorDetais(formData,token)
-        // if(result) {
-
-        // }
-        // try {
-
-        //     dispatch(updateVendorDetais(token,data))
-
-
-        // } catch (error) {
-
-        //     console.log(error);
-        // }
-    }
-
-    // useEffect(() => {
-    //     const updateDetails = async() => {
-    //         const res = updateVendorDetais(token,)
-    //     }
-    // })
-
+   
 
     return (
         <div>
@@ -175,22 +135,32 @@ export const ShopDetails = () => {
                     <div className='flex p-3 mt-6  w-full rounded-md items-center justify-between shadow-lg'>
                         <p className="text-[16px] opacity-60">Current GST Invoice</p>
                         <div className='flex gap-5 justify-between'>
-                            <p>invoice.png</p>
+                            <p>{user?.vendorDetails?.gstInvoice}</p>
                             <RiDeleteBin5Line className="text-[red]" size={25} />
                         </div>
                     </div>
 
                     <label htmlFor="files" name="files">
 
-                        <input id="files" name="files" className='hidden' type="file"
+                        {/* <input id="files" name="files" className='hidden' type="file"
                         defaultValue={user?.vendorDetails?.gstInvoice}
-                        multiple onChange={handleImages} />
+                        multiple onChange={handleImages} /> */}
 
-                        <div className='flex p-3 w-full rounded-md items-center justify-between shadow-lg'>
+                        {/* <div className='flex p-3 w-full rounded-md items-center justify-between shadow-lg'>
                             <p className="text-[16px] opacity-60">Update GST Invoice</p>
-                            <IoAdd className=" text-[30px]" />
+                            <IoAdd className=" text-[30px] cursor-pointer" />
 
-                        </div>
+                        </div> */}
+
+                        {/* <Upload
+          name="gstInvoice"
+          label="GST INVOICE"
+          register={register}
+          setValue={setValue}
+          errors={errors}
+          /> */}
+
+                        
 
                     </label>
 
@@ -198,7 +168,7 @@ export const ShopDetails = () => {
 
                 <div className='mt-8 flex justify-between'>
                     <button className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'
-                    // onClick={() => navigate("/dashboard/my-profile")}
+                    onClick={() => navigate("/dashboard/my-profile")}
                     >Cancel</button>
                     <button type='submit' className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'>Save & Update</button>
                 </div>
