@@ -4,6 +4,7 @@ import { vendor } from "../apis";
 import axios from "axios";
 
 
+
 const BASE_URL = "http://localhost:4000/api/v1"
 
 const {
@@ -11,6 +12,8 @@ const {
     GET_ALL_PRODUCTS,
     OTHER_PRICE,
     GET_INTERESTED_PRODUCT,
+    EDIT_PRICE,
+    DELETE_PRICE
 } = vendor
 
 export const getShopbyCity = async(token) => {
@@ -98,4 +101,46 @@ export const getAllInterestedProducts = async(token) => {
         console.log("GET_ALL_INSTRESTED_PRODUCTS....",error)
     }
     return result
-} 
+}
+
+export const editPriceOfProduct = async(token,data)=>{
+    let result = null;
+    try{ 
+        let res = await apiConnector('PUT',EDIT_PRICE,data,{
+            Authorization: `Bearer ${token}` 
+        })
+
+        console.log("EDIT PRICE.....", res);
+
+        if (!res?.data?.success) {
+            throw new Error("Could not edit the price of product")
+        }
+        toast.success("Product price is edited Successfully");
+        result = res?.data?.data
+        return result;
+    }
+    catch(error){
+        console.log("ERROR IN EDIT PRICE: ",error);
+    }
+
+    return result;
+}
+
+export const deletePriceOfProduct = async(token,data)=>{
+    const toastId = toast.loading("Loading...");
+    try {
+      const response = await apiConnector("DELETE", DELETE_PRICE, data, {
+        Authorization: `Bearer ${token}`,
+      })
+      console.log("DELETE PRICE API RESPONSE............", response)
+      if (!response?.data?.success) {
+        throw new Error("Could Not Delete Product");
+      }
+      toast.success("Estimated Price is Deleted");
+    } catch (error) {
+      console.log("DELETE ESTIMATED PRICE  API ERROR............", error);
+      toast.error(error.message);
+    }
+    toast.dismiss(toastId);
+  
+}

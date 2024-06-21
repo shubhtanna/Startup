@@ -69,7 +69,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
           </p>
 
           {/* closeButton */}
-          <FaWindowClose size={24} onClick={closeModal} className='text-[#174B3A]' />
+          <FaWindowClose size={24} onClick={closeModal}  />
 
         </div>
 

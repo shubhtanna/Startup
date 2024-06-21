@@ -36,5 +36,7 @@ export const vendor = {
     GET_ALL_PRODUCTS : BASE_URL + "/vendor/getallproducts",
     ADD_PRICE : BASE_URL + "/vendor/addprice",
     OTHER_PRICE : BASE_URL + "/vendor/othershopkeeperprice",
-    GET_INTERESTED_PRODUCT: BASE_URL + "/vendor/interestedproduct"
+    GET_INTERESTED_PRODUCT: BASE_URL + "/vendor/interestedproduct",
+    EDIT_PRICE: BASE_URL + "/vendor/editprice" ,
+    DELETE_PRICE: BASE_URL + "/vendor/deleteprice",
 }
