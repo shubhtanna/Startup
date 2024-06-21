@@ -182,7 +182,9 @@ export const editPrice = async(req,res) => {
     try{
 
         const userId = req.user.id
+
         const {productId,price} = req.body;
+
 
         if(!productId) {
             return respond(res,"Product is not found",400,false)
@@ -194,7 +196,8 @@ export const editPrice = async(req,res) => {
             { new: true }
         );
 
-        return respond(res,"Price updated successfully",200,true)
+
+        return respond(res,"Price updated successfully",200,true,updatedProductPrice)
     } catch(error) {
         console.log(error) 
         return respond(res,"Price doesn't get updated",500,false)
@@ -206,8 +209,9 @@ export const deletePrice = async(req, res)=>{
     try{
         const userId =  req.user.id;
         const { productId } = req.body;
+  
 
-        const productDetails = await Product.findById({productId : productId});
+        const productDetails = await Product.findById(productId);
 
         if (!productDetails) {
             return respond(res, "Product not found", 404, false);
@@ -218,7 +222,7 @@ export const deletePrice = async(req, res)=>{
            productId,
            {
             $pull:{
-                estimatedPrice: { userId : userId, price:price}
+                estimatedPrice: { userId : userId}
             }
            },
            {new: true }

@@ -2,8 +2,11 @@ import React,{useEffect,useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { getAllInterestedProducts } from '../../Services/Operation/vendorAPI';
+import { deletePriceOfProduct, getAllInterestedProducts } from '../../Services/Operation/vendorAPI';
 import { useSelector } from 'react-redux';
+import EditPrice from './EditPrice';
+import { setEditProduct } from '../../Slices/productSlice';
+import ConfirmationModal from '../common/ConfirmationModal';
 
 // const product = [
 //     {   productName : "Redmi Pro",
@@ -32,6 +35,10 @@ export const EditInterestedProduct = () => {
     const location = useLocation();
     const {token} = useSelector((state)=>state.auth);
     const [products, setProducts] = useState([]);
+    const [showModal,setShowModal] = useState(false);
+    const [prodId,setProdId] = useState();
+    const [confirmationModal,setConfirmationModal] = useState(null);
+    const [loading,setLoading] = useState(false);
 
     useEffect(() => {
       ;(async() => {
@@ -43,9 +50,36 @@ export const EditInterestedProduct = () => {
         }
       }) ()
     },[token])
-    console.log("product",products)
+
+    const handleEdit = (productId)=>{
+        setEditProduct(true);
+        setProdId(productId);
+       setShowModal(true);
+    }
     
+    const handleUpdateProduct = (updatedProduct) => {
+        setProducts((prevProducts) => 
+            prevProducts.map(product => 
+                product._id === updatedProduct._id ? updatedProduct : product
+            )
+        );
+    }
     
+    const handlePriceDelete = async(productId)=>{
+        setLoading(true);
+
+        await deletePriceOfProduct(token,{productId: productId});
+
+        const result = await getAllInterestedProducts(token);
+        if(result){
+           setProducts(result);
+          
+        }
+         setConfirmationModal(null)
+        setLoading(false);
+    }
+
+
     return (
         <div>
             <div className='bg-[#DCE2DE]'>
@@ -81,8 +115,31 @@ export const EditInterestedProduct = () => {
                             </div>
 
                             <div className='flex gap-4'>
-                            <CiEdit  className='text-[24px]'/>
-                            <RiDeleteBin6Line  className='text-[red] text-[24px]'/>
+                             <button onClick={()=>handleEdit(product._id)}>
+                                <CiEdit  className='text-[24px]'/>
+                            </button>   
+                            <button
+                            onClick={()=>{
+                                setConfirmationModal({
+                                    text1:'Do you want to delete price ?',
+                                    text2:'This will remove your product from interested products',
+                                    btn1Text:!loading ? "Delete" : "Loading...  ",
+                                    btn2Text: "Cancel",
+                                    btn1Handler: !loading ? 
+                                    () => handlePriceDelete(product._id) 
+                                    : () => {},
+
+                                    btn2Handler: !loading ? 
+                                    () => setConfirmationModal(null) 
+                                    : () => {}
+                                })
+                            }}
+                            >
+
+                            <RiDeleteBin6Line 
+                             className='text-[red] text-[24px]'/>
+                            </button>
+
                             </div>
                         </div>
 
@@ -92,6 +149,12 @@ export const EditInterestedProduct = () => {
         
 
             </div>
+            {
+                 showModal && <EditPrice setShowModal={setShowModal} prodId={prodId} onUpdateProduct={handleUpdateProduct}/>
+            }
+            {
+                confirmationModal && <ConfirmationModal modalData={confirmationModal}/>
+            }
         </div>
     )
 }
