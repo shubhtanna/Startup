@@ -76,9 +76,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAllDetailsOfProduct } from '../../../Services/Operation/productAPI';
 import { setEditProduct, setProduct, resetProductState } from '../../../Slices/productSlice';
+import { useTranslation } from 'react-i18next';
 
 const EditProduct = () => {
-
+  
+  const {t} = useTranslation();
   const { productId } = useParams();
   const { product } = useSelector((state) => state.product);
   const { token } = useSelector((state) => state.auth);
@@ -112,7 +114,7 @@ const EditProduct = () => {
         <div className="flex  items-center justify-between p-2 ">
 
           <p className=" font-roboto font-medium text-2xl">
-            Edit Product details
+           {t("Edit Product details")}
           </p>
 
         </div>
@@ -124,7 +126,7 @@ const EditProduct = () => {
             <RenderSteps />
           ) : (
             <p className="mt-14 text-center text-3xl font-semibold text-richblack-100">
-              Product not found
+              {t("Product not found")}
             </p>
           )}
         </div>
@@ -134,5 +136,7 @@ const EditProduct = () => {
     </div>
   )
 }
+
+
 
 export default EditProduct

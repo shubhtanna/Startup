@@ -7,10 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ConfirmationModal from '../../common/ConfirmationModal';
 import { setProduct } from "../../../Slices/productSlice";
+import { useTranslation } from "react-i18next";
 
 
 const IndividualMyProducts = () => {
-
+    
+    const {t} = useTranslation();
     const{token} = useSelector((state) => state.auth);
     const location = useLocation();
     const navigate = useNavigate();
@@ -52,10 +54,10 @@ const IndividualMyProducts = () => {
         <div className="bg-[#DCE2DE]">
 
             
-    <div className=' text-xl font-medium font-roboto'>Home / dashboard / <span className=' text-[#F19A3E]'>{location.pathname.split("/").slice(-1)}</span></div>
+    <div className=' text-xl font-medium font-roboto'>{t("Home / dashboard /")} <span className=' text-[#F19A3E]'>{location.pathname.split("/").slice(-1)}</span></div>
 
             <div className='p-8 space-y-7 font-roboto'>
-                <p className=' text-[2.25rem]'>Your Saved Products are here !</p>
+                <p className=' text-[2.25rem]'>{t("Your Saved Products are here !")}</p>
             </div>
 
 
@@ -68,13 +70,13 @@ const IndividualMyProducts = () => {
                             <img src={item.productImage} className="w-[200px] h-[150px]" alt={`item._id`} />
 
                             <div className="flex text-xl flex-col font-roboto gap-y-2">
-                            <p className=" text-loginitem"><span className="text-loginitem font-semibold">Product Name:</span> {item.productName}</p>
-                            <p className=" text-loginitem"><span className="text-loginitem font-semibold">Category:</span> {item.category.categoryName}</p>
+                            <p className=" text-loginitem"><span className="text-loginitem font-semibold">{t("Product Name:")}</span> {item.productName}</p>
+                            <p className=" text-loginitem"><span className="text-loginitem font-semibold">{t("Category:")}</span> {item.category.categoryName}</p>
                             <p className=" text-loginitem">
-                               <span className="text-loginitem font-semibold">Brand:</span> {item.brandName.name}
+                               <span className="text-loginitem font-semibold">{t("Brand:")}</span> {item.brandName.name}
                             </p>
                             <p className=" text-loginitem">
-                                <span className="text-loginitem font-semibold">Model Number:</span> {item.modelName}
+                                <span className="text-loginitem font-semibold">{t("Model Number:")}</span> {item.modelName}
                             </p>
                            </div>
 
@@ -112,6 +114,8 @@ const IndividualMyProducts = () => {
                     </div>
                 ))}
             </div>
+
+            
              {
                 confirmationModal && <ConfirmationModal modalData={confirmationModal} />
             }

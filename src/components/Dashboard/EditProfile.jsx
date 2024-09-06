@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { updateProfile } from '../../Services/Operation/settingsAPI';
 import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
 import { CiLock,CiUnlock } from 'react-icons/ci';
+import { useTranslation } from 'react-i18next';
 const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"]
 
 const EditProfile = () => {
 
+    const {t} = useTranslation();
     const {user} = useSelector((state) => state.profile)
     const {token} = useSelector((state) => state.auth)
     const navigate = useNavigate()
@@ -31,7 +33,6 @@ const EditProfile = () => {
             console.log("ERROR MESSAGE - ", error.message)
           }
     }
-
     return (
         <div className='mt-8'>
 
@@ -39,40 +40,40 @@ const EditProfile = () => {
             <div className='flex flex-col gap-5 lg:flex-row'>
                 <div className='flex flex-col gap-2 lg:w-[48%]'>
                     <label htmlFor='firstName' className='font-roboto text-[16px] opacity-60'>
-                        First Name
+                        {t("First Name")}
                     </label>
                     <input
                         type='text'
                         name='firstName'
                         id='firstName'
-                        placeholder='Enter first name'
+                        placeholder={t('Enter first name')}
                         className='input_feild'
                         {...register("firstName", { required: true })}
                         defaultValue={user?.firstName} />
                     {
                         errors.firstName && (
                             <span className='-mt-1 text-[12px] text-yellow-100'>
-                                Please enter your first name.
+                                {t("Please enter your first name.")}
                             </span>
                         )
                     }
                 </div>
                 <div className='flex flex-col gap-2 lg:w-[48%]'>
                     <label htmlFor='lastName' className='font-roboto text-[16px] opacity-60'>
-                        Last Name
+                        {t("Last Name")}
                     </label>
                     <input
                         type='text'
                         name='lastName'
                         id='lastName'
-                        placeholder='Enter last name'
+                        placeholder={t('Enter last name')}
                         className='input_feild'
                         {...register("lastName", { required: true })}
                         defaultValue={user?.lastName} />
                     {
                         errors.lastName && (
                             <span className='-mt-1 text-[12px] text-yellow-100'>
-                                Please enter your last name.
+                                {t("Please enter your last name.")}
                             </span>
                         )
                     }
@@ -82,7 +83,7 @@ const EditProfile = () => {
             <div className='flex flex-col gap-5 lg:flex-row'>
                 <div className='flex flex-col gap-2 lg:w-[48%]'>
                     <label className='font-roboto text-[16px] opacity-60' htmlFor='dateOfBirth'>
-                        Date of Birth
+                        {t("Date of Birth")}
                     </label>
                     <input
                         type='date'
@@ -111,7 +112,7 @@ const EditProfile = () => {
                 </div>
                 <div className='flex flex-col lg:w-[48%]'>
                     <label className='font-roboto text-[16px] opacity-60' htmlFor='gender'>
-                        Gender
+                        {t("Gender")}
                     </label>
                     <select
                         type='text'
@@ -132,7 +133,7 @@ const EditProfile = () => {
                     </select>{
                         errors.gender && (
                             <span className='-mt-1 text-[12px] text-yellow-100'>
-                                Please enter your gender
+                                {t("Please enter your gender")}
                             </span>
                         )
                     }
@@ -142,13 +143,13 @@ const EditProfile = () => {
             <div className='flex flex-col justify-center gap-5 lg:flex-row'>
                 <div className='flex flex-col justify-center gap-2 lg:w-[48%]'>
                     <label htmlFor='lastName' className='font-roboto text-[16px] opacity-60'>
-                        Contact Number
+                        {t("Contact Number")}
                     </label>
                     <input
                         type='text'
                         name='lastName'
                         id='lastName'
-                        placeholder='Enter contact number'
+                        placeholder={t('Enter contact number')}
                         className='input_feild'
                         {...register("contactNumber", {
                   required: {
@@ -167,7 +168,7 @@ const EditProfile = () => {
                     {
                         errors.lastName && (
                             <span className='-mt-1 text-[12px] text-yellow-100'>
-                                Please enter your Contact number.
+                                {t("Please enter your Contact number.")}
                             </span>
                         )
                     }
@@ -175,15 +176,15 @@ const EditProfile = () => {
             </div>
 
             <div className='mt-8 flex justify-between'>
-                    <button className='bg-[#F19A3E] text-2xl font-medium font-roboto px-10 py-3 text-white rounded-2xl' onClick={() => navigate("/dashboard/my-profile")}>cancel</button>
-                <button type='submit' className='bg-[#F19A3E] text-2xl font-medium font-roboto px-10 py-3 text-white rounded-2xl'>Save & Update</button>
+                    <button className='bg-[#F19A3E] text-2xl font-medium font-roboto px-10 py-3 text-white rounded-2xl' onClick={() => navigate("/dashboard/my-profile")}>{t("cancel")}</button>
+                <button type='submit' className='bg-[#F19A3E] text-2xl font-medium font-roboto px-10 py-3 text-white rounded-2xl'>{t("Save & Update")}</button>
             </div>
             </form>
             
                
             <div className=" mt-12">
                 <p className=" font-roboto font-medium text-2xl">
-                  Edit your password
+                  {t("Edit your password")}
                 </p>
 
                 <hr className=" border-t-2 border-black mt-2" />
@@ -199,7 +200,7 @@ const EditProfile = () => {
                     <input
                         type={showPassword ? "text" : "password"}
                         name="password"
-                        placeholder="Current Password"
+                        placeholder={t("Current Password")}
                         className="input_feild"
                     />
 
@@ -221,7 +222,7 @@ const EditProfile = () => {
                     <input
                         type={showConfirmPassword ? "text" : "password"}
                         name="confirmPassword"
-                        placeholder="Change Password"
+                        placeholder={t("Change Password")}
                         className="input_feild "
                     />
 
@@ -244,8 +245,8 @@ const EditProfile = () => {
             <div className='mt-8 flex justify-between'>
                     <button className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'
                     // onClick={() => navigate("/dashboard/my-profile")}
-                    >Cancel</button>
-                    <button type='submit' className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'>Save & Update</button>
+                    >{t("Cancel")}</button>
+                    <button type='submit' className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'>{t("Save & Update")}</button>
                 </div>
 
             </form>
