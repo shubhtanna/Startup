@@ -3,8 +3,10 @@ import { TbWorld } from "react-icons/tb";
 import { RiRotateLockFill } from "react-icons/ri";
 import BULB from '../../assets/bulb_image.png'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Why_sell() {
+    const {t} = useTranslation();
     return (
         <div>
 
@@ -12,7 +14,7 @@ function Why_sell() {
 
                 <div className='w-10/12 mx-auto'>
 
-                    <h1 className=' text-white font-semibold text-5xl pt-16 font-roboto'>Why sell E-waste?</h1>
+                    <h1 className=' text-white font-semibold text-5xl pt-16 font-roboto'>{t("Why sell E-waste")}?</h1>
 
                     <div className=' text-white flex gap-10 mt-16 pb-28 group'>
 
@@ -22,9 +24,9 @@ function Why_sell() {
                                 <TbWorld size={50} />
                             </div>
 
-                            <h2 className=' text-[28px] font-medium font-roboto'>Environmental Impact</h2>
+                            <h2 className=' text-[28px] font-medium font-roboto'>{t("Environmental Impact")}</h2>
 
-                            <p className=' text-[18px] font-inter'>Selling e-waste ensures proper recycling and disposal, reducing environmental pollution and conserving natural resources by reclaiming valuable materials.
+                            <p className=' text-[18px] font-inter'>{t("Selling e-waste ensures proper recycling and disposal, reducing environmental pollution and conserving natural resources by reclaiming valuable materials")}.
                             </p>
 
                         </div>
@@ -35,9 +37,9 @@ function Why_sell() {
                                 <RiRotateLockFill size={50} />
                             </div>
 
-                            <h2 className=' text-[28px] font-medium font-roboto'>Economic Benefits</h2>
+                            <h2 className=' text-[28px] font-medium font-roboto'>{t("Economic Benefits")}</h2>
 
-                            <p className=' text-[18px] font-inter'>Users can earn money from their e-waste while supporting a circular economy, encouraging more responsible and profitable disposal habits.
+                            <p className=' text-[18px] font-inter'>{t("Users can earn money from their e-waste while supporting a circular economy, encouraging more responsible and profitable disposal habits")}.
                             </p>
                         </div>
                     </div>
@@ -50,12 +52,12 @@ function Why_sell() {
 
                     <div className=' lg:w-[52%] flex flex-col justify-center w-fit items-center gap-10 p-2'>
 
-                        <h2 className='text-center text-5xl font-bold text-[#174B3A] font-roboto'>"Turning the Tide on E-Waste: A Sustainable Solution for Digital World"</h2>
+                        <h2 className='text-center text-5xl font-bold text-[#174B3A] font-roboto'>{t("Turning the Tide on E-Waste: A Sustainable Solution for Digital World")}</h2>
 
-                        <p className=' text-2xl font-semibold text-[#28735A] max-w-[375px] text-center font-poppins'>Turn your own gadgets into green rewards</p>
+                        <p className=' text-2xl font-semibold text-[#28735A] max-w-[375px] text-center font-poppins'>{t("Turn your own gadgets into green rewards")}</p>
 
                         <button className='bg-[#4C9E93] text-[28px] py-3 px-12 font-medium rounded-md text-white w-fit hover:scale-105 transition-all duration-200 font-inter'>
-                            <Link to="/signup">Try Yourself</Link>
+                            <Link to="/signup">{t("Try Yourself")}</Link>
                         </button>
                     </div>
 

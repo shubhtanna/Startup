@@ -1,10 +1,12 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const {t} = useTranslation();
   return (
     <div>
 
@@ -17,14 +19,14 @@ const Footer = () => {
       {/* box-2 */}
       <div>
         <div className=' text-2xl p-3 '>
-            <p>Page</p>
+            <p>{t("Page")}</p>
             </div>
             <div className=' text-sm ml-5 mt-3'>
                 <ul className=' space-y-3 text-footeritem'>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>Home</Link></li>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>About</Link></li>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>FAQs</Link></li>
-                    <li className='hover:pl-2 transition-all duration-200'><Link to={"/"}>Purchse</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("Home")}</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("About")}</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("FAQs")}</Link></li>
+                    <li className='hover:pl-2 transition-all duration-200'><Link to={"/"}>{t("Purchase")}</Link></li>
                 </ul>
             </div>
         
@@ -32,21 +34,21 @@ const Footer = () => {
       {/* box-3 */}
       <div>
       <div className=' text-2xl p-3'>
-            <p>Connect with Us!</p>
+            <p>{t("Connect with Us")}!</p>
         </div>
             <div className=' text-sm ml-5 mt-3'>
                 <ul className=' space-y-3 text-footeritem'>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>Address</Link></li>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>Location</Link></li>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>Email</Link></li>
-                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>Team</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("Address")}</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("Location")}</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("Email")}</Link></li>
+                    <li className='hover:pl-3 transition-all duration-200'><Link to={"/"}>{t("Team")}</Link></li>
                 </ul>
             </div>
         
       </div>
       {/* box-4 */}
       <div>
-       <div>Get More Info</div>
+       <div>{t("Get More Info")}</div>
        
        <div className='flex group'>
        <Link to={"/"}>
@@ -70,7 +72,7 @@ const Footer = () => {
     <div className='flex justify-center mb-3'>
     <Link to={"/"} className='flex'>
     <p>@Copyright</p>
-    <p className='ml-5  '>Terms and conditions <span>applied</span> </p>
+    <p className='ml-5'>{t("Terms and conditions")} <span>{t("applied")}</span> </p>
     </Link>
       
     </div>

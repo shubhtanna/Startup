@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next"
+
 export default function IconBtn({
     text,
     onclick,
@@ -7,6 +9,7 @@ export default function IconBtn({
     customClasses,
     type,
   }) {
+    const {t} = useTranslation();
     return (
       <button
         disabled={disabled}

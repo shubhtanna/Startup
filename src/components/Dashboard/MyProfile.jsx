@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import REWARD from '../../assets/Reward_image.png'
 import { useSelector } from 'react-redux';
 import { ACCOUNT_TYPE } from '../../utils/constant';
+import { useTranslation } from 'react-i18next';
 
 const MyProfile = () => {
 
   const {user} = useSelector((state) => state.profile)
+  const {t} = useTranslation();
 
   console.log(user);
 

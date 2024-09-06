@@ -22,9 +22,9 @@ import InterestedProduct from './components/Shopkeeper/InterestedProduct';
 import InterestedShopkeeper from './components/Shopkeeper/InterestedShopkeeper';
 import { EditInterestedProduct } from './components/Shopkeeper/EditInterestedProduct';
 import EditProduct from './components/Dashboard/EditProduct'
+import Languageselector from "./components/language-selector"
 
 function App() {
-
   const dispatch = useDispatch();
   const navigate = useNavigate()
 

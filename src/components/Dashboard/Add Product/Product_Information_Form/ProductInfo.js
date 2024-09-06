@@ -8,8 +8,10 @@ import { MdNavigateNext } from "react-icons/md";
 import Upload from "../Upload"
 import { useNavigate } from 'react-router-dom'
 import { resetProductState } from '../../../../Slices/productSlice'
+import { useTranslation } from 'react-i18next';
 
 const ProductInfo = () => {
+  const { t } = useTranslation();
   const {
     register,handleSubmit,setValue,getValues,formState: {errors},
   } = useForm()
@@ -155,7 +157,7 @@ const ProductInfo = () => {
             htmlFor="productTitle"
             className="text-[1rem] font-medium  text-product-item font-roboto "
           >
-            Product Name<sup className="text-[#EF476F]">*</sup>
+            {t("Product Name")}<sup className="text-[#EF476F]">*</sup>
           </label>
 
           <input
@@ -163,7 +165,7 @@ const ProductInfo = () => {
             type="text"
             id="productTitle"
             name="productTitle"
-            placeholder="Enter Product name"
+            placeholder={t("Enter Product name")}
             // onChange={handleOnChange}
             // value={productName}
             {...register("productTitle", { required: true })} 
@@ -172,7 +174,7 @@ const ProductInfo = () => {
 
           {errors.productTitle && (
             <span className="ml-2 text-xs tracking-wide text-[#EF476F]">
-              Product Name is required
+              {t("Product Name is required")}
             </span>
           )}
         </div>
@@ -181,7 +183,7 @@ const ProductInfo = () => {
             htmlFor="productCategory"
             className="mt-3 font-medium  text-[1rem] text-product-item font-roboto"
           >
-            Category<sup className="text-[#EF476F]">*</sup>
+            {t("Category")}<sup className="text-[#EF476F]">*</sup>
           </label>
 
           <select
@@ -196,7 +198,7 @@ const ProductInfo = () => {
             {...register("productCategory",{ required: true })}
           >
           
-          <option value="" disabled>Choose a Category</option>
+          <option value="" disabled>{t("Choose a Category")}</option>
             {!loading && productCategories?.map((category,index) => (
               <option key={index} value={category?._id}>{category.categoryName}</option>
             ))}
@@ -204,7 +206,7 @@ const ProductInfo = () => {
 
           {errors.productCategory && (
             <span className="ml-2 text-xs tracking-wide text-[#EF476F]">
-              Category is required
+              {t("Category is required")}
             </span>
           )}
         </div>
@@ -214,7 +216,7 @@ const ProductInfo = () => {
               htmlFor="productModelName"
               className="mt-3 text-[1rem] font-medium font-roboto "
             >
-              Model Number<sup className="text-[#EF476F]">*</sup>
+              {t("Model Number")}<sup className="text-[#EF476F]">*</sup>
             </label>
 
             <input
@@ -223,14 +225,14 @@ const ProductInfo = () => {
               // value={modelName}
               // onChange={handleOnChange}
               id="productModelName"
-              placeholder="Enter model name"
+              placeholder={t("Enter model name")}
               {...register("productModelName",{required:true})}
               className="bg-[#499F682B] text-[16px] rounded-md shadow-[0_3px_0_0] shadow-[#499F682B]/50 p-3 font-semibold"
             />
 
             {errors.productModelName && (
               <span className="ml-2 text-xs tracking-wide text-[#EF476F]">
-                Model Number is required
+                {t("Model Number is required")}
               </span>
             )}
           </div>
@@ -239,7 +241,7 @@ const ProductInfo = () => {
               htmlFor="productBrands"
               className="mt-3 font-medium  text-[1rem] font-roboto"
             >
-              Brand<sup className="text-[#EF476F]">*</sup>
+              {t("Brand")}<sup className="text-[#EF476F]">*</sup>
             </label>
 
             <select
@@ -261,7 +263,7 @@ const ProductInfo = () => {
 
             {errors.productBrands && (
               <span className="ml-2 text-xs tracking-wide text-[#EF476F]">
-                Brand is required
+                {t("Brand is required")}
               </span>
             )}
           </div>
@@ -271,7 +273,7 @@ const ProductInfo = () => {
             htmlfor="productDesc"
             className="font-medium text-product-item font-roboto text-[1rem]"
           >
-            Product description<sup className="text-[#EF476F]">*</sup>
+            {t("Product description")}<sup className="text-[#EF476F]">*</sup>
           </label>
 
           <textarea
@@ -281,12 +283,12 @@ const ProductInfo = () => {
             // onChange={handleOnChange}
             {...register("productDesc",{required:true})}
             className="w-full border-transparent rounded-lg text-sm  disabled:opacity-50 shadow-[0_3px_0_0] shadow-[#499F682B]/50 p-3 disabled:pointer-events-none dark:border-transparent bg-[#499F682B]  resize-x-none min-h-[130px] font-roboto text-[16px] font-semibold"
-            placeholder="Write a short description of your product"
+            placeholder={t("Write a short description of your product")}
           ></textarea>
 
           {errors.productDesc && (
             <span className="ml-2 text-xs tracking-wide text-[#EF476F]">
-              product Description is required
+              {t("product Description is required")}
             </span>
           )}
         </div>
@@ -313,7 +315,7 @@ const ProductInfo = () => {
         
         <div className="flex gap-x-2">
           <button type='submit' disabled={loading} className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-[#174B3A] py-[8px] px-[20px] font-semibold text-[white]`}>
-          Save & Next
+          {t("Save & Next")}
             <MdNavigateNext />
           </button>
         </div>

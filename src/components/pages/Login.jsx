@@ -3,9 +3,11 @@ import LOGIN from '../../assets/login_image.png'
 import { FaAngleLeft } from "react-icons/fa";
 import LoginForm from '../Auth/LoginForm';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const Login = () => {
+    const {t} = useTranslation();
     return (
             <div className='h-[100vh] flex justify-center items-center'>
             <div className='w-[80%]  shadow-2xl m-3 flex rounded-3xl '>
@@ -13,13 +15,13 @@ const Login = () => {
                 <div className='w-[50%]'>
                     <div className='flex text-section-rgba font-roboto text-[1.15rem] p-5'>
                         <FaAngleLeft className='mt-1' />
-                        <Link to="/signup"><p className='font-roboto font-medium'>Back to signup</p></Link>
+                        <Link to="/signup"><p className='font-roboto font-medium'>{t("Back to signup")}</p></Link>
                     </div>
 
                     <div className='ml-14'>
                         <div className=' text-section-rgba'>
-                            <p className='text-[2.25rem] font-roboto font-semibold'>Welcome Back!</p>
-                            <p className='text-[1.5rem] font-roboto -mt-[10px] font-medium'>Login to get back your account.</p>
+                            <p className='text-[2.25rem] font-roboto font-semibold'>{t("Welcome Back")}!</p>
+                            <p className='text-[1.5rem] font-roboto -mt-[10px] font-medium'>{t("Login to get back your account")}</p>
                         </div>
                         
                         <LoginForm/>

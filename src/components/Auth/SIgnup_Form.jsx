@@ -7,8 +7,11 @@ import { useDispatch } from "react-redux";
 import { sendOtp } from "../../Services/Operation/authAPI";
 import { setSignupData } from "../../Slices/authSlice";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const SIgnup_Form = () => {
+
+  const {t} = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -87,7 +90,7 @@ const SIgnup_Form = () => {
             type="text"
             name="firstName"
             value={firstName}
-            placeholder="First name"
+            placeholder={t("First name")}
             onChange={handleOnChange}
             className="input_feild text-[#174B3A]"
           />
@@ -97,7 +100,7 @@ const SIgnup_Form = () => {
             name="lastName"
             value={lastName}
             onChange={handleOnChange}
-            placeholder="Last name"
+            placeholder={t("Last name")}
             className="input_feild"
           />
         </div>
@@ -107,7 +110,7 @@ const SIgnup_Form = () => {
             type="email"
             name="email"
             value={email}
-            placeholder="Email"
+            placeholder={t("Email")}
             onChange={handleOnChange}
             className="input_feild"
           />
@@ -132,13 +135,13 @@ const SIgnup_Form = () => {
               value={accountType} // Ensure the value is correctly set
             >
               <option value="" disabled className="input_feild opacity-20">
-                Account Type
+                {t("Account Type")}
               </option>
               <option value="Vendor" className="input_feild opacity-20">
-                Vendor
+                {t("Vendor")}
               </option>
               <option value="Individual" className="input_feild">
-                Individual
+                {t("Individual")}
               </option>
             </select>
 
@@ -149,7 +152,7 @@ const SIgnup_Form = () => {
           
           value={city}
           onChange={handleOnChange}
-          placeholder="City"
+          placeholder={t("City")}
           className="input_feild"
         />
 
@@ -165,7 +168,7 @@ const SIgnup_Form = () => {
           
           value={pincode}
           onChange={handleOnChange}
-          placeholder="Pincode"
+          placeholder={t("Pincode")}
           className="input_feild"
         />
           {/* <select name="pincode" className="input_feild">
@@ -182,7 +185,7 @@ const SIgnup_Form = () => {
           
           value={state}
           onChange={handleOnChange}
-          placeholder="State"
+          placeholder={t("State")}
           className="input_feild"
         />
         </div>
@@ -193,7 +196,7 @@ const SIgnup_Form = () => {
           
           value={address}
           onChange={handleOnChange}
-          placeholder="Address"
+          placeholder={t("Address")}
           className="input_feild"
         />
 
@@ -204,7 +207,7 @@ const SIgnup_Form = () => {
             
             value={password}
             onChange={handleOnChange}
-            placeholder="Password"
+            placeholder={t("Password")}
             className="input_feild"
           />
 
@@ -227,7 +230,7 @@ const SIgnup_Form = () => {
             
             value={confirmPassword}
             onChange={handleOnChange}
-            placeholder="Confirm Password"
+            placeholder={t("Confirm Password")}
             className="input_feild"
           />
 
@@ -248,7 +251,7 @@ const SIgnup_Form = () => {
             type="submit"
             className=" bg-[#F19A3E] text-white py-4 px-28 rounded-3xl text-[28px] font-semibold hover:scale-105 transition-all duration-200 font-roboto"
           >
-            Get OTP
+           {t("Get OTP")} 
           </button>
         </div>
       </div>

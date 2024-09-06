@@ -4,13 +4,14 @@ import { FaWindowClose } from "react-icons/fa";
 import { addPrice, addProduct } from '../../../Services/Operation/productAPI';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 
 export const ProductDescModal = ({ showProductDetails, setShowProductDetails, product }) => {
 
   console.log("product",product)
-
+  const {t} = useTranslation();
   const [isDisabled, setisDisabled] = useState(true);
   const [price, setPrice] = useState('');
   const navigate = useNavigate()
@@ -65,7 +66,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
         <div className="flex items-center justify-between p-2 ">
 
           <p className=" font-roboto font-medium text-2xl">
-            Product Description
+            {t("Product Description")}
           </p>
 
           {/* closeButton */}
@@ -82,13 +83,13 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
 
             {/* Product Name */}
             <div className='flex flex-col '>
-              <p className='text-[18px]'>Product Name</p>
+              <p className='text-[18px]'>{t("Product Name")}</p>
               <p className='text-[#000000]/60'>{product.productName}</p>
             </div>
 
             {/* Category */}
             <div className='flex flex-col'>
-              <p className='text-[18px]'>Category</p>
+              <p className='text-[18px]'>{t("Category")}</p>
               <p className='text-[#000000]/60'>{product.category.categoryName}</p>
             </div>
 
@@ -100,13 +101,13 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
 
             {/* Modal Number */}
             <div className='flex flex-col'>
-              <p className='text-[18px]'>Modal Number</p>
+              <p className='text-[18px]'>{t("Modal Number")}</p>
               <p className='text-[#000000]/60'>{product.modelName}</p>
             </div>
 
             {/* Brand  */}
             <div className='flex flex-col'>
-              <p className='text-[18px]'>Brand </p>
+              <p className='text-[18px]'>{t("Brand")} </p>
               <p className='text-[#000000]/60'>{product.brandName.name}</p>
             </div>
 
@@ -115,7 +116,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
 
           {/* Product Description */}
           <div className='flex flex-col'>
-            <p className='text-[18px]'>Product Description</p>
+            <p className='text-[18px]'>{t("Product Description")}</p>
             <p className='text-[#000000]/60'>{
               product.productDescription
             }
@@ -124,8 +125,8 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
 
           <div>
           <div className='flex justify-between'>
-          <p>Product Image</p>
-          <p>Invoice Image</p>
+          <p>{t("Product Image")}</p>
+          <p>{t("Invoice Image")}</p>
           </div>
           <div className='flex justify-between'>
             <img src={product.productImage} width={50}
@@ -148,9 +149,9 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
         {/* Add your price */}
         <div className='flex flex-col mt-1 p-3'>
 
-          <p className='text-[#174B3A] text-2xl'>Add your price !</p>
+          <p className='text-[#174B3A] text-2xl'>{t("Add your price !")}</p>
 
-          <p className='mt-1'>Add estimated for the interested product.</p>
+          <p className='mt-1'>{t("Add estimated for the interested product.")}</p>
 
           <div className=" flex gap-5 mt-3 mb-1 group">
 
@@ -169,7 +170,7 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
                 className={`bg-[#F19A3E] font-roboto font-medium text-[20px] px-8 py-2 text-white rounded-2xl ${isDisabled ? "opacity-50 cursor-not-allowed" : "opacity-100"
                   }`}
                 disabled={isDisabled}>
-                Publish
+                {t("Publish")}
               </button>
             </form>
 
