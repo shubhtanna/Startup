@@ -180,7 +180,6 @@ export const ProductDescModal = ({ showProductDetails, setShowProductDetails, pr
         </div>
 
       </div>
-
     </div>
   )
 }

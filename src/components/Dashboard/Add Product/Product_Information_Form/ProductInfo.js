@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom'
 import { resetProductState } from '../../../../Slices/productSlice'
 import { useTranslation } from 'react-i18next';
 
+
+
 const ProductInfo = () => {
   const { t } = useTranslation();
   const {

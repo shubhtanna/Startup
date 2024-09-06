@@ -27,6 +27,8 @@ const LoginForm = () => {
             [e.target.name]: e.target.value,
         }))
     }
+
+    
     function handleOnSubmit(e) {
         e.preventDefault();
         dispatch(login(email,password,navigate))

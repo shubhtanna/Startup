@@ -12,7 +12,6 @@ export const EditShopkeeper = () => {
   const [imageFile, setImageFile] = useState(null);
   const [previewSource, setPreviewSource] = useState(null);
   const {t} = useTranslation();
-
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {

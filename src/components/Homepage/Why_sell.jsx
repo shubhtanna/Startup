@@ -45,7 +45,6 @@ function Why_sell() {
                     </div>
                 </div>
             </div>
-
             <div className='bg-[#DCE2DE]'>
 
                 <div className='flex justify-center items-center'>

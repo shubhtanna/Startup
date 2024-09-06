@@ -53,6 +53,7 @@ const Navbar = () => {
                 <button className=' border-2 border-[#28735A] text-[#28735A] text-2xl font-medium py-1 px-7 rounded-2xl font-inter hover:bg-[#28735A] hover:text-white hover:scale-110 transition-all duration-200'>{t("Signup")}</button>
               </Link>
             )
+            
           }
           {
             token === null && (

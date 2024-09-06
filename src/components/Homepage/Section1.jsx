@@ -10,7 +10,6 @@ const Section1 = () => {
     const {t} = useTranslation();
     return (
         <div>
-
             <div className=' bg-[#DCE2DE]'>
 
                 <div className='flex justify-evenly w-10/12 mx-auto'>

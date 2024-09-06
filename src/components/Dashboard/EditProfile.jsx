@@ -33,7 +33,6 @@ const EditProfile = () => {
             console.log("ERROR MESSAGE - ", error.message)
           }
     }
-
     return (
         <div className='mt-8'>
 

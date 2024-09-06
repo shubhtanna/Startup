@@ -7,7 +7,6 @@ const Signup = () => {
     const {t} = useTranslation();
     return (
         <div className='bg-[#DCE2DE] pt-20 pb-20'>
-
             <div className='w-10/12 flex justify-between items-center bg-[#fff] mx-auto rounded-3xl p-10'>
 
                 <div className=' flex flex-col justify-center items-center'>

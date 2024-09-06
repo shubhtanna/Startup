@@ -66,3 +66,5 @@ export const TermsCondition = ({ setConfirmCheck, product, price }) => {
         )
     }
 }
+
+

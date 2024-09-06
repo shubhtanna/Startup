@@ -135,7 +135,6 @@ export const AllProduct = () => {
                                             </div>
 
                                         </div>
-
                                         <div className='flex gap-4 justify-center font-roboto mt-4'>
 
                                             <FaRegHeart className=' text-red-600 ml-8' />

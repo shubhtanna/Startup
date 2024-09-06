@@ -114,6 +114,8 @@ const IndividualMyProducts = () => {
                     </div>
                 ))}
             </div>
+
+            
              {
                 confirmationModal && <ConfirmationModal modalData={confirmationModal} />
             }

@@ -8,8 +8,6 @@ export default function AddProduct() {
     <>
        <p className="p-3 text-2xl">{t("Home/Dashboard/Add Products")}</p>
       <div className="flex w-full items-start gap-x-8">
-         
-      
 
         <div className="mt-14 flex flex-1 flex-col">
 

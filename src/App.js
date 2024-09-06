@@ -34,7 +34,6 @@ function App() {
 
       <Navbar/>
       <Routes>
-
         <Route path='/' element={<Index/>}/>
 
         <Route path='signup' element={<Signup/>}/>

@@ -211,6 +211,8 @@ const SIgnup_Form = () => {
             className="input_feild"
           />
 
+          
+
           <span
             onClick={() => setShowPassword((prev) => !prev)}
             className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-20"
