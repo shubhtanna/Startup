@@ -1,8 +1,6 @@
-import { useTranslation } from "react-i18next"
 import IconBtn from "./IconBtn"
 
 export default function ConfirmationModal({ modalData }) {
-  const { t } = useTranslation();
   return (
     <div className="fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-[white] bg-opacity-10 backdrop-blur-sm">
       <div className="w-11/12 max-w-[350px] rounded-lg border border-richblack-400 bg-[black] p-6">

@@ -61,6 +61,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "Turning the Tide on E-Waste: A Sustainable Solution for Digital World",
                 "Turn your own gadgets into green rewards": "Turn your own gadgets into green rewards",
                 "Try Yourself": "Try Yourself",
+                "Register yourself": "Register yourself",
+                "Seller": "Seller",
+                "as a user": "as a user",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today",
+                "Register": "Register",
+                "Buyer": "Buyer",
+                "as a shopkeeper": "as a shopkeeper",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform",
 
             }
         },
@@ -111,7 +119,6 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "into Environmental Impact": "en Impact Environnemental",
                 "Join us to perform your responsibility to": "Rejoignez-nous pour accomplir votre responsabilité de",
                 "Explore More": "Explorez Plus",
-
                 "Why sell E-waste": "Pourquoi vendre des déchets électroniques",
                 "Environmental Impact": "Impact environnemental",
                 "Selling e-waste ensures proper recycling and disposal, reducing environmental pollution and conserving natural resources by reclaiming valuable materials": "La vente de déchets électroniques garantit un recyclage et une élimination appropriés, réduisant la pollution de l'environnement et préservant les ressources naturelles en récupérant des matériaux précieux",
@@ -120,6 +127,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "Renverser la marée des déchets électroniques : une solution durable pour le monde numérique",
                 "Turn your own gadgets into green rewards": "Transformez vos propres gadgets en récompenses écologiques",
                 "Try Yourself": "Essayez par vous-même",
+                "Register yourself": "Enregistrez-vous",
+                "Seller": "Vendeur",
+                "as a user": "en tant qu'utilisateur",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "Rejoignez-nous dans la réutilisation des déchets électroniques pour une planète plus verte. Vendez vos appareils électroniques sans tracas avec des prix compétitifs. Inscrivez-vous maintenant pour commencer à vendre vos déchets électroniques dès aujourd'hui",
+                "Register": "S'inscrire",
+                "Buyer": "Acheteur",
+                "as a shopkeeper": "en tant que commerçant",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Devenez membre de notre réseau et accédez à des déchets électroniques de qualité pour votre entreprise. Profitez de prix compétitifs et d'une visibilité accrue. Inscrivez-vous maintenant pour commencer à acheter des déchets électroniques sur notre plateforme",
             }
         },
         hi: {
@@ -177,6 +192,15 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "ई-कचरे की ज्वार को मोड़ना: डिजिटल दुनिया के लिए एक स्थायी समाधान",
                 "Turn your own gadgets into green rewards": "अपने गैजेट्स को हरे पुरस्कारों में बदलें",
                 "Try Yourself": "खुद कोशिश करें",
+                "Register yourself": "स्वयं को पंजीकृत करें",
+                "Seller": "विक्रेता",
+                "as a user": "उपयोगकर्ता के रूप में",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "एक हरित ग्रह के लिए ई-कचरे का पुनः उपयोग करने में हमारा साथ दें। अपने इलेक्ट्रॉनिक्स को बिना किसी झंझट के प्रतिस्पर्धात्मक मूल्य पर बेचें। आज ही पंजीकरण करें और अपने ई-कचरे को बेचना शुरू करें",
+                "Register": "पंजीकरण करें",
+                "Buyer": "खरीदार",
+                "as a shopkeeper": "दुकानदार के रूप में",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "हमारे नेटवर्क का हिस्सा बनें और अपने व्यवसाय के लिए गुणवत्ता वाले ई-कचरे तक पहुंच प्राप्त करें। प्रतिस्पर्धी मूल्य निर्धारण और बढ़ी हुई दृश्यता का लाभ उठाएं। आज ही पंजीकरण करें और हमारे मंच से ई-कचरा खरीदना शुरू करें",
+
             }
 
         },
@@ -235,6 +259,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "ઈ-વેસ્ટ પર કાબૂ મેળવવો: ડિજિટલ વિશ્વ માટે એક ટકાઉ ઉકેલ",
                 "Turn your own gadgets into green rewards": "તમારા પોતાના ગેજેટ્સને લીલા ઇનામોમાં બદલો",
                 "Try Yourself": "પોતે અજમાવો",
+                "Register yourself": "તમારું નોંધણી કરો",
+                "Seller": "વેચનાર",
+                "as a user": "વપરાશકર્તા તરીકે",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "એક હરિયાળી ગ્રહ માટે ઈ-કચરાનો ફરીથી ઉપયોગ કરવો માટે અમારો ભાગ બનો. તમારી ઇલેક્ટ્રોનિક્સને મુશ્કેલી વિના સ્પર્ધાત્મક કિંમતે વેચો. આજે જ નોંધણી કરો અને તમારું ઈ-કચરું વેચવાનું શરૂ કરો",
+                "Register": "નોંધણી કરો",
+                "Buyer": "ખરીદદાર",
+                "as a shopkeeper": "દુકાનદાર તરીકે",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "અમારા નેટવર્કનો ભાગ બનો અને તમારા વ્યવસાય માટે ગુણવત્તાયુક્ત ઇ-કચરાની એક્સેસ મેળવો. સ્પર્ધાત્મક કિંમતો અને વધારેલી દ્રશ્યતાનો આનંદ માણો. આજે જ નોંધણી કરો અને અમારા પ્લેટફોર્મથી ઈ-કચરું ખરીદવાનું શરૂ કરો",
             }
         },
         sp: {
@@ -292,6 +324,15 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "Cambiar la marea de los residuos electrónicos: una solución sostenible para el mundo digital",
                 "Turn your own gadgets into green rewards": "Convierte tus propios dispositivos en recompensas ecológicas",
                 "Try Yourself": "Pruébalo tú mismo",
+                "Register yourself": "Regístrate",
+                "Seller": "Vendedor",
+                "as a user": "como usuario",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "Únete a nosotros en la reutilización de desechos electrónicos para un planeta más verde. Vende tus productos electrónicos sin complicaciones y con precios competitivos. Regístrate ahora para comenzar a vender tus desechos electrónicos hoy",
+                "Register": "Registrarse",
+                "Buyer": "Comprador",
+                "as a shopkeeper": "como comerciante",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Conviértete en parte de nuestra red y accede a residuos electrónicos de calidad para tu negocio. Disfruta de precios competitivos y mayor visibilidad. Regístrate ahora para comenzar a obtener residuos electrónicos de nuestra plataforma",
+
             }
 
         },
@@ -350,6 +391,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "ਈ-ਵਿਹਾਰ ਉੱਤੇ ਕੰਟਰੋਲ: ਡਿਜ਼ਿਟਲ ਦੁਨੀਆ ਲਈ ਇੱਕ ਟਿਕਾਉ ਹੱਲ",
                 "Turn your own gadgets into green rewards": "ਆਪਣੇ ਗੈਜਿਟਸ ਨੂੰ ਹਰੇ ਇਨਾਮਾਂ ਵਿੱਚ ਬਦਲੋ",
                 "Try Yourself": "ਆਪਣੇ ਆਪ ਨੂੰ ਅਜ਼ਮਾਓ",
+                "Register yourself": "ਆਪਣੇ ਆਪ ਨੂੰ ਰਜਿਸਟਰ ਕਰੋ",
+                "Seller": "ਵਿਕਰੇਤਾ",
+                "as a user": "ਇਕ ਯੂਜ਼ਰ ਵਜੋਂ",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "ਹਰੇ ਭ੍ਰਮੰਡ ਲਈ ਈ-ਕਚਰੇ ਦੀ ਮੁੜ ਵਰਤੋਂ ਵਿੱਚ ਸਾਡੇ ਨਾਲ ਜੁੜੋ। ਆਪਣੀ ਇਲੈਕਟ੍ਰਾਨਿਕ ਸਾਮਗਰੀ ਨੂੰ ਬਿਨਾ ਕੋਈ ਝੰਝਟ ਕਮਪੈਟੀਟਿਵ ਕੀਮਤਾਂ 'ਤੇ ਵੇਚੋ। ਆਪਣਾ ਈ-ਕਚਰਾ ਵੇਚਣ ਲਈ ਅੱਜ ਹੀ ਸਾਈਨ ਅਪ ਕਰੋ",
+                "Register": "ਰਜਿਸਟਰ ਕਰੋ",
+                "Buyer": "ਖਰੀਦਦਾਰ",
+                "as a shopkeeper": "ਇਕ ਦੁਕਾਨਦਾਰ ਵਜੋਂ",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "ਸਾਡੇ ਨੈੱਟਵਰਕ ਦਾ ਹਿੱਸਾ ਬਣੋ ਅਤੇ ਆਪਣੇ ਕਾਰੋਬਾਰ ਲਈ ਗੁਣਵੱਤਾ ਵਾਲੇ ਈ-ਕਚਰੇ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰੋ। ਕਮਪੈਟੀਟਿਵ ਕੀਮਤਾਂ ਅਤੇ ਵਧੀਕ ਵਿਖਣ ਨੂੰ ਵਧਾਓ। ਸਾਡੀ ਪਲੇਟਫਾਰਮ ਤੋਂ ਈ-ਕਚਰਾ ਖਰੀਦਣ ਲਈ ਹੁਣ ਸਾਈਨ ਅਪ ਕਰੋ",
             }
 
         },
@@ -408,6 +457,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "ஈ-கழிவுகளை எதிர்த்துப் போராடுதல்: டிஜிட்டல் உலகத்திற்கு நிலைத்திருக்கும் தீர்வு",
                 "Turn your own gadgets into green rewards": "உங்கள் சொந்த கருவிகளை பச்சை பரிசாக மாற்றுங்கள்",
                 "Try Yourself": "உங்களை முயற்சி செய்யுங்கள்",
+                "Register yourself": "உங்களை பதிவு செய்யுங்கள்",
+                "Seller": "விற்பனையாளர்",
+                "as a user": "பயனர் ஆக",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "சமூகமாகும் உலகிற்கு மின்னணு கழிவுகளை மறுபயன்படுத்த, எங்களுடன் சேருங்கள். உங்கள் மின்னணு சாதனங்களை போட்டியிடும் விலையில் எளிதில் விற்பனை செய்யுங்கள். இன்று உங்கள் மின்னணு கழிவுகளை விற்பனை செய்யத் தொடங்க பதிவு செய்யுங்கள்",
+                "Register": "பதிவு",
+                "Buyer": "கொள்முதல் செய்பவர்",
+                "as a shopkeeper": "அந்தகட்காரர் ஆக",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "எங்கள் நெட்வொர்க்கின் ஓர் பகுதியாகி உங்கள் தொழிலுக்கான தரமான மின்கழிவுகளைப் பெறுங்கள். போட்டியிடும் விலை மற்றும் உயர்ந்த காணவலைப் பெறுங்கள். எங்கள் தளத்தில் பதிவு செய்யுங்கள் மற்றும் மின்கழிவுகளை வாங்கத் தொடங்குங்கள்",
             }
 
         },
@@ -466,6 +523,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "ई-कचऱ्याच्या लाटेवर नियंत्रण: डिजिटल जगासाठी एक शाश्वत समाधान",
                 "Turn your own gadgets into green rewards": "आपली उपकरणे हिरवी बक्षिसे म्हणून रूपांतरित करा",
                 "Try Yourself": "स्वतः प्रयत्न करा",
+                "Register yourself": "स्वतःची नोंदणी करा",
+                "Seller": "विक्रेता",
+                "as a user": "वापरकर्ता म्हणून",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "निसर्गास अधिक हरित बनविण्यासाठी ई-कचऱ्याचा पुनर्वापर करा. तुमची इलेक्ट्रॉनिक उपकरणे सहजतेने आणि स्पर्धात्मक किंमतीत विक्री करा. आजच नोंदणी करा आणि ई-कचरा विक्री सुरू करा",
+                "Register": "नोंदणी",
+                "Buyer": "खरेदीदार",
+                "as a shopkeeper": "दुकानदार म्हणून",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "आमच्या नेटवर्कचा भाग बना आणि तुमच्या व्यवसायासाठी दर्जेदार ई-कचरा मिळवा. स्पर्धात्मक किंमत आणि वाढलेली दृश्यता मिळवा. आमच्या प्लॅटफॉर्मवर नोंदणी करा आणि ई-कचरा खरेदी सुरू करा",
             }
 
         },
@@ -524,6 +589,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Turning the Tide on E-Waste: A Sustainable Solution for Digital World": "ఈ-వేస్ట్ పై నియంత్రణ: డిజిటల్ ప్రపంచానికి ఒక స్థిరమైన పరిష్కారం",
                 "Turn your own gadgets into green rewards": "మీ సొంత గాడ్జెట్లను పచ్చ బహుమతులుగా మార్చండి",
                 "Try Yourself": "మీరు ప్రయత్నించండి",
+                "Register yourself": "మీరు నమోదు చేసుకోండి",
+                "Seller": "విక్రేత",
+                "as a user": "వినియోగదారుగా",
+                "Join us in re-using e-waste for a greener planet. Sell your electronics hassle-free with competitive pricing. Sign up now to start selling your e-waste today": "ఈ-వ్యర్థాలను పునర్వినియోగం చేసుకోవడం ద్వారా పచ్చని గ్రహం కోసం మాతో చేరండి. పోటీ ధరలతో మీ ఎలక్ట్రానిక్స్‌ను ఇబ్బందులు లేకుండా అమ్మండి. ఈ రోజు సైన్ అప్ చేయండి మరియు మీ ఈ-వ్యర్థాలను విక్రయించడం ప్రారంభించండి",
+                "Register": "నమోదు",
+                "Buyer": "కొనుగోలుదారు",
+                "as a shopkeeper": "అంగడివాడుగా",
+                "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "మా నెట్‌వర్క్‌లో భాగం కండి మరియు మీ వ్యాపారానికి నాణ్యమైన ఈ-వ్యర్థాలను పొందండి. పోటీ ధరలు మరియు పెరిగిన కనపడే అవకాశాలను ఆస్వాదించండి. ఈ రోజు సైన్ అప్ చేసి మా ప్లాట్‌ఫారమ్ నుండి ఈ-వ్యర్థాలను సేకరించడం ప్రారంభించండి",
             }
         }
     }
