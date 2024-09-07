@@ -69,6 +69,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "Buyer",
                 "as a shopkeeper": "as a shopkeeper",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform",
+                "Let's begin the journey":"Let's begin the journey",
 
             }
         },
@@ -135,6 +136,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "Acheteur",
                 "as a shopkeeper": "en tant que commerçant",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Devenez membre de notre réseau et accédez à des déchets électroniques de qualité pour votre entreprise. Profitez de prix compétitifs et d'une visibilité accrue. Inscrivez-vous maintenant pour commencer à acheter des déchets électroniques sur notre plateforme",
+                "Let's begin the journey":" Commençons le voyage",
             }
         },
         hi: {
@@ -200,7 +202,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "खरीदार",
                 "as a shopkeeper": "दुकानदार के रूप में",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "हमारे नेटवर्क का हिस्सा बनें और अपने व्यवसाय के लिए गुणवत्ता वाले ई-कचरे तक पहुंच प्राप्त करें। प्रतिस्पर्धी मूल्य निर्धारण और बढ़ी हुई दृश्यता का लाभ उठाएं। आज ही पंजीकरण करें और हमारे मंच से ई-कचरा खरीदना शुरू करें",
-
+                "Let's begin the journey":"चलो यात्रा शुरू करते हैं",
             }
 
         },
@@ -267,6 +269,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "ખરીદદાર",
                 "as a shopkeeper": "દુકાનદાર તરીકે",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "અમારા નેટવર્કનો ભાગ બનો અને તમારા વ્યવસાય માટે ગુણવત્તાયુક્ત ઇ-કચરાની એક્સેસ મેળવો. સ્પર્ધાત્મક કિંમતો અને વધારેલી દ્રશ્યતાનો આનંદ માણો. આજે જ નોંધણી કરો અને અમારા પ્લેટફોર્મથી ઈ-કચરું ખરીદવાનું શરૂ કરો",
+                "Let's begin the journey":" ચાલો યાત્રા શરૂ કરીએ",
             }
         },
         sp: {
@@ -332,6 +335,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "Comprador",
                 "as a shopkeeper": "como comerciante",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Conviértete en parte de nuestra red y accede a residuos electrónicos de calidad para tu negocio. Disfruta de precios competitivos y mayor visibilidad. Regístrate ahora para comenzar a obtener residuos electrónicos de nuestra plataforma",
+                "Let's begin the journey":" Comencemos el viaje",
 
             }
 
@@ -399,6 +403,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "ਖਰੀਦਦਾਰ",
                 "as a shopkeeper": "ਇਕ ਦੁਕਾਨਦਾਰ ਵਜੋਂ",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "ਸਾਡੇ ਨੈੱਟਵਰਕ ਦਾ ਹਿੱਸਾ ਬਣੋ ਅਤੇ ਆਪਣੇ ਕਾਰੋਬਾਰ ਲਈ ਗੁਣਵੱਤਾ ਵਾਲੇ ਈ-ਕਚਰੇ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰੋ। ਕਮਪੈਟੀਟਿਵ ਕੀਮਤਾਂ ਅਤੇ ਵਧੀਕ ਵਿਖਣ ਨੂੰ ਵਧਾਓ। ਸਾਡੀ ਪਲੇਟਫਾਰਮ ਤੋਂ ਈ-ਕਚਰਾ ਖਰੀਦਣ ਲਈ ਹੁਣ ਸਾਈਨ ਅਪ ਕਰੋ",
+                "Let's begin the journey":"ਆਓ ਯਾਤਰਾ ਦੀ ਸ਼ੁਰੂਆਤ ਕਰੀਏ",
             }
 
         },
@@ -465,6 +470,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "கொள்முதல் செய்பவர்",
                 "as a shopkeeper": "அந்தகட்காரர் ஆக",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "எங்கள் நெட்வொர்க்கின் ஓர் பகுதியாகி உங்கள் தொழிலுக்கான தரமான மின்கழிவுகளைப் பெறுங்கள். போட்டியிடும் விலை மற்றும் உயர்ந்த காணவலைப் பெறுங்கள். எங்கள் தளத்தில் பதிவு செய்யுங்கள் மற்றும் மின்கழிவுகளை வாங்கத் தொடங்குங்கள்",
+                "Let's begin the journey":"பயணம் தொடங்கலாம்",
             }
 
         },
@@ -531,6 +537,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "खरेदीदार",
                 "as a shopkeeper": "दुकानदार म्हणून",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "आमच्या नेटवर्कचा भाग बना आणि तुमच्या व्यवसायासाठी दर्जेदार ई-कचरा मिळवा. स्पर्धात्मक किंमत आणि वाढलेली दृश्यता मिळवा. आमच्या प्लॅटफॉर्मवर नोंदणी करा आणि ई-कचरा खरेदी सुरू करा",
+                "Let's begin the journey":"चला प्रवास सुरू करूया",
             }
 
         },
@@ -597,6 +604,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "కొనుగోలుదారు",
                 "as a shopkeeper": "అంగడివాడుగా",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "మా నెట్‌వర్క్‌లో భాగం కండి మరియు మీ వ్యాపారానికి నాణ్యమైన ఈ-వ్యర్థాలను పొందండి. పోటీ ధరలు మరియు పెరిగిన కనపడే అవకాశాలను ఆస్వాదించండి. ఈ రోజు సైన్ అప్ చేసి మా ప్లాట్‌ఫారమ్ నుండి ఈ-వ్యర్థాలను సేకరించడం ప్రారంభించండి",
+                "Let's begin the journey":" ప్రయాణం ప్రారంభిద్దాం",
             }
         }
     }

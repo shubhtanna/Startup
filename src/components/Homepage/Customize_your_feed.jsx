@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { useTranslation } from 'react-i18next';
 
 const toogles = ["Customer", "Shopkeeper"];
 
@@ -14,14 +15,15 @@ const Customize_your_feed = () => {
     const [currentTogle, setCurrentTogle] = useState(toogles[0]);
     const [steps, setSteps] = useState(userCard[0].steps)
     // console.log(steps);
-
+    
     const setElement = (value) => {
         setCurrentTogle(value);
         const res = userCard.filter((step) => step.type === value);
         setSteps(res[0].steps);
     }
-
-
+    
+    
+    const {t} = useTranslation();
     const settings = {
         dots: true,
         infinite: false,
@@ -38,7 +40,7 @@ const Customize_your_feed = () => {
 <div className=' w-10/12 mx-auto'>
 
     <div>
-        <h1 className=' font-bold text-[44px] text-[#174B3A] font-roboto mb-8'>Let's begin the journey!</h1>
+        <h1 className=' font-bold text-[44px] text-[#174B3A] font-roboto mb-8'>{t("Let's begin the journey")}!</h1>
     </div>
 
 
