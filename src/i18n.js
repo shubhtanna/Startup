@@ -69,8 +69,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "Buyer",
                 "as a shopkeeper": "as a shopkeeper",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform",
-                "Let's begin the journey":"Let's begin the journey",
-
+                "Let's begin the journey": "Let's begin the journey",
+                "Feel free to ask any doubts": "Feel free to ask any doubts",
+                "Please ask questions that help us provide clear and": "Please ask questions that help us provide clear and",
+                "precise solutions tailored to your needs": "precise solutions tailored to your needs",
+                "Message": "Message",
+                "Submit": "Submit",
             }
         },
         fr: {
@@ -136,7 +140,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "Acheteur",
                 "as a shopkeeper": "en tant que commerçant",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Devenez membre de notre réseau et accédez à des déchets électroniques de qualité pour votre entreprise. Profitez de prix compétitifs et d'une visibilité accrue. Inscrivez-vous maintenant pour commencer à acheter des déchets électroniques sur notre plateforme",
-                "Let's begin the journey":" Commençons le voyage",
+                "Let's begin the journey": " Commençons le voyage",
+                "Feel free to ask any doubts": "N'hésitez pas à poser des questions",
+                "Please ask questions that help us provide clear and": "Veuillez poser des questions qui nous aident à fournir des",
+                "precise solutions tailored to your needs": "solutions claires et précises adaptées à vos besoins",
+                "Message": "Message",
+                "Submit": "Soumettre",
             }
         },
         hi: {
@@ -202,7 +211,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "खरीदार",
                 "as a shopkeeper": "दुकानदार के रूप में",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "हमारे नेटवर्क का हिस्सा बनें और अपने व्यवसाय के लिए गुणवत्ता वाले ई-कचरे तक पहुंच प्राप्त करें। प्रतिस्पर्धी मूल्य निर्धारण और बढ़ी हुई दृश्यता का लाभ उठाएं। आज ही पंजीकरण करें और हमारे मंच से ई-कचरा खरीदना शुरू करें",
-                "Let's begin the journey":"चलो यात्रा शुरू करते हैं",
+                "Let's begin the journey": "चलो यात्रा शुरू करते हैं",
+                "Feel free to ask any doubts": "कृपया बिना किसी संकोच के सवाल पूछें",
+                "Please ask questions that help us provide clear and": "कृपया ऐसे सवाल पूछें जो हमें स्पष्ट और",
+                "precise solutions tailored to your needs": "सटीक समाधान प्रदान करने में मदद करें जो आपकी आवश्यकताओं के अनुरूप हों",
+                "Message": "संदेश",
+                "Submit": "जमा करें",
             }
 
         },
@@ -269,7 +283,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "ખરીદદાર",
                 "as a shopkeeper": "દુકાનદાર તરીકે",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "અમારા નેટવર્કનો ભાગ બનો અને તમારા વ્યવસાય માટે ગુણવત્તાયુક્ત ઇ-કચરાની એક્સેસ મેળવો. સ્પર્ધાત્મક કિંમતો અને વધારેલી દ્રશ્યતાનો આનંદ માણો. આજે જ નોંધણી કરો અને અમારા પ્લેટફોર્મથી ઈ-કચરું ખરીદવાનું શરૂ કરો",
-                "Let's begin the journey":" ચાલો યાત્રા શરૂ કરીએ",
+                "Let's begin the journey": " ચાલો યાત્રા શરૂ કરીએ",
+                "Feel free to ask any doubts": "કોઈ શંકા હોય તો નિર્વિઘ્ને પુછો",
+                "Please ask questions that help us provide clear and": "કૃપા કરીને એ પ્રશ્નો પૂછો જે અમને સ્પષ્ટ અને",
+                "precise solutions tailored to your needs": "તમારી જરૂરિયાતોને અનુરૂપ સચોટ ઉકેલો પ્રદાન કરવામાં મદદ કરે",
+                "Message": "સંદેશ",
+                "Submit": "મોકલો",
             }
         },
         sp: {
@@ -335,8 +354,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "Comprador",
                 "as a shopkeeper": "como comerciante",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "Conviértete en parte de nuestra red y accede a residuos electrónicos de calidad para tu negocio. Disfruta de precios competitivos y mayor visibilidad. Regístrate ahora para comenzar a obtener residuos electrónicos de nuestra plataforma",
-                "Let's begin the journey":" Comencemos el viaje",
-
+                "Let's begin the journey": " Comencemos el viaje",
+                "Feel free to ask any doubts": "No dude en hacer cualquier pregunta",
+                "Please ask questions that help us provide clear and": "Por favor, haga preguntas que nos ayuden a proporcionar soluciones claras y",
+                "precise solutions tailored to your needs": "precisas adaptadas a sus necesidades",
+                "Message": "Mensaje",
+                "Submit": "Enviar",
             }
 
         },
@@ -403,7 +426,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "ਖਰੀਦਦਾਰ",
                 "as a shopkeeper": "ਇਕ ਦੁਕਾਨਦਾਰ ਵਜੋਂ",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "ਸਾਡੇ ਨੈੱਟਵਰਕ ਦਾ ਹਿੱਸਾ ਬਣੋ ਅਤੇ ਆਪਣੇ ਕਾਰੋਬਾਰ ਲਈ ਗੁਣਵੱਤਾ ਵਾਲੇ ਈ-ਕਚਰੇ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰੋ। ਕਮਪੈਟੀਟਿਵ ਕੀਮਤਾਂ ਅਤੇ ਵਧੀਕ ਵਿਖਣ ਨੂੰ ਵਧਾਓ। ਸਾਡੀ ਪਲੇਟਫਾਰਮ ਤੋਂ ਈ-ਕਚਰਾ ਖਰੀਦਣ ਲਈ ਹੁਣ ਸਾਈਨ ਅਪ ਕਰੋ",
-                "Let's begin the journey":"ਆਓ ਯਾਤਰਾ ਦੀ ਸ਼ੁਰੂਆਤ ਕਰੀਏ",
+                "Let's begin the journey": "ਆਓ ਯਾਤਰਾ ਦੀ ਸ਼ੁਰੂਆਤ ਕਰੀਏ",
+                "Feel free to ask any doubts": "ਕੋਈ ਵੀ ਸ਼ੰਕਾ ਹੋਵੇ ਤਾਂ ਪੁੱਛੋ",
+                "Please ask questions that help us provide clear and": "ਕਿਰਪਾ ਕਰਕੇ ਉਹ ਸਵਾਲ ਪੁੱਛੋ ਜੋ ਸਾਨੂੰ ਸਾਫ਼ ਅਤੇ",
+                "precise solutions tailored to your needs": "ਤੁਹਾਡੇ ਲੋੜਾਂ ਮੁਤਾਬਕ ਸਹੀ ਹੱਲ ਪ੍ਰਦਾਨ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ",
+                "Message": "ਸੁਨੇਹਾ",
+                "Submit": "ਭੇਜੋ",
             }
 
         },
@@ -470,7 +498,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "கொள்முதல் செய்பவர்",
                 "as a shopkeeper": "அந்தகட்காரர் ஆக",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "எங்கள் நெட்வொர்க்கின் ஓர் பகுதியாகி உங்கள் தொழிலுக்கான தரமான மின்கழிவுகளைப் பெறுங்கள். போட்டியிடும் விலை மற்றும் உயர்ந்த காணவலைப் பெறுங்கள். எங்கள் தளத்தில் பதிவு செய்யுங்கள் மற்றும் மின்கழிவுகளை வாங்கத் தொடங்குங்கள்",
-                "Let's begin the journey":"பயணம் தொடங்கலாம்",
+                "Let's begin the journey": "பயணம் தொடங்கலாம்",
+                "Feel free to ask any doubts": "எந்த சந்தேகமும் கேட்க தயங்க வேண்டாம்",
+                "Please ask questions that help us provide clear and": "தயவுசெய்து தெளிவான மற்றும்",
+                "precise solutions tailored to your needs": "உங்கள் தேவைகளை பூர்த்தி செய்யும் சரியான தீர்வுகளை வழங்க உதவும் கேள்விகளை கேளுங்கள்",
+                "Message": "செய்தி",
+                "Submit": "சமர்ப்பிக்க",
             }
 
         },
@@ -537,7 +570,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "खरेदीदार",
                 "as a shopkeeper": "दुकानदार म्हणून",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "आमच्या नेटवर्कचा भाग बना आणि तुमच्या व्यवसायासाठी दर्जेदार ई-कचरा मिळवा. स्पर्धात्मक किंमत आणि वाढलेली दृश्यता मिळवा. आमच्या प्लॅटफॉर्मवर नोंदणी करा आणि ई-कचरा खरेदी सुरू करा",
-                "Let's begin the journey":"चला प्रवास सुरू करूया",
+                "Let's begin the journey": "चला प्रवास सुरू करूया",
+                "Feel free to ask any doubts": "कृपया कोणतीही शंका विचारण्यास मोकळे रहा",
+                "Please ask questions that help us provide clear and": "कृपया असे प्रश्न विचारा जे आम्हाला स्पष्ट आणि",
+                "precise solutions tailored to your needs": "तुमच्या गरजेनुसार अचूक उपाय प्रदान करण्यात मदत करतात",
+                "Message": "संदेश",
+                "Submit": "सबमिट",
             }
 
         },
@@ -604,7 +642,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Buyer": "కొనుగోలుదారు",
                 "as a shopkeeper": "అంగడివాడుగా",
                 "Become a part of our network and access quality e-waste for your business. Enjoy competitive pricing and increased visibility. Sign up now to start sourcing e-waste from our platform": "మా నెట్‌వర్క్‌లో భాగం కండి మరియు మీ వ్యాపారానికి నాణ్యమైన ఈ-వ్యర్థాలను పొందండి. పోటీ ధరలు మరియు పెరిగిన కనపడే అవకాశాలను ఆస్వాదించండి. ఈ రోజు సైన్ అప్ చేసి మా ప్లాట్‌ఫారమ్ నుండి ఈ-వ్యర్థాలను సేకరించడం ప్రారంభించండి",
-                "Let's begin the journey":" ప్రయాణం ప్రారంభిద్దాం",
+                "Let's begin the journey": " ప్రయాణం ప్రారంభిద్దాం",
+                "Feel free to ask any doubts": "ఏమైనా సందేహాలుంటే ప్రశ్నించండి",
+                "Please ask questions that help us provide clear and": "దయచేసి మా నుండి స్పష్టమైన మరియు",
+                "precise solutions tailored to your needs": "మీ అవసరాలకు అనుగుణంగా సరిగ్గా పరిష్కారం ఇవ్వడంలో సహాయపడే ప్రశ్నలు అడగండి",
+                "Message": "సందేశం",
+                "Submit": "సమర్పించు",
             }
         }
     }
