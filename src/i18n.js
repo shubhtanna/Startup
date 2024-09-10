@@ -101,6 +101,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.",
                 "Follow Up": "Follow Up",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.",
+                "Vendors": "Vendors",
+                "All Products": "All Products",
+                "Add Product": "Add Product",
+                "Interested Products": "Interested Products",
             }
         },
         fr: {
@@ -198,7 +202,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "Communiquez avec les utilisateurs pour négocier les termes et finaliser l'achat des articles de déchets électroniques souhaités.",
                 "Follow Up": "Suivi",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "Maintenez la communication avec les utilisateurs pour assurer un processus de transaction fluide et la satisfaction des clients.",
-
+                "Vendors": "Fournisseurs",
+                "All Products": "Tous les produits",
+                "Add Product": "Ajouter un produit",
+                "Interested Products": "Produits intéressés",
             }
         },
         hi: {
@@ -296,7 +303,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "उपयोगकर्ताओं के साथ संवाद करें ताकि शर्तों पर मोलभाव कर सकें और आवश्यक ई-कचरा आइटम्स की खरीद को अंतिम रूप दें।",
                 "Follow Up": "फॉलो अप करें",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "लेन-देन प्रक्रिया को सुचारू रखने और ग्राहक संतुष्टि सुनिश्चित करने के लिए उपयोगकर्ताओं के साथ संचार बनाए रखें।",
-
+                "Vendors": "विक्रेता",
+                "All Products": "सभी उत्पाद",
+                "Add Product": "उत्पाद जोड़ें",
+                "Interested Products": "रुचिकर उत्पाद",
             }
 
         },
@@ -395,6 +405,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "શરતોની વાતચીત કરવા માટે વપરાશકર્તાઓ સાથે વાતચીત કરો અને ઇચ્છિત ઇ-કચરાની વસ્તુઓની ખરીદી અંતિમ કરો.",
                 "Follow Up": "ફોલોઅપ કરો",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "ટ્રાન્ઝેક્શન પ્રક્રિયાને સરળ બનાવો અને ગ્રાહક સંતોષ માટે વપરાશકર્તાઓ સાથે સંચાર જાળવો.",
+                "Vendors": "વિક્રેતા",
+                "All Products": "બધા ઉત્પાદનો",
+                "Add Product": "ઉત્પાદન ઉમેરો",
+                "Interested Products": "રુચિ ધરાવતાં ઉત્પાદનો",
             }
         },
         sp: {
@@ -492,6 +506,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "Comunícate con los usuarios para negociar términos y cerrar la compra de los artículos de residuos electrónicos deseados.",
                 "Follow Up": "Seguimiento",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "Mantén la comunicación con los usuarios para garantizar un proceso de transacción fluido y la satisfacción del cliente.",
+                "Vendors": "Vendedores",
+                "All Products": "Todos los productos",
+                "Add Product": "Añadir producto",
+                "Interested Products": "Productos de interés",
             }
 
         },
@@ -590,6 +608,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "ਵਰਤੋਂਕਾਰਾਂ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਕਿ ਸੌਦੇ ਪੂਰੇ ਕਰਨ ਦੀ ਗੱਲ ਹੋ ਸਕੇ।",
                 "Follow Up": "ਫਾਲੋਅਪ ਕਰੋ",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "ਵਰਤੋਂਕਾਰਾਂ ਨਾਲ ਸੰਪਰਕ ਬਣਾਓ ਤਾਂ ਕਿ ਸਮਰਥਿਤ ਪੂਰੀ ਹੋਣ ਦੀ ਪ੍ਰਕਿਰਿਆ ਅਤੇ ਖਰੀਦਦਾਰਾਂ ਦੀ ਸੰਤੁਸ਼ਟੀ ਪੂਰੀ ਕੀਤੀ ਜਾ ਸਕੇ।",
+                "Vendors": "ਵਿਕਰੇਤਾ",
+                "All Products": "ਸਾਰੇ ਉਤਪਾਦ",
+                "Add Product": "ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ",
+                "Interested Products": "ਦਿਲਚਸਪ ਉਤਪਾਦ",
 
             }
 
@@ -689,6 +711,11 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "விரும்பிய மின்துணி பொருட்களை வாங்க பயனர்களுடன் தொடர்புகொண்டு உடன்படிக்கையை நிறைவு செய்யவும்.",
                 "Follow Up": "தொடர்பு கொள்ளவும்",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "பரிமாற்றத்தைப் பூர்த்தி செய்ய பயனர்களுடன் தொடர்பில் இருங்கள் மற்றும் அவர்களின் மகிழ்ச்சியைக் கருத்தில் கொள்ளுங்கள்.",
+                "Vendors": "விற்பனையாளர்",
+                "All Products": "அனைத்து தயாரிப்புகள்",
+                "Add Product": "தயாரிப்பைச் சேர்க்கவும்",
+                "Interested Products": "ஆர்வமுள்ள தயாரிப்புகள்",
+
             }
 
         },
@@ -787,6 +814,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "इच्छित ई-कचरा आयटमची खरेदी अंतिम करण्यासाठी वापरकर्त्यांशी चर्चा करा आणि करार पूर्ण करा.",
                 "Follow Up": "पाठपुरावा",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "वापरकर्त्यांशी संपर्क ठेवा जेणेकरून व्यवहार प्रक्रिया सुरळीत होईल आणि ग्राहक समाधान मिळेल.",
+                "Vendors": "विक्रेते",
+                "All Products": "सर्व उत्पादने",
+                "Add Product": "उत्पादन जोडा",
+                "Interested Products": "आवडलेली उत्पादने",
             }
 
         },
@@ -885,6 +916,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Communicate with users to negotiate terms and finalize the purchase of desired e-waste items.": "వినియోగదారులతో సంప్రదించండి మరియు మీకు కావాల్సిన ఈ-వెస్ట్ అంశాల కొనుగోలును పూర్తిచేయండి.",
                 "Follow Up": "ముందుకు కొనసాగించండి",
                 "Maintain communication with users to ensure a smooth transaction process and customer satisfaction.": "వినియోగదారులతో సంబంధాలు కొనసాగించి లావాదేవీ సాఫీగా ఉండేలా చూడండి మరియు కస్టమర్ సంతృప్తిని పొందండి.",
+                "Vendors": "విక్రేతలు",
+                "All Products": "అన్ని ఉత్పత్తులు",
+                "Add Product": "ఉత్పత్తిని చేర్చండి",
+                "Interested Products": "ఆసక్తికరమైన ఉత్పత్తులు",
             }
         }
     }
