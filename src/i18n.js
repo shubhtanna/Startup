@@ -75,6 +75,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "precise solutions tailored to your needs",
                 "Message": "Message",
                 "Submit": "Submit",
+                "Why choose Us": "Why choose Us",
+                "Eco-Friendly Solutions": "Eco-Friendly Solutions",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability",
+                "Best Prices": "Best Prices",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste",
+                "Rewards and Benefits": "Rewards and Benefits",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use",
             }
         },
         fr: {
@@ -146,6 +153,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "solutions claires et précises adaptées à vos besoins",
                 "Message": "Message",
                 "Submit": "Soumettre",
+                "Why choose Us": "Pourquoi nous choisir",
+                "Eco-Friendly Solutions": "Solutions écologiques",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "Nous priorisons la réutilisation et l'élimination responsables, vous aidant à contribuer à la durabilité environnementale",
+                "Best Prices": "Meilleurs prix",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "Notre plateforme vous met en contact avec plusieurs commerçants, garantissant que vous obtenez les meilleures estimations de prix pour vos déchets électroniques",
+                "Rewards and Benefits": "Récompenses et avantages",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "Gagnez des points de récompense pour chaque transaction réussie, débloquant des offres et des incitations incroyables pour une utilisation continue",
             }
         },
         hi: {
@@ -217,6 +231,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "सटीक समाधान प्रदान करने में मदद करें जो आपकी आवश्यकताओं के अनुरूप हों",
                 "Message": "संदेश",
                 "Submit": "जमा करें",
+                "Why choose Us": "हमें क्यों चुनें",
+                "Eco-Friendly Solutions": "पर्यावरण अनुकूल समाधान",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "हम जिम्मेदार पुनः उपयोग और निपटान को प्राथमिकता देते हैं, जिससे आप पर्यावरणीय स्थिरता में योगदान कर सकते हैं",
+                "Best Prices": "सबसे अच्छे दाम",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "हमारा प्लेटफार्म आपको कई दुकानदारों से जोड़ता है, यह सुनिश्चित करता है कि आपको अपने ई-कचरे के लिए सर्वोत्तम मूल्य का अनुमान मिले",
+                "Rewards and Benefits": "इनाम और लाभ",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "हर सफल सौदे के लिए इनाम अंक अर्जित करें, निरंतर उपयोग के लिए अविश्वसनीय ऑफर और प्रोत्साहन प्राप्त करें",
             }
 
         },
@@ -289,6 +310,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "તમારી જરૂરિયાતોને અનુરૂપ સચોટ ઉકેલો પ્રદાન કરવામાં મદદ કરે",
                 "Message": "સંદેશ",
                 "Submit": "મોકલો",
+                "Why choose Us": "આમને કેમ પસંદ કરો",
+                "Eco-Friendly Solutions": "પર્યાવરણ મૈત્રીપૂર્ણ ઉકેલો",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "અમે જવાબદાર પુનઃઉપયોગ અને નિકાલને પ્રાથમિકતા આપીએ છીએ, તમને પર્યાવરણની ટકાઉપણામાં સહકાર આપવા માટે",
+                "Best Prices": "શ્રેષ્ઠ કિંમત",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "અમારી પ્લેટફોર્મ તમને ઘણી દુકાનદારો સાથે જોડે છે, જે ખાતરી આપે છે કે તમારે તમારા ઇ-વેસ્ટ માટે શ્રેષ્ઠ કિંમતો મળે",
+                "Rewards and Benefits": "ઇનામ અને લાભ",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "દરેક સફળ સોદા માટે ઇનામના પોઈન્ટ્સ મેળવો, સતત ઉપયોગ માટે અદ્ભુત ઑફર અને પ્રોત્સાહનો મેળવો",
             }
         },
         sp: {
@@ -360,6 +388,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "precisas adaptadas a sus necesidades",
                 "Message": "Mensaje",
                 "Submit": "Enviar",
+                "Why choose Us": "¿Por qué elegirnos?",
+                "Eco-Friendly Solutions": "Soluciones ecológicas",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "Priorizamos la reutilización y eliminación responsables, ayudándote a contribuir a la sostenibilidad ambiental",
+                "Best Prices": "Mejores precios",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "Nuestra plataforma te conecta con varios comerciantes, asegurando que obtengas las mejores estimaciones de precios para tus residuos electrónicos",
+                "Rewards and Benefits": "Recompensas y beneficios",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "Gana puntos de recompensa por cada trato exitoso, desbloqueando increíbles ofertas e incentivos para un uso continuado",
             }
 
         },
@@ -432,6 +467,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "ਤੁਹਾਡੇ ਲੋੜਾਂ ਮੁਤਾਬਕ ਸਹੀ ਹੱਲ ਪ੍ਰਦਾਨ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ",
                 "Message": "ਸੁਨੇਹਾ",
                 "Submit": "ਭੇਜੋ",
+                "Why choose Us": "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
+                "Eco-Friendly Solutions": "ਪਰਯਾਵਰਣ ਅਨੁਕੂਲ ਹੱਲ",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "ਅਸੀਂ ਜ਼ਿੰਮੇਵਾਰ ਰੀਯੂਜ਼ ਅਤੇ ਨਿਪਟਾਰੇ ਨੂੰ ਪਹਿਲ ਦੇਂਦੇ ਹਾਂ, ਤੁਹਾਡੇ ਵੱਲੋਂ ਪਰਯਾਵਰਣ ਦੀ ਟਿਕਾਊਤਾ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣ ਲਈ",
+                "Best Prices": "ਸਭ ਤੋਂ ਵਧੀਆ ਕੀਮਤਾਂ",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "ਸਾਡਾ ਪਲੇਟਫਾਰਮ ਤੁਹਾਨੂੰ ਕਈ ਦੁਕਾਨਦਾਰਾਂ ਨਾਲ ਜੋੜਦਾ ਹੈ, ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਆਪਣੇ ਇਲੈਕਟ੍ਰਾਨਿਕ ਕਚਰੇ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਕੀਮਤ ਮਿਲੇ",
+                "Rewards and Benefits": "ਇਨਾਮ ਅਤੇ ਫਾਇਦੇ",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "ਹਰ ਸਫਲ ਸੌਦੇ ਲਈ ਇਨਾਮ ਦੇ ਪੌਇੰਟ ਹਾਸਲ ਕਰੋ, ਲਗਾਤਾਰ ਵਰਤੋਂ ਲਈ ਸ਼ਾਨਦਾਰ ਪ੍ਰਸਿੱਧੀਆਂ ਅਤੇ ਪ੍ਰੋਤਸਾਹਨ ਖੋਲ੍ਹੋ",
             }
 
         },
@@ -504,6 +546,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "உங்கள் தேவைகளை பூர்த்தி செய்யும் சரியான தீர்வுகளை வழங்க உதவும் கேள்விகளை கேளுங்கள்",
                 "Message": "செய்தி",
                 "Submit": "சமர்ப்பிக்க",
+                "Why choose Us": "ஏன் எங்களை தேர்வு செய்ய வேண்டும்",
+                "Eco-Friendly Solutions": "சுற்றுச்சூழல் நட்பு தீர்வுகள்",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "பொறுப்பான மறுசுழற்சி மற்றும் கழிவுகளை நிர்வகிப்பதில் நாங்கள் முன்னுரிமை அளிக்கிறோம், சுற்றுச்சூழல் நிலைத்தன்மைக்காக நீங்கள் பங்களிக்க உதவுகிறோம்",
+                "Best Prices": "சிறந்த விலைகள்",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "எங்கள் தளம் பல கடைதாரர்களுடன் உங்களை இணைக்கிறது, உங்கள் மின் கழிவுகளுக்கு சிறந்த விலை மதிப்பீடுகளைப் பெற நீங்கள் உறுதிப்படுத்துகிறது",
+                "Rewards and Benefits": "விருதுகள் மற்றும் நன்மைகள்",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "ஒவ்வொரு வெற்றிகரமான ஒப்பந்தத்திற்கும் பரிசு புள்ளிகளைப் பெறுங்கள், தொடர்ந்து பயன்படுத்த ஆச்சரியமான சலுகைகள் மற்றும் ஊக்கங்களைத் திறக்கிறது",
             }
 
         },
@@ -576,6 +625,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "तुमच्या गरजेनुसार अचूक उपाय प्रदान करण्यात मदत करतात",
                 "Message": "संदेश",
                 "Submit": "सबमिट",
+                "Why choose Us": "आम्हाला का निवडावे",
+                "Eco-Friendly Solutions": "पर्यावरण पूरक उपाय",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "आम्ही जबाबदारीने पुनर्वापर आणि विल्हेवाटीला प्राधान्य देतो, ज्यामुळे तुम्ही पर्यावरणीय शाश्वततेत योगदान देऊ शकता",
+                "Best Prices": "सर्वोत्तम दर",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "आमचे व्यासपीठ तुम्हाला अनेक दुकानदारांशी जोडते, तुमच्या ई-कचऱ्यासाठी सर्वोत्तम किंमत अंदाज मिळेल याची खात्री करते",
+                "Rewards and Benefits": "पुरस्कार आणि फायदे",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "प्रत्येक यशस्वी करारासाठी बक्षीस गुण मिळवा, सतत वापरासाठी आश्चर्यकारक ऑफर आणि प्रोत्साहन उघडा",
             }
 
         },
@@ -648,6 +704,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "precise solutions tailored to your needs": "మీ అవసరాలకు అనుగుణంగా సరిగ్గా పరిష్కారం ఇవ్వడంలో సహాయపడే ప్రశ్నలు అడగండి",
                 "Message": "సందేశం",
                 "Submit": "సమర్పించు",
+                "Why choose Us": "మమ్మల్ని ఎందుకు ఎంచుకోవాలి",
+                "Eco-Friendly Solutions": "పర్యావరణానికి అనుకూలమైన పరిష్కారాలు",
+                "We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability": "మేము బాధ్యతాయుతమైన పునర్వినియోగం మరియు డిస్పోజల్‌ను ప్రాధాన్యం ఇస్తాము, పర్యావరణ స్థిరత్వానికి మీరు సహకరించడానికి సహాయపడతాము",
+                "Best Prices": "ఉత్తమ ధరలు",
+                "Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste": "మా వేదిక మీరు అనేక దుకాణదారులతో కనెక్ట్ చేస్తుంది, మీ ఈ-వేస్ట్ కోసం ఉత్తమ ధర అంచనాలు పొందినట్లు మీరు నిర్ధారిస్తుంది",
+                "Rewards and Benefits": "ఇనామాలు మరియు ప్రయోజనాలు",
+                "Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use": "ప్రతి విజయవంతమైన ఒప్పందానికి రివార్డు పాయింట్లు సంపాదించండి, నిరంతర వినియోగం కోసం అద్భుతమైన ఆఫర్లు మరియు ప్రోత్సాహకాలను విడుదల చేయండి",
             }
         }
     }

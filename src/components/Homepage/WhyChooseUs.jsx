@@ -1,14 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { FaLeaf } from "react-icons/fa";
 import { FaUserTag } from "react-icons/fa6";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 
 const WhyChooseUs = () => {
+    const {t} = useTranslation();
     return (
         <div>
             <div className='whychoose pt-20 mb-7 p-3'>
-                <div className=' text-center text-5xl font-bold mb-16 font-roboto'>Why choose Us?</div>
+                <div className=' text-center text-5xl font-bold mb-16 font-roboto'>{t("Why choose Us")}?</div>
                 <div className='flex justify-evenly group w-10/12 mx-auto'>
                     {/* box-1 */}
                     <div className=' bg-box-rgba text-center mr-3 ml-3 cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md'>
@@ -17,11 +19,11 @@ const WhyChooseUs = () => {
                                 <FaLeaf className=' text-section-rgba' />
                             </div>
                             <div className='mt-4 text-2xl text-white font-poppins'>
-                                <p>Eco-Friendly Solutions</p>
+                                <p>{t("Eco-Friendly Solutions")}</p>
                             </div>
                             <div className='p-4 text-white font-inter'>
                                 <p>
-                                We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability.
+                               {t("We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability")}.
                                 </p>
                             </div>
                         </div>
@@ -33,11 +35,11 @@ const WhyChooseUs = () => {
                                 <IoCheckmarkCircle className=' text-section-rgba' />
                             </div>
                             <div className='mt-4 text-2xl text-white font-poppins'>
-                                <p>Best Prices </p>
+                                <p>{t("Best Prices")} </p>
                             </div>
                             <div className='p-4 text-white font-inter'>
                                 <p>
-                                Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste.
+                                {t("Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste")}.
                                 </p>
                             </div>
                         </div>
@@ -49,11 +51,11 @@ const WhyChooseUs = () => {
                                 <FaUserTag className=' text-section-rgba' />
                             </div>
                             <div className='mt-4 text-2xl text-white font-poppins'>
-                                <p>Rewards and Benefits</p>
+                                <p>{t("Rewards and Benefits")}</p>
                             </div>
                             <div className='p-4 text-white font-inter'>
                                 <p>
-                                Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use.
+                                {t("Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use")}.
                                 </p>
                             </div>
                         </div>
