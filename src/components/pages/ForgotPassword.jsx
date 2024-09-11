@@ -6,8 +6,10 @@ import { useDispatch } from "react-redux";
 import { getPasswordResetToken } from "../../Services/Operation/authAPI";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const ForgotPassword = () => {
+  const {t} = useTranslation();
   const [emailSent, setEmailSent] = useState(false);
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
@@ -26,18 +28,18 @@ const ForgotPassword = () => {
           <div className="flex text-section-rgba font-roboto text-[1.15rem] p-5 -ml-[63rem]">
             <FaAngleLeft className="mt-1" />
             <Link to="/login">
-              <p className="font-roboto font-medium">Back to login</p>
+              <p className="font-roboto font-medium">{t("Back to login")}</p>
             </Link>
           </div>
           <div className="">
             <img className="w-[14.6rem] h-[10.75rem] " src={RESET} alt="" />
           </div>
           <div className=" text-section-rgba text-3xl font-roboto font-bold">
-            <p>Reset your password!</p>
+            <p>{("Reset your password")}!</p>
           </div>
           <div className="w-[28%] text-center text-section-rgba font-roboto mt-1 font-medium">
             <p>
-              Have no fear. We’ll email the instructions to reset your password.{" "}
+              {("Have no fear. We'll email the instructions to reset your password")}.{" "}
             </p>
           </div>
           <form onSubmit={handleOnSubmit}>
@@ -46,16 +48,16 @@ const ForgotPassword = () => {
               for="email"
               class="block mb-2 mt-3 font-medium text-gray-900 text-xl text-loginitem font-roboto"
             >
-              Email
+              {t("Email")}
             </label>
-            <div className="relative">
+            <div className="relative w-64">
               <input
-                className=" bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto"
+                className=" bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto "
                 type="email"
                 value={email}
                 name="email"
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your registered mail"
+                placeholder={t("Enter your registered mail")}
               />
               <MdOutlineEmail
                 className="absolute right-3 top-[18px] z-[10] cursor-pointer opacity-20"
@@ -65,7 +67,7 @@ const ForgotPassword = () => {
           </div>
           <div className="">
             <button className=" bg-register-rgba m-auto p-4 px-10 rounded-3xl tracking-widest w-[100%] transition-all duration-200 hover:scale-105 text-white flex justify-center text-xl mb-6 mt-4 font-semibold font-roboto">
-              {!emailSent ? "Submit" : "Resend Email"}
+              {!emailSent ? t("Submit") : t("Resend Email")}
             </button>
           </div>
           </form>
