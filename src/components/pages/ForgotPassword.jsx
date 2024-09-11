@@ -35,11 +35,11 @@ const ForgotPassword = () => {
             <img className="w-[14.6rem] h-[10.75rem] " src={RESET} alt="" />
           </div>
           <div className=" text-section-rgba text-3xl font-roboto font-bold">
-            <p>{("Reset your password")}!</p>
+            <p>{t("Reset your password")}!</p>
           </div>
           <div className="w-[28%] text-center text-section-rgba font-roboto mt-1 font-medium">
             <p>
-              {("Have no fear. We'll email the instructions to reset your password")}.{" "}
+              {t("Have no fear. We'll email the instructions to reset your password")}.{" "}
             </p>
           </div>
           <form onSubmit={handleOnSubmit}>

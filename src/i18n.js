@@ -105,6 +105,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "All Products",
                 "Add Product": "Add Product",
                 "Interested Products": "Interested Products",
+                "Have no fear. We'll email the instructions to reset your password": "Have no fear. We'll email the instructions to reset your password",
+                "Enter your registered mail": "Enter your registered mail",
+                "Resend Email": "Resend Email",
             }
         },
         fr: {
@@ -206,6 +209,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "Tous les produits",
                 "Add Product": "Ajouter un produit",
                 "Interested Products": "Produits intéressés",
+                "Have no fear. We'll email the instructions to reset your password": "N'ayez crainte. Nous vous enverrons les instructions pour réinitialiser votre mot de passe par e-mail",
+                "Enter your registered mail": "Entrez votre e-mail enregistré",
+                "Resend Email": "Renvoyer l'e-mail",
             }
         },
         hi: {
@@ -307,6 +313,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "सभी उत्पाद",
                 "Add Product": "उत्पाद जोड़ें",
                 "Interested Products": "रुचिकर उत्पाद",
+                "Have no fear. We'll email the instructions to reset your password": "चिंता न करें। हम आपको पासवर्ड रीसेट करने के निर्देश ईमेल करेंगे",
+                "Enter your registered mail": "अपना पंजीकृत ईमेल दर्ज करें",
+                "Resend Email": "ईमेल फिर से भेजें",
             }
 
         },
@@ -409,6 +418,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "બધા ઉત્પાદનો",
                 "Add Product": "ઉત્પાદન ઉમેરો",
                 "Interested Products": "રુચિ ધરાવતાં ઉત્પાદનો",
+                "Have no fear. We'll email the instructions to reset your password": "ભય ન રાખો. અમે તમારું પાસવર્ડ રીસેટ કરવા માટે સૂચનાઓ ઇમેઇલ કરીશું",
+                "Enter your registered mail": "તમારું નોંધાયેલ ઇમેઇલ દાખલ કરો",
+                "Resend Email": "ઇમેઇલ ફરીથી મોકલો",
             }
         },
         sp: {
@@ -510,6 +522,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "Todos los productos",
                 "Add Product": "Añadir producto",
                 "Interested Products": "Productos de interés",
+                "Have no fear. We'll email the instructions to reset your password": "No temas. Te enviaremos un correo electrónico con las instrucciones para restablecer tu contraseña",
+                "Enter your registered mail": "Introduce tu correo electrónico registrado",
+                "Resend Email": "Reenviar correo electrónico",
             }
 
         },
@@ -612,7 +627,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "ਸਾਰੇ ਉਤਪਾਦ",
                 "Add Product": "ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ",
                 "Interested Products": "ਦਿਲਚਸਪ ਉਤਪਾਦ",
-
+                "Have no fear. We'll email the instructions to reset your password": "ਡਰੋ ਨਾ। ਅਸੀਂ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਨੂੰ ਰੀਸੈੱਟ ਕਰਨ ਦੇ ਨਿਰਦੇਸ਼ਾਂ ਨੂੰ ਈਮੇਲ ਕਰਾਂਗੇ",
+                "Enter your registered mail": "ਆਪਣਾ ਰਜਿਸਟਰਡ ਈਮੇਲ ਦਰਜ ਕਰੋ",
+                "Resend Email": "ਈਮੇਲ ਮੁੜ ਭੇਜੋ",
             }
 
         },
@@ -715,7 +732,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "அனைத்து தயாரிப்புகள்",
                 "Add Product": "தயாரிப்பைச் சேர்க்கவும்",
                 "Interested Products": "ஆர்வமுள்ள தயாரிப்புகள்",
-
+                "Have no fear. We'll email the instructions to reset your password": "பயப்படாதீர்கள். உங்கள் கடவுச்சொல்லை மீட்டமைக்கக் காட்டி மின்னஞ்சலை அனுப்புகிறோம்",
+                "Enter your registered mail": "உங்கள் பதிவுசெய்யப்பட்ட மின்னஞ்சலை உள்ளிடவும்",
+                "Resend Email": "மின்னஞ்சலை மீண்டும் அனுப்பவும்",
             }
 
         },
@@ -818,6 +837,9 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "सर्व उत्पादने",
                 "Add Product": "उत्पादन जोडा",
                 "Interested Products": "आवडलेली उत्पादने",
+                "Have no fear. We'll email the instructions to reset your password": "भीती बाळगू नका. आम्ही तुमच्या पासवर्ड रीसेट करण्याच्या सूचना ईमेल करू",
+                "Enter your registered mail": "तुमचा नोंदणीकृत ईमेल टाका",
+                "Resend Email": "ईमेल पुन्हा पाठवा",
             }
 
         },
@@ -836,7 +858,6 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Dashboard": "డాష్‌బోర్డ్",
                 "Logout": "లాగ్అవుట్",
                 "Back to login": "లాగిన్‌కు తిరిగి వెళ్ళండి",
-                "Reset your password": "మీ పాస్‌వర్డ్‌ని రీసెట్ చేయండి",
                 "Forgot your old password? Enter your password and you're all set": "మీ పాత పాస్‌వర్డ్‌ని మర్చిపోయారా? మీ పాస్‌వర్డ్‌ని నమోదు చేయండి మరియు మీరు సెట్ అయ్యారు",
                 "New password": "కొత్త పాస్‌వర్డ్",
                 "Confirm password": "పాస్‌వర్డ్‌ని నిర్ధారించండి",
@@ -920,6 +941,10 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "All Products": "అన్ని ఉత్పత్తులు",
                 "Add Product": "ఉత్పత్తిని చేర్చండి",
                 "Interested Products": "ఆసక్తికరమైన ఉత్పత్తులు",
+                "Reset your password": "మీ పాస్వర్డ్‌ను రీసెట్ చేయండి",
+                "Have no fear. We'll email the instructions to reset your password": "భయపడకండి. మీ పాస్వర్డ్‌ను రీసెట్ చేయడానికి సూచనలను మేము ఇమెయిల్ చేస్తాము",
+                "Enter your registered mail": "మీ నమోదు చేసిన ఇమెయిల్‌ను నమోదు చేయండి",
+                "Resend Email": "ఇమెయిల్‌ను మళ్లీ పంపండి",
             }
         }
     }

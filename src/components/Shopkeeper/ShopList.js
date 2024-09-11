@@ -55,6 +55,8 @@ const shopData = [
  
 ];
 
+
+
 export const ShopList = () => {
 
   const {token} = useSelector((state) => state.auth);
