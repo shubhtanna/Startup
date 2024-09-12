@@ -6,8 +6,11 @@ import { RiDashboardLine } from "react-icons/ri";
 import { logout } from '../../Services/Operation/authAPI';
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import useOnClickOutside from '../../hooks/useOnClickOutside';
+import { useTranslation } from 'react-i18next';
 
 const ProfileDropdown = () => {
+
+  const {t} = useTranslation();
   const [open, setOpen] = useState(false);
   const { user } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
@@ -35,7 +38,7 @@ const ProfileDropdown = () => {
             <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
               <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-base'>
                 <RiDashboardLine />
-                Dashboard
+                {t("Dashboard")}
               </div>
             </Link>
 
@@ -45,10 +48,12 @@ const ProfileDropdown = () => {
             }}
             className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-base'>
               <RiLogoutCircleRLine/>
-              Logout
+              {t("Logout")}
             </div>
           </div>
         )
+
+        
       }
     </button>
   )

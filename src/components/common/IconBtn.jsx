@@ -1,3 +1,4 @@
+
 export default function IconBtn({
     text,
     onclick,
@@ -7,6 +8,7 @@ export default function IconBtn({
     customClasses,
     type,
   }) {
+
     return (
       <button
         disabled={disabled}
@@ -27,3 +29,5 @@ export default function IconBtn({
       </button>
     )
   }
+
+  
