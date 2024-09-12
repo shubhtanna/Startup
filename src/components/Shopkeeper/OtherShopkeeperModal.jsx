@@ -73,7 +73,7 @@ const OtherShopkeeperModal = ({setShowModal,otherProducts}) => {
   return (
     <div className='bg-[black] bg-opacity-10 backdrop-blur-sm fixed inset-0 z-[1000]'>
 
-          <div class="w-[100vw] h-[100vh] flex  flex-col justify-center items-center ">
+          <div className="w-[100vw] h-[100vh] flex  flex-col justify-center items-center ">
           <div className=' bg-white p-16 rounded-3xl' >
     <div className=' flex items-center gap-[15rem]'>
                 <p className=' text-[2.25rem] text-[#174B3A] font-semibold'>Other Shopkeeper</p>
