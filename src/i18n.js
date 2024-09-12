@@ -108,6 +108,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "Have no fear. We'll email the instructions to reset your password",
                 "Enter your registered mail": "Enter your registered mail",
                 "Resend Email": "Resend Email",
+                "Here are nearby Shopkeepers": "Here are nearby Shopkeepers",
+                "We have customized the list of shopkeepers based on your location": "We have customized the list of shopkeepers based on your location",
+                "See Less": "See Less",
+                "See All": "See All",
+                "Start selling": "Start selling",
+                "Now": "Now",
+                "Add your product, fill basics details and you are all set to sell your product": "Add your product, fill basics details and you are all set to sell your product",
+                "Add Product Now": "Add Product Now",
             }
         },
         fr: {
@@ -212,6 +220,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "N'ayez crainte. Nous vous enverrons les instructions pour réinitialiser votre mot de passe par e-mail",
                 "Enter your registered mail": "Entrez votre e-mail enregistré",
                 "Resend Email": "Renvoyer l'e-mail",
+                "Here are nearby Shopkeepers": "Voici les commerçants à proximité",
+                "We have customized the list of shopkeepers based on your location": "Nous avons personnalisé la liste des commerçants en fonction de votre emplacement",
+                "See Less": "Voir moins",
+                "See All": "Voir tout",
+                "Start selling": "Commencez à vendre",
+                "Now": "Maintenant",
+                "Add your product, fill basics details and you are all set to sell your product": "Ajoutez votre produit, remplissez les informations de base et vous êtes prêt à vendre votre produit",
+                "Add Product Now": "Ajouter le produit maintenant",
             }
         },
         hi: {
@@ -316,6 +332,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "चिंता न करें। हम आपको पासवर्ड रीसेट करने के निर्देश ईमेल करेंगे",
                 "Enter your registered mail": "अपना पंजीकृत ईमेल दर्ज करें",
                 "Resend Email": "ईमेल फिर से भेजें",
+                "Here are nearby Shopkeepers": "यहाँ आपके पास के दुकानदार हैं",
+                "We have customized the list of shopkeepers based on your location": "हमने आपके स्थान के अनुसार दुकानदारों की सूची अनुकूलित की है",
+                "See Less": "कम देखें",
+                "See All": "सब देखें",
+                "Start selling": "बेचने की शुरुआत करें",
+                "Now": "अभी",
+                "Add your product, fill basics details and you are all set to sell your product": "अपना उत्पाद जोड़ें, आवश्यक विवरण भरें और आप अपने उत्पाद को बेचने के लिए तैयार हैं",
+                "Add Product Now": "अभी उत्पाद जोड़ें",
             }
 
         },
@@ -421,6 +445,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "ભય ન રાખો. અમે તમારું પાસવર્ડ રીસેટ કરવા માટે સૂચનાઓ ઇમેઇલ કરીશું",
                 "Enter your registered mail": "તમારું નોંધાયેલ ઇમેઇલ દાખલ કરો",
                 "Resend Email": "ઇમેઇલ ફરીથી મોકલો",
+                "Here are nearby Shopkeepers": "આ છે તમારી નજીકના દુકાનદાર",
+                "We have customized the list of shopkeepers based on your location": "અમે તમારા સ્થળના આધાર પર દુકાનદારોની યાદી કસ્ટમાઇઝ કરી છે",
+                "See Less": "ઓછું જુઓ",
+                "See All": "બધું જુઓ",
+                "Start selling": "વેચાણ શરૂ કરો",
+                "Now": "હવે",
+                "Add your product, fill basics details and you are all set to sell your product": "તમારો પ્રોડક્ટ ઉમેરો, મૂળભૂત વિગતો ભરો અને તમારો પ્રોડક્ટ વેચવા તૈયાર છો",
+                "Add Product Now": "હવે પ્રોડક્ટ ઉમેરો",
             }
         },
         sp: {
@@ -525,6 +557,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "No temas. Te enviaremos un correo electrónico con las instrucciones para restablecer tu contraseña",
                 "Enter your registered mail": "Introduce tu correo electrónico registrado",
                 "Resend Email": "Reenviar correo electrónico",
+                "Here are nearby Shopkeepers": "Aquí están los comerciantes cercanos",
+                "We have customized the list of shopkeepers based on your location": "Hemos personalizado la lista de comerciantes según tu ubicación",
+                "See Less": "Ver menos",
+                "See All": "Ver todo",
+                "Start selling": "Comienza a vender",
+                "Now": "Ahora",
+                "Add your product, fill basics details and you are all set to sell your product": "Agrega tu producto, llena los detalles básicos y estarás listo para vender tu producto",
+                "Add Product Now": "Agregar producto ahora",
             }
 
         },
@@ -630,6 +670,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "ਡਰੋ ਨਾ। ਅਸੀਂ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਨੂੰ ਰੀਸੈੱਟ ਕਰਨ ਦੇ ਨਿਰਦੇਸ਼ਾਂ ਨੂੰ ਈਮੇਲ ਕਰਾਂਗੇ",
                 "Enter your registered mail": "ਆਪਣਾ ਰਜਿਸਟਰਡ ਈਮੇਲ ਦਰਜ ਕਰੋ",
                 "Resend Email": "ਈਮੇਲ ਮੁੜ ਭੇਜੋ",
+                "Here are nearby Shopkeepers": "ਇਥੇ ਨੇੜਲੇ ਦੁਕਾਨਦਾਰ ਹਨ",
+                "We have customized the list of shopkeepers based on your location": "ਅਸੀਂ ਤੁਹਾਡੀ ਸਥਿਤੀ ਦੇ ਅਧਾਰ 'ਤੇ ਦੁਕਾਨਦਾਰਾਂ ਦੀ ਸੂਚੀ ਵਿਅਕਤੀਗਤ ਕੀਤੀ ਹੈ",
+                "See Less": "ਘੱਟ ਵੇਖੋ",
+                "See All": "ਸਾਰਾ ਵੇਖੋ",
+                "Start selling": "ਵਿਕਰੀ ਸ਼ੁਰੂ ਕਰੋ",
+                "Now": "ਹੁਣ",
+                "Add your product, fill basics details and you are all set to sell your product": "ਆਪਣੇ ਉਤਪਾਦ ਜੋੜੋ, ਮੂਲ ਜਾਣਕਾਰੀ ਭਰੋ ਅਤੇ ਤੁਸੀਂ ਆਪਣਾ ਉਤਪਾਦ ਵੇਚਣ ਲਈ ਤਿਆਰ ਹੋ",
+                "Add Product Now": "ਹੁਣ ਉਤਪਾਦ ਜੋੜੋ",
             }
 
         },
@@ -735,6 +783,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "பயப்படாதீர்கள். உங்கள் கடவுச்சொல்லை மீட்டமைக்கக் காட்டி மின்னஞ்சலை அனுப்புகிறோம்",
                 "Enter your registered mail": "உங்கள் பதிவுசெய்யப்பட்ட மின்னஞ்சலை உள்ளிடவும்",
                 "Resend Email": "மின்னஞ்சலை மீண்டும் அனுப்பவும்",
+                "Here are nearby Shopkeepers": "இங்கே அருகிலுள்ள கடைக்காரர்கள் உள்ளனர்",
+                "We have customized the list of shopkeepers based on your location": "உங்கள் இருப்பிடத்தை அடிப்படையாகக் கொண்டு கடைக்காரர்களின் பட்டியலை நாம் தனிப்பயனாக்கியுள்ளோம்",
+                "See Less": "குறைவாகக் காட்டு",
+                "See All": "அனைத்தையும் காட்டு",
+                "Start selling": "விற்பனை செய்யத் தொடங்குங்கள்",
+                "Now": "இப்போது",
+                "Add your product, fill basics details and you are all set to sell your product": "உங்கள் பொருளைச் சேர்க்கவும், அடிப்படை விவரங்களை நிரப்பவும், உங்கள் பொருளை விற்க நீங்கள் தயாராக இருக்கிறீர்கள்",
+                "Add Product Now": "இப்போது பொருளைச் சேர்க்கவும்",
             }
 
         },
@@ -840,6 +896,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "भीती बाळगू नका. आम्ही तुमच्या पासवर्ड रीसेट करण्याच्या सूचना ईमेल करू",
                 "Enter your registered mail": "तुमचा नोंदणीकृत ईमेल टाका",
                 "Resend Email": "ईमेल पुन्हा पाठवा",
+                "Here are nearby Shopkeepers": "येथे जवळचे दुकानदार आहेत",
+                "We have customized the list of shopkeepers based on your location": "आम्ही तुमच्या स्थानावर आधारित दुकानदारांची यादी सानुकूलित केली आहे",
+                "See Less": "कमी दाखवा",
+                "See All": "सर्व दाखवा",
+                "Start selling": "विक्री सुरू करा",
+                "Now": "आता",
+                "Add your product, fill basics details and you are all set to sell your product": "तुमचे उत्पादन जोडा, मूलभूत तपशील भरा आणि तुम्ही तुमचे उत्पादन विकण्यासाठी सज्ज आहात",
+                "Add Product Now": "आता उत्पादन जोडा",
             }
 
         },
@@ -945,6 +1009,14 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Have no fear. We'll email the instructions to reset your password": "భయపడకండి. మీ పాస్వర్డ్‌ను రీసెట్ చేయడానికి సూచనలను మేము ఇమెయిల్ చేస్తాము",
                 "Enter your registered mail": "మీ నమోదు చేసిన ఇమెయిల్‌ను నమోదు చేయండి",
                 "Resend Email": "ఇమెయిల్‌ను మళ్లీ పంపండి",
+                "Here are nearby Shopkeepers": "ఇక్కడ సమీపంలో ఉన్న దుకాణదారులు ఉన్నారు",
+                "We have customized the list of shopkeepers based on your location": "మీ ప్రదేశాన్ని ఆధారంగా చేసుకుని దుకాణదారుల జాబితాను మేము అనుకూలంగా మార్చాము",
+                "See Less": "తక్కువ చూడండి",
+                "See All": "అంతా చూడండి",
+                "Start selling": "అమ్మకం ప్రారంభించండి",
+                "Now": "ఇప్పుడే",
+                "Add your product, fill basics details and you are all set to sell your product": "మీ ఉత్పత్తిని జోడించండి, ప్రాథమిక వివరాలను పూరించండి మరియు మీరు మీ ఉత్పత్తిని అమ్మడానికి సిద్ధంగా ఉన్నారు",
+                "Add Product Now": "ఉత్పత్తిని ఇప్పుడు జోడించండి",
             }
         }
     }
