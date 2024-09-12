@@ -381,6 +381,7 @@ export const allOtherShopkeepersPrice = async (req, res) => {
         const { productId } = req.query;
         
         const userId = req.user.id; // Assuming req.user contains the logged-in user's ID
+        console.log("user id :",req.user.id);
 
         // Find the product and populate the estimatedPrice.userId field
         const product = await Product.findById(productId).populate({
@@ -394,6 +395,8 @@ export const allOtherShopkeepersPrice = async (req, res) => {
                 success: false,
             });
         }
+
+        console.log("Product in interested product controller:",product);
 
         // Separate the logged-in vendor's price from other shopkeepers' prices
         const myPriceEntry = product.estimatedPrice.find(priceEntry => priceEntry.userId._id.toString() === userId.toString());
