@@ -3,9 +3,11 @@ import { FaAngleLeft } from "react-icons/fa";
 import { addPrice } from '../../../Services/Operation/productAPI';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const TermsCondition = ({ setConfirmCheck, product, price }) => {
     const [isChecked, setisChecked] = useState(false);
+    const {t} = useTranslation();
 
     const{token} = useSelector((state) => state.auth);
     const navigate = useNavigate();
@@ -37,7 +39,7 @@ export const TermsCondition = ({ setConfirmCheck, product, price }) => {
 
                         <FaAngleLeft className='text-[white] text-[24px]' />
 
-                        <p className='text-white text-[24px]'>Accept terms and conditions and publish!</p>
+                        <p className='text-white text-[24px]'>{t("Accept terms and conditions and publish!")}</p>
                     </div>
 
                     <div className='flex gap-4'>
@@ -49,7 +51,7 @@ export const TermsCondition = ({ setConfirmCheck, product, price }) => {
                         />
                         <label className='text-white'>
                             ( Terms and Condition )
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa dignissimos soluta tempora repellat deleniti explicabo accusamus molestiae accusantium possimus corrupti tempore ratione incidunt non, voluptatibus rerum in cum! Consequuntur, minus.
+                            {t("Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa dignissimos soluta tempora repellat deleniti explicabo accusamus molestiae accusantium possimus corrupti tempore ratione incidunt non, voluptatibus rerum in cum! Consequuntur, minus.")}
                         </label>
 
                     </div>
@@ -57,10 +59,12 @@ export const TermsCondition = ({ setConfirmCheck, product, price }) => {
                     <button
                         onClick={handlePublish}
                         className={`bg-[#F19A3E] mt-6 w-[200px] text-white px-6 py-2 rounded-md ${!isChecked ? "opacity-50 cursor-not-allowed" : ""
-                            }`} disabled={!isChecked}>Publish</button>
+                            }`} disabled={!isChecked}>{t("Publish")}</button>
                 </div>
 
             </div>
         )
     }
 }
+
+

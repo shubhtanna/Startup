@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { getAllProductsByCity } from '../../../Services/Operation/vendorAPI';
 import { useSelector } from 'react-redux';
 import OtherShopkeeperModal from '../../Shopkeeper/OtherShopkeeperModal';
+import { useTranslation } from 'react-i18next';
 
 // const products=[
 //   {
@@ -66,6 +67,8 @@ export const AllProduct = () => {
 
     const { token } = useSelector((state) => state.auth);
 
+    const {t} = useTranslation();
+
     useEffect(() => {
         const getProducts = async () => {
             const res = await getAllProductsByCity(token);
@@ -93,14 +96,14 @@ export const AllProduct = () => {
             <div className='bg-[#DCE2DE] '>
 
                 <div><p className='text-xl font-medium ml-5 p-6'>
-                    Home / dashboard / <span className=' text-[#F19A3E]'>{location.pathname.split("/").slice(-1)}</span></p>
+                   {t("Home / dashboard /")} <span className=' text-[#F19A3E]'>{location.pathname.split("/").slice(-1)}</span></p>
                 </div>
 
                 <div className='p-2 space-y-7'>
 
                     <div>
-                        <p className='ml-[70px] text-[2.25rem] font-semibold'>Check out the list of products!</p>
-                        <p className=' ml-[70px]  text-[1rem] text-[#174B3A]'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                        <p className='ml-[70px] text-[2.25rem] font-semibold'>{t("Check out the list of products!")}</p>
+                        <p className=' ml-[70px]  text-[1rem] text-[#174B3A]'>{t("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium")}</p>
                     </div>
 
                     <div className='flex flex-col'>
@@ -141,6 +144,7 @@ export const AllProduct = () => {
                                     //     </div>
                                     // </div>
 
+                  
                                     <div className='flex space-x-8 bg-[white] rounded-md mb-4 w-[800px] relative' >
 
                                         <img src={product.productImage} width="300px" className='p-4'>
@@ -180,6 +184,32 @@ export const AllProduct = () => {
                                         <div className='bg-[#292D2A] text-white absolute top-0 right-4 width-[500px] flex flex-col justify-center items-center p-4 rounded-bl-lg rounded-br-lg'>
                                                 <p className='text-[20px] '>{product.estimatedPrice.length}</p>
                                                 <p className='text-[12px] italic'>Interested</p>
+
+                                            <div className='flex flex-col space-y-2'>
+                                                <p className=' text-[#00000085] text-[1rem]'>{t("Product name")}</p>
+                                                <p>{product.productName}</p>
+                                            </div>
+
+                                            <div className=' flex flex-col space-y-2'>
+                                                <p className=' text-[#00000085] text-[1rem]'>{t("Category")}</p>
+                                                <p>{product.category.categoryName}</p>
+                                            </div>
+
+                                            <div className='flex flex-col space-y-2'>
+                                                <p className=' text-[#00000085] text-[1rem]'>{t("Brand")}</p>
+                                                <p>{product.brandName.name}</p>
+                                            </div>
+
+                                            <div className='underline text-[#093FFE] text-base font-medium'>
+                                                <Link onClick={() => handleViewMore(product)} >{t("View More")}</Link>
+                                            </div>
+
+                                        </div>
+                                        <div className='flex gap-4 justify-center font-roboto mt-4'>
+
+                                            <FaRegHeart className=' text-red-600 ml-8' />
+                                            <p className='-mt-1 text-[#174B3A]'>{product.estimatedPrice.length} {t("shopkeepers have shown interest in this product")}
+                                                <span className='underline ml-2 text-[#F19A3E]'><button onClick={()=>handleModal(product)}>{t("view list")}</button></span></p>
                                         </div>
 
                                     </div>
