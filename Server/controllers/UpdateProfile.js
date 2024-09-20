@@ -4,7 +4,7 @@ import { uploadImageCloudinary } from "../utils/ImageUploader.js";
 import { respond } from "../utils/response.js";
 import { Vendor } from "../models/Vendor.js";
 import dotenv from "dotenv"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import { mailsender } from "../utils/mailSender.js";
 
 dotenv.config();
