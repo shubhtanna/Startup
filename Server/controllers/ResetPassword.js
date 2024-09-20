@@ -1,7 +1,7 @@
 import { User } from "../models/User.js";
 import { mailsender } from "../utils/mailSender.js";
 import { respond } from "../utils/response.js";
-import bcrypt from "bcryptjs';";
+import bcrypt from 'bcryptjs';
 import crypto from "crypto";
 
 
