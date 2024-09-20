@@ -1,7 +1,7 @@
 import { User } from "../models/User.js";
 import { Otp } from "../models/Otp.js";
 import otpGenerator from "otp-generator";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { respond } from "../utils/response.js";
