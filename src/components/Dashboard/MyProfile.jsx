@@ -76,13 +76,17 @@ const MyProfile = () => {
                   <img src={REWARD} width={50} height={40} />
 
                   <div>
-                    <p className='text-[#174B3A] font-medium font-roboto text-xl'>Reward points</p>
+                    <p className='text-[#174B3A] font-medium font-roboto text-xl'>
+                   Reward points
+                    </p>
                     <p className='text-[#174B3A] font-black font-roboto text-xl'>100</p>
                   </div>
                 </div>
 
                 <div className='flex justify-center mt-3'>
-                  <button className=' font-roboto font-medium text-[#fff] text-[14px] bg-[#F19A3E] rounded-full px-7 py-2'>Redeem now </button>
+                  <button className=' font-roboto font-medium text-[#fff] text-[14px] bg-[#F19A3E] rounded-full px-7 py-2'>
+                  <Link to="/dashboard/redeem-award">Redeem now</Link>
+                   </button>
                 </div>
               </div>
             </div>
