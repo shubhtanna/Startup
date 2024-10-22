@@ -251,7 +251,7 @@ const SIgnup_Form = () => {
         <div className=" text-center mt-3">
           <button
             type="submit"
-            className=" bg-[#F19A3E] text-white py-4 px-28 rounded-3xl text-[28px] font-semibold hover:scale-105 transition-all duration-200 font-roboto"
+            className=" bg-[#F19A3E] text-white py-2 px-14 rounded-3xl text-[28px] font-semibold hover:scale-105 transition-all duration-200 font-roboto"
           >
            {t("Get OTP")} 
           </button>
