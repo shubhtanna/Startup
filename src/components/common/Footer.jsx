@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { storage } from '../../utils/firebaseConfig';
 
 const Footer = () => {
   const { t } = useTranslation();
+  const [logoImageURL, setLogoImageURL] = useState('');
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const imageRef = ref(storage, "gs://t-music-be993.appspot.com/E-Waste/LOGO.png");
+        const url = await getDownloadURL(imageRef);
+        setLogoImageURL(url);
+      } catch (error) {
+        console.error("Error fetching image from Firebase Storage:", error);
+      }
+    };
+    fetchImage();
+  }, []);
+
   return (
     <div className="bg-box-rgba p-5">
       <div className="flex flex-col md:flex-row justify-evenly mb-4 font-inter text-white">
         {/* box-1 */}
         <div className="text-center md:text-left mb-4 md:mb-0">
-          LOGO
+          {logoImageURL ? (
+            <img src={logoImageURL} alt="Logo" className="w-24 h-auto" />
+          ) : (
+            <p>{t("LOGO")}</p>
+          )}
         </div>
         
         {/* box-2 */}

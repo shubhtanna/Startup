@@ -69,7 +69,7 @@ const LoginForm = () => {
                     <Link to={"/forgot-password"} className="text-sm font-medium hover:underline dark:text-primary-500 font-roboto underline text-[#2378C7]">{t("Forgot password")}?</Link>
                 </div>
                 <div className=''>
-                    <button className=' bg-register-rgba m-auto p-4 rounded-3xl tracking-widest w-[40%] transition-all duration-200 hover:scale-105 text-white flex justify-center text-2xl mb-6 font-semibold font-roboto'>{t("Login")}</button>
+                    <button className=' bg-register-rgba m-auto p-4 rounded-3xl tracking-widest w-[50%] transition-all duration-200 hover:scale-105 text-white flex justify-center text-2xl mb-6 font-semibold font-roboto'>{t("Login")}</button>
                 </div>
 
             </form>
