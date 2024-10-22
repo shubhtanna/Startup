@@ -72,15 +72,32 @@
 // export default Why_sell
 
 
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { TbWorld } from "react-icons/tb";
 import { RiRotateLockFill } from "react-icons/ri";
 import BULB from '../../assets/bulb_image.png';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { getDownloadURL,ref } from 'firebase/storage';
+import {storage} from '../../utils/firebaseConfig';
+
 
 function Why_sell() {
   const { t } = useTranslation();
+  const [bulbImageURL,setBulbImageURL] = useState('');
+
+  useEffect(() =>{
+    const fetchImage = async () =>{
+      try{
+        const imageRef = ref(storage,'gs://t-music-be993.appspot.com/E-Waste/bulb_image.png');
+        const url = await getDownloadURL(imageRef);
+        setBulbImageURL(url);
+      }catch (error){
+        console.error('Error fetching image from Firebase Storage:', error);
+      }
+    };
+    fetchImage();
+  }, [])
   
   return (
     <div>
@@ -142,7 +159,7 @@ function Why_sell() {
 
           {/* Image */}
           <div className='lg:w-[48%]'>
-            <img src={BULB} className='w-full h-auto' alt='Bulb' />
+            <img src={bulbImageURL} className='w-full h-auto' alt='Bulb' />
           </div>
         </div>
       </div>
