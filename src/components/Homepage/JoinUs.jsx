@@ -69,11 +69,13 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import JOIN_US from "../../assets/join_us_image.png";
 import { useDispatch } from 'react-redux';
 import { contactUs } from '../../Services/Operation/userAPI';
 import { useTranslation } from 'react-i18next';
+import { getDownloadURL,ref } from 'firebase/storage';
+import {storage} from '../../utils/firebaseConfig';
 
 const JoinUs = () => {
     const { t } = useTranslation();
@@ -84,12 +86,31 @@ const JoinUs = () => {
 
     const { email, message } = formData;
 
+    const [joinUsImage,setJoinUsImage] = useState('');
+
     const handleOnChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
             [e.target.name]: e.target.value,
         }));
     };
+
+    useEffect(() => {
+        const fetchImage = async () => {
+          try {
+            const imageRef = ref(storage, 'gs://t-music-be993.appspot.com/E-Waste/join_us_image.png'); // Replace with the correct path in your Firebase Storage
+            const url = await getDownloadURL(imageRef);
+            setJoinUsImage(url);
+          } catch (error) {
+            console.error('Error fetching image from Firebase Storage:', error);
+          }
+        };
+    
+        fetchImage();
+      }, []);
+    
+    
+
 
     function handleOnSubmit(e) {
         e.preventDefault();
@@ -144,7 +165,7 @@ const JoinUs = () => {
                     {/* Image Section */}
                     <div className='w-full lg:w-1/2 mt-8 lg:mt-0'>
                         <img 
-                            src={JOIN_US} 
+                            src={joinUsImage} 
                             alt="Join Us" 
                             className='w-full h-auto object-cover' 
                         />
