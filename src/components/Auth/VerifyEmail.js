@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { FaAngleLeft } from "react-icons/fa";
 import verifyemail from '../asets/email.png'
 import { useTranslation } from 'react-i18next';
 
+
 const VerifyEmail = () => {
   const { t } = useTranslation();
+
   return (
     <div className='w-[100vw] h-[100vh] flex justify-center items-center'>
 
