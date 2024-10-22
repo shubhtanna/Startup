@@ -86,7 +86,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
-
 const toogles = ["Customer", "Shopkeeper"];
 
 const Customize_your_feed = () => {
