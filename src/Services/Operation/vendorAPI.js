@@ -50,11 +50,11 @@ export const getAllProductsByCity = async(token) => {
             headers: { authorization: `Bearer ${token}` },
         });
         console.log("GET_ALL_PRODUCTS..........",res);
-
+``
         if (!res?.data?.success) {
             throw new Error("Could not get all products")
         }
-
+        // console.log("ProductDetail",res)
         result = res?.data?.data
     } catch(error) {
         console.log("GET_ALL_PRODUCTS...............",error)
