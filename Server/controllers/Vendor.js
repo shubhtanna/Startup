@@ -52,10 +52,11 @@ export const getAllProductsByCity = async (req,res) => {
 
             // console.log("data:",data)
 
+
             const filteredData = data.filter(product => product.individual !== null);
 
             // console.log("Filtered data:", filteredData);
-
+            // console.log(filteredData);
         return respond(res,"get all products by city successfully",200,true,filteredData)
     } catch(error) {
         console.log(error) 
