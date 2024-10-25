@@ -27,15 +27,15 @@ export const ShopDetails = () => {
     } = useForm();
 
     const submitVendorForm = async (data) => {
-        try{
-            dispatch(updateVendorDetais(token,data))
+        try {
+            dispatch(updateVendorDetais(token, data))
         }
-        catch(error) {
+        catch (error) {
             console.log("ERROR MESSAGE - ", error.message)
         }
     }
 
-   
+
 
     return (
         <div>
@@ -160,18 +160,27 @@ export const ShopDetails = () => {
           errors={errors}
           /> */}
 
-                        
+
 
                     </label>
 
                 </div>
 
-                <div className='mt-8 flex justify-between'>
-                    <button className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'
-                    onClick={() => navigate("/dashboard/my-profile")}
-                    >Cancel</button>
-                    <button type='submit' className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-8 py-3 text-white rounded-md'>Save & Update</button>
+                <div className='mt-8 flex flex-col md:flex-row justify-between gap-4 md:gap-8'>
+                    <button
+                        className='bg-[#F19A3E] text-[16px] md:text-[18px] font-medium font-roboto px-6 py-3 md:px-8 md:py-3 text-white rounded-md w-full md:w-auto'
+                        onClick={() => navigate("/dashboard/my-profile")}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type='submit'
+                        className='bg-[#F19A3E] text-[16px] md:text-[18px] font-medium font-roboto px-6 py-3 md:px-8 md:py-3 text-white rounded-md w-full md:w-auto'
+                    >
+                        Save & Update
+                    </button>
                 </div>
+
 
             </form>
         </div>
