@@ -23,6 +23,7 @@ import InterestedShopkeeper from './components/Shopkeeper/InterestedShopkeeper';
 import { EditInterestedProduct } from './components/Shopkeeper/EditInterestedProduct';
 import EditProduct from './components/Dashboard/EditProduct'
 import Languageselector from "./components/language-selector"
+import Feed from './components/pages/feedback';
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,8 @@ function App() {
 
         <Route path="allvendors" element={<ShopList/>}/>
 
+        <Route path='raise-ticket' element={<Feed/>}/>
+
         <Route element={<Dashboard/>}>
 
           <Route path='/dashboard/my-profile' element={<MyProfile/>}/>
@@ -67,6 +70,7 @@ function App() {
           <Route path='/dashboard/intrested-shopkeeper-products' element={<EditInterestedProduct/>}/>
 
           {/* <Route path='/dashboard/all-products/add-price' element={<ProductDescModal/>}/> */}
+
 
         </Route>
 
