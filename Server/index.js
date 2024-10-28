@@ -9,7 +9,8 @@ import userRouter from "./routes/user.js"
 import adminRouter from "./routes/admin.js"
 import vendorRouter from "./routes/vendor.js"
 import individualRouter from "./routes/individual.js"
-import cors from "cors"
+import ticketRoutes from './routes/ticketRoutes.js';
+import cors from "cors";
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/api/v1/auth",userRouter);
 app.use("/api/v1/admin",adminRouter)
 app.use("/api/v1/vendor",vendorRouter)
 app.use("/api/v1/individual",individualRouter)
+app.use("/api",ticketRoutes)
 
 app.get("/" , (req,res) => {
     return respond(res,"Your Server is up and running",200,true)
