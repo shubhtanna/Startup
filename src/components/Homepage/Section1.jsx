@@ -91,7 +91,7 @@ const Section1 = () => {
         {/* Image Section */}
         <div className="flex justify-center lg:justify-end">
           {binImageUrl ? (
-            <img src={binImageUrl} alt="E-waste bin" className="max-w-full h-auto" />
+            <img src={binImageUrl} alt="E-waste bin" className="max-w-full h-[300px] mb-5" />
           ) : (
             <p>Loading image...</p>
           )}
