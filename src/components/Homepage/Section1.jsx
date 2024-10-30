@@ -70,7 +70,7 @@ const Section1 = () => {
     <div className="bg-[#DCE2DE] py-8">
       <div className="flex flex-col lg:flex-row justify-evenly w-11/12 md:w-10/12 mx-auto gap-8">
         {/* Text Section */}
-        <div className="flex flex-col gap-4 justify-center max-w-[700px] font-semibold text-center lg:text-left">
+        <div className="flex flex-col gap-4 justify-center max-w-[750px] font-semibold text-center lg:text-left">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-roboto">
             {t('Transforming')} <span className="text-[#277158]">E-waste</span> {t('into Environmental Impact')}
           </h1>
