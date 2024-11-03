@@ -8,6 +8,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import rootReducer from './reducers/index';
 import { Toaster } from 'react-hot-toast';
 import "./i18n"
+import Chatbot from './MessageBox/msg';
  
 const store = configureStore({
   reducer:rootReducer,
@@ -21,6 +22,7 @@ root.render(
     <Provider store={store}>
     <BrowserRouter>
       <App />
+      <Chatbot/>
       <Toaster/>
     </BrowserRouter>
   </Provider>

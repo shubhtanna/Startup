@@ -42,6 +42,7 @@ app.use("/api/v1/vendor",vendorRouter)
 app.use("/api/v1/individual",individualRouter)
 app.use("/api",ticketRoutes)
 
+
 app.get("/" , (req,res) => {
     return respond(res,"Your Server is up and running",200,true)
 });
