@@ -160,63 +160,122 @@ export const signup = async (req, res) => {
   }
 };
 
+// export const login = async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+
+//     if (!email || !password) {
+//       return respond(res, "All fields are required", 403, false);
+//     }
+
+//     // const user = await User.findOne({ email }).populate({
+//     //   path:"profile",
+//     //   populate: {
+//     //     path: 'gender', // This is only if gender is a reference field
+//     //   }
+//     // }).exec();
+
+//     const user = await User.findOne({ email }).populate("profile");
+
+//     if (!user) {
+//       return respond(
+//         res,
+//         "user is not registerd, Please signup first",
+//         404,
+//         false
+//       );
+//     }
+
+//     if (await bcrypt.compare(password, user.password)) {
+//       const payload = {
+//         email: user.email,
+//         id: user._id,
+//         accountType: user.accountType,
+//         city: user.city,
+//       };
+
+//       const token = jwt.sign(payload, process.env.JWT_SECRET, {
+//         expiresIn: "240h",
+//       });
+
+//       user.token = token;
+//       user.password = undefined;
+
+//       const options = {
+//         expires: new Date(Date.now() + 3 * 2 * 60 * 60 * 1000),
+//         httpOnly: true,
+//       }; //doubt
+
+//       res.cookie("token", token, options).status(200).json({
+//         success: true,
+//         token,
+//         user,
+//         message: "Logged in successfully",
+//       });
+//     } else {
+//       return respond(res, "Password is incorrect", 401, false);
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return respond(res, "Login failure, Please try againn", 500, false);
+//   }
+// };
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Check if all fields are provided
     if (!email || !password) {
       return respond(res, "All fields are required", 403, false);
     }
 
-    // const user = await User.findOne({ email }).populate({
-    //   path:"profile",
-    //   populate: {
-    //     path: 'gender', // This is only if gender is a reference field
-    //   }
-    // }).exec();
-
+    // Find the user by email and populate profile
     const user = await User.findOne({ email }).populate("profile");
 
+    // Check if user exists
     if (!user) {
-      return respond(
-        res,
-        "user is not registerd, Please signup first",
-        404,
-        false
-      );
+      return respond(res, "User is not registered. Please sign up first.", 404, false);
     }
 
-    if (await bcrypt.compare(password, user.password)) {
-      const payload = {
-        email: user.email,
-        id: user._id,
-        accountType: user.accountType,
-        city: user.city,
-      };
-
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: "240h",
-      });
-
-      user.token = token;
-      user.password = undefined;
-
-      const options = {
-        expires: new Date(Date.now() + 3 * 2 * 60 * 60 * 1000),
-        httpOnly: true,
-      }; //doubt
-
-      res.cookie("token", token, options).status(200).json({
-        success: true,
-        token,
-        user,
-        message: "Logged in successfully",
-      });
-    } else {
+    // Validate password
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
       return respond(res, "Password is incorrect", 401, false);
     }
+
+    // Generate token payload
+    const payload = {
+      email: user.email,
+      id: user._id,
+      accountType: user.accountType,
+      city: user.city,
+    };
+
+    // Generate JWT token
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "240h" });
+
+    // Store token and remove password from user object for security
+    user.token = token;
+    user.password = undefined;
+
+    // Define cookie options
+    const options = {
+      expires: new Date(Date.now() + 3 * 2 * 60 * 60 * 1000), // 6 hours expiration
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+    };
+
+    // Set cookie and respond
+    res.cookie("token", token, options).status(200).json({
+      success: true,
+      token,
+      user,
+      message: "Logged in successfully",
+    });
+
   } catch (error) {
-    console.log(error);
-    return respond(res, "Login failure, Please try againn", 500, false);
+    console.error("Login Error: ", error);
+    return respond(res, "Login failed. Please try again.", 500, false);
   }
 };

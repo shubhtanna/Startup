@@ -22,8 +22,8 @@ import InterestedProduct from './components/Shopkeeper/InterestedProduct';
 import InterestedShopkeeper from './components/Shopkeeper/InterestedShopkeeper';
 import { EditInterestedProduct } from './components/Shopkeeper/EditInterestedProduct';
 import EditProduct from './components/Dashboard/EditProduct'
-import Languageselector from "./components/language-selector"
 import Feed from './components/pages/feedback';
+import AdminDashboard from './components/AdminDashboard/admin';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +48,8 @@ function App() {
         <Route path="allvendors" element={<ShopList/>}/>
 
         <Route path='raise-ticket' element={<Feed/>}/>
+
+        <Route path ='/admin' element={<AdminDashboard/>}/>
 
         <Route element={<Dashboard/>}>
 
