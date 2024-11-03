@@ -6,7 +6,7 @@ import { logout } from "./authAPI";
 import axios from "axios";
 
 
-const BASE_URL = "http://localhost:4000/api/v1"
+const BASE_URL = "http://localhost:5000/api/v1"
 
 const {
     UPDATE_DISPLAY_PICTURE_API,UPDATE_PROFILE_API,CHANGE_PASSWORD_API,DELETE_PROFILE_API,UPDATE_VENDOR_DETAILS_API

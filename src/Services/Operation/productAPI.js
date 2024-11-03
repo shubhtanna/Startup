@@ -4,7 +4,7 @@ import { product } from "../apis";
 import { setLoading } from "../../Slices/authSlice"
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4000/api/v1"
+const BASE_URL = "http://localhost:5000/api/v1"
 
 const { ADD_PRODUCT_API, UPDATE_PRODUCT_API, DELETE_PRODUCT_API, GET_ALL_BRAND_API, GET_ALL_CATEGORY_API,
     GET_ALL_MY_PRODUCTS, ADD_PRICE , GET_ALL_INTERESTED_SHOP,GET_FULL_DETAILS_OF_PRODUCT
@@ -229,7 +229,7 @@ console.log("DATa..........DAta..............",data)
     //   Authorization: `Bearer ${token}`
     // });
 
-    const res = await axios.post("http://localhost:4000/api/v1/vendor/addprice", data,
+    const res = await axios.post("http://localhost:5000/api/v1/vendor/addprice", data,
        {headers: {Authorization: `Bearer ${token}`}}
     )
 
