@@ -70,13 +70,8 @@ function App() {
           <Route path='/dashboard/intrested-shopkeeper-products' element={<EditInterestedProduct/>}/>
 
           {/* <Route path='/dashboard/all-products/add-price' element={<ProductDescModal/>}/> */}
-
-
         </Route>
-
       </Routes>
-
-
     </div>
   );
 }
