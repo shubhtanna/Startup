@@ -150,7 +150,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
+      {/* {isMenuOpen && (
         <nav className="lg:hidden bg-gray-100 dark:bg-gray-800 p-4 mt-2 rounded-lg shadow-lg">
           <ul className="flex flex-col gap-y-4 text-lg text-gray-700 dark:text-gray-300">
             <li><Link to="/" onClick={handleToggleMenu}>{t("Home")}</Link></li>
@@ -196,7 +196,68 @@ const Navbar = () => {
             )}
           </ul>
         </nav>
+      )} */}
+
+
+      {isMenuOpen && (
+        <nav className="lg:hidden bg-gray-100 dark:bg-gray-800 p-4 mt-2 rounded-lg shadow-lg">
+          <ul className="flex flex-col gap-y-4 text-lg text-gray-700 dark:text-gray-300">
+            {/* Conditionally render "Home" link */}
+            {(!token || user?.accountType !== "admin") && (
+              <li><Link to="/" onClick={handleToggleMenu}>{t("Home")}</Link></li>
+            )}
+
+            {/* Conditionally render links based on account type */}
+            {token === null ? (
+              <li><Link to="/about" onClick={handleToggleMenu}>{t("About")}</Link></li>
+            ) : user?.accountType !== "Vendor" && user?.accountType !== "admin" ? (
+              <li><Link to="/allvendors" onClick={handleToggleMenu}>{t("Vendors")}</Link></li>
+            ) : user?.accountType === "admin" ? null : (
+              <li><Link to="/dashboard/all-products" onClick={handleToggleMenu}>{t("All Products")}</Link></li>
+            )}
+
+            {token === null ? (
+              <li><Link to="/contact" onClick={handleToggleMenu}>{t("Contact")}</Link></li>
+            ) : user?.accountType !== "Vendor" && user?.accountType !== "admin" ? (
+              <li><Link to="/dashboard/add-product" onClick={handleToggleMenu}>{t("Add Product")}</Link></li>
+            ) : user?.accountType === "admin" ? null : (
+              <li><Link to="/allproducts" onClick={handleToggleMenu}>{t("Interested Products")}</Link></li>
+            )}
+
+            {/* Conditionally render the "Feedback" link */}
+            {token && user?.accountType !== "admin" && (
+              <li><Link to="/raise-ticket" onClick={handleToggleMenu}>{t("Feedback")}</Link></li>
+            )}
+
+            <Languageselector />
+            <button
+              onClick={toggleDarkMode}
+              className="mt-2 px-4 py-2 w-full rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            >
+              {darkMode ? t("Light Mode") : t("Dark Mode")}
+            </button>
+
+            {/* Profile dropdown or login/signup buttons based on token */}
+            {!token ? (
+              <>
+                <Link to="/signup">
+                  <button className="mt-2 w-full px-4 py-2 border-2 border-green-700 text-green-700 rounded-lg hover:bg-green-700 hover:text-white transition duration-200">
+                    {t("Signup")}
+                  </button>
+                </Link>
+                <Link to="/login">
+                  <button className="mt-2 w-full px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-600 transition duration-200">
+                    {t("Login")}
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <ProfileDropdown />
+            )}
+          </ul>
+        </nav>
       )}
+
     </header>
   );
 };
