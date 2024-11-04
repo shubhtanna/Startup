@@ -10,7 +10,7 @@ const AdminDashboard = () => {
   }
   return (
     <div>
-      Admin Dashboard Page Buddy
+      Admin Dashboard.....
     </div>
   )
 }
