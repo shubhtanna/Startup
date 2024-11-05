@@ -18,7 +18,6 @@ export const ShopCard = ({shop}) => {
             <TiStarFullOutline className='text-[24px] text-[#FFF970]'/>
             <TiStarFullOutline className='text-[24px] text-[#FFF970]'/>
             <TiStarFullOutline className='text-[24px] text-[#FFF970]'/>
-
             </div>
            
             {/* Reviews */}

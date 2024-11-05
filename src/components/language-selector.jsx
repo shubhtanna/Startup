@@ -5,12 +5,12 @@ const languages = [
     { code: "en", lang: "English" },
     { code: "fr", lang: "French" },
     { code: "hi", lang: "Hindi" },
-    { code: "guj",lang: "Gujarati"},
-    { code: "sp" ,lang: "Spanish"},
-    { code: "pnb",lang: "Punjabi"},
-    { code: "tam",lang: "Tamil"},
-    { code: "mrt",lang: "Marathi"},
-    { code: "tel",lang: "Telugu"},
+    { code: "guj", lang: "Gujarati" },
+    { code: "sp", lang: "Spanish" },
+    { code: "pnb", lang: "Punjabi" },
+    { code: "tam", lang: "Tamil" },
+    { code: "mrt", lang: "Marathi" },
+    { code: "tel", lang: "Telugu" },
 ];
 
 const Languageselector = () => {
@@ -28,8 +28,8 @@ const Languageselector = () => {
 
     return (
         <div className="relative">
-            <button 
-                onClick={toggleMenu} 
+            <button
+                onClick={toggleMenu}
                 className="text-xl font-medium px-4 py-2 border rounded-lg"
             >
                 {i18n.language.toUpperCase()} &#9662; {/* Down arrow symbol */}

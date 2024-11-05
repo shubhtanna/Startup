@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import {editProductDetails, addProduct, getAllBrand, getAllCategory } from '../../../../Services/Operation/productAPI'
+import { editProductDetails, addProduct, getAllBrand, getAllCategory } from '../../../../Services/Operation/productAPI'
 import { setProduct } from '../../../../Slices/productSlice'
 import toast from 'react-hot-toast'
 import { MdNavigateNext } from "react-icons/md";
@@ -13,25 +13,25 @@ import { useTranslation } from 'react-i18next';
 const ProductInfo = () => {
   const { t } = useTranslation();
   const {
-    register,handleSubmit,setValue,getValues,formState: {errors},
+    register, handleSubmit, setValue, getValues, formState: { errors },
   } = useForm()
 
   const dispatch = useDispatch();
-  const {token} = useSelector((state) => state.auth);
-  const {product,editProduct} = useSelector((state) => state.product);
-  const [loading,setLoading] = useState(false);
-  const[productCategories,setProductCategories] = useState([])
-  const[productBrands,setProductsBrands] = useState([])
+  const { token } = useSelector((state) => state.auth);
+  const { product, editProduct } = useSelector((state) => state.product);
+  const [loading, setLoading] = useState(false);
+  const [productCategories, setProductCategories] = useState([])
+  const [productBrands, setProductsBrands] = useState([])
   const navigate = useNavigate()
 
-  console.log("product data chahiye.......",product)
+  console.log("product data chahiye.......", product)
 
   useEffect(() => {
-    const getCategories = async() => {
+    const getCategories = async () => {
       setLoading(true);
       const categories = await getAllCategory(token)
       // console.log(categories);
-      if(categories.length>0) {
+      if (categories.length > 0) {
         setProductCategories(categories);
       }
       setLoading(false);
@@ -40,37 +40,37 @@ const ProductInfo = () => {
       setLoading(true);
       const brands = await getAllBrand(token)
       // console.log(brands) 
-      if(brands.length > 0) {
+      if (brands.length > 0) {
         setProductsBrands(brands);
       }
       setLoading(false);
     }
-    console.log("product data chahiye again.......",product)
-    
-    if(editProduct) {
-      console.log("product before ",editProduct);
-      console.log("product before ",product);
-      setValue("productTitle",product.productName);
-      setValue("productCategory",product.category);
-      setValue("productModelName",product.modelName);
-      setValue("productBrands",product.brandName);
-      setValue("productDesc",product.productDescription);
-      setValue("wasteImage",product.productImage);
-      setValue("billImage",product.invoiceImage);
+    console.log("product data chahiye again.......", product)
+
+    if (editProduct) {
+      console.log("product before ", editProduct);
+      console.log("product before ", product);
+      setValue("productTitle", product.productName);
+      setValue("productCategory", product.category);
+      setValue("productModelName", product.modelName);
+      setValue("productBrands", product.brandName);
+      setValue("productDesc", product.productDescription);
+      setValue("wasteImage", product.productImage);
+      setValue("billImage", product.invoiceImage);
     }
     getCategories();
     getBrands();
-  },[])
+  }, [])
 
   // console.log("product data dedoooo....................",product)
 
   const isFormUpdated = () => {
     const currentValues = getValues();
 
-    if(
+    if (
       currentValues.productTitle !== product.productName || currentValues.productCategory !== product.category ||
       currentValues.productModelName !== product.modelName ||
-      currentValues.productBrands !== product.brandName || 
+      currentValues.productBrands !== product.brandName ||
       currentValues.productDesc !== product.productDescription || currentValues.wasteImage !== product.productImage || currentValues.billImage !== product.invoiceImage
     ) {
       return true;
@@ -79,50 +79,50 @@ const ProductInfo = () => {
   }
 
   const goToCourse = () => {
-    
+
     dispatch(resetProductState())
     navigate("/dashboard/My-products")
   }
 
   const onSubmit = async (data) => {
-    if(editProduct) {
+    if (editProduct) {
       // console.log("isFormUpdated",isFormUpdated());
-      if(isFormUpdated()) {
+      if (isFormUpdated()) {
         const currentValues = getValues();
         const formData = new FormData();
         // console.log("Data in onSubmit edit",data);
         // console.log("Product in Indivial",product);
-        formData.append("productId",product._id);
-        console.log("product id in productinfo",product._id)
-        if(currentValues.productTitle !== product.productName) {
-          formData.append("productName",data.productTitle)
+        formData.append("productId", product._id);
+        console.log("product id in productinfo", product._id)
+        if (currentValues.productTitle !== product.productName) {
+          formData.append("productName", data.productTitle)
         }
-        if(currentValues.productCategory !== product.category) {
-          formData.append("category",data.productCategory)
+        if (currentValues.productCategory !== product.category) {
+          formData.append("category", data.productCategory)
         }
-        if(currentValues.productModelName !== product.modelName) {
+        if (currentValues.productModelName !== product.modelName) {
           // console.log("I am here to set modelNAME");
-          formData.append("modelName",data.productModelName)
+          formData.append("modelName", data.productModelName)
         }
-        if(currentValues.productBrands !== product.brandName) {
-          formData.append("brandName",data.productBrands)
+        if (currentValues.productBrands !== product.brandName) {
+          formData.append("brandName", data.productBrands)
         }
-        if(currentValues.productDesc !== product.productDescription) {
-          formData.append("productDescription",data.productDesc)
+        if (currentValues.productDesc !== product.productDescription) {
+          formData.append("productDescription", data.productDesc)
         }
-        if(currentValues.wasteImage !== product.productImage) {
-          formData.append("productImageUpload",data.wasteImage)
+        if (currentValues.wasteImage !== product.productImage) {
+          formData.append("productImageUpload", data.wasteImage)
         }
-        if(currentValues.billImage !== product.invoiceImage) {
-          formData.append("invoiceImageUpload",data.billImage)
+        if (currentValues.billImage !== product.invoiceImage) {
+          formData.append("invoiceImageUpload", data.billImage)
         }
-        
+
         setLoading(true);
 
-        const result = await editProductDetails(formData,token);
+        const result = await editProductDetails(formData, token);
 
         setLoading(false);
-        if(result) {
+        if (result) {
           dispatch(setProduct(result))
           // navigate("/dashboard/My-products")
           goToCourse()
@@ -133,18 +133,18 @@ const ProductInfo = () => {
       return;
     }
     const formData = new FormData();
-    formData.append("productName",data.productTitle);
-    formData.append("category",data.productCategory);
-    formData.append("modelName",data.productModelName);
-    formData.append("brandName",data.productBrands);
-    formData.append("productDescription",data.productDesc);
-    formData.append("productImageUpload",data.wasteImage);
-    formData.append("invoiceImageUpload",data.billImage);
+    formData.append("productName", data.productTitle);
+    formData.append("category", data.productCategory);
+    formData.append("modelName", data.productModelName);
+    formData.append("brandName", data.productBrands);
+    formData.append("productDescription", data.productDesc);
+    formData.append("productImageUpload", data.wasteImage);
+    formData.append("invoiceImageUpload", data.billImage);
 
     // console.log("Form Data : ", formData);
     setLoading(true);
-    const result = await addProduct(formData,token,navigate);
-    if(result) {
+    const result = await addProduct(formData, token, navigate);
+    if (result) {
       dispatch(setProduct(result));
     }
     setLoading(false);
@@ -152,7 +152,7 @@ const ProductInfo = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 rounded-md border-[2px] border-[#499F682B] p-6">
-      <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1">
           <label
             htmlFor="productTitle"
             className="text-[1rem] font-medium  text-product-item font-roboto "
@@ -168,7 +168,7 @@ const ProductInfo = () => {
             placeholder={t("Enter Product name")}
             // onChange={handleOnChange}
             // value={productName}
-            {...register("productTitle", { required: true })} 
+            {...register("productTitle", { required: true })}
             className="bg-[#499F682B] rounded-md text-[16px] leading-[24px] shadow-[0_3px_0_0] shadow-[#499F682B]/50 p-3 font-semibold"
           />
 
@@ -187,7 +187,7 @@ const ProductInfo = () => {
           </label>
 
           <select
-          required
+            required
             id="productCategory"
             name="productCategory"
             className=" bg-[#499F682B]
@@ -195,11 +195,11 @@ const ProductInfo = () => {
              font-roboto text-[16px] rounded-md font-semibold "
             // value={category}
             // onChange={handleOnChange}
-            {...register("productCategory",{ required: true })}
+            {...register("productCategory", { required: true })}
           >
-          
-          <option value="" disabled>{t("Choose a Category")}</option>
-            {!loading && productCategories?.map((category,index) => (
+
+            <option value="" disabled>{t("Choose a Category")}</option>
+            {!loading && productCategories?.map((category, index) => (
               <option key={index} value={category?._id}>{category.categoryName}</option>
             ))}
           </select>
@@ -226,7 +226,7 @@ const ProductInfo = () => {
               // onChange={handleOnChange}
               id="productModelName"
               placeholder={t("Enter model name")}
-              {...register("productModelName",{required:true})}
+              {...register("productModelName", { required: true })}
               className="bg-[#499F682B] text-[16px] rounded-md shadow-[0_3px_0_0] shadow-[#499F682B]/50 p-3 font-semibold"
             />
 
@@ -249,16 +249,16 @@ const ProductInfo = () => {
               name="productBrands"
               // value={brandName}
               // onChange={handleOnChange}
-              {...register("productBrands",{required:true})}
+              {...register("productBrands", { required: true })}
               className="bg-[#499F682B]
               p-3 font-roboto text-[0.8rem] rounded-md
               shadow-[0_3px_0_0] shadow-[#499F682B]/50
               font-semibold"
             >
               <option value="" disabled>Choose a Brand</option>
-            {!loading && productBrands?.map((brandName,index) => (
-              <option key={index} value={brandName?._id}>{brandName.name}</option>
-            ))}
+              {!loading && productBrands?.map((brandName, index) => (
+                <option key={index} value={brandName?._id}>{brandName.name}</option>
+              ))}
             </select>
 
             {errors.productBrands && (
@@ -281,7 +281,7 @@ const ProductInfo = () => {
             name="productDesc"
             // value={productDescription}
             // onChange={handleOnChange}
-            {...register("productDesc",{required:true})}
+            {...register("productDesc", { required: true })}
             className="w-full border-transparent rounded-lg text-sm  disabled:opacity-50 shadow-[0_3px_0_0] shadow-[#499F682B]/50 p-3 disabled:pointer-events-none dark:border-transparent bg-[#499F682B]  resize-x-none min-h-[130px] font-roboto text-[16px] font-semibold"
             placeholder={t("Write a short description of your product")}
           ></textarea>
@@ -302,7 +302,6 @@ const ProductInfo = () => {
             editData={editProduct ? product?.productImage : null} />
         </div>
 
-
         <div className=" mt-10">
           <Upload
             name="billImage"
@@ -312,10 +311,10 @@ const ProductInfo = () => {
             errors={errors}
             editData={editProduct ? product?.invoiceImage : null} />
         </div>
-        
+
         <div className="flex gap-x-2">
           <button type='submit' disabled={loading} className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-[#174B3A] py-[8px] px-[20px] font-semibold text-[white]`}>
-          {t("Save & Next")}
+            {t("Save & Next")}
             <MdNavigateNext />
           </button>
         </div>

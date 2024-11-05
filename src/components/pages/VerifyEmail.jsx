@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaAngleLeft } from "react-icons/fa";
 import OtpInput from 'react-otp-input';
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,16 +19,16 @@ const VerifyEmail = () => {
       navigate("/signup");
     }
     const fetchImage = async () => {
-        try {
-          const imageRef = ref(storage,'gs://t-music-be993.appspot.com/E-Waste/OTP_image.png');
-          const url = await getDownloadURL(imageRef);
-          setOtpImageURL(url);
-        } catch (error) {
-          console.error('Error fetching image from Firebase Storage:', error);
-        }
-      };
-      fetchImage();
-  
+      try {
+        const imageRef = ref(storage, 'gs://t-music-be993.appspot.com/E-Waste/OTP_image.png');
+        const url = await getDownloadURL(imageRef);
+        setOtpImageURL(url);
+      } catch (error) {
+        console.error('Error fetching image from Firebase Storage:', error);
+      }
+    };
+    fetchImage();
+
   }, []);
 
   const handleVerifyAndSignup = (e) => {
@@ -116,7 +116,7 @@ const VerifyEmail = () => {
             </form>
 
             <p className='text-lg sm:text-xl md:text-2xl max-w-lg'>
-              Didn’t receive the verification email? 
+              Didn’t receive the verification email?
               <span className='font-medium text-[#FFBA08] underline'>
                 <Link onClick={() => dispatch(sendOtp(signupData.email))}> Resend it</Link>
               </span>

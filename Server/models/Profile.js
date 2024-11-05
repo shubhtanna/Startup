@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const profileSchema = new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User"
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
     dateOfBirth: {
         type: String,
@@ -17,4 +17,4 @@ const profileSchema = new mongoose.Schema({
     }
 });
 
-export const Profile = mongoose.model("Profile",profileSchema)
+export const Profile = mongoose.model("Profile", profileSchema)

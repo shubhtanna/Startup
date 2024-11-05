@@ -10,15 +10,12 @@ const VerifyEmail = () => {
 
   return (
     <div className='w-[100vw] h-[100vh] flex justify-center items-center'>
-
       <div className='w-[60%]  shadow-2xl  flex flex-col rounded-3xl justify-center items-center '>
-
         <div className='flex text-[#174b3a] font-roboto text-[1.15rem] mt-1 -ml-[47rem]'>
           <Link to={"/"} className='flex'>
             <FaAngleLeft className='mt-1' />
             <p>{t("Back to login")}</p>
           </Link>
-
         </div>
         <div className=''>
           <img className='w-[14.6rem] h-[10.75rem] ' src={verifyemail} alt="" />
@@ -38,7 +35,5 @@ const VerifyEmail = () => {
     </div>
   )
 }
-
-
 
 export default VerifyEmail

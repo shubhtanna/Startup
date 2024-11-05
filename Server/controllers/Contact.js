@@ -6,8 +6,8 @@ import { respond } from "../utils/response.js";
 export const contactUs = async (req, res) => {
   const { email, message } = req.body;
 
-  if(!email || !message) {
-    return respond(res,"All fields are required",400,false)
+  if (!email || !message) {
+    return respond(res, "All fields are required", 400, false)
   }
 
   try {
@@ -19,20 +19,20 @@ export const contactUs = async (req, res) => {
 
     // console.log(emailRes);
 
-    const existing = await Contact.findOne({email:email})
+    const existing = await Contact.findOne({ email: email })
 
     // const existingEmail = Contact.findOne(email);
 
     // console.log("data to be print.....",existingEmail)
 
-    if(existing) {
-      await Contact.findOneAndUpdate({email:email},{
+    if (existing) {
+      await Contact.findOneAndUpdate({ email: email }, {
         $push: {
-          message:message,
+          message: message,
         },
-      },{new:true})
+      }, { new: true })
 
-      return respond(res,"query is added into message of array",200,true,)
+      return respond(res, "query is added into message of array", 200, true,)
     }
 
     // if (existingEmail) {

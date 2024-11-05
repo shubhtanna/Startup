@@ -122,12 +122,6 @@ const SIgnup_Form = () => {
         </div>
 
         <div className="flex gap-3">
-          {/* <select name="accountType" className="input_feild" onChange={handleOnChange}>
-          <option value="" disabled className='input_feild opacity-20'>Account Type</option>
-            <option value="Vendor" className="input_feild opacity-20">Vendor</option>
-            <option value="Individual" className="input_feild">Individual</option>
-          </select> */}
-
           <select
               name="accountType"
               className="input_feild"
@@ -155,10 +149,6 @@ const SIgnup_Form = () => {
           placeholder={t("City")}
           className="input_feild"
         />
-
-          {/* <select name="city" className="input_feild">
-            <option className="input_feild opacity-20">city</option>
-          </select> */}
         </div>
 
         <div className="flex gap-3">
@@ -171,14 +161,6 @@ const SIgnup_Form = () => {
           placeholder={t("Pincode")}
           className="input_feild"
         />
-          {/* <select name="pincode" className="input_feild">
-            <option className="input_feild opacity-20">pincode</option>
-          </select> */}
-
-          {/* <select name="state" className="input_feild">
-            <option className="input_feild opacity-20">state</option>
-          </select> */}
-
           <input
           type="text"
           name="state"
@@ -210,9 +192,7 @@ const SIgnup_Form = () => {
             placeholder={t("Password")}
             className="input_feild"
           />
-
           
-
           <span
             onClick={() => setShowPassword((prev) => !prev)}
             className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-20"

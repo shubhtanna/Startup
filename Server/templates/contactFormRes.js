@@ -1,4 +1,4 @@
-export const contactUsEmail = (email,message) => {
+export const contactUsEmail = (email, message) => {
     return `<!DOCTYPE html>
     <html>
     

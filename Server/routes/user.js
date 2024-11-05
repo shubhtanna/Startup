@@ -9,16 +9,16 @@ import { resetPasswordUpdate } from "../controllers/ResetPassword.js";
 
 const router = express.Router()
 
-router.post("/sendotp",sendOtp);
-router.post("/signup",signup)
+router.post("/sendotp", sendOtp);
+router.post("/signup", signup)
 router.post("/login", login)
-router.post("/contactus",contactUs)
-router.put("/updateprofile",auth,updateProfile)
-router.put("/changepassword",auth,changePassword)
-router.post("/resetpasswordtoken",resetPasswordToken)
-router.post("/resetpassword",resetPasswordUpdate)
-router.delete("/deleteaccount",auth,deleteAccount)
-router.put("/updatedisplayimage",auth,updateDisplayPicture)
-router.get("/getprofiledata",auth,getProfileData)
+router.post("/contactus", contactUs)
+router.put("/updateprofile", auth, updateProfile)
+router.put("/changepassword", auth, changePassword)
+router.post("/resetpasswordtoken", resetPasswordToken)
+router.post("/resetpassword", resetPasswordUpdate)
+router.delete("/deleteaccount", auth, deleteAccount)
+router.put("/updatedisplayimage", auth, updateDisplayPicture)
+router.get("/getprofiledata", auth, getProfileData)
 
 export default router;

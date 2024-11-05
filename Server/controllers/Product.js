@@ -19,7 +19,7 @@ export const createProduct = async (req, res) => {
     // const invoiceImage = req.files.invoiceImage;
 
 
-    if (!productName || !category  || !productDescription) {  
+    if (!productName || !category || !productDescription) {
       return respond(
         res,
         "all fields are required when product is created",
@@ -92,107 +92,107 @@ export const createProduct = async (req, res) => {
   }
 };
 
-export const updateProduct = async (req,res) => {
-  try{
- 
-    const {productId} = req.body;
+export const updateProduct = async (req, res) => {
+  try {
+
+    const { productId } = req.body;
     const updates = req.body;
 
-    console.log("Updates in  update product",updates);
+    console.log("Updates in  update product", updates);
 
     const product = await Product.findById(productId);
 
     if (!product) {
-          return res.status(404).json({
-                success: false,
-                message: "Product is not found",
-          });
+      return res.status(404).json({
+        success: false,
+        message: "Product is not found",
+      });
     }
 
-     if (req.files) {
+    if (req.files) {
       const productimage = req.files.productImageUpload;
       const invoiceimage = req.files.invoiceImageUpload;
       const productImageCloud = await uploadImageCloudinary(productimage, process.env.FOLDER_NAME);
-      const invoiceImageCloud = await uploadImageCloudinary(invoiceimage,process.env.FOLDER_NAME);
+      const invoiceImageCloud = await uploadImageCloudinary(invoiceimage, process.env.FOLDER_NAME);
 
       product.productImage = productImageCloud.secure_url;
       product.invoiceImage = invoiceImageCloud.secure_url;
-}
-
-for (const key in updates) {
-  if (updates.hasOwnProperty(key)) {
-        
-     product[key] = updates[key];
-  }
-}
- await product.save();
-
-
- const updatedProduct = await Product.findOne({
-  _id:productId
- })
- .populate('category')
- .populate('brandName')
- .exec()
-
-
- return respond(res,"product updated successfully",200,true,updatedProduct)
-
-  }catch(error) {
-    console.log(error) 
-    return respond(res,"something went wrong while updating the product",500,false)
-  }
-}
-
-export const getOneProduct = async (req,res) =>{
-  try{
-    console.log("REq body",req.body);
-    const {productId} = req.body;
-    // const userId = req.user.id;
-
-    const productDetails = await Product.findById({_id: productId});
-
-    if(!productDetails) {
-      return respond(res,"product is not found",400,false)
     }
 
-    return respond(res,"product details fetch successfully",200,true,productDetails)
-  } catch(error) {
-    return respond(res,"error in get one product details",500,false)
+    for (const key in updates) {
+      if (updates.hasOwnProperty(key)) {
+
+        product[key] = updates[key];
+      }
+    }
+    await product.save();
+
+
+    const updatedProduct = await Product.findOne({
+      _id: productId
+    })
+      .populate('category')
+      .populate('brandName')
+      .exec()
+
+
+    return respond(res, "product updated successfully", 200, true, updatedProduct)
+
+  } catch (error) {
+    console.log(error)
+    return respond(res, "something went wrong while updating the product", 500, false)
   }
 }
 
-export const deleteProduct = async (req,res) => {
-  try{
+export const getOneProduct = async (req, res) => {
+  try {
+    console.log("REq body", req.body);
+    const { productId } = req.body;
+    // const userId = req.user.id;
 
-    const {productId} = req.body;
+    const productDetails = await Product.findById({ _id: productId });
 
-    if(!productId) {
-      return respond(res,"Product is not found",400,false)
+    if (!productDetails) {
+      return respond(res, "product is not found", 400, false)
+    }
+
+    return respond(res, "product details fetch successfully", 200, true, productDetails)
+  } catch (error) {
+    return respond(res, "error in get one product details", 500, false)
+  }
+}
+
+export const deleteProduct = async (req, res) => {
+  try {
+
+    const { productId } = req.body;
+
+    if (!productId) {
+      return respond(res, "Product is not found", 400, false)
     }
 
     const userId = req.user.id;
 
-    const product = await Product.findByIdAndDelete({_id:productId})
+    const product = await Product.findByIdAndDelete({ _id: productId })
 
     await User.findByIdAndUpdate({
       _id: userId
-    },{
-      $pull:{
-        products:productId
+    }, {
+      $pull: {
+        products: productId
       }
-    },{new:true})
+    }, { new: true })
 
-    await Category.findOneAndUpdate({products:productId},{
-      $pull:{
-        products:productId
+    await Category.findOneAndUpdate({ products: productId }, {
+      $pull: {
+        products: productId
       }
-    },{new:true})
+    }, { new: true })
 
-    return respond(res,"product deleted successfully",200,true)
+    return respond(res, "product deleted successfully", 200, true)
 
-  }catch(error) {
-    console.log(error) 
-    return respond(res,"something went wrong while deleting the product",500,false)
+  } catch (error) {
+    console.log(error)
+    return respond(res, "something went wrong while deleting the product", 500, false)
   }
 }

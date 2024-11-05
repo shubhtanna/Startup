@@ -4,9 +4,9 @@ import profileReducer from '../Slices/profileSlice'
 import productReducer from '../Slices/productSlice'
 
 const rootReducer = combineReducers({
-    auth : authReducer,
-    profile : profileReducer,
-    product : productReducer,
+    auth: authReducer,
+    profile: profileReducer,
+    product: productReducer,
 });
 
 export default rootReducer

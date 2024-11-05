@@ -1,67 +1,82 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import forgot from '../../assets/reset.png'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import forgot from '../../assets/reset.png';
 import { FaAngleLeft } from "react-icons/fa";
-import { IoEyeOffOutline } from "react-icons/io5";
-import { IoEyeOutline } from "react-icons/io5";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
 
-const ResetPasswors = () => {
+const ResetPassword = () => {
   const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   return (
-    <div className='w-[100vw] h-[100vh] flex justify-center items-center'>
-
-      <div className='w-[60%]  shadow-2xl  flex flex-col rounded-3xl justify-center items-center '>
-
-        <div className='flex text-[#174b3a] font-roboto text-[1.15rem] mt-1 -ml-[47rem]'>
-          <Link to={"/"} className='flex'>
-            <FaAngleLeft className='mt-1' />
-            <p>{t("Back to login")}</p>
-          </Link>
-
+    <div className="w-screen h-screen flex justify-center items-center">
+      <div className="w-3/5 shadow-2xl flex flex-col rounded-3xl justify-center items-center p-8">
+        <Link to="/" className="flex text-[#174b3a] font-roboto text-lg mb-8">
+          <FaAngleLeft className="mr-1 mt-1" />
+          <p>{t("Back to login")}</p>
+        </Link>
+        
+        <div className="relative text-center mb-10">
+          <img src={forgot} alt="Forgot Password" className="w-20 h-20 absolute left-1/2 transform -translate-x-1/2 -translate-y-12 -rotate-12" />
+          <h2 className="text-[#174b3a] text-3xl font-roboto font-semibold">{t("Reset your password")}</h2>
+          <p className="text-lg font-medium text-gray-700 mt-2 w-4/5 mx-auto">{t("Forgot your old password? Enter your password and you're all set.")}</p>
         </div>
 
-        <div className=' relative mt-[4rem]'>
-          <div className='h-[5.6rem] w-[7.9rem] absolute ml-[12.5rem] -mt-[3.5rem] -rotate-12 -z-10'>
-            <img src={forgot} alt="" />
-          </div>
-          <div className=' text-[#174b3a]  text-center w-[100%]'>
-            <p className=' text-3xl font-roboto font-semibold z-50'>{t("Reset your password")}!</p>
-            <p className='text-[1.5rem] w-[60%] ml-[12rem] font-roboto font-medium'>{t("Forgot your old password? Enter your password and you're all set")}</p>
-          </div>
-        </div>
-
-
-        <form action="" className='w-[50%]'>
-          <div>
-            <label for="newpassword" className="block mb-2 mt-3 font-medium  text-xl text-[#000000b5] font-roboto">{t("New password")} <span className=' text-red-700'>*  </span></label>
-            <div>
-              <input className=' bg-[#499f682b] transition-all duration-200 hover:scale-105 font-roboto placeholder:text-2xl' type="password" name="password" id="" placeholder='••••••' />
-              <div className=' absolute ml-[26.5rem] -mt-[2.5rem] text-[#000000b5] text-xl  '>
-                <IoEyeOffOutline />
+        <form className="w-1/2 space-y-6">
+          <div className="relative">
+            <label htmlFor="newPassword" className="block text-xl font-medium text-gray-600">
+              {t("New password")} <span className="text-red-700">*</span>
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="newPassword"
+                id="newPassword"
+                placeholder="••••••"
+                className="w-full bg-[#499f682b] p-3 rounded-md placeholder:text-2xl transition-transform duration-200 hover:scale-105"
+              />
+              <div
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 text-xl text-gray-600 cursor-pointer"
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
               </div>
             </div>
-
           </div>
-          <div >
-            <label for="newpassword" className="block mb-2 mt-3 font-medium  text-xl text-[#000000b5] font-roboto">{t("Confirm password")}<span className=' text-red-700'>*  </span></label>
-            <div className=''>
-              <input className=' bg-[#499f682b] transition-all duration-200 hover:scale-105 font-roboto placeholder:text-2xl' type="password" name="password" id="" placeholder='1234' />
-              <div className=' absolute ml-[26.5rem] -mt-[2.5rem] text-[#000000b5] text-xl  '>
-                <IoEyeOutline />
+
+          <div className="relative">
+            <label htmlFor="confirmPassword" className="block text-xl font-medium text-gray-600">
+              {t("Confirm password")} <span className="text-red-700">*</span>
+            </label>
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="••••••"
+                className="w-full bg-[#499f682b] p-3 rounded-md placeholder:text-2xl transition-transform duration-200 hover:scale-105"
+              />
+              <div
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 text-xl text-gray-600 cursor-pointer"
+                onClick={() => setShowConfirmPassword((prev) => !prev)}
+              >
+                {showConfirmPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
               </div>
             </div>
+          </div>
 
-          </div>
-          <div className=''>
-            <button className=' bg-[#f19a3e] m-auto p-4 rounded-3xl tracking-widest w-[60%] transition-all duration-200 hover:scale-105 text-white flex justify-center text-xl mb-6 mt-4'>{t("Reset password")}</button>
-          </div>
+          <button
+            type="submit"
+            className="bg-[#f19a3e] p-4 rounded-3xl w-3/5 mx-auto text-white text-xl font-medium tracking-widest transition-transform duration-200 hover:scale-105"
+          >
+            {t("Reset password")}
+          </button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-
-export default ResetPasswors
+export default ResetPassword;

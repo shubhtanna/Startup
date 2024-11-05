@@ -31,7 +31,7 @@ const Chatbot = () => {
     "carbon footprint",
     "eco-friendly",
   ];
-  
+
   // Function to check if a keyword exists (case-insensitive)
   function containsKeyword(input) {
     // Convert both input and keywords to lowercase for case-insensitive comparison
