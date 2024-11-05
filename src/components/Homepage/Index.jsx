@@ -10,19 +10,13 @@ import Customize_your_feed from './Customize_your_feed'
 const Index = () => {
   return (
     <div>
-      <Section1/>
-
-      <Why_sell/>
-
-      <RegisterYourself/>
-
-      <Customize_your_feed/>
-
-      <JoinUs/>
-
-      <WhyChooseUs/>
-
-      <Footer/>
+      <Section1 />
+      <Why_sell />
+      <RegisterYourself />
+      <Customize_your_feed />
+      <JoinUs />
+      <WhyChooseUs />
+      <Footer />
     </div>
   )
 }

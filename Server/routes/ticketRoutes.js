@@ -82,7 +82,7 @@ async function getTicket(req, res, next) {
     try {
         ticket = await Ticket.findById(req.params.id);
         if (ticket == null) {
-            return res.status(404).json({ 
+            return res.status(404).json({
                 message: 'Ticket not found'
             });
         }

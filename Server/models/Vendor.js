@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const vendorSchema = new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User"
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
     profile: {
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Profile"
     },
     gstNumber: {
@@ -18,7 +18,7 @@ const vendorSchema = new mongoose.Schema({
     shopName: {
         type: String,
     },
-    
+
 })
 
-export const Vendor = mongoose.model("Vendor",vendorSchema)
+export const Vendor = mongoose.model("Vendor", vendorSchema)

@@ -23,7 +23,7 @@ export default function Upload({
     viewData ? viewData : editData ? editData : ""
   )
 
-  const  {t} = useTranslation();
+  const { t } = useTranslation();
   const inputRef = useRef(null)
 
   const onDrop = (acceptedFiles) => {
@@ -66,9 +66,8 @@ export default function Upload({
         {label} {!viewData && <sup className=" text-pink-600">*</sup>}
       </label>
       <div
-        className={`${
-          isDragActive ? "bg-[#499F68] opacity-50" : "bg-[#b7dec5]"
-        } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-[#277158]`}
+        className={`${isDragActive ? "bg-[#499F68] opacity-50" : "bg-[#b7dec5]"
+          } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-[#277158]`}
       >
         {previewSource ? (
           <div className="flex w-full flex-col p-6">

@@ -22,7 +22,7 @@ export const settings = {
 
 export const product = {
     ADD_PRODUCT_API: BASE_URL + "/individual/createproduct",
-    UPDATE_PRODUCT_API: BASE_URL +"/individual/updateproduct",
+    UPDATE_PRODUCT_API: BASE_URL + "/individual/updateproduct",
     DELETE_PRODUCT_API: BASE_URL + "/individual/deleteproduct",
     GET_ALL_CATEGORY_API: BASE_URL + "/individual/getallcategory",
     GET_ALL_BRAND_API: BASE_URL + "/individual/getallbrand",
@@ -33,10 +33,10 @@ export const product = {
 
 export const vendor = {
     GET_ALL_VENDOR: BASE_URL + "/individual/getshopbycity",
-    GET_ALL_PRODUCTS : BASE_URL + "/vendor/getallproducts",
-    ADD_PRICE : BASE_URL + "/vendor/addprice",
-    OTHER_PRICE : BASE_URL + "/vendor/othershopkeeperprice",
+    GET_ALL_PRODUCTS: BASE_URL + "/vendor/getallproducts",
+    ADD_PRICE: BASE_URL + "/vendor/addprice",
+    OTHER_PRICE: BASE_URL + "/vendor/othershopkeeperprice",
     GET_INTERESTED_PRODUCT: BASE_URL + "/vendor/interestedproduct",
-    EDIT_PRICE: BASE_URL + "/vendor/editprice" ,
+    EDIT_PRICE: BASE_URL + "/vendor/editprice",
     DELETE_PRICE: BASE_URL + "/vendor/deleteprice",
 }

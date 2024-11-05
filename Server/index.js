@@ -23,28 +23,28 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({
-    useTempFiles:true,
-    tempFileDir:"/tmp"
+    useTempFiles: true,
+    tempFileDir: "/tmp"
 }))
 
 app.use(
     cors({
-        origin:"http://localhost:3000",
-        credentials:true,
+        origin: "http://localhost:3000",
+        credentials: true,
     })
 )
 
 cloudinaryConnect();
 
-app.use("/api/v1/auth",userRouter);
-app.use("/api/v1/admin",adminRouter)
-app.use("/api/v1/vendor",vendorRouter)
-app.use("/api/v1/individual",individualRouter)
-app.use("/api",ticketRoutes)
+app.use("/api/v1/auth", userRouter);
+app.use("/api/v1/admin", adminRouter)
+app.use("/api/v1/vendor", vendorRouter)
+app.use("/api/v1/individual", individualRouter)
+app.use("/api", ticketRoutes)
 
 
-app.get("/" , (req,res) => {
-    return respond(res,"Your Server is up and running",200,true)
+app.get("/", (req, res) => {
+    return respond(res, "Your Server is up and running", 200, true)
 });
 
 app.listen(PORT, () => {

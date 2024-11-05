@@ -29,27 +29,6 @@ const InterestedProduct = () => {
 
   console.log("why product is null....", products);
 
-  // useEffect(() => {
-  //     const getMaxMinPrices = (estimatedPrice) => {
-  //       if (!estimatedPrice || estimatedPrice.length === 0) return { max: null, min: null };
-
-  //       let maxPrice = estimatedPrice[0].price;
-  //       let minPrice = estimatedPrice[0].price;
-
-  //       for (let i = 1; i < estimatedPrice.length; i++) {
-  //         const price = estimatedPrice[i].price;
-  //         if (price > maxPrice) maxPrice = price;
-  //         if (price < minPrice) minPrice = price;
-  //       }
-
-  //       return { max: maxPrice, min: minPrice };
-  //     };
-
-  //     const prices = getMaxMinPrices(products.estimatedPrice);
-  //     setPrices(prices);
-  //     console.log(prices.max)
-  //   }, [products]);
-
   useEffect(() => {
     const getMaxMinPrices = (estimatedPrice) => {
       if (!estimatedPrice || estimatedPrice.length === 0)

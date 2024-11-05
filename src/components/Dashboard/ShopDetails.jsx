@@ -35,8 +35,6 @@ export const ShopDetails = () => {
         }
     }
 
-
-
     return (
         <div>
             {/* Edit shop info */}
@@ -45,12 +43,9 @@ export const ShopDetails = () => {
                     <p className=" font-roboto font-medium text-2xl">
                         Edit Shop information
                     </p>
-
                     <hr className=" border-t-2 border-black mt-2" />
                 </div>
-
                 <div className='flex mt-10 gap-2 flex-col'>
-
                     {/* Shop Name */}
                     <div className='flex flex-col gap-2 '>
                         <label htmlFor='shopName' className='font-roboto text-[16px] opacity-60'>
@@ -73,7 +68,6 @@ export const ShopDetails = () => {
                             )
                         }
                     </div>
-
                     {/* gstNumber */}
                     <div className='flex flex-col gap-2 '>
                         <label htmlFor='gstNumber' className='font-roboto text-[16px] opacity-60'>
@@ -96,7 +90,6 @@ export const ShopDetails = () => {
                             )
                         }
                     </div>
-
                     {/* Shop Address */}
                     <div className='flex flex-col gap-2 '>
                         <label htmlFor='address' className='font-roboto text-[16px] opacity-60'>
@@ -120,18 +113,14 @@ export const ShopDetails = () => {
                         }
                     </div>
                 </div>
-
                 {/* Edit Gst Invoice info */}
                 <div className="mt-6">
                     <p className=" font-roboto font-medium text-2xl">
                         Edit GST invoice information
                     </p>
-
                     <hr className=" border-t-2 border-black mt-2" />
                 </div>
-
                 <div className='flex flex-col space-y-2'>
-
                     <div className='flex p-3 mt-6  w-full rounded-md items-center justify-between shadow-lg'>
                         <p className="text-[16px] opacity-60">Current GST Invoice</p>
                         <div className='flex gap-5 justify-between'>
@@ -139,33 +128,10 @@ export const ShopDetails = () => {
                             <RiDeleteBin5Line className="text-[red]" size={25} />
                         </div>
                     </div>
-
                     <label htmlFor="files" name="files">
 
-                        {/* <input id="files" name="files" className='hidden' type="file"
-                        defaultValue={user?.vendorDetails?.gstInvoice}
-                        multiple onChange={handleImages} /> */}
-
-                        {/* <div className='flex p-3 w-full rounded-md items-center justify-between shadow-lg'>
-                            <p className="text-[16px] opacity-60">Update GST Invoice</p>
-                            <IoAdd className=" text-[30px] cursor-pointer" />
-
-                        </div> */}
-
-                        {/* <Upload
-          name="gstInvoice"
-          label="GST INVOICE"
-          register={register}
-          setValue={setValue}
-          errors={errors}
-          /> */}
-
-
-
                     </label>
-
                 </div>
-
                 <div className='mt-8 flex flex-col md:flex-row justify-between gap-4 md:gap-8'>
                     <button
                         className='bg-[#F19A3E] text-[16px] md:text-[18px] font-medium font-roboto px-6 py-3 md:px-8 md:py-3 text-white rounded-md w-full md:w-auto'
@@ -180,8 +146,6 @@ export const ShopDetails = () => {
                         Save & Update
                     </button>
                 </div>
-
-
             </form>
         </div>
     )

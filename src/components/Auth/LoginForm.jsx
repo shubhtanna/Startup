@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { MdOutlineEmail } from "react-icons/md";
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,75 +6,75 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../Services/Operation/authAPI';
 import { useTranslation } from 'react-i18next';
 
-
-
 const LoginForm = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const [formData,setFormData] = useState({
-        email: "",password: "",
-    })
-
-    const [showPassword,setShowPassword] = useState(false)
-
-    const {email,password} = formData
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleOnChange = (e) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            [e.target.name]: e.target.value,
-        }))
-    }
+        const { name, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
 
-    
-    function handleOnSubmit(e) {
+    const handleOnSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(email,password,navigate))
-    }
+        const { email, password } = formData;
+        dispatch(login(email, password, navigate));
+    };
 
     return (
         <div>
-            <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleOnSubmit}>
+            <form className="space-y-4 md:space-y-6" onSubmit={handleOnSubmit}>
                 <div>
-                    <label for="email" className="block mb-2 mt-3 font-medium text-gray-900 text-xl text-loginitem font-roboto">{t("Email")}</label>
-                    <div className=' relative'>
-                        <input className=' bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto' type="email" name="email" id="" 
-                        value={email}
-            onChange={handleOnChange}
-                        placeholder={t('Email')} />
-                        <MdOutlineEmail className='absolute right-3 top-[18px] z-[10] cursor-pointer opacity-20' size={30} />
+                    <label htmlFor="email" className="block mb-2 mt-3 font-medium text-xl text-gray-900">{t("Email")}</label>
+                    <div className="relative">
+                        <input 
+                            type="email"
+                            name="email"
+                            className="bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto w-full p-2"
+                            value={formData.email}
+                            onChange={handleOnChange}
+                            placeholder={t("Email")}
+                            required
+                        />
+                        <MdOutlineEmail className="absolute right-3 top-[18px] opacity-20 cursor-pointer" size={30} />
                     </div>
-
                 </div>
-                <div className=' relative'>
-                    <label for="password" className="block mb-2 text-xl font-medium text-gray-900  text-loginitem font-roboto">{t("Password")}</label>
-                    <input required className=' bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto input_feild' type={showPassword ? "text" : "password"} name="password"
-                    value={password}
-                    onChange={handleOnChange}
-                    placeholder='••••••••' />
-                    <span onClick={() => setShowPassword((prev) => !prev)} className='absolute right-3 top-[45px] z-[10] cursor-pointer opacity-20'>
-                        {showPassword ? (
-                            <AiOutlineEyeInvisible size={30} />
-                        ) : (
-                            <AiOutlineEye size={30} />
-                        )}
+                <div className="relative">
+                    <label htmlFor="password" className="block mb-2 text-xl font-medium text-gray-900">{t("Password")}</label>
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        className="bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto w-full p-2"
+                        value={formData.password}
+                        onChange={handleOnChange}
+                        placeholder="••••••••"
+                        required
+                    />
+                    <span
+                        onClick={() => setShowPassword((prev) => !prev)}
+                        className="absolute right-3 top-[45px] cursor-pointer opacity-20"
+                    >
+                        {showPassword ? <AiOutlineEyeInvisible size={30} /> : <AiOutlineEye size={30} />}
                     </span>
-
                 </div>
                 <div className="flex items-center justify-between">
-                    <div className="flex items-start">
-                    </div>
-                    <Link to={"/forgot-password"} className="text-sm font-medium hover:underline dark:text-primary-500 font-roboto underline text-[#2378C7]">{t("Forgot password")}?</Link>
+                    <Link to="/forgot-password" className="text-sm font-medium text-[#2378C7] hover:underline">{t("Forgot password?")}</Link>
                 </div>
-                <div className=''>
-                    <button className=' bg-register-rgba m-auto p-4 rounded-3xl tracking-widest w-[50%] transition-all duration-200 hover:scale-105 text-white flex justify-center text-2xl mb-6 font-semibold font-roboto'>{t("Login")}</button>
+                <div>
+                    <button 
+                        type="submit" 
+                        className="bg-register-rgba m-auto p-4 rounded-3xl w-[50%] transition-all duration-200 hover:scale-105 text-white text-2xl font-semibold font-roboto"
+                    >
+                        {t("Login")}
+                    </button>
                 </div>
-
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default LoginForm
+export default LoginForm;

@@ -7,18 +7,14 @@ import axios from "axios";
 const BASE_URL = "http://localhost:5000/api/v1"
 
 const { ADD_PRODUCT_API, UPDATE_PRODUCT_API, DELETE_PRODUCT_API, GET_ALL_BRAND_API, GET_ALL_CATEGORY_API,
-    GET_ALL_MY_PRODUCTS, ADD_PRICE , GET_ALL_INTERESTED_SHOP,GET_FULL_DETAILS_OF_PRODUCT
+    GET_ALL_MY_PRODUCTS, ADD_PRICE, GET_ALL_INTERESTED_SHOP, GET_FULL_DETAILS_OF_PRODUCT
 } = product
-
 
 
 export const getAllCategory = async (token) => {
     let result = []
     console.log(token)
     try {
-        // const response = await apiConnector("GET",GET_ALL_CATEGORY_API,{
-        //     Authorization: `Bearer ${token}`
-        // })
         const res = await axios({
             method: 'get',
             url: BASE_URL + '/individual/getallcategory',
@@ -39,10 +35,6 @@ export const getAllCategory = async (token) => {
 export const getAllBrand = async (token) => {
     let result = []
     try {
-        // const response = await apiConnector("GET",GET_ALL_BRAND_API,{
-        //     Authorization: `Bearer ${token}`
-        // })
-
         const res = await axios({
             method: 'get',
             url: BASE_URL + '/individual/getallbrand',
@@ -59,38 +51,6 @@ export const getAllBrand = async (token) => {
     }
     return result
 }
-
-// export function addProduct(data,token) {
-//     let result = null;
-//     console.log(token);
-//     const toastId = toast.loading("Loading...")
-//     return async () => {
-//         console.log(data);
-//         try {
-//             // console.log("START",invoiceImage);
-//             const response = await apiConnector("POST", ADD_PRODUCT_API, {
-//                data
-//             }, 
-//                 {"Contect-Type":"multipart/form-data",
-//                 Authorization: `Bearer ${token}`}
-//             )
-
-//             console.log("ADD PRODUCT API RESPONSE............", response)
-
-//             if (!response.data.success) {
-//                 throw new Error(response.data.message)
-//             }
-
-//             toast.success("Product Add Successfully")
-//             result = response?.data?.data;
-//         } catch (error) {
-//             console.log("PRODUCT ADD ERROR............", error)
-//             toast.error("Product is not added")
-//         }
-//         toast.dismiss(toastId)
-//         return result;
-//     }
-// }
 
 export const addProduct = async (data, token, navigate) => {
     let result = null;
@@ -119,55 +79,55 @@ export const addProduct = async (data, token, navigate) => {
 }
 
 export const editProductDetails = async (data, token) => {
-   let result =  null;
-   const toastId = toast.loading("Loading...");
+    let result = null;
+    const toastId = toast.loading("Loading...");
 
-   try{
+    try {
 
-    const response = await apiConnector('PUT',
-        UPDATE_PRODUCT_API,
-        data,
-        {
-            "Content-Type":"multipart/form-data",
-            Authorization : `Bearer ${token}`,
+        const response = await apiConnector('PUT',
+            UPDATE_PRODUCT_API,
+            data,
+            {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        console.log("EDIT PRODUCT API RESPONSE............", response);
+
+        if (!response?.data?.success) {
+            throw new Error("Could Not Update Product Details");
         }
-    );
 
-    console.log("EDIT PRODUCT API RESPONSE............", response);
+        toast.success("Product Details Updated Successfully");
+        result = response?.data?.data;
 
-    if (!response?.data?.success) {
-      throw new Error("Could Not Update Product Details");
+    } catch (error) {
+        console.log("EDIT COURSE API ERROR............", error);
+        toast.error(error.message);
     }
 
-    toast.success("Product Details Updated Successfully");
-    result = response?.data?.data;
 
-   }catch(error){
-    console.log("EDIT COURSE API ERROR............", error);
-    toast.error(error.message);
-   }
-
-   
-  toast.dismiss(toastId);
-  return result;
+    toast.dismiss(toastId);
+    return result;
 }
 
-export const deleteProduct = async(data,token)=>{
+export const deleteProduct = async (data, token) => {
     const toastId = toast.loading("Loading...");
-  try {
-    const response = await apiConnector("DELETE", DELETE_PRODUCT_API, data, {
-      Authorization: `Bearer ${token}`,
-    })
-    console.log("DELETE PRODUCT API RESPONSE............", response)
-    if (!response?.data?.success) {
-      throw new Error("Could Not Delete Product");
+    try {
+        const response = await apiConnector("DELETE", DELETE_PRODUCT_API, data, {
+            Authorization: `Bearer ${token}`,
+        })
+        console.log("DELETE PRODUCT API RESPONSE............", response)
+        if (!response?.data?.success) {
+            throw new Error("Could Not Delete Product");
+        }
+        toast.success("Product Deleted");
+    } catch (error) {
+        console.log("DELETE PRODUCT API ERROR............", error);
+        toast.error(error.message);
     }
-    toast.success("Product Deleted");
-  } catch (error) {
-    console.log("DELETE PRODUCT API ERROR............", error);
-    toast.error(error.message);
-  }
-  toast.dismiss(toastId);
+    toast.dismiss(toastId);
 
 }
 
@@ -195,61 +155,28 @@ export const getAllProductsOfUser = async (token) => {
     return result
 }
 
-// export const addPrice = async (token, data) => {
-//     let result = null;
-//     const toastId = toast.loading("Loading...")
-//     try {
+export const addPrice = async (data, token, navigate) => {
+    console.log("DATa..........DAta..............", data)
+    const toastId = toast.loading("Loading...");
+    let result = null;
+    try {
+        const res = await axios.post("http://localhost:5000/api/v1/vendor/addprice", data,
+            { headers: { Authorization: `Bearer ${token}` } }
+        )
 
-//         const res = await apiConnector("POST", ADD_PRICE, data,
-//             { Authorization: `Bearer ${token}` }
-//         );
+        console.log("ADD_PRICE............", res);
 
-//         console.log("ADD_PRICE............", res);
-
-//         if (!res?.data?.success) {
-//             throw new Error("Could not add Intrest")
-//         }
-
-//         result = res?.data?.data;
-//     } catch (error) {
-//         console.log("ADD_PRICE.........", error);
-//         toast.error(error.message)
-//     }
-//     toast.dismiss(toastId);
-//     return result
-// }
- // Ensure this path is correct
-
-export const addPrice = async (data,token,navigate) => {
-console.log("DATa..........DAta..............",data)
-  const toastId = toast.loading("Loading...");
-  let result = null;
-  try {
-    // const res = await apiConnector("POST", "/dashboard/add-price", data, {
-    //   Authorization: `Bearer ${token}`
-    // });
-
-    const res = await axios.post("http://localhost:5000/api/v1/vendor/addprice", data,
-       {headers: {Authorization: `Bearer ${token}`}}
-    )
-
-    console.log("ADD_PRICE............", res);
-
-    // if (!res?.data?.success) {
-    //   throw new Error("Could not add Interest");
-    // }
-
-    result = res?.data?.data;
-    navigate("/dashboard/intrested-shopkeeper-products")
-  } catch (error) {
-    console.log("ADD_PRICE.........", error);
-    toast.error(error.message);
-  }
-  toast.dismiss(toastId);
-  return result;
+        result = res?.data?.data;
+        navigate("/dashboard/intrested-shopkeeper-products")
+    } catch (error) {
+        console.log("ADD_PRICE.........", error);
+        toast.error(error.message);
+    }
+    toast.dismiss(toastId);
+    return result;
 };
 
-export const InterestedProductOfIndividual = async(token) => {
+export const InterestedProductOfIndividual = async (token) => {
     let result = [];
     const toastId = toast.loading("Loading...");
     try {
@@ -268,17 +195,17 @@ export const InterestedProductOfIndividual = async(token) => {
         toast.success("Interested Products get successfully");
 
         result = res?.data?.data;
-    } catch(error) {
-        console.log("allinterestedproductsofuser....................",error);
+    } catch (error) {
+        console.log("allinterestedproductsofuser....................", error);
         toast.error(error.message)
     }
     toast.dismiss(toastId);
     return result
 }
 
-export const getAllInterestedVendors = async(token,productId) => {
+export const getAllInterestedVendors = async (token, productId) => {
     let result = [];
-    console.log("PRODUCT ID",productId[0]);
+    console.log("PRODUCT ID", productId[0]);
     // const id = JSON.stringify(productId);
     // console.log("ID,......................",id)
     const toastId = toast.loading("Loading...");
@@ -287,7 +214,7 @@ export const getAllInterestedVendors = async(token,productId) => {
         const res = await axios({
             method: 'get',
             url: BASE_URL + `/individual/allinterestedshopekeepers/${productId}`,
-            data:{productId},
+            data: { productId },
             headers: { authorization: `Bearer ${token}` },
         });
 
@@ -300,38 +227,37 @@ export const getAllInterestedVendors = async(token,productId) => {
         toast.success("Interested Products get successfully");
 
         result = res?.data?.data;
-        console.log("RESULT..........",result);
+        console.log("RESULT..........", result);
     } catch (error) {
-        console.log("allinterestedshopekeepers....................",error);
+        console.log("allinterestedshopekeepers....................", error);
         toast.error(error.message)
     }
     toast.dismiss(toastId);
     return result
 }
 
-export const getAllDetailsOfProduct = async(token,productId)=>{
+export const getAllDetailsOfProduct = async (token, productId) => {
     const toastId = toast.loading('Loading...');
     let result = null
-    try{
-     const response = await apiConnector('POST',
-        GET_FULL_DETAILS_OF_PRODUCT,
-        {
-            productId,
-          },
-          {
-            Authorization: `Bearer ${token}`,
-          }
+    try {
+        const response = await apiConnector('POST',
+            GET_FULL_DETAILS_OF_PRODUCT,
+            {
+                productId,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        )
 
-     )
+        console.log("GET_FULL_DETAILS_OF_PRODUCT API RESPONSE............", response)
 
-     console.log("GET_FULL_DETAILS_OF_PRODUCT API RESPONSE............", response)
+        if (!response.data.success) {
+            throw new Error(response.data.message)
+        }
+        result = response?.data?.data
 
-     if (!response.data.success) {
-       throw new Error(response.data.message)
-     }
-     result = response?.data?.data
-
-    }catch(error){
+    } catch (error) {
         console.log("Product_Full API ERROR............", error)
         result = error.response.data
     }

@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import { matchPath, useLocation } from 'react-router-dom';
 
 const IndividualSidebarLinks = ({ link, iconName }) => {
-
   const location = useLocation();
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
@@ -17,7 +16,6 @@ const IndividualSidebarLinks = ({ link, iconName }) => {
             <span>{link.name}</span>
           </div>
         </NavLink>
-
       }
     </div>
   )

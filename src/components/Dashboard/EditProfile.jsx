@@ -35,7 +35,6 @@ const EditProfile = () => {
     }
     return (
         <div className='mt-8'>
-
             <form onSubmit={handleSubmit(submitProfileform)} className='flex flex-col gap-8'>
                 <div className='flex flex-col gap-5 lg:flex-row'>
                     <div className='flex flex-col gap-2 lg:w-[48%]'>
@@ -79,7 +78,6 @@ const EditProfile = () => {
                         }
                     </div>
                 </div>
-
                 <div className='flex flex-col gap-5 lg:flex-row'>
                     <div className='flex flex-col gap-2 lg:w-[48%]'>
                         <label className='font-roboto text-[16px] opacity-60' htmlFor='dateOfBirth'>
@@ -139,7 +137,6 @@ const EditProfile = () => {
                         }
                     </div>
                 </div>
-
                 <div className='flex flex-col justify-center gap-5 lg:flex-row'>
                     <div className='flex flex-col justify-center gap-2 lg:w-[48%]'>
                         <label htmlFor='lastName' className='font-roboto text-[16px] opacity-60'>
@@ -175,7 +172,6 @@ const EditProfile = () => {
                         }
                     </div>
                 </div>
-
                 <div className="mt-5 flex flex-col sm:flex-row justify-between gap-3">
                     <button
                         className="bg-[#F19A3E] text-base sm:text-lg lg:text-xl font-medium font-roboto px-4 sm:px-6 lg:px-8 py-2 text-white rounded-xl sm:rounded-2xl"
@@ -183,7 +179,6 @@ const EditProfile = () => {
                     >
                         {t("Cancel")}
                     </button>
-
                     <button
                         type="submit"
                         className="bg-[#F19A3E] text-base sm:text-lg lg:text-xl font-medium font-roboto px-4 sm:px-6 lg:px-8 py-2 text-white rounded-xl sm:rounded-2xl"
@@ -191,120 +186,55 @@ const EditProfile = () => {
                         {t("Save & Update")}
                     </button>
                 </div>
-
             </form>
-
-
             <div className=" mt-12">
                 <p className=" font-roboto font-medium text-2xl">
                     {t("Edit your password")}
                 </p>
-
                 <hr className=" border-t-2 border-black mt-2" />
             </div>
-
             <form className='mt-10 '>
-
-                {/* <div className='flex gap-6 items-center '>
-
-                    {/*Current Password 
-
-                    <div className="relative">
+                <div className="flex flex-col gap-6 sm:flex-row sm:gap-6 items-center w-full">
+                    {/* Current Password */}
+                    <div className="relative w-full sm:w-auto">
                         <input
                             type={showPassword ? "text" : "password"}
                             name="password"
                             placeholder={t("Current Password")}
-                            className="input_feild"
+                            className="input_feild w-full sm:w-64 lg:w-80"
                         />
-
                         <span
                             onClick={() => setShowPassword((prev) => !prev)}
-                            className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-20"
+                            className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-50"
                         >
                             {showPassword ? (
-                                <AiOutlineEyeInvisible size={30} />
+                                <AiOutlineEyeInvisible size={24} />
                             ) : (
-                                <AiOutlineEye size={30} />
+                                <AiOutlineEye size={24} />
                             )}
                         </span>
                     </div>
 
-
-                    {/* Change Password 
-                    <div className="relative">
+                    {/* Change Password */}
+                    <div className="relative w-full sm:w-auto">
                         <input
                             type={showConfirmPassword ? "text" : "password"}
                             name="confirmPassword"
                             placeholder={t("Change Password")}
-                            className="input_feild "
+                            className="input_feild w-full sm:w-64 lg:w-80"
                         />
-
                         <span
                             onClick={() => setShowConfirmPassword((prev) => !prev)}
-                            className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-20"
+                            className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-50"
                         >
                             {showConfirmPassword ? (
-                                <CiLock size={30} />
+                                <CiLock size={24} />
                             ) : (
-                                <CiUnlock size={30} />
+                                <CiUnlock size={24} />
                             )}
                         </span>
                     </div>
-
-
-
-                </div> */}
-
-                <div className="flex flex-col gap-6 sm:flex-row sm:gap-6 items-center w-full">
-  {/* Current Password */}
-  <div className="relative w-full sm:w-auto">
-    <input
-      type={showPassword ? "text" : "password"}
-      name="password"
-      placeholder={t("Current Password")}
-      className="input_feild w-full sm:w-64 lg:w-80"
-    />
-    <span
-      onClick={() => setShowPassword((prev) => !prev)}
-      className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-50"
-    >
-      {showPassword ? (
-        <AiOutlineEyeInvisible size={24} />
-      ) : (
-        <AiOutlineEye size={24} />
-      )}
-    </span>
-  </div>
-
-  {/* Change Password */}
-  <div className="relative w-full sm:w-auto">
-    <input
-      type={showConfirmPassword ? "text" : "password"}
-      name="confirmPassword"
-      placeholder={t("Change Password")}
-      className="input_feild w-full sm:w-64 lg:w-80"
-    />
-    <span
-      onClick={() => setShowConfirmPassword((prev) => !prev)}
-      className="absolute right-3 top-[9px] z-[10] cursor-pointer opacity-50"
-    >
-      {showConfirmPassword ? (
-        <CiLock size={24} />
-      ) : (
-        <CiUnlock size={24} />
-      )}
-    </span>
-  </div>
-</div>
-
-
-                {/* <div className='mt-5 flex justify-between gap-3'>
-                    <button className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-5 py-2 text-white rounded-md'
-                    // onClick={() => navigate("/dashboard/my-profile")}
-                    >{t("Cancel")}</button>
-                    <button type='submit' className='bg-[#F19A3E] text-[18px] font-medium font-roboto px-5 py-2 text-white rounded-md'>{t("Save & Update")}</button>
-                </div> */}
-
+                </div>
                 <div className="mt-5 flex flex-col sm:flex-row justify-between gap-3">
                     <button
                         className="bg-[#F19A3E] text-base sm:text-lg lg:text-xl font-medium font-roboto px-4 sm:px-6 lg:px-8 py-2 text-white rounded-md"
@@ -312,7 +242,6 @@ const EditProfile = () => {
                     >
                         {t("Cancel")}
                     </button>
-
                     <button
                         type="submit"
                         className="bg-[#F19A3E] text-base sm:text-lg lg:text-xl font-medium font-roboto px-4 sm:px-6 lg:px-8 py-2 text-white rounded-md"
@@ -320,10 +249,7 @@ const EditProfile = () => {
                         {t("Save & Update")}
                     </button>
                 </div>
-
-
             </form>
-
         </div>
     )
 }

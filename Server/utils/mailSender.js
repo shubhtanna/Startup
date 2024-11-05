@@ -1,12 +1,12 @@
 import nodemailer from "nodemailer";
 
-export const mailsender = async(email,title,body) => {
-    try{
+export const mailsender = async (email, title, body) => {
+    try {
         let transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
             auth: {
-                user:process.env.MAIL_USER,
-                pass:process.env.MAIL_PASS,
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS,
             }
         })
 
@@ -14,11 +14,11 @@ export const mailsender = async(email,title,body) => {
             from: 'E-Waste Trade Hub',
             to: `${email}`,
             subject: `${title}`,
-            html:`${body}`,
+            html: `${body}`,
         })
         console.log(info)
         return info;
-    } catch(error) {
+    } catch (error) {
         console.log(error.message);
     }
 }

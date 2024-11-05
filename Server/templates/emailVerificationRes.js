@@ -1,5 +1,5 @@
 export const emailVerificationRes = (otp) => {
-    return `
+	return `
     <!DOCTYPE html>
 	<html>
 	
