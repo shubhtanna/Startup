@@ -173,7 +173,7 @@ function Feed() {
     }
 
     return (
-        <div className="App p-6 font-ubuntu w-full min-h-screen flex flex-col items-center bg-gradient-to-r bg-[#a8e7eb] border-slate-800">
+        <div className="App p-6 font-ubuntu w-full min-h-screen flex flex-col items-center bg-gradient-to-r bg-[#3acad4] border-slate-800 ">
             <form onSubmit={handleSubmit} className="animate-slide-in space-y-4 p-6 bg-white rounded-lg shadow-md w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
                 <div className="flex flex-col">
                     <label className="font-medium">Title:</label>
