@@ -51,7 +51,7 @@ const LoginForm = () => {
                         className="bg-loginfieldbg transition-all duration-200 hover:scale-105 font-roboto w-full p-2"
                         value={formData.password}
                         onChange={handleOnChange}
-                        placeholder="••••••••"
+                        placeholder="**********"
                         required
                     />
                     <span
