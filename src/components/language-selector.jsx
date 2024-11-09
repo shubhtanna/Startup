@@ -30,7 +30,7 @@ const Languageselector = () => {
         <div className="relative">
             <button
                 onClick={toggleMenu}
-                className="text-xl font-medium px-4 py-2 border rounded-lg"
+                className="text-l text-white font-medium px-3 py-2 border rounded-lg"
             >
                 {i18n.language.toUpperCase()} &#9662; {/* Down arrow symbol */}
             </button>
