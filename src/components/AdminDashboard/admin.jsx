@@ -11,10 +11,6 @@ const AdminDashboard = () => {
   return (
     <div>
       Admin Pannel
-      // Add your admin dashboard content here
-      // For example, you can display a list of all users
-      // and their details, or a list of all products
-      // and their details, etc.
     </div>
   )
 }
