@@ -116,6 +116,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "Now",
                 "Add your product, fill basics details and you are all set to sell your product": "Add your product, fill basics details and you are all set to sell your product",
                 "Add Product Now": "Add Product Now",
+                "Feedback":"Feedback",
             }
         },
         fr: {
@@ -228,6 +229,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "Maintenant",
                 "Add your product, fill basics details and you are all set to sell your product": "Ajoutez votre produit, remplissez les informations de base et vous êtes prêt à vendre votre produit",
                 "Add Product Now": "Ajouter le produit maintenant",
+                "Feedback":"Retour d'information",
             }
         },
         hi: {
@@ -340,6 +342,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "अभी",
                 "Add your product, fill basics details and you are all set to sell your product": "अपना उत्पाद जोड़ें, आवश्यक विवरण भरें और आप अपने उत्पाद को बेचने के लिए तैयार हैं",
                 "Add Product Now": "अभी उत्पाद जोड़ें",
+                "Feedback":"प्रतिक्रिया",
             }
 
         },
@@ -453,6 +456,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "હવે",
                 "Add your product, fill basics details and you are all set to sell your product": "તમારો પ્રોડક્ટ ઉમેરો, મૂળભૂત વિગતો ભરો અને તમારો પ્રોડક્ટ વેચવા તૈયાર છો",
                 "Add Product Now": "હવે પ્રોડક્ટ ઉમેરો",
+                "Feedback": "પ્રતિસાદ",
             }
         },
         sp: {
@@ -565,6 +569,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "Ahora",
                 "Add your product, fill basics details and you are all set to sell your product": "Agrega tu producto, llena los detalles básicos y estarás listo para vender tu producto",
                 "Add Product Now": "Agregar producto ahora",
+                "Feedback": "Comentarios",
             }
 
         },
@@ -678,6 +683,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "ਹੁਣ",
                 "Add your product, fill basics details and you are all set to sell your product": "ਆਪਣੇ ਉਤਪਾਦ ਜੋੜੋ, ਮੂਲ ਜਾਣਕਾਰੀ ਭਰੋ ਅਤੇ ਤੁਸੀਂ ਆਪਣਾ ਉਤਪਾਦ ਵੇਚਣ ਲਈ ਤਿਆਰ ਹੋ",
                 "Add Product Now": "ਹੁਣ ਉਤਪਾਦ ਜੋੜੋ",
+                "Feedback": "ਫੀਡਬੈਕ",
             }
 
         },
@@ -791,6 +797,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "இப்போது",
                 "Add your product, fill basics details and you are all set to sell your product": "உங்கள் பொருளைச் சேர்க்கவும், அடிப்படை விவரங்களை நிரப்பவும், உங்கள் பொருளை விற்க நீங்கள் தயாராக இருக்கிறீர்கள்",
                 "Add Product Now": "இப்போது பொருளைச் சேர்க்கவும்",
+                "Feedback": "கருத்து",
             }
 
         },
@@ -904,6 +911,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "आता",
                 "Add your product, fill basics details and you are all set to sell your product": "तुमचे उत्पादन जोडा, मूलभूत तपशील भरा आणि तुम्ही तुमचे उत्पादन विकण्यासाठी सज्ज आहात",
                 "Add Product Now": "आता उत्पादन जोडा",
+                "Feedback": "प्रतिस",
             }
 
         },
@@ -1017,6 +1025,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Now": "ఇప్పుడే",
                 "Add your product, fill basics details and you are all set to sell your product": "మీ ఉత్పత్తిని జోడించండి, ప్రాథమిక వివరాలను పూరించండి మరియు మీరు మీ ఉత్పత్తిని అమ్మడానికి సిద్ధంగా ఉన్నారు",
                 "Add Product Now": "ఉత్పత్తిని ఇప్పుడు జోడించండి",
+                "Feedback": "అభిప్రాయం",
             }
         }
     }

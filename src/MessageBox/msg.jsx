@@ -34,7 +34,6 @@ const Chatbot = () => {
 
   // Function to check if a keyword exists (case-insensitive)
   function containsKeyword(input) {
-    // Convert both input and keywords to lowercase for case-insensitive comparison
     const lowerInput = input.toLowerCase();
     return keywords.some(keyword => keyword.toLowerCase() === lowerInput);
   }
@@ -71,7 +70,13 @@ const Chatbot = () => {
   };
 
   const getAIResponse = async (userMessage) => {
-    const prompt = `You are a chatbot on a  E-Waste Trade Hub website. Only answer questions related to E-Waste , installation, maintenance, costs, savings, environmental benefits, or the products and services offered on the website. 
+    // Check if the user is asking for a response in Hindi or another language
+    let language = "English";
+    if (userMessage.toLowerCase().includes("hindi")) {
+      language = "Hindi";
+    }
+    // Customizing prompt to handle other languages
+    const prompt = `You are a chatbot on an E-Waste Trade Hub website. Respond in ${language} language and answer questions related to E-Waste, installation, maintenance, costs, savings, environmental benefits, or the products and services offered on the website. 
     User: ${userMessage}`;
 
     try {
