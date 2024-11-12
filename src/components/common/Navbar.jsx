@@ -132,8 +132,9 @@ const Navbar = () => {
             {token && user?.accountType !== "admin" && (
               <li><Link to="/raise-ticket" onClick={handleToggleMenu}>{t("Feedback")}</Link></li>
             )}
-
-            <Languageselector />
+            <div className={{ color: darkMode ? 'white' : 'black' }}>
+              <Languageselector />
+            </div>
             <button
               onClick={toggleDarkMode}
               className="mt-2 px-4 py-2 w-full rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
