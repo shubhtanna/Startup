@@ -38,7 +38,7 @@ const Footer = () => {
             <p>{t("LOGO")}</p>
           )}
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 mt-1 sm:mt-2 md:mt-3">
-            {t("Reduce, Reuse, Recycle: Keep E-Waste in Check")}
+            {t("Reduce, Reuse, Recycle: Keep E-Waste in Check")}!
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const Footer = () => {
 
       <div className="text-center border-t border-gray-700 pt-4">
         <Link to="/" className="flex justify-center items-center text-sm text-gray-400">
-          <span>&copy; {new Date().getFullYear()} E-Waste Trader</span>
+          <span>&copy; {new Date().getFullYear()} {t("E-Waste Trader")}</span>
           <span className="ml-2">{t("Terms and conditions applied")}</span>
         </Link>
       </div>
