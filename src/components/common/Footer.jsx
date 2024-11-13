@@ -38,7 +38,7 @@ const Footer = () => {
             <p>{t("LOGO")}</p>
           )}
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 mt-1 sm:mt-2 md:mt-3">
-            {t("Reduce, Reuse, Recycle: Keep E-Waste in Check!")}
+            {t("Reduce, Reuse, Recycle: Keep E-Waste in Check")}
           </p>
         </div>
 
