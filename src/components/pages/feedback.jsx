@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FaTicketAlt, FaUserAlt, FaClipboardList, FaPlusCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { format, parseISO } from 'date-fns';
 
