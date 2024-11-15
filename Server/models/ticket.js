@@ -13,7 +13,7 @@ const ticketSchema = new mongoose.Schema({
     status: {
         type: String,
         enum: ['Open', 'In Progress', 'Resolved'],
-        default: 'Open'
+        default: 'In Progress'  // Default status is now 'In Progress'
     },
     priority: {
         type: String,
@@ -28,8 +28,12 @@ const ticketSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    date: {
+        type: Date,
+        required: true
+    }
 });
 
 const Ticket = mongoose.model('Ticket', ticketSchema);
 
-export default Ticket
+export default Ticket;
