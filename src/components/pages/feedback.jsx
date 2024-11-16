@@ -247,19 +247,32 @@ function Feed() {
                 />
             </div>
 
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredTickets.map((ticket) => (
                     <div key={ticket._id} className="p-4 bg-white shadow-md rounded">
-                        <h3 className="text-xl font-bold">{ticket.title}</h3>
-                        <p>{ticket.description}</p>
-                        <p><strong>Created By:</strong> {ticket.createdBy}</p>
-                        <p><strong>Priority:</strong> {ticket.priority}</p>
-                        <p><strong>Date:</strong> {format(parseISO(ticket.date), 'yyyy-MM-dd')}</p>
-                        <button onClick={() => handleEdit(ticket)} className="mr-2 bg-yellow-500 text-white py-1 px-3 rounded">Edit</button>
-                        <button onClick={() => handleDelete(ticket._id)} className="bg-red-500 text-white py-1 px-3 rounded">Delete</button>
+                        <h3 className="text-lg sm:text-xl font-bold">{ticket.title}</h3>
+                        <p className="text-sm sm:text-base">{ticket.description}</p>
+                        <p className="text-sm sm:text-base"><strong>Created By:</strong> {ticket.createdBy}</p>
+                        <p className="text-sm sm:text-base"><strong>Priority:</strong> {ticket.priority}</p>
+                        <p className="text-sm sm:text-base"><strong>Date:</strong> {format(parseISO(ticket.date), 'yyyy-MM-dd')}</p>
+                        <div className="mt-2 flex flex-wrap gap-2">
+                            <button
+                                onClick={() => handleEdit(ticket)}
+                                className="mr-2 bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600"
+                            >
+                                Edit
+                            </button>
+                            <button
+                                onClick={() => handleDelete(ticket._id)}
+                                className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
+
         </div>
     );
 }
