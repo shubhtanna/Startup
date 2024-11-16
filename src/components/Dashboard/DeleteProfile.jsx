@@ -33,9 +33,15 @@ const DeleteProfile = () => {
               <p className=' font-roboto font-normal text-sm'>{t("Deleting your account will remove all the associated details!")}</p>
             </div>
           </div>
-          <div className='flex justify-start ml-16'>
-            <button type='button' onClick={handleDeleteAccount} className=' bg-white text-[#F50C0C] font-roboto font-medium text-lg px-16 py-2 rounded-xl hover:bg-[#C0242D] hover:text-white hover:scale-110 transition-all duration-300'>{t("Delete Account")}</button>
+          <div className='flex justify-start sm:ml-16 justify-center'>
+            <button
+              type='button'
+              onClick={handleDeleteAccount}
+              className='bg-white text-[#F50C0C] font-roboto font-medium text-lg px-16 py-2 rounded-xl hover:bg-[#C0242D] hover:text-white hover:scale-110 transition-all duration-300'>
+              {t("Delete Account")}
+            </button>
           </div>
+
         </div>
       </div>
     </div>
