@@ -36,7 +36,7 @@ export default function AddProduct() {
               {t("course single page.")}
             </li>
             <li>{t("Make Announcements to notify any important")}</li>
-            <li>{t("Notes to all enrolled students at once.")}</li>
+            <li>{t("Notes to all Users Logins at once.")}</li>
           </ul>
         </div>
       </div>

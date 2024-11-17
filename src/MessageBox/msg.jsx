@@ -107,7 +107,7 @@ const Chatbot = () => {
       {/* Chatbot icon button for mobile view */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-8 right-4 p-3 bg-blue-500 text-white rounded-full shadow-lg z-50"
+        className="fixed bottom-10 right-4 p-3 bg-blue-500 text-white rounded-full shadow-lg z-50"
         aria-label="Chat with us"
       >
         <FaRobot size={24} /> {/* Robot icon from React Icons */}

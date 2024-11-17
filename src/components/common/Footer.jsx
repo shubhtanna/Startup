@@ -82,7 +82,7 @@ const Footer = () => {
       <div className="text-center border-t border-gray-700 pt-4">
         <Link to="/" className="flex justify-center items-center text-sm text-gray-400">
           <span>&copy; {new Date().getFullYear()} {t("E-Waste Trader")}</span>
-          <span className="ml-2">{t("Terms and conditions applied")}</span>
+          <span className="ml-2"><Link to="/term">{t("Terms and conditions applied")}</Link></span>
         </Link>
       </div>
     </div>

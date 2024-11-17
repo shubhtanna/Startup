@@ -24,6 +24,7 @@ import { EditInterestedProduct } from './components/Shopkeeper/EditInterestedPro
 import EditProduct from './components/Dashboard/EditProduct'
 import Feed from './components/pages/feedback';
 import AdminDashboard from './components/AdminDashboard/admin';
+import TermsAndCondition from './components/pages/TermsAndCondition';
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,8 @@ function App() {
         <Route path='raise-ticket' element={<Feed />} />
 
         <Route path='/admin' element={<AdminDashboard />} />
+
+        <Route path='/term' element={<TermsAndCondition/>}/>
 
         <Route element={<Dashboard />}>
 
