@@ -27,7 +27,7 @@ const Languageselector = () => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative z-20">
             <button
                 onClick={toggleMenu}
                 className="text-l font-medium px-3 py-2 border rounded-lg"
@@ -40,7 +40,7 @@ const Languageselector = () => {
                         <button
                             key={lng.code}
                             onClick={() => changeLanguage(lng.code)}
-                            className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${lng.code === i18n.language ? "font-bold" : ""}`}
+                            className={`block w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg ${lng.code === i18n.language ? "font-bold" : ""}`}
                         >
                             {lng.lang}
                         </button>

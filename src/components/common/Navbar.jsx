@@ -45,7 +45,7 @@ const Navbar = () => {
           <img src={LOGO} loading="lazy" height={50} width={100} alt="Logo" />
         </Link>
         <nav className="hidden lg:flex gap-x-8 items-center">
-        <ul className="flex flex-col md:flex-row gap-y-4 md:gap-x-8 font-medium text-base md:text-lg text-gray-700 dark:text-gray-300 md:mr-[150px] mr-4">
+        <ul className="flex flex-col md:flex-row gap-y-4 md:gap-x-8 font-medium text-base md:text-lg text-gray-700 dark:text-gray-300 md:mr-[170px] mr-4">
             {/* Conditionally render "Home" link */}
             {!token || user?.accountType !== "admin" ? (
               <li><Link to="/">{t("Home")}</Link></li>

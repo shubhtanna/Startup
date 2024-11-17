@@ -33,7 +33,7 @@ const DeleteProfile = () => {
               <p className=' font-roboto font-normal text-sm'>{t("Deleting your account will remove all the associated details!")}</p>
             </div>
           </div>
-          <div className='flex justify-start sm:ml-16 justify-center'>
+          <div className='flex sm:ml-16 justify-center'>
             <button
               type='button'
               onClick={handleDeleteAccount}
