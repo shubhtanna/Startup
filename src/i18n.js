@@ -130,6 +130,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Bar Chart":"Bar Chart",
                 "Pie Chart":"Pie Chart",
                 "E-Waste Trade Admin":"E-Waste Trade Admin",
+                "Vendors Informations":"Vendors Informations",
+                "Notification":"Notification",
             }
         },
         fr: {
@@ -255,6 +257,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Line Chart":"Graphique linéaire",
                 "Bar Chart":"Diagramme à bandes",
                 "Pie Chart":"Diagramme circulaire",
+                "Vendors Informations":"Informations sur les fournisseurs",
+                "Notification":"Notification",
             }
         },
         hi: {
@@ -381,6 +385,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Bar Chart":"बार चार्ट",
                 "Pie Chart":"पाई चार्ट",
                 "E-Waste Trade Admin":"ई-कचरा व्यापार प्रशासक",
+                "Vendors Informations":"विक्रेता जानकारी",
+                "Notification":"सूचना",
             }
 
         },
@@ -509,6 +515,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Bar Chart":"બાર ચાર્ટ્સ",
                 "Pie Chart":"પાઈ ચાર્ટ્સ",
                 "E-Waste Trade Admin":"ઈ-કચરું વ્યાપાર એડમિન",
+                "Vendors Informations":"વિક્રેતા માહિતી",
+                "Notification":"સૂચના",
             }
         },
         sp: {
@@ -634,6 +642,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Line Chart":"Gráficos de líneas",
                 "Bar Chart":"Gráficos de barras",
                 "Pie Chart":"Gráficos circulares",
+                "Vendors Informations":"Información de los vendedores",
+                "Notification":"Notificaciones",
             }
 
         },
@@ -761,6 +771,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Bar Chart":"ਬਾਰ ਚਾਰਟ",
                 "Pie Chart":"ਪਾਈ ਚਾਰਟ",
                 "E-Waste Trade Admin":"ਈ-ਵੇਸਟ ਵਪਾਰ ਐਡਮਿਨ",
+                "Vendors Informations":"ਵਿਕਰੇਤਾ ਜਾਣਕਾਰੀ",
+                "Notification":"ਸੂਚਨਾਵਾਂ",
             }
 
         },
@@ -887,6 +899,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Line Chart":"வரி விளக்கங்கள்",
                 "Bar Chart":"பட்டி விளக்கங்கள்",
                 "Pie Chart":"பை விளக்கங்கள்",
+                "Vendors Informations":"விற்பனையாளர் தகவல்கள்",
+                "Notification":"அறிவிப்புகள்",
             }
 
         },
@@ -1014,7 +1028,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Bar Chart":"बार चार्ट",
                 "Pie Chart":"पाय चार्ट",
                 "E-Waste Trade Admin": "ई-कचरा व्यापार व्यवस्थापक",
-
+                "Vendors Informations":"विक्रेता माहिती",
+                "Notification":"सूचना",
             }
 
         },
@@ -1140,6 +1155,8 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Line Chart":"లైన్ చార్ట్",
                 "Bar Chart":"బార్ చార్ట్",
                 "Pie Chart":"పై చార్ట్",
+                "Vendors Informations": "విక్రేతల సమాచారం",
+                "Notification": "నోటిఫికేషన్‌లు",
             }
         }
     }
