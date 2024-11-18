@@ -11,17 +11,20 @@ import {
   FaMapMarkedAlt,
   FaBars,
 } from "react-icons/fa";
+import { FaShopLock } from "react-icons/fa6";
 import { BsFillTicketFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 import UserInformations from "./AdminComponents/Data/UserInformations";
 import ManageAdmin from "./AdminComponents/Data/ManageAdmin";
 import RaiseTickets from "./AdminComponents/Pages/RaiseTickets";
-import Calendar from "./AdminComponents/Pages/Calendar";
 import GeographyChart from "./AdminComponents/Charts/GeographyChart";
 import LineChart from "./AdminComponents/Charts/LineChart";
 import BarChart from "./AdminComponents/Charts/BarChart";
 import PieChart from "./AdminComponents/Charts/PieChart";
 import Dashboard from "./Dashboard";
+import Notification from "./AdminComponents/Pages/Notification";
+import { MdNotificationAdd } from "react-icons/md";
+import VendorInformations from "./AdminComponents/Pages/VendorInformations";
 
 const Sidenavbar = () => {
   const [active, setActive] = useState("Dashboard");
@@ -34,6 +37,7 @@ const Sidenavbar = () => {
     {
       section: t("Data"),
       items: [
+        { name: t("Vendors Informations"), icon: <FaShopLock />, component: <div><VendorInformations/></div> },
         { name: t("User Informations"), icon: <FaAddressBook />, component: <div><UserInformations /></div> },
         { name: t("Manage Admin"), icon: <FaUsers />, component: <div><ManageAdmin /></div> },
       ],
@@ -42,7 +46,7 @@ const Sidenavbar = () => {
       section: t("Pages"),
       items: [
         { name: t("Raise Tickets"), icon: <BsFillTicketFill />, component: <div><RaiseTickets /></div> },
-        { name: t("Calendar"), icon: <FaRegCalendarAlt />, component: <div><Calendar /></div> },
+        { name: t("Notification"), icon:<MdNotificationAdd/>, component: <div><Notification /></div>},
       ],
     },
     {
@@ -82,6 +86,7 @@ const Sidenavbar = () => {
               </button>
             ))}
           </div>
+          
         ))}
       </nav>
 

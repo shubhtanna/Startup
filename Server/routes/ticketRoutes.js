@@ -1,6 +1,8 @@
 import express from 'express';
 import Ticket from '../models/ticket.js';
+import Notification from '../models/NotificationModels.js';
 const router = express.Router();
+
 
 // Route to get all tickets
 router.get('/tickets', async (req, res) => {
@@ -11,6 +13,25 @@ router.get('/tickets', async (req, res) => {
         res.status(500).json({
             message: error.message
         });
+    }
+});
+
+router.post('/api/tickets', async (req, res) => {
+    try {
+        const newTicket = new Ticket(req.body);
+        await newTicket.save();
+
+        // Create a notification for the admin
+        const notification = new Notification({
+            message: `New ticket raised: ${newTicket.title}`,
+            read: false,
+            createdAt: new Date(),
+        });
+        await notification.save();
+
+        res.status(201).json(newTicket);
+    } catch (error) {
+        res.status(500).json({ message: 'Error creating ticket', error });
     }
 });
 
@@ -77,6 +98,35 @@ router.delete('/tickets/:id', getTicket, async (req, res) => {
         res.status(500).json({
             message: error.message
         });
+    }
+});
+
+router.delete('tickets/:id', async (req, res) => {
+    try {
+        const notification = await Notification.findByIdAndDelete(req.params.id);
+        if (!notification) return res.status(404).json({ message: 'Notification not found' });
+        res.json({ message: 'Notification deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ message: 'Error deleting notification' });
+    }
+});
+
+router.get('/notifications', async (req, res) => {
+    try {
+        const notifications = await Notification.find().sort({ createdAt: -1 });
+        res.json(notifications);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching notifications', error });
+    }
+});
+
+// PATCH - Mark Notification as Read
+router.patch('/notifications/:id', async (req, res) => {
+    try {
+        const notification = await Notification.findByIdAndUpdate(req.params.id, { read: true }, { new: true });
+        res.json(notification);
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating notification', error });
     }
 });
 

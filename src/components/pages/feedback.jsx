@@ -123,6 +123,9 @@ function Feed() {
             const newTicket = await response.json();
             setTickets([...tickets, newTicket]);
             resetForm();
+    
+            // Optionally show a confirmation notification for the user
+            alert('Ticket created successfully! Admin notified.');
         } catch (error) {
             console.error('Error creating ticket:', error);
         }

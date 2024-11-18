@@ -31,7 +31,7 @@ const ticketSchema = new mongoose.Schema({
     date: {
         type: Date,
         required: true
-    }
+    },
 });
 
 const Ticket = mongoose.model('Ticket', ticketSchema);
