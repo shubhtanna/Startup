@@ -126,7 +126,7 @@ function Notification() {
     const unreadCount = totalNotifications - readCount;
 
     return (
-        <div className="p-3 max-w-4xl mx-auto min-h-screen overflow-y-auto ml-0">
+        <div className="p-3 max-w-[87%] justify-between mx-auto min-h-screen overflow-y-auto ml-5">
             <ToastContainer />
             {/* Notification Counts */}
 
