@@ -11,7 +11,9 @@ const AdminDashboard = () => {
   }
   return (
     <div className='fixed'>
+    <div className='h-screen overflow-auto overflow-y-scroll'>
         <Sidenavbar/>
+        </div>
     </div>
   )
 }

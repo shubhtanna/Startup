@@ -24,7 +24,7 @@ import PieChart from "./AdminComponents/Charts/PieChart";
 import Dashboard from "./Dashboard";
 import Notification from "./AdminComponents/Pages/Notification";
 import { MdNotificationAdd } from "react-icons/md";
-import VendorInformations from "./AdminComponents/Pages/VendorInformations";
+import VendorInformations from "./AdminComponents/Data/VendorInformations";
 
 const Sidenavbar = () => {
   const [active, setActive] = useState("Dashboard");
@@ -45,8 +45,8 @@ const Sidenavbar = () => {
     {
       section: t("Pages"),
       items: [
-        { name: t("Raise Tickets"), icon: <BsFillTicketFill />, component: <div><RaiseTickets /></div> },
-        { name: t("Notification"), icon:<MdNotificationAdd/>, component: <div><Notification /></div>},
+        { name: t("Raise Tickets"), icon: <BsFillTicketFill />, component: <div className="h-screen overflow-auto overflow-y-scroll"><RaiseTickets /></div> },
+        { name: t("Notification"), icon:<MdNotificationAdd/>, component: <div className="h-screen overflow-auto overflow-y-scroll"><Notification /></div>},
       ],
     },
     {
