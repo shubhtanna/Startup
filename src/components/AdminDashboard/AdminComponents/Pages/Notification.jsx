@@ -129,47 +129,47 @@ function Notification() {
         <div className="p-3 max-w-4xl mx-auto min-h-screen overflow-y-auto ml-0">
             <ToastContainer />
             {/* Notification Counts */}
-           
-<div className="flex flex-wrap md:flex-nowrap space-x-0 md:space-x-4 space-y-4 md:space-y-0">
-    <div
-        className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
-        style={{ backgroundColor: counterColors.total }}
-    >
-        <div className="flex items-center space-x-2">
-            <BellIcon className="h-6 w-6 text-gray-800" />
-            <div>
-                <h3 className="text-lg font-bold text-gray-800">Notifications</h3>
-                <p className="text-xl font-semibold text-gray-800">
-                    {totalNotifications}
-                </p>
+
+            <div className="flex flex-wrap md:flex-nowrap space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+                <div
+                    className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
+                    style={{ backgroundColor: counterColors.total }}
+                >
+                    <div className="flex items-center space-x-2">
+                        <BellIcon className="h-6 w-6 text-gray-800" />
+                        <div>
+                            <h3 className="text-lg font-bold text-gray-800">Notifications</h3>
+                            <p className="text-xl font-semibold text-gray-800">
+                                {totalNotifications}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
+                    style={{ backgroundColor: counterColors.read }}
+                >
+                    <div className="flex items-center space-x-2">
+                        <CheckCircleIcon className="h-6 w-6 text-gray-800" />
+                        <div>
+                            <h3 className="text-lg font-bold text-gray-800">Read</h3>
+                            <p className="text-xl font-semibold text-gray-800">{readCount}</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
+                    style={{ backgroundColor: counterColors.unread }}
+                >
+                    <div className="flex items-center space-x-2">
+                        <InboxIcon className="h-6 w-6 text-gray-800" />
+                        <div>
+                            <h3 className="text-lg font-bold text-gray-800">Unread</h3>
+                            <p className="text-xl font-semibold text-gray-800">{unreadCount}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div
-        className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
-        style={{ backgroundColor: counterColors.read }}
-    >
-        <div className="flex items-center space-x-2">
-            <CheckCircleIcon className="h-6 w-6 text-gray-800" />
-            <div>
-                <h3 className="text-lg font-bold text-gray-800">Read</h3>
-                <p className="text-xl font-semibold text-gray-800">{readCount}</p>
-            </div>
-        </div>
-    </div>
-    <div
-        className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
-        style={{ backgroundColor: counterColors.unread }}
-    >
-        <div className="flex items-center space-x-2">
-            <InboxIcon className="h-6 w-6 text-gray-800" />
-            <div>
-                <h3 className="text-lg font-bold text-gray-800">Unread</h3>
-                <p className="text-xl font-semibold text-gray-800">{unreadCount}</p>
-            </div>
-        </div>
-    </div>
-</div>
             <h2 className="text-xl font-bold mb-4 text-start mt-5">Admin Notifications</h2>
 
             {/* Filter Dropdown */}
