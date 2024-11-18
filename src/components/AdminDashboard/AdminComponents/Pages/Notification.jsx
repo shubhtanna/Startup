@@ -145,6 +145,7 @@ function Notification() {
                         </div>
                     </div>
                 </div>
+
                 <div
                     className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
                     style={{ backgroundColor: counterColors.read }}
@@ -157,6 +158,7 @@ function Notification() {
                         </div>
                     </div>
                 </div>
+
                 <div
                     className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[32%]"
                     style={{ backgroundColor: counterColors.unread }}
@@ -170,6 +172,7 @@ function Notification() {
                     </div>
                 </div>
             </div>
+            
             <h2 className="text-xl font-bold mb-4 text-start mt-5">Admin Notifications</h2>
 
             {/* Filter Dropdown */}
