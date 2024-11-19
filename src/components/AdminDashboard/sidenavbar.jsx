@@ -25,6 +25,9 @@ import Dashboard from "./Dashboard";
 import Notification from "./AdminComponents/Pages/Notification";
 import { MdNotificationAdd } from "react-icons/md";
 import VendorInformations from "./AdminComponents/Data/VendorInformations";
+import IndividualInformation from "./AdminComponents/Data/IndividualInformation";
+import { CgProfile } from "react-icons/cg";
+
 
 const Sidenavbar = () => {
   const [active, setActive] = useState("Dashboard");
@@ -37,6 +40,7 @@ const Sidenavbar = () => {
     {
       section: t("Data"),
       items: [
+        { name: t("Individual Informations"), icon: <CgProfile/>, component: <div><IndividualInformation/></div> },
         { name: t("Vendors Informations"), icon: <FaShopLock />, component: <div><VendorInformations/></div> },
         { name: t("User Informations"), icon: <FaAddressBook />, component: <div><UserInformations /></div> },
         { name: t("Manage Admin"), icon: <FaUsers />, component: <div><ManageAdmin /></div> },
