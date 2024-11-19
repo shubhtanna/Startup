@@ -29,7 +29,7 @@ app.use(fileUpload({
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: ['http://localhost:3000', 'https://startup-seven-lovat.vercel.app'],
         credentials: true,
     })
 )
@@ -41,6 +41,15 @@ app.use("/api/v1/admin", adminRouter)
 app.use("/api/v1/vendor", vendorRouter)
 app.use("/api/v1/individual", individualRouter)
 app.use("/api", ticketRoutes)
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://startup-seven-lovat.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true'); // If credentials are required
+    next();
+});
+
 
 
 app.get("/", (req, res) => {
