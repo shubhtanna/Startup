@@ -130,6 +130,32 @@ router.patch('/notifications/:id', async (req, res) => {
     }
 });
 
+// Update Ticket Status
+router.patch('/api/tickets/:id/status', async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    if (!['Open', 'In Progress', 'Resolved'].includes(status)) {
+        return res.status(400).json({ error: 'Invalid status value' });
+    }
+
+    try {
+        const updatedTicket = await Ticket.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true }
+        );
+        if (!updatedTicket) {
+            return res.status(404).json({ error: 'Ticket not found' });
+        }
+        res.json(updatedTicket);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+
 // Middleware to retrieve ticket by ID
 async function getTicket(req, res, next) {
     let ticket;

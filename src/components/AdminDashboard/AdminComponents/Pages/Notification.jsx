@@ -127,7 +127,10 @@ function Notification() {
 
     return (
         <div className="p-3 max-w-[87%] justify-between mx-auto min-h-screen overflow-y-auto ml-5">
-            <ToastContainer />
+            <ToastContainer
+                className={`mt-11 ${window.innerWidth < 640 ? 'mx-2' : 'mx-10'}`}
+            />
+
             {/* Notification Counts */}
 
             <div className="flex flex-wrap md:flex-nowrap space-x-0 md:space-x-4 space-y-4 md:space-y-0">
@@ -172,7 +175,7 @@ function Notification() {
                     </div>
                 </div>
             </div>
-            
+
             <h2 className="text-xl font-bold mb-4 text-start mt-5">Admin Notifications</h2>
 
             {/* Filter Dropdown */}

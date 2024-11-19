@@ -10,9 +10,9 @@ const RaiseTickets = () => {
 
   // Color coding for different priorities
   const priorityColors = {
-    low: "#d1f7c4",    // Light Green
+    low: "#d1f7c4", // Light Green
     medium: "#fff3b0", // Light Yellow
-    high: "#ffadad",   // Light Red
+    high: "#ffadad", // Light Red
   };
 
   // Fetch tickets from the API
@@ -50,88 +50,79 @@ const RaiseTickets = () => {
   const countByPriority = (priority) =>
     tickets.filter((ticket) => ticket.priority.toLowerCase() === priority).length;
 
+  const handleStatusChange = async (ticketId, newStatus) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/tickets/${ticketId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const updatedTicket = await response.json();
+      setTickets((prevTickets) =>
+        prevTickets.map((ticket) =>
+          ticket._id === ticketId ? { ...ticket, status: updatedTicket.status } : ticket
+        )
+      );
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
+
+
   return (
-    <div >
+    <div>
       {/* Count Feature */}
       <div className="flex flex-wrap md:flex-nowrap md:space-x-3 space-y-3 md:space-y-0 my-3">
-        <div
-          className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[20%]"
-          style={{ backgroundColor: "#f0f4f8" }}
-        >
+        {/* Ticket Counts */}
+        <div className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[20%]">
           <div className="flex items-center space-x-1">
-            <h3 className="text-lg font-bold text-gray-800">Tickets :</h3>
+            <h3 className="text-lg font-bold text-gray-800">Tickets:</h3>
             <p className="text-xl font-semibold text-gray-800">{tickets.length}</p>
           </div>
         </div>
-
-        <div
-          className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[20%]"
-          style={{ backgroundColor: priorityColors.low }}
-        >
-          <div className="flex items-center space-x-2">
-            <h3 className="text-lg font-bold text-gray-800">Low :</h3>
-            <p className="text-xl font-semibold text-gray-800">{countByPriority("low")}</p>
+        {/* Priority Counts */}
+        {["low", "medium", "high"].map((priority) => (
+          <div
+            key={priority}
+            className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[20%]"
+            style={{ backgroundColor: priorityColors[priority] }}
+          >
+            <div className="flex items-center space-x-2">
+              <h3 className="text-lg font-bold text-gray-800">{priority.charAt(0).toUpperCase() + priority.slice(1)}:</h3>
+              <p className="text-xl font-semibold text-gray-800">{countByPriority(priority)}</p>
+            </div>
           </div>
-        </div>
-
-        <div
-          className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[20%]"
-          style={{ backgroundColor: priorityColors.medium }}
-        >
-          <div className="flex items-center space-x-2">
-            <h3 className="text-lg font-bold text-gray-800">Medium :</h3>
-            <p className="text-xl font-semibold text-gray-800">{countByPriority("medium")}</p>
-          </div>
-        </div>
-
-        <div
-          className="flex justify-between items-center p-4 bg-white shadow rounded w-full md:w-[20%]"
-          style={{ backgroundColor: priorityColors.high }}
-        >
-          <div className="flex items-center space-x-2">
-            <h3 className="text-lg font-bold text-gray-800">High :</h3>
-            <p className="text-xl font-semibold text-gray-800">{countByPriority("high")}</p>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* Filter Section */}
       <div className="my-6 w-[83%]">
         <div className="grid grid-cols-3 sm:grid-col-1 gap-4">
-          {/* Search by Title */}
+          {/* Search Inputs */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Search by Title
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Search by Title</label>
             <input
               type="text"
-              className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md"
               value={titleSearch}
               onChange={(e) => setTitleSearch(e.target.value)}
               placeholder="Enter title..."
             />
           </div>
-
-          {/* Search by Date */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Search by Date
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Search by Date</label>
             <input
               type="date"
-              className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md"
               value={dateSearch}
               onChange={(e) => setDateSearch(e.target.value)}
             />
           </div>
-
-          {/* Filter by Priority */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Filter by Priority
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Filter by Priority</label>
             <select
-              className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md"
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
             >
@@ -145,24 +136,30 @@ const RaiseTickets = () => {
       </div>
 
       {/* Display Filtered Tickets */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full md:w-[83%] sm:w-[30%]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full md:w-[83%]">
         {filteredTickets.map((ticket) => (
           <div
             key={ticket._id}
-            className="p-1 bg-white shadow-md rounded"
+            className="p-4 bg-white shadow-md rounded "
             style={{ backgroundColor: priorityColors[ticket.priority.toLowerCase()] }}
           >
-            <h3 className="text-lg sm:text-xl font-bold">{ticket.title}</h3>
-            <p className="text-sm sm:text-base">{ticket.description}</p>
-            <p className="text-sm sm:text-base">
-              <strong>Created By:</strong> {ticket.createdBy}
-            </p>
-            <p className="text-sm sm:text-base">
-              <strong>Priority:</strong> {ticket.priority}
-            </p>
-            <p className="text-sm sm:text-base">
-              <strong>Date:</strong> {format(parseISO(ticket.date), "yyyy-MM-dd")}
-            </p>
+            <h3 className="text-lg font-bold">{ticket.title}</h3>
+            <p>{ticket.description}</p>
+            <p><strong>Created By:</strong> {ticket.createdBy}</p>
+            <p><strong>Priority:</strong> {ticket.priority}</p>
+            <p><strong>Date:</strong> {format(parseISO(ticket.date), "yyyy-MM-dd")}</p>
+            <div className="mt-2">
+              <p><strong>Status:</strong></p>
+              <select
+                value={ticket.status}
+                onChange={(e) => handleStatusChange(ticket._id, e.target.value)}
+                className="p-2 border rounded"
+              >
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+            </div>
           </div>
         ))}
       </div>
@@ -171,4 +168,3 @@ const RaiseTickets = () => {
 };
 
 export default RaiseTickets;
-

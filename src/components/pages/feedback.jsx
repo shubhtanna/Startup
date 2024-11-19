@@ -11,6 +11,7 @@ function Feed() {
         search: '',
         priority: 'Low',
         date: '', // Date field for new ticket
+        status:'pending',
     });
 
     const [filter, setFilter] = useState({
@@ -67,6 +68,7 @@ function Feed() {
             search: '',
             priority: 'Low',
             date: '', // Reset date field
+            status:'pending',
         });
         setEditingTicketId(null);
     };
@@ -89,6 +91,7 @@ function Feed() {
             priority: ticket.priority,
             search: '',
             date: format(parseISO(ticket.date), 'yyyy-MM-dd'), // Format date for editing
+            status:ticket.status,
         });
         setEditingTicketId(ticket._id);
     };
@@ -258,7 +261,7 @@ function Feed() {
                         <p className="text-sm sm:text-base"><strong>Created By:</strong> {ticket.createdBy}</p>
                         <p className="text-sm sm:text-base"><strong>Priority:</strong> {ticket.priority}</p>
                         <p className="text-sm sm:text-base"><strong>Date:</strong> {format(parseISO(ticket.date), 'yyyy-MM-dd')}</p>
-                        <div className="mt-2 flex flex-wrap gap-2">
+                        <div className="mt-2 flex flex-wrap gap-3">
                             <button
                                 onClick={() => handleEdit(ticket)}
                                 className="mr-2 bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600"
@@ -271,6 +274,7 @@ function Feed() {
                             >
                                 Delete
                             </button>
+                            <p className="mr-2 bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600 text-sm sm:text-base"><strong>Status:</strong> {ticket.status}</p>
                         </div>
                     </div>
                 ))}
