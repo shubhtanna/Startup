@@ -10,18 +10,20 @@ function Feed() {
         createdBy: '',
         search: '',
         priority: 'Low',
-        date: '', // Date field for new ticket
-        status:'pending',
+        date: '',
+        status: 'pending',
     });
 
     const [filter, setFilter] = useState({
         status: 'All',
         priority: 'All',
-        date: '', // Date filter field
+        date: '',
     });
 
     const [editingTicketId, setEditingTicketId] = useState(null);
+    const [expandedTickets, setExpandedTickets] = useState({});
 
+    // Fetch tickets from the server
     const fetchTickets = async () => {
         try {
             const response = await fetch('http://localhost:5000/api/tickets');
@@ -37,29 +39,31 @@ function Feed() {
         fetchTickets();
     }, []);
 
+    // Handle form input changes
     const handleInputChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
+        const { name, value } = e.target;
 
-    const handleFilterChange = (e) => {
-        setFilter({
-            ...filter,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (editingTicketId) {
-            await updateTicket(editingTicketId);
-        } else {
-            await createTicket();
+        if (name === 'description' && value.length > 100) {
+            alert('Description should not exceed 100 characters.');
+            return;
         }
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
+    // Handle filter changes
+    const handleFilterChange = (e) => {
+        const { name, value } = e.target;
+        setFilter((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    // Reset form data
     const resetForm = () => {
         setFormData({
             title: '',
@@ -67,51 +71,19 @@ function Feed() {
             createdBy: '',
             search: '',
             priority: 'Low',
-            date: '', // Reset date field
-            status:'pending',
+            date: '',
+            status: 'pending',
         });
         setEditingTicketId(null);
     };
 
-    const handleDelete = async (ticketId) => {
-        try {
-            const response = await fetch(`http://localhost:5000/api/tickets/${ticketId}`, { method: 'DELETE' });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            setTickets(tickets.filter((ticket) => ticket._id !== ticketId));
-        } catch (error) {
-            console.error('Error deleting ticket:', error);
-        }
-    };
-
-    const handleEdit = (ticket) => {
-        setFormData({
-            title: ticket.title,
-            description: ticket.description,
-            createdBy: ticket.createdBy,
-            priority: ticket.priority,
-            search: '',
-            date: format(parseISO(ticket.date), 'yyyy-MM-dd'), // Format date for editing
-            status:ticket.status,
-        });
-        setEditingTicketId(ticket._id);
-    };
-
-    const handlePriorityChange = async (ticketId, newPriority) => {
-        try {
-            const response = await fetch(`http://localhost:5000/api/tickets/${ticketId}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ priority: newPriority }),
-            });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            const updatedTicket = await response.json();
-            setTickets((prevTickets) =>
-                prevTickets.map((ticket) =>
-                    ticket._id === ticketId ? { ...ticket, priority: updatedTicket.priority } : ticket
-                )
-            );
-        } catch (error) {
-            console.error('Error updating priority:', error);
+    // Handle ticket creation or update
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (editingTicketId) {
+            await updateTicket(editingTicketId);
+        } else {
+            await createTicket();
         }
     };
 
@@ -124,11 +96,9 @@ function Feed() {
             });
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const newTicket = await response.json();
-            setTickets([...tickets, newTicket]);
+            setTickets((prev) => [...prev, newTicket]);
             resetForm();
-    
-            // Optionally show a confirmation notification for the user
-            alert('Ticket created successfully! Admin notified.');
+            alert('Ticket created successfully!');
         } catch (error) {
             console.error('Error creating ticket:', error);
         }
@@ -143,8 +113,8 @@ function Feed() {
             });
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const updatedTicket = await response.json();
-            setTickets((prevTickets) =>
-                prevTickets.map((ticket) =>
+            setTickets((prev) =>
+                prev.map((ticket) =>
                     ticket._id === ticketId ? updatedTicket : ticket
                 )
             );
@@ -154,17 +124,53 @@ function Feed() {
         }
     };
 
+    const handleEdit = (ticket) => {
+        setFormData({
+            title: ticket.title,
+            description: ticket.description,
+            createdBy: ticket.createdBy,
+            priority: ticket.priority,
+            search: '',
+            date: format(parseISO(ticket.date), 'yyyy-MM-dd'),
+            status: ticket.status,
+        });
+        setEditingTicketId(ticket._id);
+    };
+
+    const handleDelete = async (ticketId) => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/tickets/${ticketId}`, {
+                method: 'DELETE',
+            });
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            setTickets((prev) => prev.filter((ticket) => ticket._id !== ticketId));
+        } catch (error) {
+            console.error('Error deleting ticket:', error);
+        }
+    };
+
+    const toggleDescription = (ticketId) => {
+        setExpandedTickets((prev) => ({
+            ...prev,
+            [ticketId]: !prev[ticketId],
+        }));
+    };
+
+    // Apply filters to tickets
     const filteredTickets = tickets.filter((ticket) => {
         const matchesSearch = ticket.title.toLowerCase().includes(formData.search.toLowerCase());
         const matchesPriority = filter.priority === 'All' || ticket.priority === filter.priority;
         const matchesStatus = filter.status === 'All' || ticket.status === filter.status;
-        const matchesDate = filter.date ? format(parseISO(ticket.date), 'yyyy-MM-dd') === filter.date : true;
+        const matchesDate = filter.date
+            ? format(parseISO(ticket.date), 'yyyy-MM-dd') === filter.date
+            : true;
 
         return matchesSearch && matchesPriority && matchesStatus && matchesDate;
     });
 
     return (
         <div className="p-5 min-h-screen bg-[#DCE2DE]">
+            {/* Form */}
             <motion.form
                 onSubmit={handleSubmit}
                 className="mb-5 p-4 bg-white shadow-md rounded"
@@ -196,7 +202,10 @@ function Feed() {
                         onChange={handleInputChange}
                         placeholder="Description"
                         className="p-2 border rounded col-span-1 md:col-span-2"
-                    ></textarea>
+                    />
+                    <p className="text-sm text-gray-600">
+                        {formData.description.length}/300
+                    </p>
                     <select
                         name="priority"
                         value={formData.priority}
@@ -207,8 +216,6 @@ function Feed() {
                         <option value="Medium">Medium</option>
                         <option value="High">High</option>
                     </select>
-
-                    {/* Date Picker */}
                     <input
                         type="date"
                         name="date"
@@ -222,6 +229,7 @@ function Feed() {
                 </button>
             </motion.form>
 
+            {/* Filters */}
             <div className="flex justify-between items-center mb-5">
                 <input
                     type="text"
@@ -242,8 +250,6 @@ function Feed() {
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
                 </select>
-
-                {/* Date Filter */}
                 <input
                     type="date"
                     name="date"
@@ -253,33 +259,56 @@ function Feed() {
                 />
             </div>
 
+            {/* Tickets */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredTickets.map((ticket) => (
-                    <div key={ticket._id} className="p-4 bg-white shadow-md rounded">
-                        <h3 className="text-lg sm:text-xl font-bold">{ticket.title}</h3>
-                        <p className="text-sm sm:text-base">{ticket.description}</p>
-                        <p className="text-sm sm:text-base"><strong>Created By:</strong> {ticket.createdBy}</p>
-                        <p className="text-sm sm:text-base"><strong>Priority:</strong> {ticket.priority}</p>
-                        <p className="text-sm sm:text-base"><strong>Date:</strong> {format(parseISO(ticket.date), 'yyyy-MM-dd')}</p>
-                        <div className="mt-2 flex flex-wrap gap-3">
-                            <button
-                                onClick={() => handleEdit(ticket)}
-                                className="mr-2 bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600"
-                            >
-                                Edit
-                            </button>
-                            <button
-                                onClick={() => handleDelete(ticket._id)}
-                                className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
-                            >
-                                Delete
-                            </button>
-                            <p className="mr-2 bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600 text-sm sm:text-base"><strong>Status:</strong> {ticket.status}</p>
-                        </div>
-                    </div>
-                ))}
+                {filteredTickets.map((ticket) => {
+                    const isExpanded = expandedTickets[ticket._id];
+                    return (
+                        <motion.div
+                            key={ticket._id}
+                            className="bg-white shadow-md rounded p-4"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <h3 className="text-lg font-bold">{ticket.title}</h3>
+                            <p className="text-gray-600">
+                                Created by: <span className="font-semibold">{ticket.createdBy}</span>
+                            </p>
+                            <p className="text-gray-600">
+                                Priority: <span className="font-semibold">{ticket.priority}</span>
+                            </p>
+                            <p className="text-gray-600">
+                                Date: <span className="font-semibold">{format(parseISO(ticket.date), 'MMM dd, yyyy')}</span>
+                            </p>
+                            <p className="text-gray-600">
+                                Status: <span className="font-semibold">{ticket.status}</span>
+                            </p>
+                            {isExpanded && <p className="mt-2">{ticket.description}</p>}
+                            <div className="mt-3 flex justify-between">
+                                <button
+                                    onClick={() => toggleDescription(ticket._id)}
+                                    className="bg-blue-500 text-white px-3 py-1 rounded"
+                                >
+                                    {isExpanded ? 'Collapse' : 'Expand'}
+                                </button>
+                                <button
+                                    onClick={() => handleEdit(ticket)}
+                                    className="bg-green-500 text-white px-3 py-1 rounded"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(ticket._id)}
+                                    className="bg-red-500 text-white px-3 py-1 rounded"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
-
         </div>
     );
 }

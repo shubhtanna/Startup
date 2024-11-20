@@ -7,6 +7,7 @@ const RaiseTickets = () => {
   const [titleSearch, setTitleSearch] = useState("");
   const [dateSearch, setDateSearch] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("all"); // New state for priority filter
+  const [expandedTickets, setExpandedTickets] = useState({});
 
   // Color coding for different priorities
   const priorityColors = {
@@ -68,6 +69,13 @@ const RaiseTickets = () => {
       console.error('Error updating status:', error);
     }
   };
+
+  const toggleDescription = (ticketId) => {
+    setExpandedTickets((prevExpandedTickets) => ({
+      ...prevExpandedTickets,
+      [ticketId]: !prevExpandedTickets[ticketId],
+    }))
+  }
 
 
   return (
@@ -136,7 +144,7 @@ const RaiseTickets = () => {
       </div>
 
       {/* Display Filtered Tickets */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full md:w-[83%]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full md:w-[83%]">
         {filteredTickets.map((ticket) => (
           <div
             key={ticket._id}
