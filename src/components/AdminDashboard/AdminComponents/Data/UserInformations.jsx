@@ -3,7 +3,7 @@ import React from 'react'
 const UserInformations = () => {
   return (
     <div>
-      User Informations
+      User Informations Data Taken from Db
     </div>
   )
 }
