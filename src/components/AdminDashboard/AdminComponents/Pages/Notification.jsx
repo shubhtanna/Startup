@@ -126,7 +126,7 @@ function Notification() {
     const unreadCount = totalNotifications - readCount;
 
     return (
-        <div className="p-3 max-w-[87%] justify-between mx-auto min-h-screen overflow-y-auto ml-5">
+        <div className="overflow-y-auto max-h-[250px] max-w-[87%] justify-between mx-auto min-h-screen  ml-5">
             <ToastContainer
                 className={`mt-11 ${window.innerWidth < 640 ? 'mx-2' : 'mx-10'}`}
             />
@@ -199,7 +199,7 @@ function Notification() {
             ) : filteredNotifications.length === 0 ? (
                 <p className="text-gray-500 text-center">No notifications available.</p>
             ) : (
-                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <div className=" grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {filteredNotifications.map((notification) => (
                         <div
                             key={notification._id}

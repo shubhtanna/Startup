@@ -10,8 +10,8 @@ const AdminDashboard = () => {
     return <Navigate to='/' replace />
   }
   return (
+    <div className='overflow-hidden overflow-y-auto'>
     <div className='fixed'>
-    <div>
         <Sidenavbar/>
         </div>
     </div>
