@@ -25,6 +25,7 @@ import EditProduct from './components/Dashboard/EditProduct'
 import Feed from './components/pages/feedback';
 import AdminDashboard from './components/AdminDashboard/admin';
 import TermsAndCondition from './components/pages/TermsAndCondition';
+import About from './components/pages/about';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,8 @@ function App() {
         <Route path='/' element={<Index />} />
 
         <Route path='signup' element={<Signup />} />
+
+        <Route path='/about' element={<About/>} />
 
         <Route path='login' element={<Login />} />
 
