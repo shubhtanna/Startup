@@ -65,9 +65,9 @@ const Sidenavbar = () => {
   ];
 
   return (
-    <div className="flex h-screen md:flex-row flex-col">
+    <div className="flex h-screen md:flex-row  flex-col">
       {/* Sidebar for Desktop */}
-      <nav className={`hidden md:flex flex-col bg-gray-800 text-white transition-all duration-300 p-4 space-y-2 overflow-y-auto`}>
+      <nav className={`hidden md:flex flex-col bg-gray-800 text-white transition-all duration-300 p-4 space-y-2 overflow-y-auto max-h-[626px]`}>
         <div className="flex items-center space-x-4">
           <img src={user?.image} alt={`profile-${user?.image}`} className="w-10 h-10 rounded-full" />
           <div>

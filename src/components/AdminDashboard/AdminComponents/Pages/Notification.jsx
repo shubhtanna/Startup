@@ -43,7 +43,7 @@ function Notification() {
     const fetchNotifications = async () => {
         try {
             setLoading(true);
-            const response = await fetch("http://localhost:3000/api/tickets");
+            const response = await fetch("http://localhost:5000/api/tickets");
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
             }
@@ -76,7 +76,7 @@ function Notification() {
     const markAsRead = async (ticketId) => {
         try {
             const response = await fetch(
-                `http://localhost:3000/api/tickets/${ticketId}`,
+                `http://localhost:5000/api/tickets/${ticketId}`,
                 {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
@@ -108,7 +108,7 @@ function Notification() {
                 notifications.filter((notification) => notification._id !== ticketId)
             );
             const response = await fetch(
-                `http://localhost:3000/api/tickets/${ticketId}`,
+                `http://localhost:5000/api/tickets/${ticketId}`,
                 { method: "DELETE" }
             );
             if (!response.ok) {
