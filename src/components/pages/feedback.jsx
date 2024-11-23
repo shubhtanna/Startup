@@ -203,10 +203,8 @@ function Feed() {
                         onChange={handleInputChange}
                         placeholder="Description"
                         className="p-2 border rounded col-span-1 md:col-span-2 w-full h-32"
+                        
                     />
-                    <p className="text-sm text-gray-600 absolute bottom-2 right-2">
-                        {formData.description.length}/100
-                    </p>
                     <select
                         name="priority"
                         value={formData.priority}
