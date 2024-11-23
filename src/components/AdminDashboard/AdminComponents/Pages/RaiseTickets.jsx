@@ -79,7 +79,7 @@ const RaiseTickets = () => {
 
 
   return (
-    <div>
+    <div className="overflow-y-auto max-h-[500px] overflow-hidden">
       {/* Count Feature */}
       <div className="flex flex-wrap md:flex-nowrap md:space-x-3 space-y-3 md:space-y-0 my-3">
         {/* Ticket Counts */}
@@ -148,7 +148,7 @@ const RaiseTickets = () => {
         {filteredTickets.map((ticket) => (
           <div
             key={ticket._id}
-            className="p-4 bg-white shadow-md rounded "
+            className="p-3 bg-white shadow-md rounded "
             style={{ backgroundColor: priorityColors[ticket.priority.toLowerCase()] }}
           >
             <h3 className="text-lg font-bold">{ticket.title}</h3>

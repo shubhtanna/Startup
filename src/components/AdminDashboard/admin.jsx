@@ -10,8 +10,8 @@ const AdminDashboard = () => {
     return <Navigate to='/' replace />
   }
   return (
+    <div >
     <div className='fixed'>
-    <div>
         <Sidenavbar/>
         </div>
     </div>
