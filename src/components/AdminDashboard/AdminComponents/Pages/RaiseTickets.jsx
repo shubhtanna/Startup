@@ -19,7 +19,7 @@ const RaiseTickets = () => {
   // Fetch tickets from the API
   const fetchTickets = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/tickets");
+      const response = await fetch("http://localhost:3000/api/tickets");
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       setTickets(data);
@@ -53,7 +53,7 @@ const RaiseTickets = () => {
 
   const handleStatusChange = async (ticketId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/tickets/${ticketId}`, {
+      const response = await fetch(`http://localhost:3000/api/tickets/${ticketId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
@@ -79,7 +79,7 @@ const RaiseTickets = () => {
 
 
   return (
-    <div>
+    <div className="overflow-y-auto">
       {/* Count Feature */}
       <div className="flex flex-wrap md:flex-nowrap md:space-x-3 space-y-3 md:space-y-0 my-3">
         {/* Ticket Counts */}
