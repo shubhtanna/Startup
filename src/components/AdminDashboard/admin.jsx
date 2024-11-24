@@ -7,7 +7,7 @@ const AdminDashboard = () => {
   const { user } = useSelector((state) => state.profile);
 
   if (!user || user.accountType !== 'admin') {
-    return <Navigate to='/' replace />
+    return <Navigate to='/admin' replace />
   }
   return (
     <div className='overflow-hidden overflow-y-auto'>

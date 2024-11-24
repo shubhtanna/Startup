@@ -19,12 +19,14 @@ module.exports = {
         'footeritem':'rgba(255, 255, 255, 0.78)',
         'loginitem':'rgba(0, 0, 0, 0.71)',
         'loginfieldbg':'rgba(73, 159, 104, 0.17)',
-        'forgotpass':'rgba(35, 120, 199, 1)',
+        'forgotpass':'rgba(35, 120, 199,1)',
       }  
     },
   },
   plugins: [],
 }
+
+
 
 
 
