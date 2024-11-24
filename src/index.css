@@ -32,6 +32,22 @@ select {
   width: 100%;
 }
 
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px; /* For easier scroll interaction */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+.scroll-container {
+  -ms-overflow-style: none; /* Hide scrollbar in IE */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+
 ::placeholder {
   font-family: Roboto;
   color: rgba(0, 0, 0, 0.24);
