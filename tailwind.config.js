@@ -6,6 +6,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      
+      animation: {
+        scroll: "scroll 15s linear infinite",
+      },
+
       fontFamily:{
         roboto:["Roboto Serif","serif"],
         poppins:["Poppins", "sans-serif"],
@@ -23,7 +34,7 @@ module.exports = {
       }  
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 }
 
 

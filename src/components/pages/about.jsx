@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../utils/firebaseConfig";
 import { useTranslation } from 'react-i18next';
 
+
 const AboutUsPage = () => {
+
+  const [users, setUsers] = useState([]);
+
   const [images, setImages] = useState({
     eco: '',
     multi: '',
@@ -21,10 +26,25 @@ const AboutUsPage = () => {
     bg: '',
   });
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
+
 
 
   useEffect(() => {
+
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("/api/v1/auth/all-users"); // Adjust the endpoint if necessary
+        if (response.data.success) {
+          setUsers(response.data.data); // Set the users in state
+        }
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+
     const fetchImages = async () => {
       const imagePaths = {
         eco: 'E-Waste/Eco.png',
@@ -67,7 +87,9 @@ const AboutUsPage = () => {
       <div className="relative w-full h-[280px] sm:h-[350px] md:h-[450px]">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-100">
-          <img src={images.bg} alt="Background Image" className="object-cover object-center w-full h-full" />
+          <img src={images.bg} 
+          alt="Background" 
+          className="object-cover object-center w-full h-full" />
         </div>
 
         {/* Centered Content */}
@@ -279,6 +301,49 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* Top User Sections */}
+      <section className="text-gray-700 body-font cursor-pointer" id="users">
+        <div className="py-8 bg-gray-100">
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+            Meet Our Users
+          </h2>
+          <div className="flex justify-center">
+            <div className="overflow-hidden w-full relative ">
+              {/* Scrolling Wrapper */}
+              <div className="flex space-x-11 px-4 sm:px-8 animate-scroll">
+                {users
+                  .filter((user) => user.accountType !== "admin") // Filter out admins
+                  .map((user) => (
+                    <div
+                      key={user._id} // Use _id from MongoDB
+                      className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4"
+                    >
+                      <img
+                        src={user?.image || "https://via.placeholder.com/150"}
+                        alt={`profile-${user.firstName} ${user.lastName}`}
+                        className="w-24 h-24 rounded-full mx-auto mb-4"
+                      />
+                      <h3 className="text-xl font-semibold text-gray-800 text-center">
+                        {`${user.firstName} ${user.lastName}`}
+                      </h3>
+                      <p className="text-gray-600 text-center">{user?.accountType}</p>
+                      <p className="text-gray-500 text-center">
+                        {user?.city}, {user?.state}
+                      </p>
+                      <p className="text-gray-400 text-center text-sm mt-2">
+                        {user?.address}
+                      </p>
+                      <p className="text-gray-500 mt-2 text-sm text-center">
+                        {user?.description}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* gallery */}
       <section className="text-gray-700 body-font" id="gallery">
@@ -287,32 +352,36 @@ const AboutUsPage = () => {
         </div>
         <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
           <div className="group relative">
-            <img
-              src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Image 1"
-              className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
-            />
+          <img
+  src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
+  alt="A scenic view of nature with vibrant colors"
+  className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105 hover:shadow-lg"
+/>
+
           </div>
           <div className="group relative">
-            <img
-              src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Image 1"
-              className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
-            />
+          <img
+  src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
+  alt="Scenic view of nature with vibrant colors"
+  className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
+/>
+
           </div>
           <div className="group relative">
-            <img
-              src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Image 1"
-              className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
-            />
+          <img
+  src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
+  alt="A scenic view of nature with vibrant colors and soft tones"
+  className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform duration-300 ease-in-out transform scale-100 group-hover:scale-105"
+/>
+
           </div>
           <div className="group relative">
-            <img
-              src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Image 1"
-              className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
-            />
+          <img
+  src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
+  alt="A serene natural landscape with vibrant colors"
+  className="aspect-[2/3] h-80 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
+/>
+
           </div>
         </div>
       </section>
@@ -354,9 +423,18 @@ const AboutUsPage = () => {
                 </div>
               </div>
               <div className="rounded-lg overflow-hidden order-none sm:order-first">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.7850672491236!2d76.58802159999999!3d18.402630699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf83ca88e84341%3A0x841e547bf3ad066d!2zQmFwcGEgZmxvdXIgbWlsbCB8IOCkrOCkquCljeCkquCkviDgpKrgpYDgpKAg4KSX4KS_4KSw4KSj4KWALCDgpK7gpL_gpLDgpJrgpYAg4KSV4KS-4KSC4KSh4KSqIOCkhuCko-CkvyDgpLbgpYfgpLXgpL7gpK_gpL4!5e0!3m2!1sen!2sin!4v1713433597892!5m2!1sen!2sin"
-                  className="w-full" width="600" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.7850672491236!2d76.58802159999999!3d18.402630699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf83ca88e84341%3A0x841e547bf3ad066d!2zQmFwcGEgZmxvdXIgbWlsbCB8IOCkrOCkquCljeCkquCkviDgpKrgpYDgpKAg4KSX4KS_4KSw4KSj4KWALCDgpK7gpL_gpLDgpJrgpYAg4KSV4KS-4KSC4KSh4KSqIOCkhuCko-CkvyDgpLbgpYfgpLXgpL7gpK_gpL4!5e0!3m2!1sen!2sin!4v1713433597892!5m2!1sen!2sin"
+  className="w-full"
+  width="600"
+  height="450"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Google Maps showing Bappa Flour Mill location"
+/>
+
               </div>
             </div>
           </div>

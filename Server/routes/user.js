@@ -6,6 +6,7 @@ import { deleteAccount, getProfileData, updateDisplayPicture, updateProfile } fr
 import { changePassword } from "../controllers/UpdateProfile.js";
 import { resetPasswordToken } from "../controllers/ResetPassword.js";
 import { resetPasswordUpdate } from "../controllers/ResetPassword.js";
+import { getAllUsers } from "../controllers/userController.js";
 
 const router = express.Router()
 
@@ -20,5 +21,7 @@ router.post("/resetpassword", resetPasswordUpdate)
 router.delete("/deleteaccount", auth, deleteAccount)
 router.put("/updatedisplayimage", auth, updateDisplayPicture)
 router.get("/getprofiledata", auth, getProfileData)
+router.get("/all-users",getAllUsers);
+
 
 export default router;
