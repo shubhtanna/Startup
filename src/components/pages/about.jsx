@@ -1,32 +1,34 @@
-import React, { useState, useEffect } from 'react';    
+import React, { useState, useEffect } from 'react';
 
-import { getDownloadURL,ref } from "firebase/storage";
+import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../utils/firebaseConfig";
-
+import { useTranslation } from 'react-i18next';
 
 const AboutUsPage = () => {
   const [images, setImages] = useState({
-    eco:'',
-    multi:'',
-    liveLocation:'',
-    bestPrice:'',
-    rewards:'',
-    multiLanguage:'',
-    IssueTicket:'',
-    orderTracking:'',
-    reward : '',
+    eco: '',
+    multi: '',
+    liveLocation: '',
+    bestPrice: '',
+    rewards: '',
+    multiLanguage: '',
+    IssueTicket: '',
+    orderTracking: '',
+    reward: '',
     messaging: '',
     recommend: '',
     about: '',
     bg: '',
   });
 
+  const {t} = useTranslation();
+
 
   useEffect(() => {
     const fetchImages = async () => {
       const imagePaths = {
-        eco:'E-Waste/Eco.png',
-        multi:'E-Waste/Multi.png',
+        eco: 'E-Waste/Eco.png',
+        multi: 'E-Waste/Multi.png',
         liveLocation: 'E-Waste/LiveLocation.png',
         bestPrice: 'E-Waste/BestPrice.png',
         rewards: 'E-Waste/Rewards.png',
@@ -71,16 +73,16 @@ const AboutUsPage = () => {
         {/* Centered Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <h1 className="text-green-400 font-medium text-3xl sm:text-4xl md:text-5xl leading-tight mb-2">
-            E-Waste Trade Hub
+            {t('E-Waste Trade Hub')}
           </h1>
           <p className="font-regular text-lg sm:text-xl md:text-2xl mb-6 mt-4">
-            Reduce, Reuse, Recycle: Keep E-Waste in Check
+            {t('Reduce, Reuse, Recycle: Keep E-Waste in Check')}
           </p>
           <a
             href="#contactUs"
             className="px-6 py-3 bg-[#c8a876] text-white font-medium rounded-full hover:bg-[#c09858] transition duration-200"
           >
-            Contact Us
+            {t('Contact Us')}
           </a>
         </div>
       </div>
@@ -92,12 +94,12 @@ const AboutUsPage = () => {
 
             {/* Text Content */}
             <div className="max-w-lg mx-auto text-center md:text-left">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">About Us</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">{t('About Us')}</h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Welcome to <span className="font-semibold text-gray-800">E-Waste Trade Hub</span>, a one-stop solution for managing electronic waste responsibly. Our platform bridges the gap between individuals, businesses, and recycling centers, creating a seamless way to buy, sell, or recycle electronic waste.
+                {t('Welcome to')} <span className="font-semibold text-gray-800">{t('E-Waste Trade Hub')}</span>, {t('a one-stop solution for managing electronic waste responsibly. Our platform bridges the gap between individuals, businesses, and recycling centers, creating a seamless way to buy, sell, or recycle electronic waste.')}
               </p>
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-                At <span className="font-semibold text-gray-800">E-Waste Trade Hub</span>, we believe in the <span className="font-semibold">three Rs: Reduce, Reuse, Recycle</span>. With the growing amount of e-waste globally, our mission is to empower users to make environmentally conscious decisions while contributing to a sustainable future.
+                At <span className="font-semibold text-gray-800">{t('E-Waste Trade Hub')}</span>, {t('we believe in the')} <span className="font-semibold">{t('three Rs: Reduce, Reuse, Recycle')}</span>. {t('With the growing amount of e-waste globally, our mission is to empower users to make environmentally conscious decisions while contributing to a sustainable future.')}
               </p>
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 By choosing <span className="font-semibold text-gray-800">E-Waste Trade Hub</span>, you’re not just managing your e-waste—you’re becoming part of a larger movement to safeguard the planet for future generations. Together, we can reduce the environmental footprint of electronic waste and create a greener, cleaner world.
@@ -207,75 +209,75 @@ const AboutUsPage = () => {
 
 
       {/* Why Us */}
-<section className="text-gray-700 body-font mt-10">
-  <div className="flex justify-center text-3xl font-bold text-gray-800 text-center">
-    Why Choose Us?
-  </div>
-  <div className="container px-5 py-12 mx-auto">
-    <div className="flex flex-wrap text-center justify-center">
-      <div className="p-4 md:w-1/4 sm:w-1/2">
-        <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
-          <div className="flex justify-center">
-            <img 
-              src={images.rewards} 
-              alt="Reward Points" 
-              className="w-32 mb-4 text-gray-700" 
-            />
-          </div>
-          <h2 className="title-font font-regular text-2xl text-gray-900">Reward Points System</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Earn points for every transaction and redeem them for exciting rewards.
-          </p>
+      <section className="text-gray-700 body-font mt-10">
+        <div className="flex justify-center text-3xl font-bold text-gray-800 text-center">
+          Why Choose Us?
         </div>
-      </div>
-      <div className="p-4 md:w-1/4 sm:w-1/2">
-        <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
-          <div className="flex justify-center">
-            <img 
-              src={images.bestPrice} 
-              alt="Best Prices" 
-              className="w-32 mb-4" 
-            />
+        <div className="container px-5 py-12 mx-auto">
+          <div className="flex flex-wrap text-center justify-center">
+            <div className="p-4 md:w-1/4 sm:w-1/2">
+              <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
+                <div className="flex justify-center">
+                  <img
+                    src={images.rewards}
+                    alt="Reward Points"
+                    className="w-32 mb-4 text-gray-700"
+                  />
+                </div>
+                <h2 className="title-font font-regular text-2xl text-gray-900">Reward Points System</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Earn points for every transaction and redeem them for exciting rewards.
+                </p>
+              </div>
+            </div>
+            <div className="p-4 md:w-1/4 sm:w-1/2">
+              <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
+                <div className="flex justify-center">
+                  <img
+                    src={images.bestPrice}
+                    alt="Best Prices"
+                    className="w-32 mb-4"
+                  />
+                </div>
+                <h2 className="title-font font-regular text-2xl text-gray-900">Best Price Guarantee</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Get the most value for your electronic waste with our price recommendations.
+                </p>
+              </div>
+            </div>
+            <div className="p-4 md:w-1/4 sm:w-1/2">
+              <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
+                <div className="flex justify-center">
+                  <img
+                    src={images.liveLocation}
+                    alt="Live Tracking"
+                    className="w-32 mb-4"
+                  />
+                </div>
+                <h2 className="title-font font-regular text-2xl text-gray-900">Live Tracking</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Track the status of your e-waste collection and delivery in real-time.
+                </p>
+              </div>
+            </div>
+            <div className="p-4 md:w-1/4 sm:w-1/2">
+              <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
+                <div className="flex justify-center">
+                  <img
+                    src={images.eco}
+                    alt="Eco-Friendly"
+                    className="w-32 mb-4"
+                  />
+                </div>
+                <h2 className="title-font font-regular text-2xl text-gray-900">Eco-Friendly Practices</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Contribute to a cleaner planet by recycling e-waste responsibly.
+                </p>
+              </div>
+            </div>
           </div>
-          <h2 className="title-font font-regular text-2xl text-gray-900">Best Price Guarantee</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Get the most value for your electronic waste with our price recommendations.
-          </p>
         </div>
-      </div>
-      <div className="p-4 md:w-1/4 sm:w-1/2">
-        <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
-          <div className="flex justify-center">
-            <img 
-              src={images.liveLocation}
-              alt="Live Tracking" 
-              className="w-32 mb-4" 
-            />
-          </div>
-          <h2 className="title-font font-regular text-2xl text-gray-900">Live Tracking</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Track the status of your e-waste collection and delivery in real-time.
-          </p>
-        </div>
-      </div>
-      <div className="p-4 md:w-1/4 sm:w-1/2">
-        <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
-          <div className="flex justify-center">
-            <img 
-              src={images.eco}
-              alt="Eco-Friendly" 
-              className="w-32 mb-4" 
-            />
-          </div>
-          <h2 className="title-font font-regular text-2xl text-gray-900">Eco-Friendly Practices</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Contribute to a cleaner planet by recycling e-waste responsibly.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* gallery */}
@@ -314,6 +316,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </section>
+
       {/* Visit us section */}
       <section className="bg-gray-100">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-20 lg:px-8">
@@ -359,9 +362,9 @@ const AboutUsPage = () => {
           </div>
         </div>
       </section>
+
       {/* footer */}
       <section>
-
         <footer className="bg-gray-200 text-white py-4 px-3">
           <div className="container mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full md:w-1/2 md:text-center md:mb-4 mb-8">
