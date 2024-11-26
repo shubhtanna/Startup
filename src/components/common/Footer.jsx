@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <div className="bg-box-rgba p-8 text-white font-inter">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
-        
+
         {/* Logo Section */}
         <div className="flex flex-col items-center md:items-start">
           {logoImageURL ? (
@@ -48,11 +48,18 @@ const Footer = () => {
           <ul className="space-y-2">
             {["Home", "About", "FAQs", "Purchase"].map((page) => (
               <li key={page}>
-                <Link to="/" className="hover:underline">{t(page)}</Link>
+                {/* Conditional check for "About" page to make it link to /about */}
+                <Link
+                  to={page === "About" ? "/about" : "/"}
+                  className="hover:underline"
+                >
+                  {t(page)}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
+
 
         {/* Connect with Us */}
         <div className="text-center md:text-left">

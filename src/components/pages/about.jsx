@@ -4,6 +4,7 @@ import axios from 'axios';
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../utils/firebaseConfig";
 import { useTranslation } from 'react-i18next';
+import ReviewList from '../ReviewList';
 
 
 const AboutUsPage = () => {
@@ -287,7 +288,6 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -333,6 +333,16 @@ const AboutUsPage = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className='text-gray-700 body-font mt-10'>
+      <div className="flex justify-center text-3xl font-bold text-gray-800 text-center py-10">
+          Top Reviews
+        </div>
+        <div className='animate-scroll scroll-m-8'>
+      <ReviewList/>
+      </div>
       </section>
 
 
