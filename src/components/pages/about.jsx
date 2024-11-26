@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../utils/firebaseConfig";
 import { useTranslation } from 'react-i18next';
 import ReviewList from '../ReviewList';
+import Users from './users';
 
 
 const AboutUsPage = () => {
-
-  const [users, setUsers] = useState([]);
   const [images, setImages] = useState({
     eco: '',
     multi: '',
@@ -29,18 +26,6 @@ const AboutUsPage = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get("/api/v1/auth/all-users"); // Adjust the endpoint if necessary
-        if (response.data.success) {
-          setUsers(response.data.data); // Set the users in state
-        }
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
-    fetchUsers();
-
     const fetchImages = async () => {
       const imagePaths = {
         eco: 'E-Waste/Eco.png',
@@ -294,55 +279,22 @@ const AboutUsPage = () => {
 
       {/* Users Section */}
       <section className="text-gray-700 body-font cursor-pointer rounded-xl" id="users">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+          Meet Our Users
+        </h2>
         <div className="py-8 bg-gray-400 border-2 rounded-lg">
-          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
-            Meet Our Users
-          </h2>
-          <div className="flex justify-center ">
-            <div className="overflow-hidden w-full relative transition duration-300  ">
-              {/* Scrolling Wrapper */}
-              <div className="flex space-x-11 px-4 sm:px-8 animate-scroll scroll-m-8">
-                {users
-                  .filter((user) => user.accountType !== "admin") // Filter out admins
-                  .map((user) => (
-                    <div
-                      key={user._id} // Use _id from MongoDB
-                      className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4 transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg active:translate-y-2 active:shadow-md"
-                    >
-                      <img
-                        src={user?.image || "https://via.placeholder.com/150"}
-                        alt={`profile-${user.firstName} ${user.lastName}`}
-                        className="w-24 h-24 rounded-full mx-auto mb-4"
-                      />
-                      <h3 className="text-xl font-semibold text-gray-800 text-center">
-                        {`${user.firstName} ${user.lastName}`}
-                      </h3>
-                      <p className="text-gray-600 text-center">{user?.accountType}</p>
-                      <p className="text-gray-500 text-center">
-                        {user?.city}, {user?.state}
-                      </p>
-                      <p className="text-gray-400 text-center text-sm mt-2">
-                        {user?.address}
-                      </p>
-                      <p className="text-gray-500 mt-2 text-sm text-center">
-                        {user?.description}
-                      </p>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
+          <Users />
         </div>
       </section>
 
       {/* Reviews Section */}
       <section className='text-gray-700 body-font mt-10'>
-      <div className="flex justify-center text-3xl font-bold text-gray-800 text-center py-10">
+        <div className="flex justify-center text-3xl font-bold text-gray-800 text-center py-10">
           Top Reviews
         </div>
         <div className='animate-scroll scroll-m-8'>
-      <ReviewList/>
-      </div>
+          <ReviewList />
+        </div>
       </section>
 
 
