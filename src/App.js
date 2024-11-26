@@ -26,6 +26,7 @@ import Feed from './components/pages/feedback';
 import AdminDashboard from './components/AdminDashboard/admin';
 import TermsAndCondition from './components/pages/TermsAndCondition';
 import About from './components/pages/about';
+import Review from './components/pages/review';
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,8 @@ function App() {
         <Route path='/admin' element={<AdminDashboard />} />
 
         <Route path='/term' element={<TermsAndCondition/>}/>
+
+        <Route path ="/review" element={<Review/>}/>
 
         <Route element={<Dashboard />}>
 

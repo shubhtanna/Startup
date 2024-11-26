@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 const AboutUsPage = () => {
 
   const [users, setUsers] = useState([]);
-
   const [images, setImages] = useState({
     eco: '',
     multi: '',
@@ -28,10 +27,7 @@ const AboutUsPage = () => {
 
   const { t } = useTranslation();
 
-
-
   useEffect(() => {
-
     const fetchUsers = async () => {
       try {
         const response = await axios.get("/api/v1/auth/all-users"); // Adjust the endpoint if necessary
@@ -42,7 +38,6 @@ const AboutUsPage = () => {
         console.error("Error fetching users:", error);
       }
     };
-
     fetchUsers();
 
     const fetchImages = async () => {
@@ -126,15 +121,6 @@ const AboutUsPage = () => {
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 By choosing <span className="font-semibold text-gray-800">E-Waste Trade Hub</span>, you’re not just managing your e-waste—you’re becoming part of a larger movement to safeguard the planet for future generations. Together, we can reduce the environmental footprint of electronic waste and create a greener, cleaner world.
               </p>
-
-              {/* <ul className="mt-6 list-disc list-inside space-y-2 text-gray-600 text-lg">
-          <li><strong>Sell Your E-Waste:</strong> Upload photos and details of your electronic waste. Get the best price recommendations and connect with verified buyers.</li>
-          <li><strong>Buy Refurbished Devices:</strong> Find affordable, second-hand electronics that meet your needs while reducing e-waste.</li>
-          <li><strong>Recycle Responsibly:</strong> Partner with certified recyclers to ensure safe disposal of electronic waste.</li>
-          <li><strong>Reward System:</strong> Earn redeemable reward points for every transaction to promote eco-friendly practices.</li>
-          <li><strong>Live Tracking:</strong> Track e-waste collection from your doorstep to the recycling center, ensuring transparency.</li>
-          <li><strong>Multilingual Support:</strong> Access the platform in multiple languages for a user-friendly experience.</li>
-        </ul> */}
             </div>
 
             {/* Image */}
@@ -154,7 +140,6 @@ const AboutUsPage = () => {
       <section className="py-10" id="services">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img src={images.recommend} alt="Price Recommandation Engine"
@@ -171,9 +156,9 @@ const AboutUsPage = () => {
               <div className="p-6 text-center">
                 <h3 className="text-xl font-medium text-gray-800 mb-2">Messaging System</h3>
                 <p className="text-gray-700 text-base">Our platform includes a secure messaging system that allows buyers and sellers to communicate directly. This feature makes it easy to negotiate prices, share additional details about the e-waste, and finalize deals conveniently and efficiently.</p>
-
               </div>
             </div>
+
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img src={images.reward} alt="Reward Points"
                 className="w-full h-64 object-cover" />
@@ -187,6 +172,7 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img src={images.orderTracking} alt="Reward Points"
                 className="w-full h-64 object-cover" />
@@ -199,6 +185,7 @@ const AboutUsPage = () => {
                 </details>
               </div>
             </div>
+
             {/* special card */}
             <div
               className="bg-white rounded-lg bg-gradient-to-tr from-pink-300 to-blue-300 p-0.5 shadow-lg overflow-hidden min-h-full">
@@ -210,9 +197,9 @@ const AboutUsPage = () => {
                 <p className="text-gray-700 text-base">
                   <span className="font-medium underline">Our speciality is</span> providing a seamless issue resolution system. Users can raise issue tickets for any concerns or disputes related to transactions, deliveries, or platform usage. This ensures a smooth and reliable experience for buyers and sellers.
                 </p>
-
               </div>
             </div>
+
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img src={images.multiLanguage} alt="Multi Language Support"
                 className="w-full h-64 object-cover" />
@@ -252,6 +239,7 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+
             <div className="p-4 md:w-1/4 sm:w-1/2">
               <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
                 <div className="flex justify-center">
@@ -267,6 +255,7 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+
             <div className="p-4 md:w-1/4 sm:w-1/2">
               <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
                 <div className="flex justify-center">
@@ -282,6 +271,7 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+
             <div className="p-4 md:w-1/4 sm:w-1/2">
               <div className="px-4 py-1 transform transition duration-500 hover:scale-110">
                 <div className="flex justify-center">
@@ -297,6 +287,7 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -308,9 +299,9 @@ const AboutUsPage = () => {
             Meet Our Users
           </h2>
           <div className="flex justify-center ">
-            <div className="overflow-hidden w-full relative transition duration-300 hover:scale-105 ">
+            <div className="overflow-hidden w-full relative transition duration-300  ">
               {/* Scrolling Wrapper */}
-              <div className="flex space-x-11 px-4 sm:px-8 animate-scroll">
+              <div className="flex space-x-11 px-4 sm:px-8 animate-scroll scroll-m-8">
                 {users
                   .filter((user) => user.accountType !== "admin") // Filter out admins
                   .map((user) => (
@@ -343,7 +334,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </section>
- 
+
 
       {/* gallery */}
       <section className="text-gray-700 body-font" id="gallery">
@@ -443,15 +434,42 @@ const AboutUsPage = () => {
 
       {/* footer */}
       <section>
-        <footer className="bg-gray-200 text-white py-4 px-3">
+        <footer className="bg-gray-800 text-white py-6 px-4">
           <div className="container mx-auto flex flex-wrap items-center justify-between">
-            <div className="w-full md:w-1/2 md:text-center md:mb-4 mb-8">
-              <p className="text-xs text-gray-400 md:text-sm">Copyright 2024 &copy; All Rights Reserved</p>
+            {/* Left Section */}
+            <div className="w-full md:w-1/2 md:text-left text-center mb-6 md:mb-0">
+              <p className="text-sm md:text-base text-gray-400">
+                Copyright 2024 &copy; E-Waste Trade Hub. All Rights Reserved.
+              </p>
             </div>
-            <div className="w-full md:w-1/2 md:text-center md:mb-0 mb-8">
-              <ul className="list-reset flex justify-center flex-wrap text-xs md:text-sm gap-3">
-                <li><a href="#contactUs" className="text-gray-400 hover:text-white">Contact</a></li>
-                <li className="mx-4"><a href="/term" className="text-gray-400 hover:text-white">Privacy Policy</a></li>
+
+            {/* Right Section */}
+            <div className="w-full md:w-1/2">
+              <ul className="list-reset flex justify-center md:justify-end flex-wrap text-sm gap-4">
+                <li>
+                  <a
+                    href="#contactUs"
+                    className="text-gray-400 hover:text-green-500 transition-colors"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/term"
+                    className="text-gray-400 hover:text-green-500 transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/review"
+                    className="text-gray-400 hover:text-green-500 transition-colors"
+                  >
+                    Review
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

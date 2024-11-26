@@ -4,7 +4,6 @@ import {
   FaHome,
   FaUsers,
   FaAddressBook,
-  FaRegCalendarAlt,
   FaChartBar,
   FaChartPie as FaPieChart,
   FaChartLine,
@@ -31,7 +30,7 @@ import { CgProfile } from "react-icons/cg";
 
 const Sidenavbar = () => {
   const [active, setActive] = useState("Dashboard");
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { user } = useSelector((state) => state.profile);
   const { t } = useTranslation();
@@ -90,7 +89,6 @@ const Sidenavbar = () => {
               </button>
             ))}
           </div>
-          
         ))}
       </nav>
 

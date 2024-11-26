@@ -12,9 +12,28 @@ module.exports = {
           "100%": { transform: "translateX(-100%)" },
         },
       },
-      
+      fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeLeft: {
+          "0%": { opacity: "0", transform: "translateX(-20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fadeRight: {
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        zoomIn: {
+          "0%": { opacity: "0", transform: "scale(0.8)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       animation: {
         scroll: "scroll 15s linear infinite",
+        "fade-up": "fadeUp 1s ease-in-out",
+        "fade-left": "fadeLeft 1s ease-in-out",
+        "fade-right": "fadeRight 1s ease-in-out",
+        "zoom-in": "zoomIn 1s ease-in-out",
       },
 
       fontFamily:{
