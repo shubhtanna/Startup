@@ -11,6 +11,8 @@ import vendorRouter from "./routes/vendor.js"
 import individualRouter from "./routes/individual.js"
 import ticketRoutes from './routes/ticketRoutes.js';
 import cors from "cors";
+import ReviewRoutes from "./routes/reviewRoutes.js";
+
 
 const app = express();
 
@@ -41,6 +43,7 @@ app.use("/api/v1/admin", adminRouter)
 app.use("/api/v1/vendor", vendorRouter)
 app.use("/api/v1/individual", individualRouter)
 app.use("/api", ticketRoutes)
+app.use("/api/reviews", ReviewRoutes);
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'https://startup-seven-lovat.vercel.app');
@@ -49,6 +52,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true'); // If credentials are required
     next();
 });
+
+
 
 
 
