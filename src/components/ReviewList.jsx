@@ -19,9 +19,9 @@ const ReviewList = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto mt-1">
+    <div className=" mt-1 overflow-hidden w-full relative transition duration-300 ">
       {reviews.length > 0 ? (
-        <div className="flex justify-center space-x-6 py-6 px-4 md:px-8">
+        <div className="flex justify-center space-x-6 py-6 px-4 md:px-8  sm:px-8 animate-infinite-scroll">
           {reviews.map((review) => (
             <div
               key={review._id}

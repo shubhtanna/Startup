@@ -282,7 +282,7 @@ const AboutUsPage = () => {
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Meet Our Users
         </h2>
-        <div className="py-8 bg-gray-400 border-2 rounded-lg">
+        <div className="py-8">
           <Users />
         </div>
       </section>
@@ -292,13 +292,15 @@ const AboutUsPage = () => {
         <div className="flex justify-center text-3xl font-bold text-gray-800 text-center py-10">
           Top Reviews
         </div>
-        <div className='animate-scroll scroll-m-8'>
+        <div>
+        <div>
           <ReviewList />
+        </div>
         </div>
       </section>
 
 
-      {/* gallery */}
+      {/* gallery
       <section className="text-gray-700 body-font" id="gallery">
         <div className="flex justify-center text-3xl font-bold text-gray-800 text-center py-10">
           Gallery
@@ -339,7 +341,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* Visit us section */}
+      {/* Visit us section 
       <section className="bg-gray-100">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-20 lg:px-8">
           <div className="max-w-2xl lg:max-w-4xl mx-auto text-center">
@@ -356,7 +358,7 @@ const AboutUsPage = () => {
                     <a className="flex m-1" href="tel:+919823331842">
                       <div className="flex-shrink-0">
                         <div className="flex items-center justify-between h-10 w-30 rounded-md bg-indigo-500 text-white p-2">
-                          {/* Heroicon name: phone */}
+                          {/* Heroicon name: phone 
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                           </svg>
@@ -392,7 +394,8 @@ const AboutUsPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> 
+      */}
 
       {/* footer */}
       <section>
@@ -430,6 +433,14 @@ const AboutUsPage = () => {
                     className="text-gray-400 hover:text-green-500 transition-colors"
                   >
                     Review
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/teams"
+                    className="text-gray-400 hover:text-green-500 transition-colors"
+                  >
+                    Team Members
                   </a>
                 </li>
               </ul>

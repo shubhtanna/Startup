@@ -46,6 +46,14 @@ const Review = () => {
                   Review
                 </a>
               </li>
+              <li>
+                <a
+                  href="/teams"
+                  className="text-gray-400 hover:text-green-500 transition-colors"
+                >
+                  Team Members
+                </a>
+              </li>
             </ul>
           </div>
         </div>
