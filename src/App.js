@@ -27,6 +27,7 @@ import AdminDashboard from './components/AdminDashboard/admin';
 import TermsAndCondition from './components/pages/TermsAndCondition';
 import About from './components/pages/about';
 import Review from './components/pages/review';
+import Teams from './components/pages/teams';
 
 function App() {
   const dispatch = useDispatch();
@@ -60,25 +61,27 @@ function App() {
 
         <Route path ="/review" element={<Review/>}/>
 
+        <Route path='/teams' element={<Teams/>}/>
+
         <Route element={<Dashboard />}>
 
-          <Route path='/dashboard/my-profile' element={<MyProfile />} />
+        <Route path='/dashboard/my-profile' element={<MyProfile />} />
 
-          <Route path='/dashboard/Settings' element={<Settings />} />
+        <Route path='/dashboard/Settings' element={<Settings />} />
 
-          <Route path='/dashboard/add-product' element={<AddProduct />} />
+        <Route path='/dashboard/add-product' element={<AddProduct />} />
 
-          <Route path='/dashboard/edit-product/:productId' element={<EditProduct />} />
+        <Route path='/dashboard/edit-product/:productId' element={<EditProduct />} />
 
-          <Route path='/dashboard/My-products' element={<IndividualMyProducts />} />
+        <Route path='/dashboard/My-products' element={<IndividualMyProducts />} />
 
-          <Route path='/dashboard/all-products' element={<AllProduct />} />
+        <Route path='/dashboard/all-products' element={<AllProduct />} />
 
-          <Route path='/dashboard/interested-products' element={<InterestedProduct />} />
+        <Route path='/dashboard/interested-products' element={<InterestedProduct />} />
 
-          <Route path='/dashboard/interested-products/:id' element={<InterestedShopkeeper />} />
+        <Route path='/dashboard/interested-products/:id' element={<InterestedShopkeeper />} />
 
-          <Route path='/dashboard/intrested-shopkeeper-products' element={<EditInterestedProduct />} />
+        <Route path='/dashboard/intrested-shopkeeper-products' element={<EditInterestedProduct />} />
 
           {/* <Route path='/dashboard/all-products/add-price' element={<ProductDescModal/>}/> */}
         </Route>

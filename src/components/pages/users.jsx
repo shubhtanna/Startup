@@ -21,7 +21,7 @@ const Users = () => {
         <div className="flex justify-center ">
             <div className="overflow-hidden w-full relative transition duration-300  ">
                 {/* Scrolling Wrapper */}
-                <div className="flex space-x-11 px-4 sm:px-8 animate-scroll scroll-m-8">
+                <div className="flex space-x-11 px-4 sm:px-8 animate-infinite-scroll">
                     {users
                         .filter((user) => user.accountType !== "admin") // Filter out admins
                         .map((user) => (

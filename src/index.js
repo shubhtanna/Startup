@@ -20,7 +20,7 @@ root.render(
     <BrowserRouter>
       <App />
       <Chatbot />
-      <Toaster />
+      <Toaster /> 
     </BrowserRouter>
   </Provider>
-);
+);   
