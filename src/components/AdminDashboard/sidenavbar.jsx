@@ -10,6 +10,7 @@ import {
   FaMapMarkedAlt,
   FaBars,
 } from "react-icons/fa";
+import { GoCodeReview } from "react-icons/go";
 import { FaShopLock } from "react-icons/fa6";
 import { BsFillTicketFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
@@ -26,6 +27,7 @@ import { MdNotificationAdd } from "react-icons/md";
 import VendorInformations from "./AdminComponents/Data/VendorInformations";
 import IndividualInformation from "./AdminComponents/Data/IndividualInformation";
 import { CgProfile } from "react-icons/cg";
+import Review from "./AdminComponents/Pages/Review";
 
 
 const Sidenavbar = () => {
@@ -50,6 +52,7 @@ const Sidenavbar = () => {
       items: [
         { name: t("Raise Tickets"), icon: <BsFillTicketFill />, component: <div className="h-screen overflow-auto overflow-y-scroll"><RaiseTickets /></div> },
         { name: t("Notification"), icon:<MdNotificationAdd/>, component: <div className="h-screen overflow-auto overflow-y-scroll"><Notification /></div>},
+        { name: t("Review") , icon:<GoCodeReview />, component:<div className="h-screen overflow-auto overflow-y-scroll"><Review/></div>},
       ],
     },
     {
@@ -64,7 +67,7 @@ const Sidenavbar = () => {
   ];
 
   return (
-    <div className="flex h-screen md:flex-row  flex-col">
+    <div className=" flex h-screen md:flex-row flex-col">
       {/* Sidebar for Desktop */}
       <nav className={`hidden md:flex flex-col bg-gray-800 text-white transition-all duration-300 p-4 space-y-2 overflow-y-auto`}>
         <div className="flex items-center space-x-4">
