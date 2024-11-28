@@ -3,6 +3,31 @@ import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../../utils/firebaseConfig';
 
 const Teams = () => {
+
+    const [projects, setProjects] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [support, setSupport] = useState(0);
+
+    const randomValues = {
+        projects: Math.floor(Math.random() * 500),
+        hours: Math.floor(Math.random() * 1000),
+        support: 24,
+    };
+
+    const animateValue = (start, end, setter, duration = 1000) => {
+        let current = start;
+        const increment = (end - start) / (duration / 10);
+
+        const interval = setInterval(() => {
+            current += increment;
+            if (current >= end) {
+                current = end;
+                clearInterval(interval);
+            }
+            setter(Math.floor(current));
+        }, 10);
+    };
+
     const [images, setImages] = useState({
         harsh: '',
         shubh: '',
@@ -11,7 +36,13 @@ const Teams = () => {
         komal: '',
         hetashri: '',
     });
+
     useEffect(() => {
+
+        animateValue(0, randomValues.projects, setProjects);
+        animateValue(0, randomValues.hours, setHours);
+        setSupport(randomValues.support);
+
         const fetchImages = async () => {
             const imagePaths = {
                 harsh: 'E-Waste/Harsh.jpg',
@@ -53,7 +84,7 @@ const Teams = () => {
                             <img
                                 className="object-center object-cover w-full h-full"
                                 src={images.harsh}
-                                alt="photo"
+                                alt="profile"
                             />
                         </div>
                         <div className="w-full md:w-3/5 p-6 md:p-4 space-y-2">
@@ -117,7 +148,6 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -127,7 +157,7 @@ const Teams = () => {
                             <img
                                 className="object-center object-cover w-full h-full"
                                 src={images.shubh}
-                                alt="photo"
+                                alt="profile"
                             />
                         </div>
                         <div className="w-full md:w-3/5 p-6 md:p-4 space-y-2">
@@ -139,7 +169,7 @@ const Teams = () => {
                                 </p>
                             </div>
                             <div className="flex justify-start space-x-2">
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -153,7 +183,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -167,7 +197,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -186,7 +216,7 @@ const Teams = () => {
                             <img
                                 className="object-center object-cover w-full h-full"
                                 src={images.shabbir}
-                                alt="photo"
+                                alt="profile"
                             />
                         </div>
                         <div className="w-full md:w-3/5 p-6 md:p-4 space-y-2">
@@ -198,7 +228,7 @@ const Teams = () => {
                                 </p>
                             </div>
                             <div className="flex justify-start space-x-2">
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -212,7 +242,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -226,7 +256,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -245,7 +275,7 @@ const Teams = () => {
                             <img
                                 className="object-center object-cover w-full h-full"
                                 src={images.tarang}
-                                alt="photo"
+                                alt="profile"
                             />
                         </div>
                         <div className="w-full md:w-3/5 p-6 md:p-4 space-y-2">
@@ -257,7 +287,7 @@ const Teams = () => {
                                 </p>
                             </div>
                             <div className="flex justify-start space-x-2">
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -271,7 +301,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -285,7 +315,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -305,7 +335,7 @@ const Teams = () => {
                             <img
                                 className="object-center object-cover w-full h-full"
                                 src={images.komal}
-                                alt="photo"
+                                alt="profile"
                             />
                         </div>
                         <div className="w-full md:w-3/5 p-6 md:p-4 space-y-2">
@@ -317,7 +347,7 @@ const Teams = () => {
                                 </p>
                             </div>
                             <div className="flex justify-start space-x-2">
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -331,7 +361,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -345,7 +375,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -364,7 +394,7 @@ const Teams = () => {
                             <img
                                 className="object-center object-cover w-full h-full"
                                 src={images.hetashri}
-                                alt="photo"
+                                alt="profile"
                             />
                         </div>
                         <div className="w-full md:w-3/5 p-6 md:p-4 space-y-2">
@@ -376,7 +406,7 @@ const Teams = () => {
                                 </p>
                             </div>
                             <div className="flex justify-start space-x-2">
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -390,7 +420,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="#" className="text-gray-500 hover:text-gray-600">
+                                <a href="/terms" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -404,7 +434,7 @@ const Teams = () => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <a href="" className="text-gray-500 hover:text-gray-600">
+                                <a href="/teams" className="text-gray-500 hover:text-gray-600">
                                     <svg
                                         className="w-6 h-6"
                                         aria-hidden="true"
@@ -418,6 +448,24 @@ const Teams = () => {
                         </div>
                     </div>
                 </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-11 px-6 bg-gray-50 rounded-lg shadow-lg border-2 mt-5 border-black">
+                    {/* Projects */}
+                    <div className="flex flex-col items-center text-center bg-white rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <h1 className="text-5xl font-bold text-blue-600">{projects}</h1>
+                        <p className="text-gray-600 text-lg mt-2">Projects</p>
+                    </div>
+                    {/* Hours */}
+                    <div className="flex flex-col items-center text-center bg-white rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <h1 className="text-5xl font-bold text-green-600">{hours}+</h1>
+                        <p className="text-gray-600 text-lg mt-2">Hours</p>
+                    </div>
+                    {/* Support */}
+                    <div className="flex flex-col items-center text-center bg-white rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <h1 className="text-5xl font-bold text-purple-600">{support}/7</h1>
+                        <p className="text-gray-600 text-lg mt-2">Support</p>
+                    </div>
+                </div>
+
             </section>
 
             {/* Footer */}
@@ -435,7 +483,7 @@ const Teams = () => {
                         <ul className="list-reset flex justify-center md:justify-end flex-wrap text-sm gap-4">
                             <li>
                                 <a
-                                    href="#contactUs"
+                                    href="/termscontactUs"
                                     className="text-gray-400 hover:text-green-500 transition-colors"
                                 >
                                     Contact Us

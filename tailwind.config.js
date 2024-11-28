@@ -32,5 +32,18 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          /* For Chrome, Edge, and Safari */
+          '-webkit-overflow-scrolling': 'touch',
+          'scrollbar-width': 'none', /* Firefox */
+          '&::-webkit-scrollbar': {
+            display: 'none', /* Chrome, Safari */
+          },
+        },
+      });
+    },
+],
 };
