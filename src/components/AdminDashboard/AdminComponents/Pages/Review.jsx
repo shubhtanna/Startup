@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -33,21 +35,27 @@ const Reviews = () => {
 
   // Find Top Rating Review
   const getTopRatingReview = () => {
-    return reviews.reduce((topReview, currentReview) =>
-      currentReview.rating > topReview.rating ? currentReview : topReview, { rating: 0 }
+    return reviews.reduce(
+      (topReview, currentReview) =>
+        currentReview.rating > topReview.rating ? currentReview : topReview,
+      { rating: 0 }
     );
   };
 
   // Delete review function
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/reviews/${id}`);
-      setReviews((prevReviews) => prevReviews.filter((review) => review._id !== id));
-      setFilteredReviews((prevReviews) =>
-        prevReviews.filter((review) => review._id !== id)
-      );
-    } catch (error) {
-      console.error("Error deleting review:", error);
+    if (window.confirm("Are you sure you want to delete this review?")) {
+      try {
+        await axios.delete(`http://localhost:5000/api/reviews/${id}`);
+        setReviews((prevReviews) => prevReviews.filter((review) => review._id !== id));
+        setFilteredReviews((prevReviews) =>
+          prevReviews.filter((review) => review._id !== id)
+        );
+        toast.success("Review deleted successfully!");
+      } catch (error) {
+        console.error("Error deleting review:", error);
+        toast.error("Failed to delete the review. Please try again.");
+      }
     }
   };
 
@@ -79,6 +87,7 @@ const Reviews = () => {
 
   return (
     <div className="max-h-[580px] overflow-hidden overflow-y-auto">
+      <ToastContainer />
       {/* Top Rating Section */}
       <div className="ml-3 flex flex-col sm:flex-row gap-4 justify-center sm:justify-start mb-6 overflow-x-auto">
         <div className="bg-white p-4 shadow-md rounded-md border border-gray-300 w-full sm:w-auto flex flex-col items-center gap-2">
@@ -147,12 +156,13 @@ const Reviews = () => {
                 </div>
                 <div className="flex flex-col items-start lg:items-end lg:w-1/2 gap-2">
                   <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${review.rating >= 4
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      review.rating >= 4
                         ? "bg-green-100 text-green-600"
                         : review.rating >= 3
-                          ? "bg-yellow-100 text-yellow-600"
-                          : "bg-red-100 text-red-600"
-                      }`}
+                        ? "bg-yellow-100 text-yellow-600"
+                        : "bg-red-100 text-red-600"
+                    }`}
                   >
                     ⭐ {review.rating}/5
                   </span>
