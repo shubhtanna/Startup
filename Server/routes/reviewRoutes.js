@@ -38,5 +38,20 @@ router.post("/", async (req, res) => {
     }
 });
 
-// Export the router
+// Delete a review by ID
+router.delete("/:id", async (req, res) => {
+    const { id } = req.params; // Extract the review ID from request params
+
+    try {
+        const deletedReview = await Review.findByIdAndDelete(id); // Delete review from MongoDB
+        if (!deletedReview) {
+            return res.status(404).json({ message: "Review not found" });
+        }
+        res.status(200).json({ message: "Review deleted successfully", review: deletedReview });
+    } catch (err) {
+        console.error("Error deleting review:", err);
+        res.status(500).json({ message: "Failed to delete review" });
+    }
+});
+
 export default router;
