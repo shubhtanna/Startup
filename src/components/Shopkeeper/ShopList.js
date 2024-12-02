@@ -5,6 +5,7 @@ import ShopListImage from '../../assets/ShopListImage1.png';
 import { getShopbyCity } from '../../Services/Operation/vendorAPI';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
 
 
 const shopData = [
@@ -65,6 +66,8 @@ export const ShopList = () => {
 
   const [shopkeepers, setShopkeepers] = useState([]);
 
+  const navigate = useNavigate();
+
   const getshopData = async () => {
     const result = await getShopbyCity(token);
     setShopkeepers(result);
@@ -103,10 +106,13 @@ export const ShopList = () => {
           <p className='text-white text-[24px]'>{t("Start selling")} <span className='text-[#174B3A]'>{t("E-waste")}</span> {t("Now")}!</p>
           <p className='text-[16px] mt-1'>{t("Add your product, fill basics details and you are all set to sell your product")}!</p>
 
-          <div className='bg-[#F19A3E] text-white rounded-md gap-2 flex justify-center items-center w-[200px] px-[8px] py-[8px] mt-4'>
-            <IoAdd className=" text-[20px]" />
-            <p className='text-[16px]' >{t("Add Product Now")}</p>
-          </div>
+          <div
+      className='bg-[#F19A3E] text-white rounded-md gap-2 flex justify-center items-center w-[200px] px-[8px] py-[8px] mt-4 cursor-pointer'
+      onClick={() => navigate("/dashboard/add-product")} // Replace with your route
+    >
+      <IoAdd className="text-[20px]" />
+      <p className='text-[16px]'>{t("Add Product Now")}</p>
+    </div>
         </div>
 
         {/* Images */}
