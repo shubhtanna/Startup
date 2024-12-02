@@ -292,7 +292,7 @@ const ProductInfo = () => {
             </span>
           )}
         </div>
-        <div className=" mt-5">
+        <div className=" mt-5"> 
           <Upload
             name='wasteImage'
             label='product Image'

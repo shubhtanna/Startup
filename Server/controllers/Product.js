@@ -196,3 +196,25 @@ export const deleteProduct = async (req, res) => {
     return respond(res, "something went wrong while deleting the product", 500, false)
   }
 }
+
+
+export const getAllProducts = async (req, res) => {
+  try {
+    // Fetch all products and populate related fields
+    const products = await Product.find()
+      .populate('category') // Populating category details
+      .populate('brandName') // Populating brand details
+      .populate('individual', 'name email') // Populating individual user details
+      .exec();
+
+    if (!products || products.length === 0) {
+      return respond(res, "No products found", 404, false);
+    }
+
+    return respond(res, "All products fetched successfully", 200, true, products);
+  } catch (error) {
+    console.error(error);
+    return respond(res, "Error while fetching all products", 500, false);
+  }
+};
+
