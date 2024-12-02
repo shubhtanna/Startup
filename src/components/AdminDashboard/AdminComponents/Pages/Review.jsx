@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Review = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState([]);
   const [filter, setFilter] = useState({
@@ -78,7 +78,7 @@ const Review = () => {
   const topReview = getTopRatingReview();
 
   return (
-    <div>
+    <div className="max-h-[580px] overflow-hidden overflow-y-auto">
       {/* Top Rating Section */}
       <div className="ml-3 flex flex-col sm:flex-row gap-4 justify-center sm:justify-start mb-6 overflow-x-auto">
         <div className="bg-white p-4 shadow-md rounded-md border border-gray-300 w-full sm:w-auto flex flex-col items-center gap-2">
@@ -174,4 +174,4 @@ const Review = () => {
   );
 };
 
-export default Review;
+export default Reviews;

@@ -28,6 +28,7 @@ import VendorInformations from "./AdminComponents/Data/VendorInformations";
 import IndividualInformation from "./AdminComponents/Data/IndividualInformation";
 import { CgProfile } from "react-icons/cg";
 import Review from "./AdminComponents/Pages/Review";
+import { Link } from "react-router-dom";
 
 
 const Sidenavbar = () => {

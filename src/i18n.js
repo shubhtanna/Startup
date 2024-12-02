@@ -133,6 +133,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"Vendors Informations",
                 "Notification":"Notification",
                 "Individual Informations":"Individual Informations",
+                "Review":"Review",
             }
         },
         fr: {
@@ -261,6 +262,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"Informations sur les fournisseurs",
                 "Notification":"Notification",
                 "Individual Informations":"Informations individuelles",
+                "Review":"La revue",
             }
         },
         hi: {
@@ -390,6 +392,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"विक्रेता जानकारी",
                 "Notification":"सूचना",
                 "Individual Informations":"व्यक्तिगत जानकारी",
+                "Review":"समीक्षा",
             }
 
         },
@@ -521,6 +524,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"વિક્રેતા માહિતી",
                 "Notification":"સૂચના",
                 "Individual Informations":"વ્યક્તિગત માહિતી",
+                "Review":"Review",
             }
         },
         sp: {
@@ -649,6 +653,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"Información de los vendedores",
                 "Notification":"Notificaciones",
                 "Individual Informations":"Información individual",
+                "Review":"Revisión",
             }
 
         },
@@ -779,6 +784,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"ਵਿਕਰੇਤਾ ਜਾਣਕਾਰੀ",
                 "Notification":"ਸੂਚਨਾਵਾਂ",
                 "Individual Informations":"ਇੰਡੀਵਿਜੂਅਲ ਜਾਣਕਾਰੀ",
+                "Review":"Review",
             }
 
         },
@@ -908,6 +914,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"விற்பனையாளர் தகவல்கள்",
                 "Notification":"அறிவிப்புகள்",
                 "Individual Informations":"தனிப்பட்ட தகவல்கள்",
+                "Review":"மதிப்பீடு",
             }
 
         },
@@ -1038,6 +1045,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations":"विक्रेता माहिती",
                 "Notification":"सूचना",
                 "Individual Informations":"वैयक्तिक माहिती",
+                "Review":"समीक्षा",
             }
 
         },
@@ -1166,6 +1174,7 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 "Vendors Informations": "విక్రేతల సమాచారం",
                 "Notification": "నోటిఫికేషన్‌లు",
                 "Individual Informations": "వ్యక్తిగత సమాచారం",
+                "Review":"సమీక్ష",
             }
         }
     }
