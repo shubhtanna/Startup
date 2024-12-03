@@ -1,119 +1,150 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState(null);
+  const navigate = useNavigate();
+  const {t} = useTranslation();
 
   const handleToggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
   };
 
   return (
-    <div className="bg-[#DCE2DE] text-gray-800 min-h-screen">
-      <div className="max-w-4xl mx-auto p-6 lg:p-12 space-y-10">
+    <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-300 min-h-screen flex flex-col">
+      <div className="max-w-5xl mx-auto p-6 lg:p-12 space-y-10">
         {/* Header Section */}
         <header className="text-center">
-          <h1 className="text-4xl font-extrabold text-primary">Terms & Conditions</h1>
-          <p className="mt-2 text-gray-600">
-            Effective Date: <span className="font-medium">1st Jan 2024</span>
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-white drop-shadow-md">
+            {t("Terms & Conditions")}
+          </h1>
+          <p className="mt-3 text-gray-400 text-lg">
+            {t("Effective Date")}: <span className="font-semibold">1st Jan 2024</span>
           </p>
         </header>
 
         {/* Table of Contents */}
-        <nav className="bg-gray-100 rounded-lg shadow-md p-4">
-          <h2 className="text-xl font-semibold mb-3">Table of Contents</h2>
-          <ul className="space-y-2">
+        <nav className="bg-gray-800 rounded-lg shadow-md p-6 space-y-3">
+          <h2 className="text-2xl font-bold text-gray-300 mb-3">{t("Table of Contents")}</h2>
+          <ul className="space-y-4 text-lg">
             <li>
-              <a href="#welcome" className="text-primary hover:underline">
-                Welcome to E-Waste Trade Hub
+              <a
+                href="#welcome"
+                className="text-secondary font-medium hover:underline transition duration-300"
+              >
+                {t("Welcome to E-Waste Trade Hub")}
               </a>
             </li>
             <li>
-              <a href="#user-obligations" className="text-primary hover:underline">
-                User Obligations
+              <a
+                href="#privacy-policy"
+                className="text-secondary font-medium hover:underline transition duration-300"
+              >
+                {t("Privacy Policy")}
               </a>
             </li>
             <li>
-              <a href="#prohibited-activities" className="text-primary hover:underline">
-                Prohibited Activities
+              <a
+                href="#billing"
+                className="text-secondary font-medium hover:underline transition duration-300"
+              >
+                {t("Subscription & Billing")}
               </a>
             </li>
             <li>
-              <a href="#liability-disclaimer" className="text-primary hover:underline">
-                Liability Disclaimer
+              <a
+                href="#account-termination"
+                className="text-secondary font-medium hover:underline transition duration-300"
+              >
+                {t("Account Termination")}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#governing-law"
+                className="text-secondary font-medium hover:underline transition duration-300"
+              >
+                {t("Governing Law")}
               </a>
             </li>
           </ul>
         </nav>
 
         {/* Sections */}
-        <section id="welcome" className="space-y-4">
-          <h2 className="text-2xl font-semibold text-secondary">
-            Welcome to E-Waste Trade Hub
+        <section id="welcome" className="bg-gray-800 rounded-xl shadow-md p-6 space-y-4">
+          <h2 className="text-2xl font-semibold text-white border-b border-gray-700 pb-2">
+            {t("Welcome to E-Waste Trade Hub")}
           </h2>
-          <p className="text-gray-700 leading-relaxed">
-            Thank you for choosing the E-Waste Trade Hub platform. By accessing or using our
-            services, you agree to the following terms and conditions. Please read them
-            carefully.
+          <p className="text-gray-400 leading-relaxed">
+            {t("Thank you for choosing our platform")}.{t("By accessing or using our services")}, {t("you agree to these terms and conditions")}.
           </p>
         </section>
 
-        {/* Expandable Section: User Obligations */}
-        <section id="user-obligations" className="space-y-4">
+        {/* Expandable Sections */}
+        <section id="privacy-policy" className="space-y-4">
           <button
-            onClick={() => handleToggleSection("user-obligations")}
-            className="w-full text-left text-xl font-semibold bg-gray-200 p-3 rounded-lg"
+            onClick={() => handleToggleSection("privacy-policy")}
+            className="w-full text-left text-xl font-semibold bg-gray-800 p-4 rounded-xl shadow-md border border-gray-700 hover:bg-gray-700 transition-all duration-300"
           >
-            1. User Obligations
+            1. {t("Privacy Policy")}
           </button>
-          {activeSection === "user-obligations" && (
-            <p className="mt-2 text-gray-700 leading-relaxed">
-              As a user, you agree to provide accurate information, maintain the security of
-              your account, and comply with all applicable laws.
+          {activeSection === "privacy-policy" && (
+            <p className="mt-2 bg-gray-700 rounded-lg p-4 shadow-inner text-gray-300 leading-relaxed">
+              {t("We respect your privacy and are committed to protecting your personal information")}. {t("This section outlines how we handle data collection")}, {t("use")}, {t("and security")}.
             </p>
           )}
         </section>
 
-        {/* Expandable Section: Prohibited Activities */}
-        <section id="prohibited-activities" className="space-y-4">
+        <section id="billing" className="space-y-4">
           <button
-            onClick={() => handleToggleSection("prohibited-activities")}
-            className="w-full text-left text-xl font-semibold bg-gray-200 p-3 rounded-lg"
+            onClick={() => handleToggleSection("billing")}
+            className="w-full text-left text-xl font-semibold bg-gray-800 p-4 rounded-xl shadow-md border border-gray-700 hover:bg-gray-700 transition-all duration-300"
           >
-            2. Prohibited Activities
+            2. {t("Subscription & Billing")}
           </button>
-          {activeSection === "prohibited-activities" && (
-            <ul className="mt-2 list-disc list-inside text-gray-600 space-y-2">
-              <li>Illegal trading of e-waste.</li>
-              <li>Spreading misinformation.</li>
-              <li>Unauthorized access or tampering with other users' data.</li>
-            </ul>
+          {activeSection === "billing" && (
+            <p className="mt-2 bg-gray-700 rounded-lg p-4 shadow-inner text-gray-300 leading-relaxed">
+              {t("Users are billed on a monthly basis")}. {t("Refunds are processed according to our cancellation policy")}.
+            </p>
           )}
         </section>
 
-        {/* Expandable Section: Liability Disclaimer */}
-        <section id="liability-disclaimer" className="space-y-4">
+        <section id="account-termination" className="space-y-4">
           <button
-            onClick={() => handleToggleSection("liability-disclaimer")}
-            className="w-full text-left text-xl font-semibold bg-gray-200 p-3 rounded-lg"
+            onClick={() => handleToggleSection("account-termination")}
+            className="w-full text-left text-xl font-semibold bg-gray-800 p-4 rounded-xl shadow-md border border-gray-700 hover:bg-gray-700 transition-all duration-300"
           >
-            3. Liability Disclaimer
+            3. {t("Account Termination")}
           </button>
-          {activeSection === "liability-disclaimer" && (
-            <p className="mt-2 text-gray-700 leading-relaxed">
-              E-Waste Trade Hub is not responsible for any misuse of the platform. Users are
-              responsible for ensuring their actions comply with legal requirements.
+          {activeSection === "account-termination" && (
+            <p className="mt-2 bg-gray-700 rounded-lg p-4 shadow-inner text-gray-300 leading-relaxed">
+              {t("We reserve the right to suspend or terminate accounts for violations of our terms or policies")}.
+            </p>
+          )}
+        </section>
+
+        <section id="governing-law" className="space-y-4">
+          <button
+            onClick={() => handleToggleSection("governing-law")}
+            className="w-full text-left text-xl font-semibold bg-gray-800 p-4 rounded-xl shadow-md border border-gray-700 hover:bg-gray-700 transition-all duration-300"
+          >
+            4. {t("Governing Law")}
+          </button>
+          {activeSection === "governing-law" && (
+            <p className="mt-2 bg-gray-700 rounded-lg p-4 shadow-inner text-gray-300 leading-relaxed">
+              {t("These terms are governed by the laws of the applicable jurisdiction")}.
             </p>
           )}
         </section>
 
         {/* Footer */}
-        <footer className="text-center border-t border-gray-300 pt-6">
-          <p className="text-gray-600">
-            By using our platform, you agree to our terms. If you have any questions, contact
-            us at{" "}
+        <footer className="text-center bg-gray-700 rounded-xl shadow-md p-6 mt-10">
+          <p className="text-gray-400 text-sm">
+            {t("Questions")}? {t("Contact us at")}{" "}
             <a
               href="mailto:support@ewastetradehub.com"
-              className="text-primary font-medium hover:underline"
+              className="text-secondary font-medium hover:underline"
             >
               support@ewastetradehub.com
             </a>
@@ -125,7 +156,7 @@ const TermsAndConditions = () => {
       {/* Back-to-Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 left-4 bg-secondary text-black px-4 py-2 rounded-full shadow-md"
+        className="fixed bottom-4 left-4 bg-secondary text-white px-6 py-3 rounded-full shadow-md hover:bg-secondary-dark transition-all duration-300"
       >
         ↑ Top
       </button>
