@@ -63,7 +63,7 @@ const Review = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#DCE2DE] overflow-hidden relative">
+    <div className="py-5 bg-[#DCE2DE] overflow-hidden relative">
       {/* Timer Overlay */}
       {isSubmitted && (
         <div className="fixed top-4 right-4 bg-gray-800 text-white px-4 py-2 rounded shadow-lg z-50">
@@ -99,9 +99,9 @@ const Review = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6 md:py-8 px-4">
+      <footer className=" bg-gray-800 text-white py-5 px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full md:w-1/2 text-center md:text-left mb-4 md:mb-0">
+          <div className="w-full md:w-1/2 text-center md:text-left mb-2 md:mb-0">
             <p className="text-sm md:text-base text-gray-400">
               Copyright 2024 &copy; E-Waste Trade Hub. All Rights Reserved.
             </p>
