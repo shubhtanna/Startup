@@ -135,3 +135,44 @@ export const getProfileData = async (req, res) => {
     });
   }
 };
+
+export const logoutUser = async (req, res) => {
+  try {
+    const { id } = req.params; // User ID from request params
+
+    // Find the user by ID
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // Invalidate the user's token (if applicable)
+    if (user.token) {
+      // Assuming a TokenBlacklist model for blacklisting tokens
+      await TokenBlacklist.create({ token: user.token });
+    }
+
+    // Destroy the session if sessions are being used
+    if (req.session) {
+      req.session.destroy((err) => {
+        if (err) {
+          console.error("Error destroying session:", err);
+        }
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "User logged out successfully",
+    });
+  } catch (error) {
+    console.error("Error logging out user:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error logging out user",
+    });
+  }
+};

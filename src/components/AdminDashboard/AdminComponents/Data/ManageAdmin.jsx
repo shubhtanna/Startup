@@ -11,6 +11,8 @@ const ManageAdmin = () => {
     city: "",
     state: "",
   });
+  const [showConfirmModal, setShowConfirmModal] = useState(false); // Modal state
+  const [selectedUser, setSelectedUser] = useState(null); // Track the user to be "logged out"
 
   // Fetch users on component mount
   useEffect(() => {
@@ -71,9 +73,71 @@ const ManageAdmin = () => {
     setFilteredUsers(filtered);
   }, [filters, users]);
 
+  // Handle delete icon click
+  const handleDeleteClick = (user) => {
+    setSelectedUser(user);
+    setShowConfirmModal(true); // Show confirmation modal
+  };
+
+  // Handle confirmation of logout
+  const handleConfirmLogout = async () => {
+    try {
+      const response = await axios.post('/api/v1/auth/logout-user', {
+        userId: selectedUser._id, // Send the selected user's ID
+      });
+  
+      if (response.data.success) {
+        console.log(`User ${selectedUser.email} logged out successfully.`);
+        alert(`User ${selectedUser.email} has been logged out.`);
+        setShowConfirmModal(false);
+        setSelectedUser(null);
+      } else {
+        console.error('Failed to log out user:', response.data.message);
+        alert('Failed to log out the user. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error logging out user:', error);
+      alert('An error occurred while trying to log out the user.');
+    }
+  };
+
+  // Handle cancel action in the modal
+  const handleCancel = () => {
+    setShowConfirmModal(false);
+    setSelectedUser(null);
+  };
+
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">Manage Users</h2>
+    <div className="max-h-screen p-6 bg-gray-100">
+      {/* Confirmation Modal */}
+      {showConfirmModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h3 className="text-xl font-bold mb-4">Confirm Logout</h3>
+            <p className="mb-6">
+              Are you sure you want to log out{" "}
+              <span className="font-medium text-blue-500">
+                {selectedUser.firstName} {selectedUser.lastName}
+              </span>
+              ?
+            </p>
+            <div className="flex justify-end space-x-4">
+              <button
+                className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+              <button
+                className="px-4 py-2 bg-red-500 text-white rounded-lg"
+                onClick={handleConfirmLogout}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Summary Cards */}
       <div className="lg:w-[90%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 sm:w-[100%]">
@@ -134,7 +198,7 @@ const ManageAdmin = () => {
       </div>
 
       {/* Table View for Larger Screens */}
-      <div className="w-[90%] overflow-x-auto bg-white shadow-lg rounded-lg hidden sm:block">
+      <div className="max-h-[290px] overflow-y-auto overflow-hidden w-[90%] overflow-x-auto bg-white shadow-lg rounded-lg hidden sm:block">
         <table className="w-auto border-collapse overflow-hidden overflow-y-auto">
           <thead className="bg-gray-200 text-gray-700">
             <tr>
@@ -159,26 +223,20 @@ const ManageAdmin = () => {
                   {user.firstName} {user.lastName}
                 </td>
                 <td className="px-4 py-2 border">{user.email}</td>
-                <td className="px-4 py-2 border">
-                  <span
-                    className={`px-3 py-1 rounded-full text-white text-sm ${getAccountTypeStyle(
-                      user.accountType
-                    )}`}
-                  >
-                    {user.accountType}
-                  </span>
+                <td className={`px-4 py-2 border text-white ${getAccountTypeStyle(user.accountType)}`}>
+                  {user.accountType}
                 </td>
                 <td className="px-4 py-2 border">{user.city}</td>
                 <td className="px-4 py-2 border">{user.state}</td>
                 <td className="px-4 py-2 border">{user.address}</td>
                 <td className="px-4 py-2 border text-center">
-                  <div className="flex justify-center items-center space-x-2">
-                    <button className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-                      <FaEdit />
-                    </button>
-                    <button className="p-2 bg-red-500 text-white rounded-md hover:bg-red-600">
-                      <FaTrashAlt />
-                    </button>
+                  <div className="flex justify-center items-center space-x-4">
+                    <FaEdit className="text-blue-500 cursor-pointer" />
+                    <FaTrashAlt
+                      className="text-red-500 cursor-pointer"
+                      onClick={() => handleDeleteClick(user)} // Trigger confirmation modal
+                    />
+                    <FaEllipsisV className="cursor-pointer" />
                   </div>
                 </td>
               </tr>
