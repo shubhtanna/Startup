@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import JOIN_US from "../../assets/join_us_image.png";
 import { useDispatch } from 'react-redux';
@@ -11,11 +10,11 @@ const JoinUs = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
-        email: "", message: "",
+        email: "",
+        message: "",
     });
 
     const { email, message } = formData;
-
     const [joinUsImage, setJoinUsImage] = useState('');
 
     const handleOnChange = (e) => {
@@ -41,59 +40,62 @@ const JoinUs = () => {
     function handleOnSubmit(e) {
         e.preventDefault();
         dispatch(contactUs(email, message));
-
         setFormData({
-            email: "", message: ""
+            email: "",
+            message: ""
         });
     }
 
     return (
-        <div className='lg:w-4/5 mx-auto'>
-            <form onSubmit={handleOnSubmit}>
-                <div className='flex flex-col lg:flex-row justify-between items-center gap-8'>
+        <div className="w-full px-4 sm:px-8 lg:px-16 py-8">
+            <form onSubmit={handleOnSubmit} className="max-w-7xl mx-auto">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                     {/* Form Section */}
-                    <div className='text-center w-full lg:w-1/2'>
-                        <div className='p-1 text-section-rgba'>
-                            <p className='p-1 text-3xl md:text-4xl font-bold'>{t("Feel free to ask any doubts")}!</p>
-                            <div className='flex flex-col text-base md:text-lg p-2 text-section-rgba text-[#28735A]'>
-                                <p>{t("Please ask questions that help us provide clear and")} </p>
-                                <p>{t("precise solutions tailored to your needs")}.</p>
-                            </div>
+                    <div className="text-center w-full lg:w-1/2">
+                        <div className="p-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                                {t("Feel free to ask any doubts")}!
+                            </h2>
+                            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                                {t("Please ask questions that help us provide clear and precise solutions tailored to your needs")}.
+                            </p>
                         </div>
-                        <div className='mt-4'>
+                        <div className="mt-6">
                             <input
-                                className='bg-input-rgba w-full p-3 rounded-lg border border-gray-300 focus:outline-none'
+                                className="bg-gray-100 w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
                                 type="email"
                                 name="email"
                                 value={email}
-                                placeholder={t('Email')}
+                                placeholder={t("Email")}
                                 onChange={handleOnChange}
                             />
                         </div>
                         <div className="mt-4">
                             <textarea
-                                className="py-3 px-4 block w-full border-transparent rounded-lg text-sm disabled:opacity-50 disabled:pointer-events-none dark:border-transparent bg-input-rgba border border-gray-300"
+                                className="py-3 px-4 block w-full rounded-lg text-sm border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
                                 rows="4"
-                                name='message'
+                                name="message"
                                 placeholder={t("Message")}
                                 value={message}
-                                onChange={handleOnChange}>
-                            </textarea>
+                                onChange={handleOnChange}
+                            ></textarea>
                         </div>
                         <div>
                             <button
-                                type='submit'
-                                className='mt-6 bg-register-rgba m-auto p-4 rounded-md tracking-widest w-full lg:w-[40%] transition-all duration-200 hover:scale-105 text-white'>
+                                type="submit"
+                                className="mt-6 bg-green-600 text-white px-6 py-3 rounded-md w-full lg:w-1/2 tracking-wider hover:bg-green-700 transition duration-200"
+                            >
                                 {t("Submit")}
                             </button>
                         </div>
                     </div>
+
                     {/* Image Section */}
-                    <div className='w-full lg:w-1/2 mt-8 lg:mt-0'>
+                    <div className="w-full lg:w-1/2 flex justify-center">
                         <img
-                            src={joinUsImage}
+                            src={joinUsImage || JOIN_US}
                             alt="Join Us"
-                            className='w-full h-auto object-cover'
+                            className="w-[80%] h-[380px] max-w-sm md:max-w-md lg:max-w-full rounded-lg shadow-lg"
                         />
                     </div>
                 </div>
