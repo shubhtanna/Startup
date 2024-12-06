@@ -4,7 +4,7 @@ import { User } from "../models/User.js"; // Adjust path if necessary
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select(
-      "firstName lastName accountType city state address image"
+      "firstName lastName email accountType city state address image"
     ); // Select only necessary fields
     return res.status(200).json({
       success: true,
