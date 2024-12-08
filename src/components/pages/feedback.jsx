@@ -22,6 +22,16 @@ function Feed() {
 
     const [editingTicketId, setEditingTicketId] = useState(null);
     const [expandedTickets, setExpandedTickets] = useState({});
+    const [ticketColors, setTicketColors] = useState({}); // Store random colors for each ticket
+
+    const generateRandomColor = () => {
+        const colors = [
+            '#FFC0CB', '#FFD700', '#ADD8E6', '#90EE90',
+            '#FFA07A', '#FFB6C1', '#D3D3D3', '#F0E68C',
+            '#E6E6FA', '#FF6347', '#40E0D0', '#7B68EE',
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    };
 
     // Fetch tickets from the server
     const fetchTickets = async () => {
@@ -29,7 +39,12 @@ function Feed() {
             const response = await fetch('http://localhost:5000/api/tickets');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
+            const colors = {};
+            data.forEach((ticket) => {
+                colors[ticket._id] = generateRandomColor();
+            });
             setTickets(data);
+            setTicketColors(colors); // Assign random colors
         } catch (error) {
             console.error('Error fetching tickets:', error);
         }
@@ -97,6 +112,10 @@ function Feed() {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const newTicket = await response.json();
             setTickets((prev) => [...prev, newTicket]);
+            setTicketColors((prev) => ({
+                ...prev,
+                [newTicket._id]: generateRandomColor(), // Assign random color for new ticket
+            }));
             resetForm();
             alert('Ticket created successfully!');
         } catch (error) {
@@ -144,6 +163,11 @@ function Feed() {
             });
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             setTickets((prev) => prev.filter((ticket) => ticket._id !== ticketId));
+            setTicketColors((prev) => {
+                const updatedColors = { ...prev };
+                delete updatedColors[ticketId];
+                return updatedColors;
+            });
         } catch (error) {
             console.error('Error deleting ticket:', error);
         }
@@ -203,7 +227,6 @@ function Feed() {
                         onChange={handleInputChange}
                         placeholder="Description"
                         className="p-2 border rounded col-span-1 md:col-span-2 w-full h-32"
-                        
                     />
                     <select
                         name="priority"
@@ -249,6 +272,16 @@ function Feed() {
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
                 </select>
+                <select
+                    name="status"
+                    value={filter.status}
+                    onChange={handleFilterChange}
+                    className="p-2 border rounded ml-2"
+                >
+                    <option value="All">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
                 <input
                     type="date"
                     name="date"
@@ -258,57 +291,47 @@ function Feed() {
                 />
             </div>
 
-            
-
-            {/* Tickets */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredTickets.map((ticket) => {
-                    const isExpanded = expandedTickets[ticket._id];
-                    return (
-                        <motion.div
-                            key={ticket._id}
-                            className="bg-white shadow-md rounded p-4"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.3 }}
+            {/* Ticket List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredTickets.map((ticket) => (
+                    <motion.div
+                        key={ticket._id}
+                        className="p-4 rounded shadow-md relative"
+                        style={{ backgroundColor: ticketColors[ticket._id] }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <h3 className="text-lg font-bold">{ticket.title}</h3>
+                        <p className="text-sm">Created By: {ticket.createdBy}</p>
+                        <p className="text-sm">Priority: {ticket.priority}</p>
+                        <p className="text-sm">Date: {format(parseISO(ticket.date), 'yyyy-MM-dd')}</p>
+                        <p className="text-sm">Status: {ticket.status}</p>
+                        {expandedTickets[ticket._id] && (
+                            <p className="text-sm mt-2">{ticket.description}</p>
+                        )}
+                        <button
+                            onClick={() => toggleDescription(ticket._id)}
+                            className="text-blue-500 text-sm mt-2"
                         >
-                            <h3 className="text-lg font-bold">{ticket.title}</h3>
-                            <p className="text-gray-600">
-                                Created by: <span className="font-semibold">{ticket.createdBy}</span>
-                            </p>
-                            <p className="text-gray-600">
-                                Priority: <span className="font-semibold">{ticket.priority}</span>
-                            </p>
-                            <p className="text-gray-600">
-                                Date: <span className="font-semibold">{format(parseISO(ticket.date), 'MMM dd, yyyy')}</span>
-                            </p>
-                            <p className="text-gray-600">
-                                Status: <span className="font-semibold">{ticket.status}</span>
-                            </p>
-                            {isExpanded && <p className="mt-2">{ticket.description}</p>}
-                            <div className="mt-3 flex justify-between">
-                                <button
-                                    onClick={() => toggleDescription(ticket._id)}
-                                    className="bg-blue-500 text-white px-3 py-1 rounded"
-                                >
-                                    {isExpanded ? 'Collapse' : 'Expand'}
-                                </button>
-                                <button
-                                    onClick={() => handleEdit(ticket)}
-                                    className="bg-green-500 text-white px-3 py-1 rounded"
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    onClick={() => handleDelete(ticket._id)}
-                                    className="bg-red-500 text-white px-3 py-1 rounded"
-                                >
-                                    Delete
-                                </button>
-                            </div>
-                        </motion.div>
-                    );
-                })}
+                            {expandedTickets[ticket._id] ? 'Show Less' : 'Show More'}
+                        </button>
+                        <div className="absolute top-4 right-4 space-x-2">
+                            <button
+                                onClick={() => handleEdit(ticket)}
+                                className="bg-yellow-400 text-white px-2 py-1 rounded"
+                            >
+                                Edit
+                            </button>
+                            <button
+                                onClick={() => handleDelete(ticket._id)}
+                                className="bg-red-500 text-white px-2 py-1 rounded"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </div>
     );
