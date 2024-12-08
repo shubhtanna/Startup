@@ -129,7 +129,7 @@ router.patch('/notifications/:id', async (req, res) => {
         res.status(500).json({ message: 'Error updating notification', error });
     }
 });
-
+ 
 // Update Ticket Status
 router.patch('/api/tickets/:id/status', async (req, res) => {
     const { id } = req.params;
@@ -151,6 +151,17 @@ router.patch('/api/tickets/:id/status', async (req, res) => {
         res.json(updatedTicket);
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+// Filter tickets by userId
+router.get('/api/tickets', async (req, res) => {
+    const { userId } = req.query; // Assuming the userId is sent as a query parameter
+    try {
+        const tickets = await Ticket.find({ userId });
+        res.status(200).json(tickets);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching tickets' });
     }
 });
 
