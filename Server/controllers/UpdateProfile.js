@@ -158,4 +158,45 @@ export const getProfileData = async (req, res) => {
   }
 }
 
+export const updateAccountType = async(req,res)=>{
+  try {
+    const { userId, newAccountType } = req.body;
+
+    // Check for required fields
+    if (!userId || !newAccountType) {
+      return res.status(400).json({ success: false, message: "Missing required fields." });
+    }
+
+    // Fetch the user from the database
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found." });
+    }
+
+    // Prevent changes to the main admin's account
+    const mainAdminEmail = "mainadmin@example.com"; // Replace with your main admin's email
+    if (user.email === mainAdminEmail) {
+      return res.status(403).json({
+        success: false,
+        message: "You cannot modify the main admin's account.",
+      });
+    }
+
+    // Update the user's account type
+    user.accountType = newAccountType;
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Account type updated successfully.",
+    });
+  } catch (error) {
+    console.error("Error updating account type:", error);
+    return res.status(500).json({
+      success: false,
+      message: "An error occurred while updating the account type.",
+    });
+  }
+}
+
 
