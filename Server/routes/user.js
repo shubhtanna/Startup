@@ -24,6 +24,7 @@ router.get("/getprofiledata", auth, getProfileData)
 router.get("/all-users",getAllUsers);
 
 router.post('/logout-user',logoutUser);
+router.put('/updateprofile',auth,updateProfile);
 
 
 export default router;
