@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { AiOutlineCaretDown } from 'react-icons/ai';
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineCaretDown } from "react-icons/ai";
 import { RiDashboardLine, RiLogoutCircleRLine } from "react-icons/ri";
-import { logout } from '../../Services/Operation/authAPI';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
-import { useTranslation } from 'react-i18next';
+import { logout } from "../../Services/Operation/authAPI";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { useTranslation } from "react-i18next";
 
 const ProfileDropdown = () => {
   const { t } = useTranslation();
@@ -28,13 +28,19 @@ const ProfileDropdown = () => {
 
   return (
     <button className="relative cursor-pointer" onClick={toggleDropdown}>
-      <div className="flex items-center gap-x-1">
-        <img
-          src={user.image}
-          alt={`profile-${user.firstName}`}
-          className="w-[30px] rounded-full object-cover"
-        />
-        {user.accountType !== 'admin' && <AiOutlineCaretDown />}
+      <div className="flex items-center gap-x-1 relative">
+        <div className="relative">
+          <img
+            src={user.image}
+            alt={`profile-${user.firstName}`}
+            className="w-[30px] h-[30px] rounded-full object-cover"
+          />
+          <span className="absolute top-0 right-0 flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+          </span>
+        </div>
+        {user.accountType !== "admin" && <AiOutlineCaretDown />}
       </div>
 
       {open && (
@@ -43,7 +49,7 @@ const ProfileDropdown = () => {
           onClick={(e) => e.stopPropagation()}
           className="absolute top-[18px] right-0 z-[1000] rounded-md bg-[#FEFDED] divide-y divide-gray-200"
         >
-          {user.accountType !== 'admin' && (
+          {user.accountType !== "admin" && (
             <Link
               to="/dashboard/my-profile"
               className="flex items-center gap-x-1 py-2 px-3 text-base"

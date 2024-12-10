@@ -85,7 +85,7 @@ function Why_sell() {
 
           {/* Image */}
           <div className='lg:w-[48%]'>
-            <img src={bulbImageURL} className='w-full h-auto' alt='Bulb' />
+            <img src={bulbImageURL} className=' rounded-xl w-full h-auto' alt='Bulb' />
           </div>
         </div>
       </div>
