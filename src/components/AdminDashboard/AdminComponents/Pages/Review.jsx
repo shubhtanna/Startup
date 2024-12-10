@@ -11,6 +11,8 @@ const Reviews = () => {
     username: "",
     comment: "",
   });
+  const [currentPage, setCurrentPage] = useState(1); // Current page state
+  const reviewsPerPage = 10; // Number of reviews per page
 
   // Fetch reviews from the database
   useEffect(() => {
@@ -80,9 +82,24 @@ const Reviews = () => {
     }
 
     setFilteredReviews(filtered);
+    setCurrentPage(1); // Reset to first page after filtering
   };
 
-  // Get the top-rated review
+  // Pagination Logic
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = filteredReviews.slice(indexOfFirstReview, indexOfLastReview);
+
+  const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) setCurrentPage((prevPage) => prevPage - 1);
+  };
+
   const topReview = getTopRatingReview();
 
   return (
@@ -139,9 +156,9 @@ const Reviews = () => {
         </div>
 
         {/* Displaying Reviews */}
-        {filteredReviews.length > 0 ? (
+        {currentReviews.length > 0 ? (
           <div className="flex flex-col gap-4">
-            {filteredReviews.map((review) => (
+            {currentReviews.map((review) => (
               <div
                 key={review._id}
                 className="flex flex-col lg:flex-row justify-between items-start lg:items-center bg-gray-50 p-4 shadow-sm rounded-md border border-gray-200"
@@ -179,6 +196,29 @@ const Reviews = () => {
         ) : (
           <p className="text-gray-600 text-center">No reviews match your filter.</p>
         )}
+
+        {/* Pagination Controls */}
+        <div className="flex justify-center mt-4 gap-4">
+          <button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 bg-gray-300 text-gray-600 rounded-md ${
+              currentPage === 1 ? "cursor-not-allowed" : "hover:bg-gray-400"
+            }`}
+          >
+            Previous
+          </button>
+          <span className="text-gray-600">Page {currentPage} of {totalPages}</span>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 bg-gray-300 text-gray-600 rounded-md ${
+              currentPage === totalPages ? "cursor-not-allowed" : "hover:bg-gray-400"
+            }`}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
