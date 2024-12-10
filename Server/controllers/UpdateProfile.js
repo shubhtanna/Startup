@@ -174,7 +174,7 @@ export const updateAccountType = async(req,res)=>{
     }
 
     // Prevent changes to the main admin's account
-    const mainAdminEmail = "mainadmin@example.com"; // Replace with your main admin's email
+    const mainAdminEmail = "uniquecoder6754@gmail.com"; // Replace with your main admin's email
     if (user.email === mainAdminEmail) {
       return res.status(403).json({
         success: false,
