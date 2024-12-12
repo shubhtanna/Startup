@@ -129,7 +129,7 @@ router.patch('/notifications/:id', async (req, res) => {
         res.status(500).json({ message: 'Error updating notification', error });
     }
 });
- 
+
 // Update Ticket Status
 router.patch('/api/tickets/:id/status', async (req, res) => {
     const { id } = req.params;
