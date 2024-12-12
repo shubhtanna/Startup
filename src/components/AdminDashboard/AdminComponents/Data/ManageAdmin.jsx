@@ -82,22 +82,22 @@ const ManageAdmin = () => {
   // Handle confirmation of logout
   const handleConfirmLogout = async () => {
     try {
-      const response = await axios.post('/api/v1/auth/logout-user', {
+      const response = await axios.post('/api/v1/auth/deleteaccount', {
         userId: selectedUser._id, // Send the selected user's ID
       });
   
       if (response.data.success) {
-        console.log(`User ${selectedUser.email} logged out successfully.`);
-        alert(`User ${selectedUser.email} has been logged out.`);
+        console.log(`User ${selectedUser.email} Deleted successfully.`);
+        alert(`User ${selectedUser.email} has been Deleted.`);
         setShowConfirmModal(false);
         setSelectedUser(null);
       } else {
-        console.error('Failed to log out user:', response.data.message);
-        alert('Failed to log out the user. Please try again.');
+        console.error('Failed to Delete user:', response.data.message);
+        alert('Failed to Delete the user. Please try again.');
       }
     } catch (error) {
-      console.error('Error logging out user:', error);
-      alert('An error occurred while trying to log out the user.');
+      console.error('Error Deletiing user Account:', error);
+      alert('An error occurred while trying to Delete the user.');
     }
   };
 
@@ -113,9 +113,9 @@ const ManageAdmin = () => {
       {showConfirmModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h3 className="text-xl font-bold mb-4">Confirm Logout</h3>
+            <h3 className="text-xl font-bold mb-4">Confirm Delete</h3>
             <p className="mb-6">
-              Are you sure you want to log out{" "}
+              Are you sure you want to Delete{" "}
               <span className="font-medium text-blue-500">
                 {selectedUser.firstName} {selectedUser.lastName}
               </span>
@@ -132,7 +132,7 @@ const ManageAdmin = () => {
                 className="px-4 py-2 bg-red-500 text-white rounded-lg"
                 onClick={handleConfirmLogout}
               >
-                Logout
+                Delete
               </button>
             </div>
           </div>

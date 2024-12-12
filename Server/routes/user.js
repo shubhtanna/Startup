@@ -21,10 +21,10 @@ router.post("/resetpassword", resetPasswordUpdate)
 router.delete("/deleteaccount", auth, deleteAccount)
 router.put("/updatedisplayimage", auth, updateDisplayPicture)
 router.get("/getprofiledata", auth, getProfileData)
-router.get("/all-users",getAllUsers);
+router.get("/all-users", getAllUsers);
 
-router.post('/logout-user',logoutUser);
-router.put('/updateprofile',auth,updateProfile);
+router.post('/logout-user', logoutUser);
+router.put('/updateprofile', auth, updateProfile);
 
 
 export default router;

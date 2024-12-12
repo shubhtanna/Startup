@@ -158,7 +158,7 @@ export const getProfileData = async (req, res) => {
   }
 }
 
-export const updateAccountType = async(req,res)=>{
+export const updateAccountType = async (req, res) => {
   try {
     const { userId, newAccountType } = req.body;
 
