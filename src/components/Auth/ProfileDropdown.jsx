@@ -6,6 +6,7 @@ import { RiDashboardLine, RiLogoutCircleRLine } from "react-icons/ri";
 import { logout } from "../../Services/Operation/authAPI";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const ProfileDropdown = () => {
   const { t } = useTranslation();
@@ -22,8 +23,19 @@ const ProfileDropdown = () => {
   const toggleDropdown = () => setOpen((prev) => !prev);
 
   const handleLogout = () => {
-    dispatch(logout(navigate));
-    setOpen(false);
+    // Show confirmation dialog
+    const confirmLogout = window.confirm(t("Are you sure you want to logout?"));
+    if (confirmLogout) {
+      // If confirmed, dispatch the logout action
+      dispatch(logout(navigate));
+      setOpen(false);
+
+      // Show a success toast notification
+      toast.success(t("Logged out successfully!"));
+    } else {
+      // If canceled, just close the dropdown
+      setOpen(false);
+    }
   };
 
   return (
