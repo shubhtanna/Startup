@@ -65,7 +65,7 @@ export const vendorLinks = [
   {
     id: 2,
     name: 'Interested products',
-    path: '/dashboard/interested-shopkeeper-products',
+    path: '/dashboard/intrested-shopkeeper-products',
     icon: <FaHeartCirclePlus />,
   },
 ];
