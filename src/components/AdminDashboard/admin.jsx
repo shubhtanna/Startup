@@ -9,6 +9,7 @@ const AdminDashboard = () => {
   if (!user || user.accountType !== 'admin') {
     return <Navigate to='/admin' replace />
   }
+
   return (
     <div className='overflow-auto scrollbar-thin scrollbar-none'>
     <div className='fixed'>
