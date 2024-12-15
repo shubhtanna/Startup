@@ -71,7 +71,13 @@ function App() {
 
         <Route element={<Dashboard />}>
 
-          <Route path='/dashboard/my-profile' element={<MyProfile />} />
+          <Route
+            path='/dashboard/my-profile'
+            element={
+              <ProtectedRoute userOnly={true}>
+                <MyProfile />
+              </ProtectedRoute>
+            } />
 
           <Route path='/dashboard/Settings' element={<Settings />} />
 
