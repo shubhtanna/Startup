@@ -79,21 +79,54 @@ function App() {
               </ProtectedRoute>
             } />
 
-          <Route path='/dashboard/Settings' element={<Settings />} />
+          <Route path='/dashboard/Settings'
+            element={
+              <ProtectedRoute userOnly={true}>
+                <Settings />
+              </ProtectedRoute>
+            } />
 
-          <Route path='/dashboard/add-product' element={<AddProduct />} />
+          <Route path='/dashboard/add-product' element={
+            <ProtectedRoute userOnly={true}>
+              <AddProduct />
+            </ProtectedRoute>
+          } />
 
-          <Route path='/dashboard/edit-product/:productId' element={<EditProduct />} />
+          <Route path='/dashboard/edit-product/:productId' element={
+            <ProtectedRoute userOnly={true}>
+              <EditProduct />
+            </ProtectedRoute>
+          } />
 
-          <Route path='/dashboard/My-products' element={<IndividualMyProducts />} />
+          <Route path='/dashboard/My-products' element={
+            <ProtectedRoute userOnly={true}>
+              <IndividualMyProducts />
+            </ProtectedRoute>
+          } />
 
-          <Route path='/dashboard/all-products' element={<AllProduct />} />
+          <Route path='/dashboard/all-products' element={
+            <ProtectedRoute userOnly={true}>
+              <AllProduct />
+            </ProtectedRoute>
+          } />
 
-          <Route path='/dashboard/interested-products' element={<InterestedProduct />} />
+          <Route path='/dashboard/interested-products' element={
+            <ProtectedRoute userOnly={true}>
+              <InterestedProduct />
+            </ProtectedRoute>
+          } />
 
-          <Route path='/dashboard/interested-products/:id' element={<InterestedShopkeeper />} />
+          <Route path='/dashboard/interested-products/:id' element={
+            <ProtectedRoute userOnly={true}>
+              <InterestedShopkeeper />
+            </ProtectedRoute>
+          } />
 
-          <Route path='/dashboard/intrested-shopkeeper-products' element={<EditInterestedProduct />} />
+          <Route path='/dashboard/intrested-shopkeeper-products' element={
+            <ProtectedRoute userOnly={true}>
+              <EditInterestedProduct />
+            </ProtectedRoute>
+          } />
 
           {/* <Route path='/dashboard/all-products/add-price' element={<ProductDescModal/>}/> */}
 
