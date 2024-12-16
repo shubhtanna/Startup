@@ -65,7 +65,7 @@ const Navbar = () => {
             ) : user?.accountType !== "Vendor" && user?.accountType !== "admin" ? (
               <li><Link to="/dashboard/add-product">{t("Add Product")}</Link></li>
             ) : user?.accountType === "admin" ? null : (
-              <li><Link to="/allproducts">{t("Interested Products")}</Link></li>
+              <li><Link to="/dashboard/intrested-shopkeeper-products">{t("Interested Products")}</Link></li>
             )}
 
             {/* Conditionally render the "Feedback" link */}
