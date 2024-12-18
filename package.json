@@ -40,6 +40,8 @@
     "redux-thunk": "^3.1.0",
     "redux-toolkit": "^1.1.2",
     "slick-carousel": "^1.8.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
     "start": "^5.1.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "video-react": "^0.16.0",
