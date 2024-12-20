@@ -61,8 +61,8 @@ const OtherShopkeeperModal = ({ setShowModal, otherProducts }) => {
   };
 
   return (
-    <div className="bg-black bg-opacity-30 backdrop-blur-sm fixed inset-0 z-50 flex items-center justify-center">
-      <div className="bg-white w-[90%] max-w-3xl rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-black bg-opacity-30 backdrop-blur-sm fixed inset-0 z-50 flex items-center justify-center overflow-y-auto">
+      <div className="bg-white w-[90%] max-w-3xl rounded-lg shadow-lg overflow-hidden max-h-[90vh]">
         {/* Header */}
         <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-[#174B3A]">Other Shopkeeper Prices</h2>
@@ -91,7 +91,7 @@ const OtherShopkeeperModal = ({ setShowModal, otherProducts }) => {
         </div>
 
         {/* Content */}
-        <div className="px-6 py-4 max-h-[70vh] overflow-y-auto">
+        <div className="px-6 py-4 overflow-y-auto max-h-[60vh]">
           <table className="w-full text-left text-sm bg-gray-100 rounded-lg overflow-hidden">
             <thead className="bg-[#DCE2DE] text-gray-700">
               <tr>
