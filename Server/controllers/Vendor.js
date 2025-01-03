@@ -67,8 +67,6 @@ export const getAllInterestedProductsOfShopkeeper = async (req, res) => {
             return product.estimatedPrice.length > 0;
         });
 
-
-
         if (!interestedProducts) {
             return respond(res, "there were no interested products for that user", 400, false);
         }
