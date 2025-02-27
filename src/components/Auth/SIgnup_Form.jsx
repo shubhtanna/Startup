@@ -15,6 +15,14 @@ const SIgnup_Form = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [errorFirstName, setErrorFirstName] = useState("");
+  const [errorLastName, setErrorLastName] = useState("");
+
+
+
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -49,7 +57,29 @@ const SIgnup_Form = () => {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
+
+    const {name,value} = e.target;
+    const isValidName = /^[a-zA-Z ]+$/;
+
+    if(name === "firstname" || name==="firstName") {
+      if (isValidName.test(value)) {
+        setFirstName(value);
+        setErrorFirstName(""); // Clear error when input is valid
+      } else {
+        setErrorFirstName("First name should only contain letters.");
+      }
+    }
+
+    if (name === "lastname" || name==="lastName") {
+      if (isValidName.test(value)) {
+        setLastName(value);
+        setErrorLastName(""); // Clear error when input is valid
+      } else {
+        setErrorLastName("Last name should only contain letters.");
+      }
+    }
   };
+
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -85,7 +115,8 @@ const SIgnup_Form = () => {
     <div>
     <form onSubmit={handleOnSubmit}>
       <div className="flex flex-col gap-5">
-        <div className="flex gap-3">
+      <div className="flex gap-3">
+        <div>
           <input
             type="text"
             name="firstName"
@@ -94,16 +125,21 @@ const SIgnup_Form = () => {
             onChange={handleOnChange}
             className="input_feild text-[#174B3A]"
           />
+          {errorFirstName && <p className="text-red-500 text-sm">{errorFirstName}</p>}
+        </div>
 
+        <div>
           <input
             type="text"
             name="lastName"
             value={lastName}
-            onChange={handleOnChange}
             placeholder={t("Last name")}
+            onChange={handleOnChange}
             className="input_feild"
           />
+          {errorLastName && <p className="text-red-500 text-sm">{errorLastName}</p>}
         </div>
+     </div>
 
         <div className="relative">
           <input
