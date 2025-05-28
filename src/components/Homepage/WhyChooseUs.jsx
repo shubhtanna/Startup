@@ -1,73 +1,105 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaLeaf } from "react-icons/fa";
+import { FaLeaf, FaRecycle, FaChartLine } from "react-icons/fa";
 import { FaUserTag } from "react-icons/fa6";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
-
 const WhyChooseUs = () => {
     const { t } = useTranslation();
+    
     return (
-        <div>
-            <div className='whychoose pt-20 mb-7 p-3'>
-                <div className='text-center text-3xl md:text-5xl font-bold mb-12 font-roboto'>{t("Why choose Us")}?</div>
+        <section className="bg-gradient-to-b from-slate-900 to-slate-800 py-20">
+            <div className="container mx-auto px-4">
+                {/* Section header with subtle animation */}
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-roboto">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-600">
+                            {t("Why choose Us")}?
+                        </span>
+                    </h2>
+                    <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+                    <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-lg">
+                        {t("Join thousands of environmentally conscious users making a difference through responsible e-waste management")}
+                    </p>
+                </div>
                 
-                {/* Flexbox container for the cards */}
-                <div className='flex flex-col lg:flex-row justify-evenly gap-8 w-11/12 mx-auto'>
-                    {/* Box 1 */}
-                    <div className='bg-box-rgba text-center cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md p-6'>
-                        <div className='flex justify-center mt-4 text-4xl'>
-                            <FaLeaf className='text-section-rgba' />
-                        </div>
-                        <div className='mt-4 text-xl md:text-2xl text-white font-poppins'>
-                            <p>{t("Eco-Friendly Solutions")}</p>
-                        </div>
-                        <div className='mt-2 p-2 text-white text-sm md:text-base font-inter'>
-                            <p>{t("We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability")}.</p>
-                        </div>
-                    </div>
-
-                    {/* Box 2 */}
-                    <div className='bg-box-rgba text-center cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md p-6'>
-                        <div className='flex justify-center mt-4 text-4xl'>
-                            <IoCheckmarkCircle className='text-section-rgba' />
-                        </div>
-                        <div className='mt-4 text-xl md:text-2xl text-white font-poppins'>
-                            <p>{t("Best Prices")}</p>
-                        </div>
-                        <div className='mt-2 p-2 text-white text-sm md:text-base font-inter'>
-                            <p>{t("Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste")}.</p>
+                {/* Feature cards with enhanced styling */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    {/* Card 1 - Eco-Friendly */}
+                    <div className="relative group overflow-hidden rounded-xl shadow-xl">
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 to-emerald-600/40 opacity-75 group-hover:opacity-90 transition-all duration-300"></div>
+                        <div className="relative p-8 h-full flex flex-col">
+                            <div className="mb-6">
+                                <div className="bg-white/10 p-4 rounded-lg inline-block backdrop-blur-sm">
+                                    <FaLeaf className="text-emerald-400 text-4xl" />
+                                </div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4 font-poppins">{t("Eco-Friendly Solutions")}</h3>
+                            <p className="text-slate-200 font-inter flex-grow">
+                                {t("We prioritize responsible reuse and disposal, helping you contribute to environmental sustainability while reducing your carbon footprint.")}
+                            </p>
+                            <div className="mt-6 flex items-center">
+                                <div className="h-px bg-emerald-400/30 flex-grow"></div>
+                                <div className="bg-emerald-500/20 rounded-full p-2 backdrop-blur-sm transform group-hover:translate-x-2 transition-transform duration-300">
+                                    <FaRecycle className="text-emerald-300 text-lg" />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Box 3 */}
-                    <div className='bg-box-rgba text-center cursor-pointer transition-all duration-500 group-hover:scale-[0.80] hover:!scale-100 rounded-md p-6'>
-                        <div className='flex justify-center mt-4 text-4xl'>
-                            <FaUserTag className='text-section-rgba' />
+                    {/* Card 2 - Best Prices */}
+                    <div className="relative group overflow-hidden rounded-xl shadow-xl">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-blue-600/40 opacity-75 group-hover:opacity-90 transition-all duration-300"></div>
+                        <div className="relative p-8 h-full flex flex-col">
+                            <div className="mb-6">
+                                <div className="bg-white/10 p-4 rounded-lg inline-block backdrop-blur-sm">
+                                    <IoCheckmarkCircle className="text-blue-400 text-4xl" />
+                                </div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4 font-poppins">{t("Best Prices")}</h3>
+                            <p className="text-slate-200 font-inter flex-grow">
+                                {t("Our platform connects you with multiple shopkeepers, ensuring you get the best price estimates for your e-waste through our competitive marketplace.")}
+                            </p>
+                            <div className="mt-6 flex items-center">
+                                <div className="h-px bg-blue-400/30 flex-grow"></div>
+                                <div className="bg-blue-500/20 rounded-full p-2 backdrop-blur-sm transform group-hover:translate-x-2 transition-transform duration-300">
+                                    <FaChartLine className="text-blue-300 text-lg" />
+                                </div>
+                            </div>
                         </div>
-                        <div className='mt-4 text-xl md:text-2xl text-white font-poppins'>
-                            <p>{t("Rewards and Benefits")}</p>
-                        </div>
-                        <div className='mt-2 p-2 text-white text-sm md:text-base font-inter'>
-                            <p>{t("Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use")}.</p>
+                    </div>
+
+                    {/* Card 3 - Rewards */}
+                    <div className="relative group overflow-hidden rounded-xl shadow-xl">
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 to-purple-600/40 opacity-75 group-hover:opacity-90 transition-all duration-300"></div>
+                        <div className="relative p-8 h-full flex flex-col">
+                            <div className="mb-6">
+                                <div className="bg-white/10 p-4 rounded-lg inline-block backdrop-blur-sm">
+                                    <FaUserTag className="text-purple-400 text-4xl" />
+                                </div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-4 font-poppins">{t("Rewards and Benefits")}</h3>
+                            <p className="text-slate-200 font-inter flex-grow">
+                                {t("Earn reward points for every successful deal, unlocking incredible offers and incentives for continued use of our sustainable platform.")}
+                            </p>
+                            <div className="mt-6 flex items-center">
+                                <div className="h-px bg-purple-400/30 flex-grow"></div>
+                                <div className="bg-purple-500/20 rounded-full p-2 backdrop-blur-sm transform group-hover:translate-x-2 transition-transform duration-300">
+                                    <FaUserTag className="text-purple-300 text-lg" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Responsive icons at the bottom */}
-                <div className='flex justify-center mt-12 space-x-4'>
-                    <div className='p-4'>
-                        <FaLeaf className='bg-register-rgba rounded-full text-5xl md:text-6xl p-4 transition-all duration-200 hover:text-section-rgba hover:bg-box-rgba' />
-                    </div>
-                    <div className='p-4'>
-                        <IoCheckmarkCircle className='bg-register-rgba rounded-full text-5xl md:text-6xl p-4 transition-all duration-200 hover:text-section-rgba hover:bg-box-rgba' />
-                    </div>
-                    <div className='p-4'>
-                        <FaUserTag className='bg-register-rgba rounded-full text-5xl md:text-6xl p-4 transition-all duration-200 hover:text-section-rgba hover:bg-box-rgba' />
-                    </div>
+                {/* Call to action */}
+                <div className="mt-16 text-center">
+                    <button className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                        {t("Join Our E-Waste Movement")}
+                    </button>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
