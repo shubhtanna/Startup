@@ -20,9 +20,6 @@ const SIgnup_Form = () => {
   const [errorFirstName, setErrorFirstName] = useState("");
   const [errorLastName, setErrorLastName] = useState("");
 
-
-
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
